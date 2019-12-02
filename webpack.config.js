@@ -11,6 +11,10 @@ module.exports = {
                 {
                     presets: ['@babel/react'],
                 }
+            },
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
             }
         ]
     },
@@ -18,11 +22,12 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     output: {
-        path: __dirname + '/build',
+        path: __dirname + '/build/',
         publicPath: '/',
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: './build'
-    }
+        contentBase: __dirname + "/build/",
+        port: 9000
+    },
 };

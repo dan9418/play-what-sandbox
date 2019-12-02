@@ -1,15 +1,19 @@
 import * as ReactDOM from 'react-dom';
 import * as React from "react";
-import { ViewDriver } from "./ViewDriver";
+import ViewDriver from "./ViewDriver/ViewDriver";
 import { TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
-import { useState } from "react";
+import './App.css';
 
-export function App(props) {
+import { Provider } from 'react-redux';
+import { store } from './Redux/Store/store';
+
+export function App() {
     return (
-        <div className='play-what-demo'>
-            <ViewDriver viewer={Keyboard}/>
-            <ViewDriver viewer={Fretboard}/>
-        </div>
+        <Provider store={store}>
+            <div className='app-container'>
+                <ViewDriver />
+            </div>
+        </Provider>
     );
 }
 
