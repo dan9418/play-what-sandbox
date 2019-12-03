@@ -72,7 +72,7 @@ export class Concept {
     }
 
     getRomanNumeral(degree) {
-        if(this.intervals.length != 7) {
+        if(this.intervals.length !== 7) {
             return null;
         }
         let validDegrees = [

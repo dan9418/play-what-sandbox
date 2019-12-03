@@ -1,48 +1,37 @@
+// React
 import * as React from 'react';
-import './ViewDriver.css';
-import { INTERVAL, Utils, TheoryEngine, LABEL_STRATEGIES, COLOR_STRATEGIES, TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
-import { Concept } from '../Theory/Concept';
-
+// Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setKeyCenterOctave, setKeyCenterTonic, setKeyCenterAccidental, setIntervals } from '../Redux/Actions/actions';
+// DOM
+import './ViewDriver.css';
+// Play What
+import { INTERVAL, Utils, TheoryEngine, LABEL_STRATEGIES, COLOR_STRATEGIES, TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
+// Inputs
 import { KeyCenterInput } from '../Inputs/KeyCenterInput/KeyCenterInput';
 import { IntervalsInput } from '../Inputs/IntervalsInput/IntervalsInput';
+// Theory
+import { Concept } from '../Theory/Concept';
+import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_COLOR_STRATEGY, DEFAULT_LABEL_STRATEGY, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Defaults';
 
-const DEFAULT_KEY_CENTER = {
-    tonic: TONIC.E,
-    accidental: ACCIDENTAL.Natural,
-    octave: 3
-};
-
-const DEFAULT_CONCEPT = {
-    intervals: MODE.Ionian.intervals,
-    //intervals: CHORD.Maj.intervals,
-    //intervals: CHORD.Maj13.intervals,
-    //intervals: SCALE.Chromatic.intervals,
-    chordInversion: 0
-};
-
-const DEFAULT_COLOR_STRATEGY = COLOR_STRATEGIES.Degree;
-const DEFAULT_LABEL_STRATEGY = LABEL_STRATEGIES.Interval;
-
-// GET
-
-let testConcept = new Concept(DEFAULT_KEY_CENTER, DEFAULT_CONCEPT.intervals);
-//testConcept.chordInversion(1);
+/* Note Strategy */
 
 function getNote(concept, noteIndex) {
     // Match pitchClass
-    //return testConcept.getEquivalentNoteAt(noteIndex);
+    //return concept.getEquivalentNoteAt(noteIndex);
     // Match noteIndex
     return concept.getNoteAt(noteIndex);
 }
 
+/* Component */
 
 export function ViewDriver(props) {
 
     let labelStrategy = DEFAULT_LABEL_STRATEGY;
     let colorStrategy = DEFAULT_COLOR_STRATEGY;
+    let noteStrategy = (noteIndex) => getNote(concept, noteIndex);
+    let noteFilter = DEFAULT_NOTE_FILTER;
 
     let keyCenter = {
         octave: props.octave || DEFAULT_KEY_CENTER.octave,
@@ -51,6 +40,7 @@ export function ViewDriver(props) {
     };
 
     let concept = new Concept(keyCenter, props.intervals || DEFAULT_CONCEPT.intervals);
+    //concept.invert(1).reverse();
 
     return (
         <div className='view-driver'>
@@ -70,14 +60,14 @@ export function ViewDriver(props) {
                 keyLow={-8}
                 labelStrategy={labelStrategy}
                 colorStrategy={colorStrategy}
-                noteStrategy={(noteIndex) => getNote(concept, noteIndex)}
-                noteFilter={(noteProfile, viewerProfile, fretProfile) => true}
+                noteStrategy={noteStrategy}
+                noteFilter={noteFilter}
             />
             <Fretboard
                 labelStrategy={labelStrategy}
                 colorStrategy={colorStrategy}
-                noteStrategy={(noteIndex) => getNote(concept, noteIndex)}
-                noteFilter={(noteProfile, viewerProfile, fretProfile) => true}
+                noteStrategy={noteStrategy}
+                noteFilter={noteFilter}
             />
         </div>
     );
@@ -95,9 +85,13 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ setKeyCenterOctave, setKeyCenterTonic, setKeyCenterAccidental, setIntervals }, dispatch);
+    return bindActionCreators({
+        setKeyCenterOctave,
+        setKeyCenterTonic,
+        setKeyCenterAccidental,
+        setIntervals
+    }, dispatch);
 }
 
-let Comp = connect(mapStateToProps, mapDispatchToProps)(ViewDriver)
-
+let Comp = connect(mapStateToProps, mapDispatchToProps)(ViewDriver);
 export default Comp;
