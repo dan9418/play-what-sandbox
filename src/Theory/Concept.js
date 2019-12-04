@@ -4,25 +4,48 @@ export class Concept {
     constructor(keyCenter, intervals) {
         this.keyCenter = keyCenter;
         this.intervals = intervals;
-        this.inversion = 0;
+    }
+
+    // keyCenter Helpers
+
+    _getOctaveRoot() {
+        return (this.keyCenter.octave - 4) * 12;
+    }
+
+    _getKeyRoot(relative = false) {
+        let keyRootRelative = this.keyCenter.tonic.pitchClass + this.keyCenter.accidental.offset;
+        return relative ? keyRootRelative : this._getOctaveRoot() + keyRootRelative;
+    }
+
+    // interval Helpers
+
+    _intervalMatchesPitchClass(interval, pitchClass) {
+        return Utils.modulo(this._getKeyRoot(true) + interval.semitones, 12) === pitchClass;
+    }
+
+    _getIntervalByPitchClass(pitchClass) {
+        return this.intervals.find(interval => this._intervalMatchesPitchClass(interval, pitchClass)) || null;
+    }
+
+    _intervalMatchesNoteIndex(interval, noteIndex) {
+        return this._getKeyRoot() + interval.semitones === noteIndex;
+    }
+
+    _getIntervalByNoteIndex(noteIndex) {
+        return this.intervals.find(interval => this._intervalMatchesNoteIndex(interval, noteIndex)) || null;
     }
 
     _getIntervalAt(noteIndex, filterOctave = true) {
-        let keyRootRelative = this.keyCenter.tonic.pitchClass + this.keyCenter.accidental.offset;
-        let index = -1;
         if (filterOctave) {
-            let keyRootAbsolute = (this.keyCenter.octave - 4) * 12;
-            index = this.intervals.findIndex(interval => keyRootAbsolute + keyRootRelative + interval.semitones === noteIndex);
+            return this._getIntervalByNoteIndex(noteIndex);
         }
         else {
             let pitchClass = Utils.modulo(noteIndex, 12);
-            index = this.intervals.findIndex(interval => Utils.modulo(keyRootRelative + interval.semitones, 12) === pitchClass);
-        }
-        return {
-            interval: this.intervals[index],
-            index: index
+            return this._getIntervalByPitchClass(pitchClass);
         }
     }
+
+    // Note Helpers
 
     _parseInterval(keyCenter, interval) {
         // Calculate functional properties
@@ -46,21 +69,12 @@ export class Concept {
         };
     }
 
-    getNoteAt(noteIndex) {
-        let { interval, index } = this._getIntervalAt(noteIndex);
-        if (index < 0) {
+    getNoteAt(noteIndex, filterOctave = true) {
+        let interval = this._getIntervalAt(noteIndex, filterOctave);
+        if (interval === null) {
             return null;
         }
-        return this._parseInterval(this.keyCenter, interval);
-    }
-
-    getEquivalentNoteAt(noteIndex) {
-        let { interval, index } = this._getIntervalAt(noteIndex, false);
-        if (index < 0) {
-            return null;
-        }
-        // Calculate the octave from which this interval originated
-        let relativeKeyCenter = {
+        let relativeKeyCenter = filterOctave ? this.keyCenter : {
             ...this.keyCenter,
             octave: TheoryEngine.getPhysicalNoteOctave(noteIndex - interval.semitones)
         };
@@ -68,7 +82,7 @@ export class Concept {
     }
 
     chordInversion(inversion) {
-        this.inversion = inversion;
+        
     }
 
     getRomanNumeral(degree) {

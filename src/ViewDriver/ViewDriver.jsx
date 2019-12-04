@@ -15,23 +15,9 @@ import { IntervalsInput } from '../Inputs/IntervalsInput/IntervalsInput';
 import { Concept } from '../Theory/Concept';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_COLOR_STRATEGY, DEFAULT_LABEL_STRATEGY, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Defaults';
 
-/* Note Strategy */
-
-function getNote(concept, noteIndex) {
-    // Match pitchClass
-    //return concept.getEquivalentNoteAt(noteIndex);
-    // Match noteIndex
-    return concept.getNoteAt(noteIndex);
-}
-
 /* Component */
 
 export function ViewDriver(props) {
-
-    let labelStrategy = DEFAULT_LABEL_STRATEGY;
-    let colorStrategy = DEFAULT_COLOR_STRATEGY;
-    let noteStrategy = (noteIndex) => getNote(concept, noteIndex);
-    let noteFilter = DEFAULT_NOTE_FILTER;
 
     let keyCenter = {
         octave: props.octave || DEFAULT_KEY_CENTER.octave,
@@ -41,6 +27,11 @@ export function ViewDriver(props) {
 
     let concept = new Concept(keyCenter, props.intervals || DEFAULT_CONCEPT.intervals);
     //concept.invert(1).reverse();
+
+    let labelStrategy = DEFAULT_LABEL_STRATEGY;
+    let colorStrategy = DEFAULT_COLOR_STRATEGY;
+    let noteStrategy = (noteIndex) => concept.getNoteAt(noteIndex, true);
+    let noteFilter = DEFAULT_NOTE_FILTER;
 
     return (
         <div className='view-driver'>
