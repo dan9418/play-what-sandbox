@@ -14,19 +14,22 @@ import { IntervalsInput } from '../Inputs/IntervalsInput/IntervalsInput';
 // Theory
 import { Concept } from '../Theory/Concept';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_COLOR_STRATEGY, DEFAULT_LABEL_STRATEGY, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Defaults';
+import { KeyCenter } from '../Theory/KeyCenter';
 
 /* Component */
 
 export function ViewDriver(props) {
 
-    let keyCenter = {
-        octave: props.octave || DEFAULT_KEY_CENTER.octave,
-        tonic: props.tonic || DEFAULT_KEY_CENTER.tonic,
-        accidental: props.accidental || DEFAULT_KEY_CENTER.accidental
-    };
+    let keyCenter = new KeyCenter(
+        props.tonic || DEFAULT_KEY_CENTER.tonic,
+        props.accidental || DEFAULT_KEY_CENTER.accidental,
+        props.octave || DEFAULT_KEY_CENTER.octave
+    );
 
     let concept = new Concept(keyCenter, props.intervals || DEFAULT_CONCEPT.intervals);
-    //concept.invert(1).reverse();
+    console.log(concept.intervals);
+    concept.chordInversion(4);
+    console.log(concept.intervals);
 
     let labelStrategy = DEFAULT_LABEL_STRATEGY;
     let colorStrategy = DEFAULT_COLOR_STRATEGY;

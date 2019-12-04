@@ -1,38 +1,20 @@
 import { INTERVAL, Utils, TheoryEngine, LABEL_STRATEGIES, COLOR_STRATEGIES, TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
+import { Interval } from './Interval';
 
 export class Concept {
     constructor(keyCenter, intervals) {
         this.keyCenter = keyCenter;
-        this.intervals = intervals;
+        this.intervals = intervals.map(i => new Interval(i));
     }
 
-    // keyCenter Helpers
-
-    _getOctaveRoot() {
-        return (this.keyCenter.octave - 4) * 12;
-    }
-
-    _getKeyRoot(relative = false) {
-        let keyRootRelative = this.keyCenter.tonic.pitchClass + this.keyCenter.accidental.offset;
-        return relative ? keyRootRelative : this._getOctaveRoot() + keyRootRelative;
-    }
-
-    // interval Helpers
-
-    _intervalMatchesPitchClass(interval, pitchClass) {
-        return Utils.modulo(this._getKeyRoot(true) + interval.semitones, 12) === pitchClass;
-    }
+    // Interval Getters
 
     _getIntervalByPitchClass(pitchClass) {
-        return this.intervals.find(interval => this._intervalMatchesPitchClass(interval, pitchClass)) || null;
-    }
-
-    _intervalMatchesNoteIndex(interval, noteIndex) {
-        return this._getKeyRoot() + interval.semitones === noteIndex;
+        return this.intervals.find(interval => interval.matchesPitchClassFromKeyCenter(this.keyCenter, pitchClass)) || null;
     }
 
     _getIntervalByNoteIndex(noteIndex) {
-        return this.intervals.find(interval => this._intervalMatchesNoteIndex(interval, noteIndex)) || null;
+        return this.intervals.find(interval => interval.matchesNoteIndexFromKeyCenter(this.keyCenter, noteIndex)) || null;
     }
 
     _getIntervalAt(noteIndex, filterOctave = true) {
@@ -45,30 +27,6 @@ export class Concept {
         }
     }
 
-    // Note Helpers
-
-    _parseInterval(keyCenter, interval) {
-        // Calculate functional properties
-        let noteDegree = TheoryEngine.getNoteDegree(keyCenter.tonic, interval);
-        let pitchClass = TheoryEngine.getPitchClass(keyCenter.tonic, keyCenter.accidental, interval);
-        let accidentalOffset = TheoryEngine.getAccidentalOffset(noteDegree, pitchClass, keyCenter.accidental);
-        let name = TheoryEngine.getNoteName(noteDegree, accidentalOffset);
-
-        // Calculate physical properties
-        let noteOctave = TheoryEngine.getFunctionalNoteOctave(keyCenter.tonic, keyCenter.accidental, keyCenter.octave, interval);
-        let noteIndex = TheoryEngine.getNoteIndex(noteOctave, pitchClass);
-        let frequency = TheoryEngine.getFrequency(noteIndex);
-
-        return {
-            interval: interval,
-            pitchClass: pitchClass,
-            name: name,
-            noteOctave: noteOctave,
-            noteIndex: noteIndex,
-            frequency: frequency
-        };
-    }
-
     getNoteAt(noteIndex, filterOctave = true) {
         let interval = this._getIntervalAt(noteIndex, filterOctave);
         if (interval === null) {
@@ -78,14 +36,20 @@ export class Concept {
             ...this.keyCenter,
             octave: TheoryEngine.getPhysicalNoteOctave(noteIndex - interval.semitones)
         };
-        return this._parseInterval(relativeKeyCenter, interval);
+        return interval.evaluateFromKeyCenter(relativeKeyCenter);
     }
+
+    // Interal Operations
 
     chordInversion(inversion) {
-        
+        for (let i = 0; i < inversion; i++) {
+            let shifted = this.intervals.shift();
+            shifted.octaveOffset = shifted.octaveOffset + 1;
+            this.intervals.push(shifted);
+        }
     }
 
-    getRomanNumeral(degree) {
+    /*getRomanNumeral(degree) {
         if(this.intervals.length !== 7) {
             return null;
         }
@@ -96,5 +60,5 @@ export class Concept {
         ];
         let newIntervals = this.intervals.filter(interval => validDegrees.includes(interval.degree))
         return new Concept(this.keyCenter, newIntervals);
-    }
+    }*/
 }

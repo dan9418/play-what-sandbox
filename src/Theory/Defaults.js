@@ -11,8 +11,8 @@ export const DEFAULT_KEY_CENTER = {
 };
 
 export const DEFAULT_CONCEPT = {
-    intervals: MODE.Ionian.intervals,
-    //intervals: CHORD.Maj.intervals,
+    //intervals: MODE.Ionian.intervals,
+    intervals: CHORD.Maj.intervals,
     //intervals: CHORD.Maj13.intervals,
     //intervals: SCALE.Chromatic.intervals,
     chordInversion: 0
