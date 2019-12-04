@@ -28,8 +28,6 @@ export function ViewDriver(props) {
 
     let concept = new Concept(keyCenter, props.intervals || DEFAULT_CONCEPT.intervals);
     console.log(concept.intervals);
-    concept.chordInversion(4);
-    console.log(concept.intervals);
 
     let labelStrategy = DEFAULT_LABEL_STRATEGY;
     let colorStrategy = DEFAULT_COLOR_STRATEGY;

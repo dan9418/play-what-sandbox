@@ -47,6 +47,11 @@ export class Concept {
             shifted.octaveOffset = shifted.octaveOffset + 1;
             this.intervals.push(shifted);
         }
+        // TODO reverse inversions
+    }
+
+    reverse() {
+        this.intervals.reverse();
     }
 
     /*getRomanNumeral(degree) {
