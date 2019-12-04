@@ -7,14 +7,14 @@ import { setKeyCenterOctave, setKeyCenterTonic, setKeyCenterAccidental, setInter
 // DOM
 import './ViewDriver.css';
 // Play What
-import { INTERVAL, Utils, TheoryEngine, LABEL_STRATEGIES, COLOR_STRATEGIES, TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
+import { Keyboard, Fretboard } from 'play-what-beta';
 // Inputs
 import { KeyCenterInput } from '../Inputs/KeyCenterInput/KeyCenterInput';
 import { IntervalsInput } from '../Inputs/IntervalsInput/IntervalsInput';
 // Theory
-import { Concept } from '../Theory/Concept';
-import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_COLOR_STRATEGY, DEFAULT_LABEL_STRATEGY, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Defaults';
-import { KeyCenter } from '../Theory/KeyCenter';
+import { Concept } from '../Theory/Classes/Concept';
+import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
+import { KeyCenter } from '../Theory/Classes/KeyCenter';
 
 /* Component */
 
@@ -29,8 +29,8 @@ export function ViewDriver(props) {
     let concept = new Concept(keyCenter, props.intervals || DEFAULT_CONCEPT.intervals);
     console.log(concept.intervals);
 
-    let labelStrategy = DEFAULT_LABEL_STRATEGY;
-    let colorStrategy = DEFAULT_COLOR_STRATEGY;
+    let labelStrategy = () => '';
+    let colorStrategy = () => new Object();
     let noteStrategy = (noteIndex) => concept.getNoteAt(noteIndex, true);
     let noteFilter = DEFAULT_NOTE_FILTER;
 

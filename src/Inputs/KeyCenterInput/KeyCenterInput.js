@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { TONIC, ACCIDENTAL } from 'play-what-beta';
 import './KeyCenterInput.css';
 import { NumericInput } from '../NumericInput/NumericInput';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
+import { TONIC, ACCIDENTAL } from '../../Theory/Constants/Enums';
 
 const TONIC_DATA = Object.values(TONIC);
 const ACCIDENTAL_DATA = Object.values(ACCIDENTAL);

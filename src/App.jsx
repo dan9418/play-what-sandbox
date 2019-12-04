@@ -1,7 +1,6 @@
 import * as ReactDOM from 'react-dom';
 import * as React from "react";
 import ViewDriver from "./ViewDriver/ViewDriver";
-import { TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
 import './App.css';
 
 import { Provider } from 'react-redux';

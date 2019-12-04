@@ -1,13 +1,11 @@
-import { INTERVAL, Utils, TheoryEngine, LABEL_STRATEGIES, COLOR_STRATEGIES, TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
-
 export class Interval {
-    constructor(preset) {
-        this.id = preset.id;
-        this.name = preset.name;
-        this.degree = preset.degree;
-        this.semitones = preset.semitones;
-        this.octaveOffset = 0;
-        this.ascending = true;
+    constructor(degree, semitones, id, name, ascending = true, octaveOffset = 0) {
+        this.id = id;
+        this.name = name;
+        this.degree = degree;
+        this.semitones = semitones;
+        this.ascending = ascending;
+        this.octaveOffset = octaveOffset;
     }
 
     matchesPitchClassFromKeyCenter(keyCenter, pitchClass) {

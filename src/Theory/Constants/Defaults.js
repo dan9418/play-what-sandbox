@@ -1,8 +1,10 @@
-import { INTERVAL, Utils, TheoryEngine, LABEL_STRATEGIES, COLOR_STRATEGIES, TONIC, ACCIDENTAL, NOTE_LABEL, Keyboard, Fretboard, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
+import { INTERVAL_PAIR, CHORD, SCALE, MODE } from './Presets';
+import { TONIC, ACCIDENTAL } from './Enums';
 
-export const DEFAULT_COLOR_STRATEGY = COLOR_STRATEGIES.Degree;
 
-export const DEFAULT_LABEL_STRATEGY = LABEL_STRATEGIES.Interval;
+//export const DEFAULT_COLOR_STRATEGY = COLOR_STRATEGIES.Degree;
+
+//export const DEFAULT_LABEL_STRATEGY = LABEL_STRATEGIES.Interval;
 
 export const DEFAULT_KEY_CENTER = {
     tonic: TONIC.E,

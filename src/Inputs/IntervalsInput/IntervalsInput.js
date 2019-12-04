@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { INTERVAL_PAIR, CHORD, SCALE, MODE } from 'play-what-beta';
 import './IntervalsInput.css';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
+import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../Theory/Constants/Presets';
 
 const PRESET_TYPES = [
     {
