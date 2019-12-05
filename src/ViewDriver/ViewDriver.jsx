@@ -3,7 +3,7 @@ import * as React from 'react';
 // Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setKeyCenterOctave, setKeyCenterTonic, setKeyCenterAccidental, setIntervals } from '../Redux/Actions/actions';
+import { setKeyCenterOctave, setKeyCenterTonic, setKeyCenterAccidental, setConcept } from '../Redux/Actions/actions';
 // DOM
 import './ViewDriver.css';
 // Play What
@@ -29,7 +29,8 @@ export function ViewDriver(props) {
         props.octave || DEFAULT_KEY_CENTER.octave
     );
 
-    let concept = new Concept(keyCenter, props.intervals || DEFAULT_CONCEPT.intervals);
+    let concept = props.concept || DEFAULT_CONCEPT;
+    concept.keyCenter = keyCenter;
     console.log(concept.intervals);
 
     let labelStrategy = LABEL_STRATEGIES.Degree;
@@ -49,7 +50,7 @@ export function ViewDriver(props) {
             />
             <IntervalsInput
                 intervals={props.intervals}
-                setIntervals={props.setIntervals}
+                setConcept={props.setConcept}
             />
             <Keyboard
                 keyLow={-8}
@@ -75,7 +76,7 @@ const mapStateToProps = (state) => {
         octave: state.octave,
         tonic: state.tonic,
         accidental: state.accidental,
-        intervals: state.intervals
+        concept: state.concept
     };
 }
 
@@ -84,7 +85,7 @@ const mapDispatchToProps = (dispatch) => {
         setKeyCenterOctave,
         setKeyCenterTonic,
         setKeyCenterAccidental,
-        setIntervals
+        setConcept
     }, dispatch);
 }
 

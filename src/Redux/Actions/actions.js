@@ -19,9 +19,9 @@ export const setKeyCenterAccidental = (accidental) => {
     };
 }
 
-export const setIntervals = (intervals) => {
+export const setConcept = (concept) => {
     return {
-        type: 'SET_INTERVALS',
-        payload: intervals
+        type: 'SET_CONCEPT',
+        payload: concept
     };
 }

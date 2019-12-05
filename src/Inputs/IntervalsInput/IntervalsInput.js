@@ -52,7 +52,7 @@ export function IntervalsInput(props) {
                     setValue={(preset) => {
                         // Not sure if safe to update both states like this...
                         setSelectedPreset(preset);
-                        props.setIntervals(preset.intervals);
+                        props.setConcept(preset);
                     }}
                 />
             </div>

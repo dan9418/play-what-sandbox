@@ -1,10 +1,13 @@
 import { Utils } from "../Utils";
 import { Note } from "./Note";
+import { TONIC, ACCIDENTAL } from "../Constants/Enums";
 
 export class Concept {
-    constructor(keyCenter, intervals) {
-        this.keyCenter = keyCenter;
+    constructor(keyCenter, id = '', name = '', intervals = []) {
+        this.keyCenter = keyCenter || { tonic: TONIC.C, accidental: ACCIDENTAL.Natural, octave: 4 };
         this.intervals = intervals;
+        this.id = id;
+        this.name = name;
     }
 
     // Interval Getters
@@ -17,7 +20,7 @@ export class Concept {
         return this.intervals.find(interval => interval.matchesNoteIndexFromKeyCenter(this.keyCenter, noteIndex)) || null;
     }
 
-    // Note getters
+    // Note Getters
 
     getNoteByPitchClass(noteIndex) {
         let pitchClass = Utils.modulo(noteIndex, 12);

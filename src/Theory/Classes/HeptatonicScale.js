@@ -1,27 +1,18 @@
 import { Scale } from "./Scale";
 
 export class HeptatonicScale extends Scale {
-    constructor(keyCenter, intervals, id, name) {
-        if (this.intervals.length !== 7) {
+    constructor(keyCenter, id, name, intervals) {
+        if (intervals.length !== 7) {
             throw 'Heptatonic scale must have exactly 7 intervals';
         }
-        this.keyCenter = keyCenter;
-        this.intervals = intervals;
-        this.id = id;
-        this.name = name;
+        super(keyCenter, id, name, intervals);
         this.conceptType = 'heptatonicScale'
     }
 
-    reverse() {
-        this.intervals.reverse();
-    }
-
     /*getRomanNumeral(degree) {
-        if(this.intervals.length !== 7) {
-            return null;
-        }
+        degree = degree % 7;
         let validDegrees = [
-            degree % 7,
+            degree,
             Utils.moduloSum(degree, 3, 7, 1),
             Utils.moduloSum(degree, 5, 7, 1)
         ];

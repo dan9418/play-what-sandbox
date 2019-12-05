@@ -10,8 +10,8 @@ export const reducers = (state, action) => {
         case 'SET_KEY_CENTER_ACCIDENTAL':
             stateCopy.accidental = action.payload;
             return stateCopy;
-        case 'SET_INTERVALS':
-            stateCopy.intervals = action.payload;
+        case 'SET_CONCEPT':
+            stateCopy.concept = action.payload;
             return stateCopy;
         default:
             return state;
