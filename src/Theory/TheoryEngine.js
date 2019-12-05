@@ -1,16 +1,7 @@
 import { TONIC } from './Constants/Enums';
 import { CALIBRATION_NOTE, CALIBRATION_CONSTANT } from './Constants/Presets';
-import { Utils } from "./Utils";
 
 export class TheoryEngine {
-
-    static getNoteDegree(tonic, interval) {
-        return Utils.moduloSum(tonic.degreeInC, interval.degree, 7, 1);
-    }
-
-    static getPitchClass(tonic, accidental, interval) {
-        return Utils.moduloSum(tonic.pitchClass + accidental.offset, interval.semitones, 12, 0);
-    }
 
     static getFunctionalNoteOctave(tonic, accidental, tonicOctave, interval) {
         return tonicOctave + Math.floor((tonic.pitchClass + accidental.offset + interval.semitones) / 12);
