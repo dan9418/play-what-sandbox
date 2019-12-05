@@ -9,66 +9,41 @@ export class Concept {
 
     // Interval Getters
 
-    _getIntervalByPitchClass(pitchClass) {
+    getIntervalByPitchClass(pitchClass) {
         return this.intervals.find(interval => interval.matchesPitchClassFromKeyCenter(this.keyCenter, pitchClass)) || null;
     }
 
-    _getIntervalByNoteIndex(noteIndex) {
+    getIntervalByNoteIndex(noteIndex) {
         return this.intervals.find(interval => interval.matchesNoteIndexFromKeyCenter(this.keyCenter, noteIndex)) || null;
-    }
-
-    _getIntervalAt(noteIndex, filterOctave = true) {
-        if (filterOctave) {
-            return this._getIntervalByNoteIndex(noteIndex);
-        }
-        else {
-            let pitchClass = Utils.modulo(noteIndex, 12);
-            return this._getIntervalByPitchClass(pitchClass);
-        }
     }
 
     // Note getters
 
-    getNoteAt(noteIndex, filterOctave = true) {
-        // 1) Check if an interval exists at this noteIndex
-        let interval = this._getIntervalAt(noteIndex, filterOctave);
+    getNoteByPitchClass(noteIndex) {
+        let pitchClass = Utils.modulo(noteIndex, 12);
+        let interval = this.getIntervalByPitchClass(pitchClass);
         if (interval === null) {
             return null;
         }
-        // 2) Adjust keyCenter, if needed
-        let relativeKeyCenter = filterOctave ? this.keyCenter : {
+
+        let relativeKeyCenter = {
             ...this.keyCenter,
             octave: Note.getOctaveByNoteIndex(noteIndex - interval.semitones)
         };
-        // 3) Generate a note with appropriate keyCenter and interval
+
         return new Note(relativeKeyCenter, interval);
     }
 
-    // Interval Operations
-
-    chordInversion(inversion) {
-        for (let i = 0; i < inversion; i++) {
-            let shifted = this.intervals.shift();
-            shifted.octaveOffset = shifted.octaveOffset + 1;
-            this.intervals.push(shifted);
-        }
-        // TODO reverse inversions
-    }
-
-    reverse() {
-        this.intervals.reverse();
-    }
-
-    /*getRomanNumeral(degree) {
-        if(this.intervals.length !== 7) {
+    getNoteByNoteIndex(noteIndex) {
+        let interval = this.getIntervalByNoteIndex(noteIndex, true);
+        if (interval === null) {
             return null;
         }
-        let validDegrees = [
-            degree % 7,
-            Utils.moduloSum(degree, 3, 7, 1),
-            Utils.moduloSum(degree, 5, 7, 1)
-        ];
-        let newIntervals = this.intervals.filter(interval => validDegrees.includes(interval.degree))
-        return new Concept(this.keyCenter, newIntervals);
-    }*/
+
+        return new Note(this.keyCenter, interval);
+    }
+
+    getNoteAt(noteIndex, filterOctave = true) {
+        return filterOctave ? this.getNoteByNoteIndex(noteIndex) : this.getNoteByPitchClass(noteIndex);
+    }
 }
