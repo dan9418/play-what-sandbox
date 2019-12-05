@@ -1,4 +1,6 @@
 import { Scale } from "./Scale";
+import { Chord } from "./Chord";
+import { Utils } from "../Utils";
 
 export class HeptatonicScale extends Scale {
     constructor(keyCenter, id, name, intervals) {
@@ -9,7 +11,7 @@ export class HeptatonicScale extends Scale {
         this.conceptType = 'heptatonicScale'
     }
 
-    /*getRomanNumeral(degree) {
+    getRomanNumeral(degree) {
         degree = degree % 7;
         let validDegrees = [
             degree,
@@ -17,6 +19,6 @@ export class HeptatonicScale extends Scale {
             Utils.moduloSum(degree, 5, 7, 1)
         ];
         let newIntervals = this.intervals.filter(interval => validDegrees.includes(interval.degree))
-        return new Concept(this.keyCenter, newIntervals);
-    }*/
+        return new Chord(this.keyCenter, '', '', newIntervals);
+    }
 }

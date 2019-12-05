@@ -31,6 +31,11 @@ export function ViewDriver(props) {
 
     let concept = props.concept || DEFAULT_CONCEPT;
     concept.keyCenter = keyCenter;
+
+    if(concept.conceptType === 'heptatonicScale') {
+        concept = concept.getRomanNumeral(2);
+    }
+
     console.log(concept.intervals);
 
     let labelStrategy = LABEL_STRATEGIES.Degree;
