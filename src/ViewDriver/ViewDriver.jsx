@@ -11,6 +11,10 @@ import { Keyboard, Fretboard } from 'play-what-beta';
 // Inputs
 import { KeyCenterInput } from '../Inputs/KeyCenterInput/KeyCenterInput';
 import { IntervalsInput } from '../Inputs/IntervalsInput/IntervalsInput';
+// Strategies
+import { LABEL_STRATEGIES } from '../Theory/TODO/LabelStrategies';
+import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
+
 // Theory
 import { Concept } from '../Theory/Classes/Concept';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
@@ -29,8 +33,8 @@ export function ViewDriver(props) {
     let concept = new Concept(keyCenter, props.intervals || DEFAULT_CONCEPT.intervals);
     console.log(concept.intervals);
 
-    let labelStrategy = () => '';
-    let colorStrategy = () => new Object();
+    let labelStrategy = LABEL_STRATEGIES.Degree;
+    let colorStrategy = COLOR_STRATEGIES.Degree;
     let noteStrategy = (noteIndex) => concept.getNoteAt(noteIndex, true);
     let noteFilter = DEFAULT_NOTE_FILTER;
 

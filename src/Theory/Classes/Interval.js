@@ -1,3 +1,5 @@
+import { TheoryEngine } from '../TheoryEngine';
+
 export class Interval {
     constructor(degree, semitones, id, name, ascending = true, octaveOffset = 0) {
         this.id = id;

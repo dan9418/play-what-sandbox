@@ -3,7 +3,7 @@ import { Interval } from './Interval';
 export class Concept {
     constructor(keyCenter, intervals) {
         this.keyCenter = keyCenter;
-        this.intervals = intervals.map(i => new Interval(i));
+        this.intervals = intervals;
     }
 
     // Interval Getters

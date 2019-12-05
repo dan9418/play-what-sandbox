@@ -1,8 +1,7 @@
-/*
-TODO re-implement
+//TODO re-implement
 
 import { blend_colors, pickTextColorBasedOnBgColorSimple } from "./ColorBlender";
-import { TheoryEngine } from "./TheoryEngine";
+import { TheoryEngine } from "../TheoryEngine";
 
 const COLORS = {
     White: 'white',
@@ -221,4 +220,3 @@ export const COLOR_STRATEGIES = {
     Frequency: (noteProfile, viewerProfile) => colorFrequency(noteProfile, viewerProfile),
     NoteIndex: (noteProfile, viewerProfile) => colorNoteIndex(noteProfile, viewerProfile)
 }
-*/
