@@ -4,17 +4,6 @@ import { Utils } from "./Utils";
 
 export class TheoryEngine {
 
-    static tryGetNoteName(tonic = TONIC.C, accidental = ACCIDENTAL.Natural, interval) {
-        let noteDegree = TheoryEngine.getNoteDegree(tonic, interval);
-        let pitchClass = TheoryEngine.getPitchClass(tonic, accidental, interval);
-        let accidentalOffset = TheoryEngine.getAccidentalOffset(noteDegree, pitchClass, accidental);
-        return TheoryEngine.getNoteName(noteDegree, accidentalOffset);
-    }
-
-    static tryGetIntervalAtIndex(noteIndex, keyCenter = DEFAULT_KEY_CENTER, concept = SCALE.Chromatic) {
-        return concept.intervals.find((i) => i.semitones === Utils.modulo(noteIndex, 12));
-    }
-
     static getNoteDegree(tonic, interval) {
         return Utils.moduloSum(tonic.degreeInC, interval.degree, 7, 1);
     }
@@ -48,13 +37,6 @@ export class TheoryEngine {
 
     static getTonicByDegree(degree) {
         return Object.values(TONIC)[degree - 1];
-    }
-
-    static getRelativePotision(noteIndex) {
-        if (noteIndex >= 0)
-            return noteIndex % 12;
-        else
-            return 12 + (noteIndex % 12);
     }
 
     static getFrequency(noteIndex) {
