@@ -27,19 +27,24 @@ export class Concept {
         }
     }
 
+    // Note getters
+
     getNoteAt(noteIndex, filterOctave = true) {
+        // 1) Check if an interval exists at this noteIndex
         let interval = this._getIntervalAt(noteIndex, filterOctave);
         if (interval === null) {
             return null;
         }
+        // 2) Adjust keyCenter, if needed
         let relativeKeyCenter = filterOctave ? this.keyCenter : {
             ...this.keyCenter,
             octave: Note.getOctaveByNoteIndex(noteIndex - interval.semitones)
         };
-        return interval.getNoteFromKeyCenter(relativeKeyCenter);
+        // 3) Generate a note with appropriate keyCenter and interval
+        return new Note(relativeKeyCenter, interval);
     }
 
-    // Interal Operations
+    // Interval Operations
 
     chordInversion(inversion) {
         for (let i = 0; i < inversion; i++) {
