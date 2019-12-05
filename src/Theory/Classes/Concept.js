@@ -1,4 +1,5 @@
-import { Interval } from './Interval';
+import { Utils } from "../Utils";
+import { Note } from "./Note";
 
 export class Concept {
     constructor(keyCenter, intervals) {
@@ -33,9 +34,9 @@ export class Concept {
         }
         let relativeKeyCenter = filterOctave ? this.keyCenter : {
             ...this.keyCenter,
-            octave: TheoryEngine.getPhysicalNoteOctave(noteIndex - interval.semitones)
+            octave: Note.getOctaveByNoteIndex(noteIndex - interval.semitones)
         };
-        return interval.evaluateFromKeyCenter(relativeKeyCenter);
+        return interval.getNoteFromKeyCenter(relativeKeyCenter);
     }
 
     // Interal Operations

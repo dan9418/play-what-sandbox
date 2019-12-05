@@ -1,7 +1,7 @@
 //TODO re-implement
 
 import { blend_colors, pickTextColorBasedOnBgColorSimple } from "./ColorBlender";
-import { TheoryEngine } from "../TheoryEngine";
+import { Note } from "../Classes/Note";
 
 const COLORS = {
     White: 'white',
@@ -198,12 +198,12 @@ const colorRelativeNoteProperty = (value, min, max, colorScheme = DEFAULT_CONTIN
 
 const colorOctave = (noteProfile, viewerProfile) => {
     if(!noteProfile || !viewerProfile) return {};
-    return colorRelativeNoteProperty(noteProfile.noteOctave, TheoryEngine.getPhysicalNoteOctave(viewerProfile.minIndex), TheoryEngine.getPhysicalNoteOctave(viewerProfile.maxIndex))
+    return colorRelativeNoteProperty(noteProfile.noteOctave, Note.getFrequency(viewerProfile.minIndex), Note.getFrequency.getPhysicalNoteOctave(viewerProfile.maxIndex))
 }
 
 const colorFrequency = (noteProfile, viewerProfile) => {
     if(!noteProfile || !viewerProfile) return {};
-    return colorRelativeNoteProperty(noteProfile.frequency, TheoryEngine.getFrequency(viewerProfile.minIndex), TheoryEngine.getFrequency(viewerProfile.maxIndex))
+    return colorRelativeNoteProperty(noteProfile.frequency, Note.getFrequency.getFrequency(viewerProfile.minIndex), Note.getFrequency.getFrequency(viewerProfile.maxIndex))
 }
 
 const colorNoteIndex = (noteProfile, viewerProfile) => {

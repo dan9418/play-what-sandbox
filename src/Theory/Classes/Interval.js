@@ -1,5 +1,5 @@
-import { TheoryEngine } from '../TheoryEngine';
 import { Utils } from "../Utils";
+import { Note } from './Note';
 
 export class Interval {
     constructor(degree, semitones, id, name, ascending = true, octaveOffset = 0) {
@@ -27,25 +27,7 @@ export class Interval {
         return Utils.moduloSum(keyCenter.tonic.pitchClass + keyCenter.accidental.offset, this.semitones, 12, 0);
     }
 
-    evaluateFromKeyCenter(keyCenter) {
-        // Calculate functional properties
-        let noteDegree = this.getDegreeFromKeyCenter(keyCenter);
-        let pitchClass = this.getPitchClassFromKeyCenter(keyCenter);
-        let accidentalOffset = TheoryEngine.getAccidentalOffset(noteDegree, pitchClass, keyCenter.accidental);
-        let name = TheoryEngine.getNoteName(noteDegree, accidentalOffset);
-
-        // Calculate physical properties
-        let noteOctave = TheoryEngine.getFunctionalNoteOctave(keyCenter.tonic, keyCenter.accidental, keyCenter.octave, this);
-        let noteIndex = TheoryEngine.getNoteIndex(noteOctave, pitchClass);
-        let frequency = TheoryEngine.getFrequency(noteIndex);
-
-        return {
-            interval: this,
-            pitchClass: pitchClass,
-            name: name,
-            noteOctave: noteOctave,
-            noteIndex: noteIndex,
-            frequency: frequency
-        };
+    getNoteFromKeyCenter(keyCenter) {
+        return new Note(keyCenter, this);
     }
 }

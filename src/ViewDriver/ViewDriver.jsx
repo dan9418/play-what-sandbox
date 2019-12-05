@@ -34,7 +34,7 @@ export function ViewDriver(props) {
 
     let labelStrategy = LABEL_STRATEGIES.Degree;
     let colorStrategy = COLOR_STRATEGIES.Degree;
-    let noteStrategy = (noteIndex) => concept.getNoteAt(noteIndex, true);
+    let noteStrategy = (noteIndex) => concept.getNoteAt(noteIndex, false);
     let noteFilter = DEFAULT_NOTE_FILTER;
 
     return (
