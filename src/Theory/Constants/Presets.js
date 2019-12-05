@@ -1,14 +1,5 @@
 import { Interval } from "../Classes/Interval"
 
-/***** Math *****/
-
-export const CALIBRATION_NOTE = {
-    frequency: 440,
-    noteIndex: 9
-}
-
-export const CALIBRATION_CONSTANT = Math.pow(2, 1 / 12);
-
 /***** Intervals *****/
 
 export const INTERVAL = {
@@ -47,10 +38,6 @@ export const INTERVAL = {
     flat15: new Interval(15, 23, 'b15', 'Flat Fifthteenth'),
     ext15: new Interval(15, 24, '15', 'Fifthteenth')
 };
-
-/***** Diatonic Pattern *****/
-
-export const MAJOR_SCALE = [INTERVAL.P1, INTERVAL.M2, INTERVAL.M3, INTERVAL.P4, INTERVAL.P5, INTERVAL.M6, INTERVAL.M7];
 
 /***** Concepts *****/
 
@@ -321,42 +308,3 @@ export const MODE = {
         intervals: [INTERVAL.P1, INTERVAL.m2, INTERVAL.m3, INTERVAL.P4, INTERVAL.d5, INTERVAL.m6, INTERVAL.m7]
     }
 };
-/*
-Deprecated in favor of chord derived from a scale
-export const ROMAN_NUMERAL = {
-    I: {
-        id: 'I',
-        name: 'I',
-        intervals: [INTERVAL.P1, INTERVAL.M3, INTERVAL.P5]
-    },
-    ii: {
-        id: 'ii',
-        name: 'ii',
-        intervals: [INTERVAL.M2, INTERVAL.P4, INTERVAL.M6]
-    },
-    iii: {
-        id: 'iii',
-        name: 'iii',
-        intervals: [INTERVAL.M3, INTERVAL.P5, INTERVAL.M7]
-    },
-    IV: {
-        id: 'IV',
-        name: 'IV',
-        intervals: [INTERVAL.P4, INTERVAL.M6, Object.assign({ octaveOffset: 1 }, INTERVAL.P1)]
-    },
-    V: {
-        id: 'V',
-        name: 'V',
-        intervals: [INTERVAL.P5, INTERVAL.M7, Object.assign({ octaveOffset: 1 }, INTERVAL.M2)]
-    },
-    vi: {
-        id: 'vi',
-        name: 'vi',
-        intervals: [INTERVAL.M6, Object.assign({ octaveOffset: 1 }, INTERVAL.P1), Object.assign({ octaveOffset: 1 }, INTERVAL.M3)]
-    },
-    vii: {
-        id: 'vii',
-        name: 'vii',
-        intervals: [INTERVAL.M7, Object.assign({ octaveOffset: 1 }, INTERVAL.M2), Object.assign({ octaveOffset: 1 }, INTERVAL.P4)]
-    }
-};*/

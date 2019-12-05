@@ -1,4 +1,4 @@
-import { CALIBRATION_NOTE, CALIBRATION_CONSTANT } from '../Constants/Presets';
+import { CALIBRATION_NOTE, CALIBRATION_CONSTANT } from '../Constants/Tuning';
 import { TONIC } from '../Constants/Enums';
 import { Utils } from '../Utils';
 
