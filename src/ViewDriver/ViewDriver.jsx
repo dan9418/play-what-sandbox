@@ -14,7 +14,6 @@ import { IntervalsInput } from '../Inputs/IntervalsInput/IntervalsInput';
 // Strategies
 import { LABEL_STRATEGIES } from '../Theory/TODO/LabelStrategies';
 import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
-
 // Theory
 import { Concept } from '../Theory/Classes/Concept';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
