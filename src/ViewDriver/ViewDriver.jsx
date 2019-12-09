@@ -10,12 +10,11 @@ import './ViewDriver.css';
 import { Keyboard, Fretboard } from 'play-what-beta';
 // Inputs
 import { KeyCenterInput } from '../Inputs/KeyCenterInput/KeyCenterInput';
-import { IntervalsInput } from '../Inputs/IntervalsInput/IntervalsInput';
+import { ConceptInput } from '../Inputs/ConceptInput/ConceptInput';
 // Strategies
 import { LABEL_STRATEGIES } from '../Theory/TODO/LabelStrategies';
 import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
 // Theory
-import { Concept } from '../Theory/Classes/Concept';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
 import { TheoryEngine } from '../Theory/Classes/TheoryEngine';
@@ -32,9 +31,9 @@ export function ViewDriver(props) {
 
     let concept = props.concept || DEFAULT_CONCEPT;
     if(concept.conceptType === 'heptatonicScale') {
-        concept = concept.getRomanNumeral(2);
+        concept = concept.getRomanNumeral(3);
     }
-    
+
     let labelStrategy = LABEL_STRATEGIES.Degree;
     let colorStrategy = COLOR_STRATEGIES.Degree;
     let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, false);
@@ -50,7 +49,7 @@ export function ViewDriver(props) {
                 octave={keyCenter.octave}
                 setOctave={props.setKeyCenterOctave}
             />
-            <IntervalsInput
+            <ConceptInput
                 intervals={props.intervals}
                 setConcept={props.setConcept}
             />
