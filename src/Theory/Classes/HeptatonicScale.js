@@ -3,11 +3,11 @@ import { Chord } from "./Chord";
 import { Utils } from "../Utils";
 
 export class HeptatonicScale extends Scale {
-    constructor(keyCenter, id, name, intervals) {
+    constructor(id, name, intervals) {
         if (intervals.length !== 7) {
             throw 'Heptatonic scale must have exactly 7 intervals';
         }
-        super(keyCenter, id, name, intervals);
+        super(id, name, intervals);
         this.conceptType = 'heptatonicScale'
     }
 
@@ -19,6 +19,6 @@ export class HeptatonicScale extends Scale {
             Utils.moduloSum(degree, 5, 7, 1)
         ];
         let newIntervals = this.intervals.filter(interval => validDegrees.includes(interval.degree))
-        return new Chord(this.keyCenter, '', '', newIntervals);
+        return new Chord('', '', newIntervals);
     }
 }

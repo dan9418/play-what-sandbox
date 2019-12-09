@@ -18,6 +18,7 @@ import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
 import { Concept } from '../Theory/Classes/Concept';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
+import { TheoryEngine } from '../Theory/Classes/TheoryEngine';
 
 /* Component */
 
@@ -30,17 +31,13 @@ export function ViewDriver(props) {
     );
 
     let concept = props.concept || DEFAULT_CONCEPT;
-    concept.keyCenter = keyCenter;
-
     if(concept.conceptType === 'heptatonicScale') {
         concept = concept.getRomanNumeral(2);
     }
-
-    console.log(concept.intervals);
-
+    
     let labelStrategy = LABEL_STRATEGIES.Degree;
     let colorStrategy = COLOR_STRATEGIES.Degree;
-    let noteStrategy = (noteIndex) => concept.getNoteAt(noteIndex, false);
+    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, false);
     let noteFilter = DEFAULT_NOTE_FILTER;
 
     return (

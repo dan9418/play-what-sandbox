@@ -1,8 +1,8 @@
 import { Concept } from "./Concept";
 
 export class Chord extends Concept {
-    constructor(keyCenter, id, name, intervals) {
-        super(keyCenter, id, name, intervals);
+    constructor(id, name, intervals) {
+        super(id, name, intervals);
         this.conceptType = 'chord'
     }
 
