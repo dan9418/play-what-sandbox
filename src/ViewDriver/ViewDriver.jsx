@@ -3,7 +3,7 @@ import * as React from 'react';
 // Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setKeyCenterOctave, setKeyCenterTonic, setKeyCenterAccidental, setConcept } from '../Redux/Actions/actions';
+import { setKeyCenterOctave, setKeyCenterTonic, setKeyCenterAccidental, setConcept, setRomanNumeral } from '../Redux/Actions/actions';
 // DOM
 import './ViewDriver.css';
 // Play What
@@ -18,6 +18,7 @@ import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
 import { TheoryEngine } from '../Theory/Classes/TheoryEngine';
+import { RomanNumeralInput } from '../Inputs/RomanNumeralInput/RomanNumeralInput';
 
 /* Component */
 
@@ -30,13 +31,15 @@ export function ViewDriver(props) {
     );
 
     let concept = props.concept || DEFAULT_CONCEPT;
-    if(concept.conceptType === 'heptatonicScale') {
-        concept = concept.getRomanNumeral(3);
+
+    let romanNumeral = props.romanNumeral || { id: 'none', name: 'None' };
+    if (romanNumeral.id !== 'none') {
+        concept = concept.getRomanNumeral(parseInt(romanNumeral.id));
     }
 
     let labelStrategy = LABEL_STRATEGIES.Degree;
     let colorStrategy = COLOR_STRATEGIES.Degree;
-    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, false);
+    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, true);
     let noteFilter = DEFAULT_NOTE_FILTER;
 
     return (
@@ -50,9 +53,14 @@ export function ViewDriver(props) {
                 setOctave={props.setKeyCenterOctave}
             />
             <ConceptInput
-                intervals={props.intervals}
+                concept={concept}
                 setConcept={props.setConcept}
             />
+            {(romanNumeral.id !== 'none' || concept.conceptType === 'heptatonicScale') &&
+                <RomanNumeralInput
+                    romanNumeral={romanNumeral}
+                    setRomanNumeral={props.setRomanNumeral}
+                />}
             <Keyboard
                 keyLow={-8}
                 labelStrategy={labelStrategy}
@@ -77,7 +85,8 @@ const mapStateToProps = (state) => {
         octave: state.octave,
         tonic: state.tonic,
         accidental: state.accidental,
-        concept: state.concept
+        concept: state.concept,
+        romanNumeral: state.romanNumeral
     };
 }
 
@@ -86,7 +95,8 @@ const mapDispatchToProps = (dispatch) => {
         setKeyCenterOctave,
         setKeyCenterTonic,
         setKeyCenterAccidental,
-        setConcept
+        setConcept,
+        setRomanNumeral
     }, dispatch);
 }
 

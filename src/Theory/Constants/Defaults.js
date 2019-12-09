@@ -6,9 +6,9 @@ import { TONIC, ACCIDENTAL } from './Enums';
 //export const DEFAULT_LABEL_STRATEGY = LABEL_STRATEGIES.Interval;
 
 export const DEFAULT_KEY_CENTER = {
-    tonic: TONIC.E,
+    tonic: TONIC.C,
     accidental: ACCIDENTAL.Natural,
-    octave: 3
+    octave: 4
 };
 
 export const DEFAULT_CONCEPT = CHORD.Maj;

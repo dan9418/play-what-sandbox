@@ -25,3 +25,10 @@ export const setConcept = (concept) => {
         payload: concept
     };
 }
+
+export const setRomanNumeral = (romanNumeral) => {
+    return {
+        type: 'SET_ROMAN_NUMERAL',
+        payload: romanNumeral
+    };
+}
