@@ -1,6 +1,6 @@
 //TODO re-implement
 
-import { blend_colors, pickTextColorBasedOnBgColorSimple } from "./ColorBlender";
+import { blendColors, pickTextColorBasedOnBgColorSimple } from "./ColorTools";
 import { Note } from "../Classes/Note";
 
 const COLORS = {
@@ -188,7 +188,7 @@ const colorRelativeNoteProperty = (value, min, max, colorScheme = DEFAULT_CONTIN
     let percent = (value - min) / (max - min);
     percent <= 0 ? 0 : percent >= 1 ? 1 : percent;
 
-    let colorBlend = blend_colors(colorScheme.initialColor, colorScheme.finalColor, percent);
+    let colorBlend = blendColors(colorScheme.initialColor, colorScheme.finalColor, percent);
 
     return {
         backgroundColor: colorBlend,

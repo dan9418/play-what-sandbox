@@ -14,7 +14,7 @@
     @param: percentage  => the distance from the first color, as a decimal between 0 and 1 (ie: 0.5)
     @returns: string    => the third color, hex, represenatation of the blend between color1 and color2 at the given percentage
 */
-export function blend_colors(color1, color2, percentage)
+export function blendColors(color1, color2, percentage)
 {
     // check input
     color1 = color1 || '#000000';
@@ -82,7 +82,7 @@ export function blend_colors(color1, color2, percentage)
     //console.log('c3 => [' + color3.join(', ') + ']');
 
     // 5: convert to hex
-    color3 = '#' + int_to_hex(color3[0]) + int_to_hex(color3[1]) + int_to_hex(color3[2]);
+    color3 = '#' + intToHex(color3[0]) + intToHex(color3[1]) + intToHex(color3[2]);
 
     // color3 in the middle
     /*ctx.fillStyle = color3;
@@ -99,7 +99,7 @@ export function blend_colors(color1, color2, percentage)
     @param: num         => the number to conver to hex
     @returns: string    => the hex representation of the provided number
 */
-function int_to_hex(num)
+function intToHex(num)
 {
     var hex = Math.round(num).toString(16);
     if (hex.length == 1)
