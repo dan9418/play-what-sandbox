@@ -18,7 +18,6 @@ import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
 import { TheoryEngine } from '../Theory/Classes/TheoryEngine';
-import { RomanNumeralInput } from '../Inputs/RomanNumeralInput/RomanNumeralInput';
 
 /* Component */
 
@@ -32,14 +31,9 @@ export function ViewDriver(props) {
 
     let concept = props.concept || DEFAULT_CONCEPT;
 
-    let romanNumeral = props.romanNumeral || { id: 'none', name: 'None' };
-    if (romanNumeral.id !== 'none') {
-        concept = concept.getRomanNumeral(parseInt(romanNumeral.id));
-    }
-
-    let labelStrategy = LABEL_STRATEGIES.Degree;
+    let labelStrategy = LABEL_STRATEGIES.Interval;
     let colorStrategy = COLOR_STRATEGIES.Degree;
-    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, true);
+    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, false);
     let noteFilter = DEFAULT_NOTE_FILTER;
 
     return (
@@ -56,11 +50,6 @@ export function ViewDriver(props) {
                 concept={concept}
                 setConcept={props.setConcept}
             />
-            {(romanNumeral.id !== 'none' || concept.conceptType === 'heptatonicScale') &&
-                <RomanNumeralInput
-                    romanNumeral={romanNumeral}
-                    setRomanNumeral={props.setRomanNumeral}
-                />}
             <Keyboard
                 keyLow={-8}
                 labelStrategy={labelStrategy}
