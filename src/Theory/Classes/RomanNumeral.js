@@ -28,7 +28,67 @@ export class RomanNumeral extends Chord {
         return newIntervals;
     }
 
-    static getQuality(intervals, degree) {
+    static getName(intervals, degree) {
+        let quality = RomanNumeral.getQuality(intervals);
+        switch (quality) {
+            case 'Dim':
+                return RomanNumeral.getDimName(degree);
+            case 'Min':
+                return RomanNumeral.getMinName(degree);
+            case 'Maj':
+                return RomanNumeral.getMajName(degree);
+            case 'Aug':
+                return RomanNumeral.getAugName(degree);
+        }
+    }
+
+    static getDimName(degree) {
+        return RomanNumeral.getMinName(degree) + '°';
+    }
+
+    static getAugName(degree) {
+        return RomanNumeral.getMajName(degree) + '+';
+    }
+
+    static getMinName(degree) {
+        switch (degree) {
+            case 1:
+                return 'i';
+            case 2:
+                return 'ii';
+            case 3:
+                return 'iii';
+            case 4:
+                return 'iv';
+            case 5:
+                return 'v';
+            case 6:
+                return 'vi';
+            case 7:
+                return 'vii';
+        }
+    }
+
+    static getMajName(degree) {
+        switch (degree) {
+            case 1:
+                return 'I';
+            case 2:
+                return 'II';
+            case 3:
+                return 'III';
+            case 4:
+                return 'IV';
+            case 5:
+                return 'V';
+            case 6:
+                return 'VI';
+            case 7:
+                return 'VII';
+        }
+    }
+
+    static getQuality(intervals) {
         let root = intervals[0];
         let third = intervals[1];
         let fifth = intervals[2];
@@ -47,9 +107,5 @@ export class RomanNumeral extends Chord {
         else {
             return 'Unknown';
         }
-    }
-
-    static getName(intervals, degree) {
-        return degree + ' ' + RomanNumeral.getQuality(intervals);
     }
 }
