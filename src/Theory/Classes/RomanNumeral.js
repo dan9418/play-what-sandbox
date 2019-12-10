@@ -1,5 +1,6 @@
 import { Chord } from "./Chord";
 import { Utils } from "../Utils";
+import { Interval } from "./Interval";
 
 export class RomanNumeral extends Chord {
     constructor(sourceScale, degree) {
@@ -21,9 +22,11 @@ export class RomanNumeral extends Chord {
             Utils.moduloSum(degree, 5, 7, 1)
         ];
         let newIntervals = intervals.filter(interval => validDegrees.includes(interval.degree));
-        newIntervals.map((interval) => { if (interval.degree < degree) { interval.octaveOffset = 1; } return interval; })
         while (newIntervals[0].degree < degree) {
-            newIntervals.push(newIntervals.shift());
+            let first = newIntervals.shift();
+            let { degree, semitones, id, name, ascending } = first;
+            let copy = new Interval(degree, semitones, id, name, ascending, 1);
+            newIntervals.push(copy);
         }
         return newIntervals;
     }

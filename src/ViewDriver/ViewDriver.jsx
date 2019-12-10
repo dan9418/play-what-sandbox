@@ -35,7 +35,7 @@ export function ViewDriver(props) {
 
     let labelStrategy = LABEL_STRATEGIES.Interval;
     let colorStrategy = COLOR_STRATEGIES.Degree;
-    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, false);
+    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, true);
     let noteFilter = DEFAULT_NOTE_FILTER;
 
     return (
