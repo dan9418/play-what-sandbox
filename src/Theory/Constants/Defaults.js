@@ -16,4 +16,4 @@ export const DEFAULT_NOTE_FILTER = () => true;
 
 export const DEFAULT_NOTE_STRATEGY = () => true;
 
-export const DEFAULT_ROMAN_NUMERAL = { id: 'none', name: 'None' };
+export const DEFAULT_ROMAN_NUMERAL = { id: '0', name: 'None' };

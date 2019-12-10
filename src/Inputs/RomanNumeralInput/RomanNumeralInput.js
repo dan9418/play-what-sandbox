@@ -4,7 +4,7 @@ import { DropdownInput } from '../DropdownInput/DropdownInput';
 
 const ROMAN_NUMERALS = [
     {
-        id: 'none',
+        id: '0',
         name: 'None',
     },
     {

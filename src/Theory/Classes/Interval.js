@@ -1,4 +1,5 @@
 import { Utils } from "../Utils";
+import { INTERVAL } from '../Constants/Presets'
 
 export class Interval {
     constructor(degree, semitones, id, name, ascending = true, octaveOffset = 0) {
@@ -16,5 +17,16 @@ export class Interval {
 
     matchesNoteIndexFromKeyCenter(keyCenter, noteIndex) {
         return keyCenter.getRootIndex() + this.octaveOffset * 12 + this.semitones === noteIndex;
+    }
+
+    subtract(interval) {
+        return this.add(interval, true);
+    }
+
+    add(interval, subtract = false) {
+        let newDegree = Utils.moduloSum(this.degree, interval.degree, 7, 1, subtract);
+        let newSemitones = Utils.moduloSum((this.octaveOffset * 12) + this.semitones, (interval.octaveOffset * 12) + interval.semitones, 12, 0, subtract);
+        let allIntervals = Object.values(INTERVAL);
+        return allIntervals.find((i) => i.degree === newDegree && i.semitones === newSemitones) || null;
     }
 }

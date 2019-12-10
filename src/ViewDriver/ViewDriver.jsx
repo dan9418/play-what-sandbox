@@ -18,6 +18,7 @@ import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
 import { TheoryEngine } from '../Theory/Classes/TheoryEngine';
+import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralViewer';
 
 /* Component */
 
@@ -30,6 +31,7 @@ export function ViewDriver(props) {
     );
 
     let concept = props.concept || DEFAULT_CONCEPT;
+    console.log(concept);
 
     let labelStrategy = LABEL_STRATEGIES.Interval;
     let colorStrategy = COLOR_STRATEGIES.Degree;
@@ -50,6 +52,11 @@ export function ViewDriver(props) {
                 concept={concept}
                 setConcept={props.setConcept}
             />
+            {concept.conceptType === 'romanNumeral' &&
+                <RomanNumeralViewer
+                    romanNumeral={concept}
+                />
+            }
             <Keyboard
                 keyLow={-8}
                 labelStrategy={labelStrategy}
