@@ -19,6 +19,7 @@ import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOT
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
 import { NoteStrategies } from '../Theory/Strategies/Note/NoteStrategies';
 import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralViewer';
+import { ActionStrategies } from '../Theory/Strategies/Action/ActionStrategies';
 
 /* Component */
 
@@ -33,10 +34,18 @@ export function ViewDriver(props) {
     let concept = props.concept || DEFAULT_CONCEPT;
     console.log(concept);
 
+    // Label
     let labelStrategy = LabelStrategies.interval;
+
+    // Color
     let colorStrategy = ColorStrategies.degree;
+
+    // Note
     let noteStrategy = (noteIndex) => NoteStrategies.getNoteAt(keyCenter, concept, noteIndex, false);
     let noteFilter = DEFAULT_NOTE_FILTER;
+
+    // Action
+    let actionStrategy = ActionStrategies.log;
 
     return (
         <div className='view-driver'>
@@ -69,6 +78,7 @@ export function ViewDriver(props) {
                 colorStrategy={colorStrategy}
                 noteStrategy={noteStrategy}
                 noteFilter={noteFilter}
+                actionStrategy={actionStrategy}
             />
         </div>
     );
