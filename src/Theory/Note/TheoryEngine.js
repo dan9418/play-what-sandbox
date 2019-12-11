@@ -1,5 +1,5 @@
-import { Note } from './Note';
-import { Utils } from '../Utils';
+import { Note } from '../../Classes/Note';
+import { Utils } from '../../Utils';
 
 export class TheoryEngine {
     static getIntervalByPitchClass(keyCenter, intervals, pitchClass) {

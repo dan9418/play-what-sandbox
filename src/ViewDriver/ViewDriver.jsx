@@ -12,12 +12,12 @@ import { Keyboard, Fretboard } from 'play-what-beta';
 import { KeyCenterInput } from '../Inputs/KeyCenterInput/KeyCenterInput';
 import { ConceptInput } from '../Inputs/ConceptInput/ConceptInput';
 // Strategies
-import { LabelStrategies } from '../Theory/TODO/LabelStrategies';
-import { ColorStrategies } from '../Theory/TODO/ColorStrategies';
+import { LabelStrategies } from '../Theory/Strategies/Label/LabelStrategies';
+import { ColorStrategies } from '../Theory/Strategies/Color/ColorStrategies';
 // Theory
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
-import { TheoryEngine } from '../Theory/Classes/TheoryEngine';
+import { NoteStrategies } from '../Theory/Strategies/Note/NoteStrategies';
 import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralViewer';
 
 /* Component */
@@ -35,7 +35,7 @@ export function ViewDriver(props) {
 
     let labelStrategy = LabelStrategies.interval;
     let colorStrategy = ColorStrategies.degree;
-    let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, true);
+    let noteStrategy = (noteIndex) => NoteStrategies.getNoteAt(keyCenter, concept, noteIndex, false);
     let noteFilter = DEFAULT_NOTE_FILTER;
 
     return (
