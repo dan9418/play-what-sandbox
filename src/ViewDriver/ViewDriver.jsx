@@ -12,8 +12,8 @@ import { Keyboard, Fretboard } from 'play-what-beta';
 import { KeyCenterInput } from '../Inputs/KeyCenterInput/KeyCenterInput';
 import { ConceptInput } from '../Inputs/ConceptInput/ConceptInput';
 // Strategies
-import { LABEL_STRATEGIES } from '../Theory/TODO/LabelStrategies';
-import { COLOR_STRATEGIES } from '../Theory/TODO/ColorStrategies';
+import { LabelStrategies } from '../Theory/TODO/LabelStrategies';
+import { ColorStrategies } from '../Theory/TODO/ColorStrategies';
 // Theory
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
@@ -33,8 +33,8 @@ export function ViewDriver(props) {
     let concept = props.concept || DEFAULT_CONCEPT;
     console.log(concept);
 
-    let labelStrategy = LABEL_STRATEGIES.Interval;
-    let colorStrategy = COLOR_STRATEGIES.Degree;
+    let labelStrategy = LabelStrategies.interval;
+    let colorStrategy = ColorStrategies.degree;
     let noteStrategy = (noteIndex) => TheoryEngine.getNoteAt(keyCenter, concept, noteIndex, true);
     let noteFilter = DEFAULT_NOTE_FILTER;
 
