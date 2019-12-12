@@ -28,7 +28,7 @@ function getColorStyles(background, foreground) {
     let bg = Color(background)
     return {
         backgroundColor: background,
-        color: foreground || (bg.isLight() ? COLORS.Black : COLORS.White)
+        color: foreground || (bg.isDark() ? COLORS.Black : COLORS.White)
     }
 }
 

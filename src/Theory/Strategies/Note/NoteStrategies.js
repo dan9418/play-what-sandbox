@@ -14,7 +14,7 @@ export class NoteStrategies {
         let pitchClass = Utils.modulo(noteIndex, 12);
         let interval = NoteStrategies.getIntervalByPitchClass(keyCenter, concept.intervals, pitchClass);
         if (interval === null) {
-            return null;
+            return Note.getNonfunctionalNote(noteIndex);
         }
 
         let relativeKeyCenter = {
@@ -28,7 +28,7 @@ export class NoteStrategies {
     static getNoteByNoteIndex(keyCenter, concept, noteIndex) {
         let interval = NoteStrategies.getIntervalByNoteIndex(keyCenter, concept.intervals, noteIndex, true);
         if (interval === null) {
-            return null;
+            return Note.getNonfunctionalNote(noteIndex);
         }
 
         return new Note(keyCenter, interval);

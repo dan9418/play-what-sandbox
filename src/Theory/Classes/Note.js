@@ -72,4 +72,15 @@ export class Note {
     static getFrequency(noteIndex) {
         return CALIBRATION_NOTE.frequency * Math.pow(CALIBRATION_CONSTANT, noteIndex - CALIBRATION_NOTE.noteIndex);
     }
+
+    static getNonfunctionalNote(noteIndex) {
+        return {
+            noteDegree: 0,
+            pitchClass: Utils.modulo(noteIndex, 12),
+            name: '',
+            octave: Math.floor(noteIndex / 12),
+            noteIndex: noteIndex,
+            frequency: Note.getFrequency(noteIndex)
+        };
+    }
 }

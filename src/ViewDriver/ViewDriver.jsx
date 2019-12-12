@@ -38,7 +38,7 @@ export function ViewDriver(props) {
     let labelStrategy = LabelStrategies.interval;
 
     // Color
-    let colorStrategy = ColorStrategies.frequency;
+    let colorStrategy = ColorStrategies.pitchClass;
 
     // Note
     let noteStrategy = (noteIndex) => NoteStrategies.getNoteAt(keyCenter, concept, noteIndex, false);
