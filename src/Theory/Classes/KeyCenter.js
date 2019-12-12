@@ -6,6 +6,10 @@ export class KeyCenter {
         
     }
 
+    copy() {
+        return new KeyCenter(this.tonic, this.accidental, this.octave);
+    }
+
     getOctaveRootIndex() {
         return (this.octave - 4) * 12;
     }

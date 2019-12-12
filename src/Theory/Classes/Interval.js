@@ -11,6 +11,10 @@ export class Interval {
         this.octaveOffset = octaveOffset;
     }
 
+    copy() {
+        return new Interval(this.degree, this.semitones, this.id, this.name, this.ascending, this.octaveOffset);
+    }
+
     matchesPitchClassFromKeyCenter(keyCenter, pitchClass) {
         return Utils.modulo(keyCenter.getRootIndex(true) + this.semitones, 12) === pitchClass;
     }
@@ -27,6 +31,7 @@ export class Interval {
         let newDegree = Utils.moduloSum(this.degree, interval.degree, 7, 1, subtract);
         let newSemitones = Utils.moduloSum((this.octaveOffset * 12) + this.semitones, (interval.octaveOffset * 12) + interval.semitones, 12, 0, subtract);
         let allIntervals = Object.values(INTERVAL);
-        return allIntervals.find((i) => i.degree === newDegree && i.semitones === newSemitones) || null;
+        let newInterval = allIntervals.find((i) => i.degree === newDegree && i.semitones === newSemitones);
+        return newInterval ? newInterval.copy() : null;
     }
 }
