@@ -20,6 +20,7 @@ import { KeyCenter } from '../Theory/Classes/KeyCenter';
 import { NoteStrategies } from '../Theory/Strategies/Note/NoteStrategies';
 import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralViewer';
 import { ActionStrategies } from '../Theory/Strategies/Action/ActionStrategies';
+import { FretboardColorStrategies } from '../Theory/Strategies/Fretboard/FretboardStrategies';
 
 /* Component */
 
@@ -38,7 +39,8 @@ export function ViewDriver(props) {
     let labelStrategy = LabelStrategies.interval;
 
     // Color
-    let colorStrategy = ColorStrategies.pitchClass;
+    let keyboardColorStrategy = (note) => ColorStrategies.pitchClass(note);
+    let fretboardColorStrategy = (note) => ColorStrategies.degree(note);
 
     // Note
     let noteStrategy = (noteIndex) => NoteStrategies.getNoteAt(keyCenter, concept, noteIndex, false);
@@ -69,14 +71,14 @@ export function ViewDriver(props) {
             <Keyboard
                 keyLow={-8}
                 labelStrategy={labelStrategy}
-                colorStrategy={colorStrategy}
+                colorStrategy={keyboardColorStrategy}
                 noteStrategy={noteStrategy}
                 noteFilter={noteFilter}
                 actionStrategy={actionStrategy}
             />
             <Fretboard
                 labelStrategy={labelStrategy}
-                colorStrategy={colorStrategy}
+                colorStrategy={fretboardColorStrategy}
                 noteStrategy={noteStrategy}
                 noteFilter={noteFilter}
                 actionStrategy={actionStrategy}

@@ -1,6 +1,6 @@
 import { Chord } from "./Chord";
-import { Utils } from "../Utils";
-import { Interval } from "./Interval";
+import { Utils } from "../../Utils";
+import { Interval } from "../Interval";
 
 export class RomanNumeral extends Chord {
     constructor(sourceScale, degree) {

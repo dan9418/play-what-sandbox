@@ -24,7 +24,7 @@ export const COLORS = {
     pc11: '#C2305E'
 };
 
-function getColorStyles(background, foreground) {
+export function getColorStyles(background, foreground) {
     let bg = Color(background)
     return {
         backgroundColor: background,

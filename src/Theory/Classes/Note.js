@@ -78,7 +78,7 @@ export class Note {
             noteDegree: 0,
             pitchClass: Utils.modulo(noteIndex, 12),
             name: '',
-            octave: Math.floor(noteIndex / 12),
+            octave: Math.floor(noteIndex / 12) + 4,
             noteIndex: noteIndex,
             frequency: Note.getFrequency(noteIndex)
         };

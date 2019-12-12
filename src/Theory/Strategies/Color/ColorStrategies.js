@@ -1,4 +1,4 @@
-import { DEFAULT_COLOR_PROFILE, COLORS } from "./ColorConfig";
+import { DEFAULT_COLOR_PROFILE, getColorStyles } from "./ColorConfig";
 import * as Color from "color";
 
 export class ColorStrategies {
@@ -6,11 +6,11 @@ export class ColorStrategies {
         return {};
     }
 
-    static binary(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.binary) {
-        return (!!note) ? scheme[1] : scheme[0];
+    static binary(note, scheme = DEFAULT_COLOR_PROFILE.binary) {
+        return (!note || !note.interval) ? scheme[0] : scheme[1];
     }
 
-    static degree(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.degree) {
+    static degree(note, scheme = DEFAULT_COLOR_PROFILE.degree) {
         if (!note || !note.interval) {
             return scheme[0];
         } else {
@@ -18,36 +18,30 @@ export class ColorStrategies {
         }
     }
 
-    static pitchClass(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.pitchClass) {
+    static pitchClass(note, scheme = DEFAULT_COLOR_PROFILE.pitchClass) {
         return scheme[note.pitchClass];
     }
 
-    static octave(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.octave) {
-        if (!note || !viewerData) return {};
-
-        let currentOctave = note.noteOctave;
-        let minOctave = viewerData.minNote.noteOctave;
-        let maxOctave = viewerData.maxNote.noteOctave;
+    static octave(note, minNote, maxNote, scheme = DEFAULT_COLOR_PROFILE.octave) {
+        let currentOctave = note.octave;
+        let minOctave = minNote.octave;
+        let maxOctave = maxNote.octave;
 
         return ColorStrategies.percentage(currentOctave, minOctave, maxOctave, scheme);
     }
 
-    static frequency(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.frequency) {
-        if (!note || !viewerData) return {};
-
+    static frequency(note, minNote, maxNote, scheme = DEFAULT_COLOR_PROFILE.frequency) {
         let currentFrequency = note.frequency;
-        let minFrequency = viewerData.minNote.frequency;
-        let maxFrequency = viewerData.maxNote.frequency;
+        let minFrequency = minNote.frequency;
+        let maxFrequency = maxNote.frequency;
 
         return ColorStrategies.percentage(currentFrequency, minFrequency, maxFrequency, scheme);
     }
 
-    static noteIndex(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.noteIndex) {
-        if (!note || !viewerData) return {};
-
+    static noteIndex(note, minNote, maxNote, scheme = DEFAULT_COLOR_PROFILE.noteIndex) {
         let currentIndex = note.noteIndex;
-        let minIndex = viewerData.minNote.noteIndex;
-        let maxIndex = viewerData.maxNote.noteIndex;
+        let minIndex = minNote.noteIndex;
+        let maxIndex = maxNote.noteIndex;
 
         return ColorStrategies.percentage(currentIndex, minIndex, maxIndex, scheme);
     }
@@ -59,11 +53,7 @@ export class ColorStrategies {
         let initialColor = Color(colorScheme[0]);
         let finalColor = Color(colorScheme[1]);
         let background = initialColor.mix(finalColor, percent);
-        let foreground = background.isLight() ? COLORS.White : COLORS.Black;
 
-        return {
-            backgroundColor: background,
-            color: foreground
-        };
+        return getColorStyles(background);
     }
 }

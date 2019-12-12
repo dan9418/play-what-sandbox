@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ConceptInput.css';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
 import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../Theory/Constants/Presets';
-import { RomanNumeral } from '../../Theory/Classes/RomanNumeral';
+import { RomanNumeral } from '../../Theory/Classes/Concepts/RomanNumeral';
 
 const ROMAN_NUMERALS = [
     {
