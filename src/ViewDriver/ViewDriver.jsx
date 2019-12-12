@@ -72,6 +72,7 @@ export function ViewDriver(props) {
                 colorStrategy={colorStrategy}
                 noteStrategy={noteStrategy}
                 noteFilter={noteFilter}
+                actionStrategy={actionStrategy}
             />
             <Fretboard
                 labelStrategy={labelStrategy}
