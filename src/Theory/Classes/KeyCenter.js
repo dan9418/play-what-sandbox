@@ -3,6 +3,7 @@ export class KeyCenter {
         this.tonic = tonic;
         this.accidental = accidental;
         this.octave = octave;
+        
     }
 
     getOctaveRootIndex() {

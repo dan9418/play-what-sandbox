@@ -7,7 +7,6 @@ export class HeptatonicScale extends Scale {
             throw 'Heptatonic scale must have exactly 7 intervals';
         }
         super(id, name, intervals);
-        this.conceptType = 'heptatonicScale'
     }
 
     getRomanNumeral(degree) {

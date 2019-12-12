@@ -11,7 +11,6 @@ export class RomanNumeral extends Chord {
         super(id, name, intervals);
         this.sourceScale = sourceScale;
         this.relativeIntervals = relativeIntervals;
-        this.conceptType = 'romanNumeral';
     }
 
     static _getIntervals(intervals, degree) {

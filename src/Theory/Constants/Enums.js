@@ -1,4 +1,4 @@
-export const TONIC = {
+export const TONIC = Object.freeze({
     C: {
         id: 'C',
         name: 'C',
@@ -41,9 +41,9 @@ export const TONIC = {
         degreeInC: 7,
         pitchClass: 11
     }
-};
+});
 
-export const ACCIDENTAL = {
+export const ACCIDENTAL = Object.freeze({
     Flat: {
         id: 'Flat',
         name: 'b',
@@ -59,4 +59,4 @@ export const ACCIDENTAL = {
         name: '#',
         offset: 1
     }
-};
+});

@@ -6,6 +6,5 @@ export class IntervalPair extends Concept {
             throw 'Interval pair must have exactly 2 intervals';
         }
         super(id, name, intervals);
-        this.conceptType = 'intervalPair'
     }
 }

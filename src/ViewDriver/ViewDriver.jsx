@@ -21,6 +21,7 @@ import { NoteStrategies } from '../Theory/Strategies/Note/NoteStrategies';
 import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralViewer';
 import { ActionStrategies } from '../Theory/Strategies/Action/ActionStrategies';
 import { FretboardColorStrategies } from '../Theory/Strategies/Fretboard/FretboardStrategies';
+import { RomanNumeral } from '../Theory/Classes/Concepts/RomanNumeral';
 
 /* Component */
 
@@ -63,7 +64,7 @@ export function ViewDriver(props) {
                 concept={concept}
                 setConcept={props.setConcept}
             />
-            {concept.conceptType === 'romanNumeral' &&
+            {concept instanceof RomanNumeral &&
                 <RomanNumeralViewer
                     romanNumeral={concept}
                 />

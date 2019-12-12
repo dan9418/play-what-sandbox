@@ -3,6 +3,7 @@ import './ConceptInput.css';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
 import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../Theory/Constants/Presets';
 import { RomanNumeral } from '../../Theory/Classes/Concepts/RomanNumeral';
+import { HeptatonicScale } from '../../Theory/Classes/Concepts/HeptatonicScale';
 
 const ROMAN_NUMERALS = [
     {
@@ -94,7 +95,7 @@ export function ConceptInput(props) {
                 />
             </div>
 
-            {props.concept.conceptType === 'heptatonicScale' &&
+            {props.concept instanceof HeptatonicScale &&
                 <div className='input-row'>
                     <label>Roman Numeral:</label>
                     <DropdownInput
@@ -110,7 +111,7 @@ export function ConceptInput(props) {
                 </div>
             }
 
-            {props.concept.conceptType === 'romanNumeral' &&
+            {props.concept instanceof RomanNumeral &&
                 <div className='input-row'>
                     <label>Roman Numeral:</label>
                     <DropdownInput

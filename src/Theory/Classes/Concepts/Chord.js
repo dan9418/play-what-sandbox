@@ -3,7 +3,6 @@ import { Concept } from "./Concept";
 export class Chord extends Concept {
     constructor(id, name, intervals) {
         super(id, name, intervals);
-        this.conceptType = 'chord'
     }
 
     chordInversion(inversion) {
