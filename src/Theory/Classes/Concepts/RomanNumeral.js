@@ -4,23 +4,30 @@ import { Interval } from "../Interval";
 
 export class RomanNumeral extends Chord {
     constructor(sourceScale, degree) {
-        let intervals = degree ? RomanNumeral._getIntervals(sourceScale.intervals, degree) : sourceScale.intervals;
-        let relativeIntervals = intervals.map(ivl => ivl.subtract(intervals[0]));
+        let intervals = degree ? RomanNumeral._getIntervals(sourceScale, degree) : sourceScale.intervals;
+        let relativeIntervals = RomanNumeral._getRelativeIntervals(intervals);
+
         let id = degree ? `${sourceScale.id}_rn${degree}` : sourceScale.id;
         let name = degree ? RomanNumeral.getName(relativeIntervals, degree) : sourceScale.name;
+
         super(id, name, intervals);
+
         this.sourceScale = sourceScale;
         this.relativeIntervals = relativeIntervals;
     }
 
-    static _getIntervals(intervals, degree) {
+    static _getRelativeIntervals(intervals) {
+        return intervals.map(ivl => ivl.subtract(intervals[0]));
+    }
+
+    static _getIntervals(sourceScale, degree) {
         degree = degree;
         let validDegrees = [
             degree,
             Utils.moduloSum(degree, 3, 7, 1),
             Utils.moduloSum(degree, 5, 7, 1)
         ];
-        let newIntervals = intervals.filter(interval => validDegrees.includes(interval.degree));
+        let newIntervals = sourceScale.intervals.filter(interval => validDegrees.includes(interval.degree));
         while (newIntervals[0].degree < degree) {
             let first = newIntervals.shift();
             let { degree, semitones, id, name, ascending } = first;

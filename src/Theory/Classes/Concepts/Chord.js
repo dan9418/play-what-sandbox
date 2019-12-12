@@ -1,17 +1,20 @@
 import { Concept } from "./Concept";
 
 export class Chord extends Concept {
-    constructor(id, name, intervals) {
+    constructor(id, name, intervals, inversion = 0) {
         super(id, name, intervals);
+        //this.chordInversion(inversion); // TODO verify
     }
 
     chordInversion(inversion) {
+        let intervalsCopy = [...this.intervals];
         for (let i = 0; i < inversion; i++) {
-            let shifted = this.intervals.shift();
+            let shifted = intervalsCopy.shift();
             shifted = {...shifted};
             shifted.octaveOffset = shifted.octaveOffset + 1;
-            this.intervals.push(shifted);
+            intervalsCopy.push(shifted);
         }
+        return new Chord(this.id, this.name, intervalsCopy, this.inversion + inversion)
         // TODO reverse inversions
     }
 }

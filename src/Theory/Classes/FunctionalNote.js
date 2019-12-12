@@ -14,6 +14,10 @@ export class FunctionalNote {
         this.frequency = NonfunctionalNote.getFrequency(this.noteIndex);
     }
 
+    copy() {
+        return new FunctionalNote(this.keyCenter, this.interval);
+    }
+
     static getDegree(keyCenter, interval) {
         return Utils.moduloSum(keyCenter.tonic.degreeInC, interval.degree, 7, 1);
     }

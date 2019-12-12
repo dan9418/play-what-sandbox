@@ -13,6 +13,10 @@ export class NonfunctionalNote {
         this.frequency = NonfunctionalNote.getFrequency(noteIndex);
     }
 
+    copy() {
+        return new NonfunctionalNote(this.noteIndex);
+    }
+
     static getPitchClass(noteIndex) {
         return Utils.modulo(noteIndex, 12);
     }

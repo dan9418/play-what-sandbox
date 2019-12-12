@@ -6,6 +6,8 @@ export class Scale extends Concept {
     }
 
     reverse() {
-        this.intervals.reverse();
+        let intervalsCopy = [...this.intervals];
+        intervalsCopy.reverse();
+        return new Scale(this.id, this.name, intervalsCopy);
     }
 }
