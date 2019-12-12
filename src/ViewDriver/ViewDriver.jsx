@@ -45,7 +45,7 @@ export function ViewDriver(props) {
     let noteFilter = DEFAULT_NOTE_FILTER;
 
     // Action
-    let actionStrategy = ActionStrategies.log;
+    let actionStrategy = ActionStrategies.sound;
 
     return (
         <div className='view-driver'>
