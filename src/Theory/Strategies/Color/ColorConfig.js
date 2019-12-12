@@ -1,8 +1,8 @@
-import { blendColors, pickTextColorBasedOnBgColorSimple } from "./ColorTools";
+import * as Color from "color";
 
-const COLORS = {
-    White: 'white',
-    Black: 'black',
+export const COLORS = {
+    White: '#000000',
+    Black: '#FFFFFF',
     Red: '#E6194B',
     Orange: '#F58231',
     Yellow: '#FFE119',
@@ -25,9 +25,10 @@ const COLORS = {
 };
 
 function getColorStyles(background, foreground) {
+    let bg = Color(background)
     return {
         backgroundColor: background,
-        color: foreground || pickTextColorBasedOnBgColorSimple(background)
+        color: foreground || (bg.isLight() ? COLORS.Black : COLORS.White)
     }
 }
 

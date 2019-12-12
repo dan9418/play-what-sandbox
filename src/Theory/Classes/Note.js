@@ -58,7 +58,7 @@ export class Note {
     }
 
     static getOctave(keyCenter, interval) {
-        return keyCenter.tonic.octave + Math.floor((keyCenter.tonic.pitchClass + keyCenter.accidental.offset + interval.semitones) / 12);
+        return keyCenter.octave + Math.floor((keyCenter.tonic.pitchClass + keyCenter.accidental.offset + interval.semitones) / 12);
     }
 
     static getOctaveByNoteIndex(noteIndex) {

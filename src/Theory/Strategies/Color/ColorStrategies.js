@@ -1,5 +1,5 @@
-import { blendColors, pickTextColorBasedOnBgColorSimple } from "./ColorTools";
-import { DEFAULT_COLOR_PROFILE } from "./ColorConfig";
+import { DEFAULT_COLOR_PROFILE, COLORS } from "./ColorConfig";
+import * as Color from "color";
 
 export class ColorStrategies {
     static none() {
@@ -22,7 +22,7 @@ export class ColorStrategies {
         return scheme[note.pitchClass];
     }
 
-    static octave(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.Octave) {
+    static octave(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.octave) {
         if (!note || !viewerData) return {};
 
         let currentOctave = note.noteOctave;
@@ -32,7 +32,7 @@ export class ColorStrategies {
         return ColorStrategies.percentage(currentOctave, minOctave, maxOctave, scheme);
     }
 
-    static frequency(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.Frequency) {
+    static frequency(note, viewerData, scheme = DEFAULT_COLOR_PROFILE.frequency) {
         if (!note || !viewerData) return {};
 
         let currentFrequency = note.frequency;
@@ -56,8 +56,10 @@ export class ColorStrategies {
         let percent = (value - min) / (max - min);
         percent <= 0 ? 0 : percent >= 1 ? 1 : percent;
 
-        let background = blendColors(colorScheme[0], colorScheme[1], percent);
-        let foreground = pickTextColorBasedOnBgColorSimple(background);
+        let initialColor = Color(colorScheme[0]);
+        let finalColor = Color(colorScheme[1]);
+        let background = initialColor.mix(finalColor, percent);
+        let foreground = background.isLight() ? COLORS.White : COLORS.Black;
 
         return {
             backgroundColor: background,
