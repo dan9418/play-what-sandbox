@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ColorStrategies } from '../../../Theory/Strategies/Color/ColorStrategies';
+import { ColorStrategies } from '../../../Theory/Strategies/ColorStrategies';
 import './RomanNumeralViewer.css';
 
 function IntervalLabel(props) {

@@ -12,14 +12,14 @@ import { Keyboard, Fretboard } from 'play-what-beta';
 import { KeyCenterInput } from '../Inputs/KeyCenterInput/KeyCenterInput';
 import { ConceptInput } from '../Inputs/ConceptInput/ConceptInput';
 // Strategies
-import { LabelStrategies } from '../Theory/Strategies/Label/LabelStrategies';
-import { ColorStrategies } from '../Theory/Strategies/Color/ColorStrategies';
+import { LabelStrategies } from '../Theory/Strategies/LabelStrategies';
+import { ColorStrategies } from '../Theory/Strategies/ColorStrategies';
 // Theory
 import { DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, DEFAULT_NOTE_STRATEGY, DEFAULT_NOTE_FILTER } from '../Theory/Constants/Defaults';
 import { KeyCenter } from '../Theory/Classes/KeyCenter';
-import { NoteStrategies } from '../Theory/Strategies/Note/NoteStrategies';
+import { NoteStrategies } from '../Theory/Strategies/NoteStrategies';
 import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralViewer';
-import { ActionStrategies } from '../Theory/Strategies/Action/ActionStrategies';
+import { ActionStrategies } from '../Theory/Strategies/ActionStrategies';
 //import { FretboardColorStrategies } from '../Theory/Strategies/Fretboard/FretboardStrategies';
 import { RomanNumeral } from '../Theory/Classes/Concepts/RomanNumeral';
 

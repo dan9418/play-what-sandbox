@@ -1,4 +1,4 @@
-import { ColorStrategies } from "../Color/ColorStrategies";
+import { ColorStrategies } from "./ColorStrategies";
 
 export const FretboardTools = {
     color: {
@@ -17,7 +17,7 @@ export const FretboardTools = {
         }
     },
     label: {
-        
+
     }
 
 } 

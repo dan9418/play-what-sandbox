@@ -1,8 +1,10 @@
-import { Utils } from '../../Utils';
-import { FunctionalNote } from '../../Classes/FunctionalNote';
-import { NonfunctionalNote } from '../../Classes/NonfunctionalNote';
+import { Utils } from '../Utils';
+import { FunctionalNote } from '../Classes/FunctionalNote';
+import { NonfunctionalNote } from '../Classes/NonfunctionalNote';
 
 export class NoteStrategies {
+    // Private
+
     static getIntervalByPitchClass(keyCenter, intervals, pitchClass) {
         return intervals.find(interval => interval.matchesPitchClassFromKeyCenter(keyCenter, pitchClass)) || null;
     }
@@ -10,6 +12,8 @@ export class NoteStrategies {
     static getIntervalByNoteIndex(keyCenter, intervals, noteIndex) {
         return intervals.find(interval => interval.matchesNoteIndexFromKeyCenter(keyCenter, noteIndex)) || null;
     }
+
+    // Public
 
     static getNoteByPitchClass(keyCenter, concept, noteIndex) {
         let pitchClass = Utils.modulo(noteIndex, 12);
