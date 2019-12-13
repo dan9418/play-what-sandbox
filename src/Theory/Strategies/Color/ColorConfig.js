@@ -1,5 +1,3 @@
-import * as Color from "color";
-
 export const COLORS = {
     White: '#000000',
     Black: '#FFFFFF',
@@ -24,52 +22,53 @@ export const COLORS = {
     pc11: '#C2305E'
 };
 
-export function getColorStyles(background, foreground) {
-    let bg = Color(background)
-    return {
-        backgroundColor: background,
-        color: foreground || (bg.isDark() ? COLORS.Black : COLORS.White)
-    }
-}
-
 export const DEFAULT_COLOR_PROFILE = {
     binary: [
-        {},
-        getColorStyles(COLORS.Red)
+        null,
+        COLORS.Red
     ],
     degree: [
-        {},
-        getColorStyles(COLORS.Red),
-        getColorStyles(COLORS.Orange),
-        getColorStyles(COLORS.Yellow),
-        getColorStyles(COLORS.Green),
-        getColorStyles(COLORS.Blue),
-        getColorStyles(COLORS.Purple),
-        getColorStyles(COLORS.Pink),
-        getColorStyles(COLORS.Red),
-        getColorStyles(COLORS.Orange),
-        getColorStyles(COLORS.Yellow),
-        getColorStyles(COLORS.Green),
-        getColorStyles(COLORS.Blue),
-        getColorStyles(COLORS.Purple),
-        getColorStyles(COLORS.Pink),
-        getColorStyles(COLORS.Red)
+        null,
+        COLORS.Red,
+        COLORS.Orange,
+        COLORS.Yellow,
+        COLORS.Green,
+        COLORS.Blue,
+        COLORS.Purple,
+        COLORS.Pink,
+        COLORS.Red,
+        COLORS.Orange,
+        COLORS.Yellow,
+        COLORS.Green,
+        COLORS.Blue,
+        COLORS.Purple,
+        COLORS.Pink,
+        COLORS.Red
     ],
     pitchClass: [
-        getColorStyles(COLORS.pc0),
-        getColorStyles(COLORS.pc1),
-        getColorStyles(COLORS.pc2),
-        getColorStyles(COLORS.pc3),
-        getColorStyles(COLORS.pc4),
-        getColorStyles(COLORS.pc5),
-        getColorStyles(COLORS.pc6),
-        getColorStyles(COLORS.pc7),
-        getColorStyles(COLORS.pc8),
-        getColorStyles(COLORS.pc9),
-        getColorStyles(COLORS.pc10),
-        getColorStyles(COLORS.pc11)
+        COLORS.pc0,
+        COLORS.pc1,
+        COLORS.pc2,
+        COLORS.pc3,
+        COLORS.pc4,
+        COLORS.pc5,
+        COLORS.pc6,
+        COLORS.pc7,
+        COLORS.pc8,
+        COLORS.pc9,
+        COLORS.pc10,
+        COLORS.pc11
     ],
-    octave: [COLORS.Black, COLORS.White],
-    frequency: [COLORS.Black, COLORS.White],
-    noteIndex: [COLORS.Black, COLORS.White]
+    octave: [
+        COLORS.Black,
+        COLORS.White
+    ],
+    frequency: [
+        COLORS.Black,
+        COLORS.White
+    ],
+    noteIndex: [
+        COLORS.Black,
+        COLORS.White
+    ]
 };

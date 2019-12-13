@@ -20,7 +20,7 @@ import { KeyCenter } from '../Theory/Classes/KeyCenter';
 import { NoteStrategies } from '../Theory/Strategies/Note/NoteStrategies';
 import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralViewer';
 import { ActionStrategies } from '../Theory/Strategies/Action/ActionStrategies';
-import { FretboardColorStrategies } from '../Theory/Strategies/Fretboard/FretboardStrategies';
+//import { FretboardColorStrategies } from '../Theory/Strategies/Fretboard/FretboardStrategies';
 import { RomanNumeral } from '../Theory/Classes/Concepts/RomanNumeral';
 
 /* Component */
