@@ -22,9 +22,6 @@
     "play-what-beta": "file:C:/_dev/play-what-beta",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-redux": "^7.1.3",
-    "redux": "^4.0.4",
-    "redux-devtools-extension": "^2.13.8",
     "tone": "^13.8.25",
     "webpack-dev-server": "^3.9.0"
   },
