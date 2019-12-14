@@ -22,7 +22,9 @@ import { RomanNumeralViewer } from './Viewers/RomanNumeralViewer/RomanNumeralVie
 import { ActionStrategies } from '../Theory/Strategies/ActionStrategies';
 import { RomanNumeral } from '../Theory/Classes/Concepts/RomanNumeral';
 // Fretboard
-import { FretboardColorStrategies, FretboardLabelStrategies } from '../Theory/Strategies/Fretboard/FretboardStrategies';
+import { FretboardColorStrategies, FretboardLabelStrategies } from '../Theory/Strategies/Viewers/FretboardStrategies';
+// Keyboard
+import { KeyboardColorStrategies, KeyboardLabelStrategies } from '../Theory/Strategies/Viewers/KeyboardStrategies';
 
 /* Component */
 
@@ -38,11 +40,11 @@ export function ViewDriver(props) {
     console.log(concept);
 
     // Label
-    let keyboardLabelStrategy = LabelStrategies.interval;
+    let keyboardLabelStrategy = KeyboardLabelStrategies.keyNumber;
     let fretboardLabelStrategy = FretboardLabelStrategies.fretNumber;
 
     // Color
-    let keyboardColorStrategy = ColorStrategies.pitchClass;
+    let keyboardColorStrategy = KeyboardColorStrategies.keyNumber;
     let fretboardColorStrategy = FretboardColorStrategies.fretNumber;
 
     // Note
