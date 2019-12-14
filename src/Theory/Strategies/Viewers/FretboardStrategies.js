@@ -1,6 +1,7 @@
 import { ColorStrategies } from "../ColorStrategies";
 import { LabelStrategies } from "../LabelStrategies";
 import { ColorTools, COLORS } from "../ColorTools";
+import { FilterStrategies } from "../FilterStrategies";
 
 export const DEFAULT_FRETBOARD_COLOR_SCHEMES = {
     stringNumber: [
@@ -28,5 +29,11 @@ export class FretboardLabelStrategies extends LabelStrategies {
     }
     static fretNumber(note, viewerData) {
         return viewerData.fretData.number;
+    }
+}
+
+export class FretboardFilterStrategies extends FilterStrategies {
+    static voicing(note, viewerData, voicing = []) {
+        // TODO
     }
 }
