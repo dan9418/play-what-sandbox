@@ -40,12 +40,12 @@ export function ViewDriver(props) {
     console.log(concept);
 
     // Label
-    let keyboardLabelStrategy = KeyboardLabelStrategies.keyNumber;
-    let fretboardLabelStrategy = FretboardLabelStrategies.fretNumber;
+    let keyboardLabelStrategy = KeyboardLabelStrategies.interval;
+    let fretboardLabelStrategy = FretboardLabelStrategies.interval;
 
     // Color
-    let keyboardColorStrategy = KeyboardColorStrategies.keyNumber;
-    let fretboardColorStrategy = FretboardColorStrategies.fretNumber;
+    let keyboardColorStrategy = KeyboardColorStrategies.degree;
+    let fretboardColorStrategy = FretboardColorStrategies.degree;
 
     // Note
     let noteStrategy = (noteIndex) => NoteStrategies.getNoteAt(keyCenter, concept, noteIndex, false);

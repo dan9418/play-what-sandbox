@@ -1,6 +1,4 @@
-import * as Tone from "tone";
-
-const synth = new Tone.Synth().toMaster();
+import { synth } from "./SoundTools";
 
 export class ActionStrategies {
     static nop() {
@@ -18,12 +16,8 @@ export class ActionStrategies {
     }
 
     static sound(note, viewerData) {
-        let output = {
-            note: note,
-            viewerData: viewerData
-        }
         return () => {
-            console.log(output);
+            ActionStrategies.log(note, viewerData);
             synth.triggerAttackRelease(note.frequency, .5);
         }
     }
