@@ -1,7 +1,7 @@
-import { ColorStrategies } from "../ColorStrategies";
-import { LabelStrategies } from "../LabelStrategies";
-import { ColorTools, COLORS } from "../ColorTools";
-import { FilterStrategies } from "../FilterStrategies";
+import { ColorStrategies } from "../../Theory/Strategies/ColorStrategies";
+import { LabelStrategies } from "../../Theory/Strategies/LabelStrategies";
+import { ColorTools, COLORS } from "../../Theory/Strategies/ColorTools";
+import { FilterStrategies } from "../../Theory/Strategies/FilterStrategies";
 
 export const DEFAULT_FRETBOARD_COLOR_SCHEMES = {
     stringNumber: [

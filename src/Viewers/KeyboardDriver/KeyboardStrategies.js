@@ -1,6 +1,6 @@
-import { ColorStrategies } from "../ColorStrategies";
-import { LabelStrategies } from "../LabelStrategies";
-import { ColorTools, COLORS } from "../ColorTools";
+import { ColorStrategies } from "../../Theory/Strategies/ColorStrategies";
+import { LabelStrategies } from "../../Theory/Strategies/LabelStrategies";
+import { ColorTools, COLORS } from "../../Theory/Strategies/ColorTools";
 import { KeyboardKeyType } from "play-what-beta";
 
 export const DEFAULT_KEYBOARD_COLOR_SCHEMES = {
