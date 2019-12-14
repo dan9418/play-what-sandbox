@@ -56,38 +56,38 @@ export class ColorStrategies {
         return {};
     }
 
-    static binary(note, scheme = DEFAULT_COLOR_SCHEMES.binary) {
+    static binary(note, viewerData, scheme = DEFAULT_COLOR_SCHEMES.binary) {
         return (!note || !note.interval) ? ColorTools.discrete(0, scheme) : ColorTools.discrete(1, scheme);
     }
 
-    static degree(note, scheme = DEFAULT_COLOR_SCHEMES.degree) {
+    static degree(note, viewerData, scheme = DEFAULT_COLOR_SCHEMES.degree) {
         return (!note || !note.interval) ? ColorTools.discrete(0, scheme) : ColorTools.discrete(note.interval.degree, scheme);
     }
 
-    static pitchClass(note, scheme = DEFAULT_COLOR_SCHEMES.pitchClass) {
+    static pitchClass(note, viewerData, scheme = DEFAULT_COLOR_SCHEMES.pitchClass) {
         return ColorTools.discrete(note.pitchClass, scheme);
     }
 
-    static octave(note, minNote, maxNote, scheme = DEFAULT_COLOR_SCHEMES.octave) {
+    static octave(note, viewerData, scheme = DEFAULT_COLOR_SCHEMES.octave) {
         let currentOctave = note.octave;
-        let minOctave = minNote.octave;
-        let maxOctave = maxNote.octave;
+        let minOctave = viewerData.minNote.octave;
+        let maxOctave = viewerData.maxNote.octave;
 
         return ColorTools.continuous(currentOctave, minOctave, maxOctave, scheme);
     }
 
-    static frequency(note, minNote, maxNote, scheme = DEFAULT_COLOR_SCHEMES.frequency) {
+    static frequency(note, viewerData, scheme = DEFAULT_COLOR_SCHEMES.frequency) {
         let currentFrequency = note.frequency;
-        let minFrequency = minNote.frequency;
-        let maxFrequency = maxNote.frequency;
+        let minFrequency = viewerData.minNote.frequency;
+        let maxFrequency = viewerData.maxNote.frequency;
 
         return ColorTools.continuous(currentFrequency, minFrequency, maxFrequency, scheme);
     }
 
-    static noteIndex(note, minNote, maxNote, scheme = DEFAULT_COLOR_SCHEMES.noteIndex) {
+    static noteIndex(note, viewerData, scheme = DEFAULT_COLOR_SCHEMES.noteIndex) {
         let currentIndex = note.noteIndex;
-        let minIndex = minNote.noteIndex;
-        let maxIndex = maxNote.noteIndex;
+        let minIndex = viewerData.minNote.noteIndex;
+        let maxIndex = viewerData.maxNote.noteIndex;
 
         return ColorTools.continuous(currentIndex, minIndex, maxIndex, scheme);
     }
