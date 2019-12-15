@@ -1,6 +1,6 @@
-import { Utils } from '../Utils';
-import { FunctionalNote } from '../Classes/FunctionalNote';
-import { NonfunctionalNote } from '../Classes/NonfunctionalNote';
+import { CommonUtils } from '../Utils/CommonUtils';
+import { FunctionalNote } from '../FunctionalNote';
+import { NonfunctionalNote } from '../NonfunctionalNote';
 
 export class NoteStrategies {
     // Private
@@ -16,7 +16,7 @@ export class NoteStrategies {
     // Public
 
     static getNoteByPitchClass(noteIndex, keyCenter, concept) {
-        let pitchClass = Utils.modulo(noteIndex, 12);
+        let pitchClass = CommonUtils.modulo(noteIndex, 12);
         let interval = NoteStrategies.getIntervalByPitchClass(keyCenter, concept.intervals, pitchClass);
         if (interval === null) {
             return new NonfunctionalNote(noteIndex);

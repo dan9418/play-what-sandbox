@@ -1,5 +1,5 @@
-import { TONIC } from '../Constants/Enums';
-import { Utils } from '../Utils';
+import { TONIC } from './Constants/Enums';
+import { CommonUtils } from './Utils/CommonUtils';
 import { NonfunctionalNote } from './NonfunctionalNote';
 
 export class FunctionalNote {
@@ -19,11 +19,11 @@ export class FunctionalNote {
     }
 
     static getDegree(keyCenter, interval) {
-        return Utils.moduloSum(keyCenter.tonic.degreeInC, interval.degree, 7, 1);
+        return CommonUtils.moduloSum(keyCenter.tonic.degreeInC, interval.degree, 7, 1);
     }
 
     static getPitchClass(keyCenter, interval) {
-        return Utils.moduloSum(keyCenter.tonic.pitchClass + keyCenter.accidental.offset, interval.semitones, 12, 0);
+        return CommonUtils.moduloSum(keyCenter.tonic.pitchClass + keyCenter.accidental.offset, interval.semitones, 12, 0);
     }
 
     static getName(noteDegree, pitchClass, accidental) {

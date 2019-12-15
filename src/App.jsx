@@ -4,7 +4,7 @@ import './App.css';
 
 import { Fretboard, Keyboard } from 'play-what-beta';
 
-import { KeyCenter } from './Theory/Classes/KeyCenter';
+import { KeyCenter } from './Theory/KeyCenter';
 import { TONIC, ACCIDENTAL } from './Theory/Constants/Enums';
 import { INTERVAL_PAIR, CHORD, SCALE, MODE } from './Theory/Constants/Presets';
 

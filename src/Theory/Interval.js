@@ -1,5 +1,5 @@
-import { Utils } from "../Utils";
-import { INTERVAL } from '../Constants/Presets'
+import { CommonUtils } from "./Utils/CommonUtils";
+import { INTERVAL } from './Constants/Presets'
 
 export class Interval {
     constructor(degree, semitones, id, name, ascending = true, octaveOffset = 0) {
@@ -16,7 +16,7 @@ export class Interval {
     }
 
     matchesPitchClassFromKeyCenter(keyCenter, pitchClass) {
-        return Utils.modulo(keyCenter.getRootIndex(true) + this.semitones, 12) === pitchClass;
+        return CommonUtils.modulo(keyCenter.getRootIndex(true) + this.semitones, 12) === pitchClass;
     }
 
     matchesNoteIndexFromKeyCenter(keyCenter, noteIndex) {
@@ -28,8 +28,8 @@ export class Interval {
     }
 
     add(interval, subtract = false) {
-        let newDegree = Utils.moduloSum(this.degree, interval.degree, 7, 1, subtract);
-        let newSemitones = Utils.moduloSum((this.octaveOffset * 12) + this.semitones, (interval.octaveOffset * 12) + interval.semitones, 12, 0, subtract);
+        let newDegree = CommonUtils.moduloSum(this.degree, interval.degree, 7, 1, subtract);
+        let newSemitones = CommonUtils.moduloSum((this.octaveOffset * 12) + this.semitones, (interval.octaveOffset * 12) + interval.semitones, 12, 0, subtract);
         let allIntervals = Object.values(INTERVAL);
         let newInterval = allIntervals.find((i) => i.degree === newDegree && i.semitones === newSemitones);
         return newInterval ? newInterval.copy() : null;

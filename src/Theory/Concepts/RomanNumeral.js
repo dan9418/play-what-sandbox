@@ -1,5 +1,5 @@
 import { Chord } from "./Chord";
-import { Utils } from "../../Utils";
+import { CommonUtils } from "../Utils/CommonUtils";
 import { Interval } from "../Interval";
 
 export class RomanNumeral extends Chord {
@@ -24,8 +24,8 @@ export class RomanNumeral extends Chord {
         degree = degree;
         let validDegrees = [
             degree,
-            Utils.moduloSum(degree, 3, 7, 1),
-            Utils.moduloSum(degree, 5, 7, 1)
+            CommonUtils.moduloSum(degree, 3, 7, 1),
+            CommonUtils.moduloSum(degree, 5, 7, 1)
         ];
         let newIntervals = sourceScale.intervals.filter(interval => validDegrees.includes(interval.degree));
         while (newIntervals[0].degree < degree) {

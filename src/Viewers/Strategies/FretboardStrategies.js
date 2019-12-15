@@ -1,6 +1,6 @@
 import { ColorStrategies } from "../../Theory/Strategies/ColorStrategies";
 import { LabelStrategies } from "../../Theory/Strategies/LabelStrategies";
-import { ColorTools, COLORS } from "../../Theory/Strategies/ColorTools";
+import { ColorUtils, COLORS } from "../../Theory/Utils/ColorUtils";
 import { FilterStrategies } from "../../Theory/Strategies/FilterStrategies";
 
 export const DEFAULT_FRETBOARD_COLOR_SCHEMES = {
@@ -16,10 +16,10 @@ export const DEFAULT_FRETBOARD_COLOR_SCHEMES = {
 
 export class FretboardColorStrategies extends ColorStrategies {
     static stringNumber(note, viewerData, scheme = DEFAULT_FRETBOARD_COLOR_SCHEMES.stringNumber) {
-        return ColorTools.continuous(viewerData.stringData.number, 1, viewerData.numStrings, scheme);
+        return ColorUtils.continuous(viewerData.stringData.number, 1, viewerData.numStrings, scheme);
     }
     static fretNumber(note, viewerData, scheme = DEFAULT_FRETBOARD_COLOR_SCHEMES.fretNumber) {
-        return ColorTools.continuous(viewerData.fretData.number, viewerData.fretLow, viewerData.fretHigh, scheme);
+        return ColorUtils.continuous(viewerData.fretData.number, viewerData.fretLow, viewerData.fretHigh, scheme);
     }
 }
 

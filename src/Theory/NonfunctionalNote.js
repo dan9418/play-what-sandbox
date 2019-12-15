@@ -1,5 +1,5 @@
-import { CALIBRATION_NOTE, CALIBRATION_CONSTANT } from '../Constants/Tuning';
-import { Utils } from '../Utils';
+import { SoundUtils } from './Utils/SoundUtils';
+import { CommonUtils } from './Utils/CommonUtils';
 
 export class NonfunctionalNote {
     constructor(noteIndex) {
@@ -18,7 +18,7 @@ export class NonfunctionalNote {
     }
 
     static getPitchClass(noteIndex) {
-        return Utils.modulo(noteIndex, 12);
+        return CommonUtils.modulo(noteIndex, 12);
     }
 
     static getOctave(noteIndex) {
@@ -26,6 +26,6 @@ export class NonfunctionalNote {
     }
 
     static getFrequency(noteIndex) {
-        return CALIBRATION_NOTE.frequency * Math.pow(CALIBRATION_CONSTANT, noteIndex - CALIBRATION_NOTE.noteIndex);
+        return SoundUtils.CALIBRATION_NOTE.frequency * Math.pow(SoundUtils.CALIBRATION_CONSTANT, noteIndex - SoundUtils.CALIBRATION_NOTE.noteIndex);
     }
 }

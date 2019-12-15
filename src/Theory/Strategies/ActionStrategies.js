@@ -1,4 +1,4 @@
-import { synth } from "./SoundTools";
+import { SoundUtils } from "../Utils/SoundUtils";
 
 export class ActionStrategies {
     static nop() {
@@ -18,7 +18,7 @@ export class ActionStrategies {
     static sound(note, viewerData) {
         return () => {
             ActionStrategies.log(note, viewerData);
-            synth.triggerAttackRelease(note.frequency, .5);
+            SoundUtils.synth.triggerAttackRelease(note.frequency, .5);
         }
     }
 }

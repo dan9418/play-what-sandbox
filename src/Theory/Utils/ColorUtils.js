@@ -24,7 +24,7 @@ export const COLORS = {
     pc11: '#C2305E'
 };
 
-export class ColorTools {
+export class ColorUtils {
     static getColorStyles(background, foreground) {
         if (!background) {
             return {};
@@ -39,7 +39,7 @@ export class ColorTools {
     static discrete(value, colorScheme) {
         let background = colorScheme[value];
 
-        return ColorTools.getColorStyles(background);
+        return ColorUtils.getColorStyles(background);
     }
 
     static continuous(value, min, max, colorScheme) {
@@ -50,6 +50,6 @@ export class ColorTools {
         let finalColor = Color(colorScheme[1]);
         let background = initialColor.mix(finalColor, percent);
 
-        return ColorTools.getColorStyles(background);
+        return ColorUtils.getColorStyles(background);
     }
 }
