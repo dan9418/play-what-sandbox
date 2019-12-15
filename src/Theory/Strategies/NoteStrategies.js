@@ -15,7 +15,7 @@ export class NoteStrategies {
 
     // Public
 
-    static getNoteByPitchClass(keyCenter, concept, noteIndex) {
+    static getNoteByPitchClass(noteIndex, keyCenter, concept) {
         let pitchClass = Utils.modulo(noteIndex, 12);
         let interval = NoteStrategies.getIntervalByPitchClass(keyCenter, concept.intervals, pitchClass);
         if (interval === null) {
@@ -30,7 +30,7 @@ export class NoteStrategies {
         return new FunctionalNote(relativeKeyCenter, interval);
     }
 
-    static getNoteByNoteIndex(keyCenter, concept, noteIndex) {
+    static getNoteByNoteIndex(noteIndex, keyCenter, concept) {
         let interval = NoteStrategies.getIntervalByNoteIndex(keyCenter, concept.intervals, noteIndex, true);
         if (interval === null) {
             return new NonfunctionalNote(noteIndex);
@@ -39,9 +39,9 @@ export class NoteStrategies {
         return new FunctionalNote(keyCenter, interval);
     }
 
-    static getNoteAt(keyCenter, concept, noteIndex, filterOctave = true) {
+    static getNoteAt(noteIndex, keyCenter, concept, filterOctave = true) {
         return filterOctave ?
-            NoteStrategies.getNoteByNoteIndex(keyCenter, concept, noteIndex) :
-            NoteStrategies.getNoteByPitchClass(keyCenter, concept, noteIndex);
+            NoteStrategies.getNoteByNoteIndex(noteIndex, keyCenter, concept) :
+            NoteStrategies.getNoteByPitchClass(noteIndex, keyCenter, concept);
     }
 }
