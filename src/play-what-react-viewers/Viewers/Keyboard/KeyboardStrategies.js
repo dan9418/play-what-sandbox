@@ -1,7 +1,4 @@
-import { ColorStrategies } from "../../Theory/Strategies/ColorStrategies";
-import { LabelStrategies } from "../../Theory/Strategies/LabelStrategies";
-import { ColorUtils, COLORS } from "../../Theory/Utils/ColorUtils";
-import { KeyboardKeyType } from "play-what-beta";
+import { ColorStrategies, LabelStrategies, ColorUtils, COLORS, KeyboardKeyType } from "../../../play-what/index";
 
 export const DEFAULT_KEYBOARD_COLOR_SCHEMES = {
     keyNumber: [

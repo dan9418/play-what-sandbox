@@ -1,4 +1,4 @@
-import { Interval } from "../Interval"
+import { Interval } from "../Classes/Interval"
 import { IntervalPair } from "../Concepts/IntervalPair";
 import { Chord } from "../Concepts/Chord";
 import { HeptatonicScale } from "../Concepts/HeptatonicScale";

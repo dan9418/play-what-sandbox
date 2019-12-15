@@ -1,6 +1,6 @@
 import { CommonUtils } from '../Utils/CommonUtils';
-import { FunctionalNote } from '../FunctionalNote';
-import { NonfunctionalNote } from '../NonfunctionalNote';
+import { FunctionalNote } from '../Classes/FunctionalNote';
+import { NonfunctionalNote } from '../Classes/NonfunctionalNote';
 
 export class NoteStrategies {
     // Private

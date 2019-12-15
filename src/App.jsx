@@ -2,21 +2,31 @@ import * as ReactDOM from 'react-dom';
 import * as React from "react";
 import './App.css';
 
-import { Fretboard, Keyboard } from 'play-what-beta';
+import {
+    Fretboard,
+    Keyboard,
+    KeyCenter,
+    TONIC,
+    ACCIDENTAL,
+    INTERVAL_PAIR,
+    CHORD,
+    SCALE,
+    MODE,
+    ActionStrategies,
+    ColorStrategies,
+    FilterStrategies,
+    LabelStrategies,
+    NoteStrategies
+} from './play-what/index';
 
-import { KeyCenter } from './Theory/KeyCenter';
-import { TONIC, ACCIDENTAL } from './Theory/Constants/Enums';
-import { INTERVAL_PAIR, CHORD, SCALE, MODE } from './Theory/Constants/Presets';
-
-import { ViewDriver } from './Viewers/ViewDriver/ViewDriver';
-import { ActionStrategies } from './Theory/Strategies/ActionStrategies'
-import { ColorStrategies } from './Theory/Strategies/ColorStrategies'
-import { FilterStrategies } from './Theory/Strategies/FilterStrategies'
-import { LabelStrategies } from './Theory/Strategies/LabelStrategies'
-import { NoteStrategies } from './Theory/Strategies/NoteStrategies'
-
-import { FretboardColorStrategies, FretboardLabelStrategies, FretboardFilterStrategies } from './Viewers/Strategies/FretboardStrategies';
-import { KeyboardColorStrategies, KeyboardLabelStrategies } from './Viewers/Strategies/KeyboardStrategies';
+import {
+    ViewDriver,
+    FretboardColorStrategies,
+    FretboardLabelStrategies,
+    FretboardFilterStrategies,
+    KeyboardColorStrategies,
+    KeyboardLabelStrategies
+} from './play-what-react-viewers/index';
 
 const INITIAL_FRETBOARD_STATE = {
     noteStrategy: (noteIndex) => NoteStrategies.getNoteAt(noteIndex, new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4), CHORD.Maj7),

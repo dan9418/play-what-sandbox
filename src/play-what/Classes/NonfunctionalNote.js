@@ -1,5 +1,5 @@
-import { SoundUtils } from './Utils/SoundUtils';
-import { CommonUtils } from './Utils/CommonUtils';
+import { SoundUtils } from '../Utils/SoundUtils';
+import { CommonUtils } from '../Utils/CommonUtils';
 
 export class NonfunctionalNote {
     constructor(noteIndex) {

@@ -1,7 +1,4 @@
-import { ColorStrategies } from "../../Theory/Strategies/ColorStrategies";
-import { LabelStrategies } from "../../Theory/Strategies/LabelStrategies";
-import { ColorUtils, COLORS } from "../../Theory/Utils/ColorUtils";
-import { FilterStrategies } from "../../Theory/Strategies/FilterStrategies";
+import { ColorStrategies, LabelStrategies, ColorUtils, COLORS, FilterStrategies } from "../../../play-what/index";
 
 export const DEFAULT_FRETBOARD_COLOR_SCHEMES = {
     stringNumber: [

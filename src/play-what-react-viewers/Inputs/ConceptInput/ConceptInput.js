@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './ConceptInput.css';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
-import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../Theory/Constants/Presets';
-import { RomanNumeral } from '../../Theory/Concepts/RomanNumeral';
-import { HeptatonicScale } from '../../Theory/Concepts/HeptatonicScale';
+import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../../Theory/Constants/Presets';
+import { RomanNumeral } from '../../../Theory/Concepts/RomanNumeral';
+import { HeptatonicScale } from '../../../Theory/Concepts/HeptatonicScale';
 
 const ROMAN_NUMERALS = [
     {
