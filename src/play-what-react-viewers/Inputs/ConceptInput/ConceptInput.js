@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './ConceptInput.css';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
 import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../../play-what/Constants/Presets';
-import { RomanNumeral } from '../../../play-what/Concepts/RomanNumeral';
-import { HeptatonicScale } from '../../../play-what/Concepts/HeptatonicScale';
+import { RomanNumeral } from '../../../play-what/ConceptTypes/RomanNumeral';
+import { HeptatonicScale } from '../../../play-what/ConceptTypes/HeptatonicScale';
 
 const ROMAN_NUMERALS = [
     {

@@ -1,6 +1,6 @@
 import { CommonUtils } from '../Utils/CommonUtils';
-import { FunctionalNote } from '../Classes/FunctionalNote';
-import { NonfunctionalNote } from '../Classes/NonfunctionalNote';
+import { FunctionalNote } from '../Theory/FunctionalNote';
+import { NonfunctionalNote } from '../Theory/NonfunctionalNote';
 
 export class MappingStrategies {
     // Private

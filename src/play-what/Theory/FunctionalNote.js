@@ -1,6 +1,6 @@
 import { TONIC } from '../Constants/Enums';
 import { CommonUtils } from '../Utils/CommonUtils';
-import { NonfunctionalNote } from '../Classes/NonfunctionalNote';
+import { NonfunctionalNote } from './NonfunctionalNote';
 
 export class FunctionalNote {
     constructor(keyCenter, interval) {

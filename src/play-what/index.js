@@ -1,6 +1,6 @@
 import { Fretboard, Keyboard, KeyboardKeyType } from 'play-what-beta';
 
-import { KeyCenter } from './Classes/KeyCenter';
+import { KeyCenter } from './Theory/KeyCenter';
 
 import { TONIC, ACCIDENTAL } from './Constants/Enums';
 import { INTERVAL_PAIR, CHORD, SCALE, MODE } from './Constants/Presets';
