@@ -1,4 +1,4 @@
-import { TONIC } from '../Constants/Enums';
+import { TONIC } from '../Theory/Constants';
 import { CommonUtils } from '../Utils/CommonUtils';
 import { NonfunctionalNote } from './NonfunctionalNote';
 

@@ -3,7 +3,7 @@ import './KeyCenterInput.css';
 import { NumericInput } from '../NumericInput/NumericInput';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
 import { KeyCenter } from '../../../play-what/Theory/KeyCenter';
-import { TONIC, ACCIDENTAL } from '../../../play-what/Constants/Enums';
+import { TONIC, ACCIDENTAL } from '../../../play-what/Theory/Constants';
 
 const TONIC_DATA = Object.values(TONIC);
 const ACCIDENTAL_DATA = Object.values(ACCIDENTAL);

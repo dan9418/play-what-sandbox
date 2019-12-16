@@ -18,7 +18,7 @@ export class ActionStrategies {
     static sound(note, viewerData) {
         return () => {
             ActionStrategies.log(note, viewerData);
-            SoundUtils.synth.triggerAttackRelease(note.frequency, .5);
+            SoundUtils.play(note.frequency, .5);
         }
     }
 }

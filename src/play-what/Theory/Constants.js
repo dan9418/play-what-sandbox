@@ -1,3 +1,5 @@
+// Enums
+
 export const TONIC = Object.freeze({
     C: {
         id: 'C',
@@ -60,3 +62,12 @@ export const ACCIDENTAL = Object.freeze({
         offset: 1
     }
 });
+
+// Tuning
+
+export const CALIBRATION_NOTE = {
+    frequency: 440,
+    noteIndex: 9
+};
+
+export const CALIBRATION_CONSTANT = Math.pow(2, 1 / 12);

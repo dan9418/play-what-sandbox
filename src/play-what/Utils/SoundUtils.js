@@ -1,10 +1,12 @@
 import * as Tone from "tone";
 
-export const SoundUtils = {
-    synth: new Tone.Synth().toMaster(),
-    CALIBRATION_NOTE: {
-        frequency: 440,
-        noteIndex: 9
-    },
-    CALIBRATION_CONSTANT: Math.pow(2, 1 / 12)
+const MASTER_OUT = new Tone.Synth().toMaster();
+
+export class SoundUtils {
+    static getSynth() {
+        return MASTER_OUT;
+    }
+    static play(frequency, duration) {
+        MASTER_OUT.triggerAttackRelease(frequency, duration);
+    }
 }

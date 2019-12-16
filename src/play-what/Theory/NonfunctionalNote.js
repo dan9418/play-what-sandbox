@@ -1,5 +1,5 @@
-import { SoundUtils } from '../Utils/SoundUtils';
 import { CommonUtils } from '../Utils/CommonUtils';
+import { CALIBRATION_NOTE, CALIBRATION_CONSTANT } from '../Theory/Constants';
 
 export class NonfunctionalNote {
     constructor(noteIndex) {
@@ -26,6 +26,6 @@ export class NonfunctionalNote {
     }
 
     static getFrequency(noteIndex) {
-        return SoundUtils.CALIBRATION_NOTE.frequency * Math.pow(SoundUtils.CALIBRATION_CONSTANT, noteIndex - SoundUtils.CALIBRATION_NOTE.noteIndex);
+        return CALIBRATION_NOTE.frequency * Math.pow(CALIBRATION_CONSTANT, noteIndex - CALIBRATION_NOTE.noteIndex);
     }
 }
