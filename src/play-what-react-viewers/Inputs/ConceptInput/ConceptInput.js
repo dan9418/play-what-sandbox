@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './ConceptInput.css';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
-import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../../Theory/Constants/Presets';
-import { RomanNumeral } from '../../../Theory/Concepts/RomanNumeral';
-import { HeptatonicScale } from '../../../Theory/Concepts/HeptatonicScale';
+import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../../play-what/Constants/Presets';
+import { RomanNumeral } from '../../../play-what/Concepts/RomanNumeral';
+import { HeptatonicScale } from '../../../play-what/Concepts/HeptatonicScale';
 
 const ROMAN_NUMERALS = [
     {
@@ -90,12 +90,12 @@ export function ConceptInput(props) {
                     setValue={(preset) => {
                         // Not sure if safe to update both states like this...
                         setSelectedPreset(preset);
-                        props.setConcept(preset);
+                        props.setValue(preset);
                     }}
                 />
             </div>
 
-            {props.concept instanceof HeptatonicScale &&
+            {props.value instanceof HeptatonicScale &&
                 <div className='input-row'>
                     <label>Roman Numeral:</label>
                     <DropdownInput
@@ -105,13 +105,13 @@ export function ConceptInput(props) {
                             // Not sure if safe to update both states like this...
                             setRomanNumeral(rn);
                             let newRN = new RomanNumeral(props.concept, parseInt(rn.id))
-                            props.setConcept(newRN);
+                            props.setValue(newRN);
                         }}
                     />
                 </div>
             }
 
-            {props.concept instanceof RomanNumeral &&
+            {props.value instanceof RomanNumeral &&
                 <div className='input-row'>
                     <label>Roman Numeral:</label>
                     <DropdownInput
@@ -121,7 +121,7 @@ export function ConceptInput(props) {
                             // Not sure if safe to update both states like this...
                             setRomanNumeral(rn);
                             let newRN = new RomanNumeral(props.concept.sourceScale, parseInt(rn.id))
-                            props.setConcept(newRN);
+                            props.setValue(newRN);
                         }}
                     />
                 </div>

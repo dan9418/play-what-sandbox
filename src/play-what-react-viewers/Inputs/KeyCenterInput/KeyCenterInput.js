@@ -2,7 +2,8 @@ import * as React from 'react';
 import './KeyCenterInput.css';
 import { NumericInput } from '../NumericInput/NumericInput';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
-import { TONIC, ACCIDENTAL } from '../../Theory/Constants/Enums';
+import { KeyCenter } from '../../../play-what/Classes/KeyCenter';
+import { TONIC, ACCIDENTAL } from '../../../play-what/Constants/Enums';
 
 const TONIC_DATA = Object.values(TONIC);
 const ACCIDENTAL_DATA = Object.values(ACCIDENTAL);
@@ -15,15 +16,28 @@ export function KeyCenterInput(props) {
             </div>
             <div className='input-row'>
                 <label>Tonic:</label>
-                <DropdownInput data={TONIC_DATA} value={props.tonic} setValue={props.setTonic}/>
+                <DropdownInput
+                    data={TONIC_DATA}
+                    value={props.value.tonic}
+                    setValue={(tonic) => props.setValue(new KeyCenter(tonic, props.value.accidental, props.value.octave))}
+                />
             </div>
             <div className='input-row'>
                 <label>Accidental:</label>
-                <DropdownInput data={ACCIDENTAL_DATA} value={props.accidental} setValue={props.setAccidental}/>
+                <DropdownInput
+                    data={ACCIDENTAL_DATA}
+                    value={props.value.accidental}
+                    setValue={(accidental) => props.setValue(new KeyCenter(props.value.tonic, accidental, props.value.octave))}
+                />
             </div>
             <div className='input-row'>
                 <label>Octave:</label>
-                <NumericInput setValue={props.setOctave} value={props.octave} min='0' max='10'/>
+                <NumericInput
+                    value={props.value.octave}
+                    setValue={(octave) => props.setValue(new KeyCenter(props.value.tonic, props.value.accidental, octave))}
+                    min='0'
+                    max='10'
+                />
             </div>
         </div>
     );

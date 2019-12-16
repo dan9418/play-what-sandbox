@@ -1,6 +1,7 @@
-import { ViewDriver } from './Viewers/ViewDriver/ViewDriver';
+import { ViewDriver } from './ViewDriver/ViewDriver';
 import { FretboardColorStrategies, FretboardLabelStrategies, FretboardFilterStrategies } from './Viewers/Fretboard/FretboardStrategies';
 import { KeyboardColorStrategies, KeyboardLabelStrategies } from './Viewers/Keyboard/KeyboardStrategies';
+import { NoteStrategyInput } from './Inputs/NoteStrategy/NoteStrategyInput';
 
 export {
     ViewDriver,
@@ -8,5 +9,6 @@ export {
     FretboardLabelStrategies,
     FretboardFilterStrategies,
     KeyboardColorStrategies,
-    KeyboardLabelStrategies
+    KeyboardLabelStrategies,
+    NoteStrategyInput
 };

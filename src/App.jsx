@@ -25,7 +25,8 @@ import {
     FretboardLabelStrategies,
     FretboardFilterStrategies,
     KeyboardColorStrategies,
-    KeyboardLabelStrategies
+    KeyboardLabelStrategies,
+    NoteStrategyInput
 } from './play-what-react-viewers/index';
 
 const INITIAL_FRETBOARD_STATE = {
@@ -41,10 +42,18 @@ const INITIAL_KEYBOARD_STATE = {
     labelStrategy: KeyboardLabelStrategies.interval
 }
 
+const FRETBOARD_INPUTS = [
+    {
+        id: 'noteStrategy',
+        name: 'Note Strategy',
+        component: NoteStrategyInput
+    }
+]
+
 export function App() {
     return (
         <div className='app-container'>
-            <ViewDriver viewer={Fretboard} initialState={INITIAL_FRETBOARD_STATE} />
+            <ViewDriver viewer={Fretboard} initialState={INITIAL_FRETBOARD_STATE} inputs={FRETBOARD_INPUTS} />
             <ViewDriver viewer={Keyboard} initialState={INITIAL_KEYBOARD_STATE} />
         </div>
     );
