@@ -8,17 +8,28 @@ export class ViewDriver extends React.Component {
     }
 
     setValue(propertyId, value) {
-        let newState = {...this.state};
+        let newState = { ...this.state };
         newState[propertyId] = value;
         this.setState(newState);
     }
 
     getInputs(children = []) {
         let inputs = [];
-        for(let i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i++) {
             let child = children[i];
             let Comp = child.component;
-            inputs.push(<Comp key={child.id} value={this.state[child.id]} setValue={(value) => this.setValue(child.id, value)}/>);
+            inputs.push(
+                <div key={child.id}>
+                    <div className='input-title'>
+                        {child.name}
+                    </div>
+                    <Comp
+                        value={this.state[child.id]}
+                        setValue={(value) => this.setValue(child.id, value)}
+                        {...child.props}
+                    />
+                </div>
+            );
         }
         return inputs;
     }

@@ -1,3 +1,5 @@
-.fretboard-driver > * {
-    display: block;
+.input-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 10px;
 }

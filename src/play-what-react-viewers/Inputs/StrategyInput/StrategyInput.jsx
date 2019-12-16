@@ -10,6 +10,7 @@ import {
     MODE,
     NoteStrategies
 } from "../../../play-what/index";
+import { DropdownInput } from '../DropdownInput/DropdownInput';
 
 export class StrategyInput extends React.Component {
     constructor(props) {
@@ -19,8 +20,12 @@ export class StrategyInput extends React.Component {
     render() {
         return (
             <div className='note-strategy-input'>
-                <div className='input-title'>
-                    Mapping Strategy
+                <div className='input-row'>
+                    <DropdownInput
+                        data={this.props.data}
+                        value={this.props.value.id}
+                        setValue={(value) => this.props.setValue(value.fx)}
+                    />
                 </div>
             </div >
         );

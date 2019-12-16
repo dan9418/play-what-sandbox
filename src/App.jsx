@@ -30,11 +30,12 @@ import {
 } from './play-what-react-viewers/index';
 import { KeyCenterInput } from './play-what-react-viewers/Inputs/KeyCenterInput/KeyCenterInput';
 import { ConceptInput } from './play-what-react-viewers/Inputs/ConceptInput/ConceptInput';
+import { DropdownInput } from './play-what-react-viewers/Inputs/DropdownInput/DropdownInput';
 
 const INITIAL_FRETBOARD_STATE = {
     keyCenter:  new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4),
     concept: CHORD.Maj7,
-    noteStrategy: MappingStrategies.getNoteByNoteIndex,
+    mappingStrategy: MappingStrategies.getNoteByNoteIndex,
     colorStrategy: FretboardColorStrategies.degree,
     actionStrategy: ActionStrategies.sound,
     labelStrategy: FretboardLabelStrategies.interval
@@ -42,7 +43,7 @@ const INITIAL_FRETBOARD_STATE = {
 const INITIAL_KEYBOARD_STATE = {
     keyCenter:  new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4),
     concept: CHORD.Maj7,
-    noteStrategy: MappingStrategies.getNoteByNoteIndex,
+    mappingStrategy: MappingStrategies.getNoteByNoteIndex,
     colorStrategy: KeyboardColorStrategies.degree,
     actionStrategy: ActionStrategies.sound,
     labelStrategy: KeyboardLabelStrategies.interval
@@ -58,6 +59,25 @@ const FRETBOARD_INPUTS = [
         id: 'concept',
         name: 'Concept',
         component: ConceptInput
+    },
+    {
+        id: 'mappingStrategy',
+        name: 'Mapping Strategy',
+        component: StrategyInput,
+        props: {
+            data: [
+                {
+                    id: 'noteIndex',
+                    name: 'Note Index',
+                    fx: MappingStrategies.getNoteByNoteIndex
+                },
+                {
+                    id: 'pitchClass',
+                    name: 'Pitch Class',
+                    fx: MappingStrategies.getNoteByPitchClass
+                }
+            ]
+        }
     }
 ]
 

@@ -69,10 +69,6 @@ export function ConceptInput(props) {
     const [romanNumeral, setRomanNumeral] = useState(ROMAN_NUMERALS[0]);
     return (
         <div className='intervals-input'>
-            <div className='input-title'>
-                Intervals
-            </div>
-
             <div className='input-row'>
                 <label>Preset Type:</label>
                 <DropdownInput

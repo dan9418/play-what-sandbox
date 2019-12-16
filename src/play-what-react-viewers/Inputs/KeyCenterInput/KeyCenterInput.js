@@ -11,9 +11,6 @@ const ACCIDENTAL_DATA = Object.values(ACCIDENTAL);
 export function KeyCenterInput(props) {
     return (
         <div className='key-center-input'>
-            <div className='input-title'>
-                Key Center
-            </div>
             <div className='input-row'>
                 <label>Tonic:</label>
                 <DropdownInput
