@@ -9,7 +9,7 @@ import { ActionStrategies } from './Strategies/ActionStrategies';
 import { ColorStrategies } from './Strategies/ColorStrategies';
 import { FilterStrategies } from './Strategies/FilterStrategies';
 import { LabelStrategies } from './Strategies/LabelStrategies';
-import { NoteStrategies } from './Strategies/NoteStrategies';
+import { MappingStrategies } from './Strategies/MappingStrategies';
 
 import { ColorUtils, COLORS } from './Utils/ColorUtils';
 
@@ -28,7 +28,7 @@ export {
     ColorStrategies,
     FilterStrategies,
     LabelStrategies,
-    NoteStrategies,
+    MappingStrategies,
     ColorUtils,
     COLORS
 };

@@ -2,14 +2,14 @@ import { CommonUtils } from '../Utils/CommonUtils';
 import { FunctionalNote } from '../Classes/FunctionalNote';
 import { NonfunctionalNote } from '../Classes/NonfunctionalNote';
 
-export class NoteStrategies {
+export class MappingStrategies {
     // Private
 
-    static getIntervalByPitchClass(keyCenter, intervals, pitchClass) {
+    static _getIntervalByPitchClass(keyCenter, intervals, pitchClass) {
         return intervals.find(interval => interval.matchesPitchClassFromKeyCenter(keyCenter, pitchClass)) || null;
     }
 
-    static getIntervalByNoteIndex(keyCenter, intervals, noteIndex) {
+    static _getIntervalByNoteIndex(keyCenter, intervals, noteIndex) {
         return intervals.find(interval => interval.matchesNoteIndexFromKeyCenter(keyCenter, noteIndex)) || null;
     }
 
@@ -17,7 +17,7 @@ export class NoteStrategies {
 
     static getNoteByPitchClass(noteIndex, keyCenter, concept) {
         let pitchClass = CommonUtils.modulo(noteIndex, 12);
-        let interval = NoteStrategies.getIntervalByPitchClass(keyCenter, concept.intervals, pitchClass);
+        let interval = MappingStrategies._getIntervalByPitchClass(keyCenter, concept.intervals, pitchClass);
         if (interval === null) {
             return new NonfunctionalNote(noteIndex);
         }
@@ -31,7 +31,7 @@ export class NoteStrategies {
     }
 
     static getNoteByNoteIndex(noteIndex, keyCenter, concept) {
-        let interval = NoteStrategies.getIntervalByNoteIndex(keyCenter, concept.intervals, noteIndex, true);
+        let interval = MappingStrategies._getIntervalByNoteIndex(keyCenter, concept.intervals, noteIndex, true);
         if (interval === null) {
             return new NonfunctionalNote(noteIndex);
         }
@@ -41,7 +41,7 @@ export class NoteStrategies {
 
     static getNoteAt(noteIndex, keyCenter, concept, filterOctave = true) {
         return filterOctave ?
-            NoteStrategies.getNoteByNoteIndex(noteIndex, keyCenter, concept) :
-            NoteStrategies.getNoteByPitchClass(noteIndex, keyCenter, concept);
+            MappingStrategies.getNoteByNoteIndex(noteIndex, keyCenter, concept) :
+            MappingStrategies.getNoteByPitchClass(noteIndex, keyCenter, concept);
     }
 }

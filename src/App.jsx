@@ -16,7 +16,7 @@ import {
     ColorStrategies,
     FilterStrategies,
     LabelStrategies,
-    NoteStrategies
+    MappingStrategies
 } from './play-what/index';
 
 import {
@@ -26,17 +26,23 @@ import {
     FretboardFilterStrategies,
     KeyboardColorStrategies,
     KeyboardLabelStrategies,
-    NoteStrategyInput
+    StrategyInput
 } from './play-what-react-viewers/index';
+import { KeyCenterInput } from './play-what-react-viewers/Inputs/KeyCenterInput/KeyCenterInput';
+import { ConceptInput } from './play-what-react-viewers/Inputs/ConceptInput/ConceptInput';
 
 const INITIAL_FRETBOARD_STATE = {
-    noteStrategy: (noteIndex) => NoteStrategies.getNoteAt(noteIndex, new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4), CHORD.Maj7),
+    keyCenter:  new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4),
+    concept: CHORD.Maj7,
+    noteStrategy: MappingStrategies.getNoteByNoteIndex,
     colorStrategy: FretboardColorStrategies.degree,
     actionStrategy: ActionStrategies.sound,
     labelStrategy: FretboardLabelStrategies.interval
 }
 const INITIAL_KEYBOARD_STATE = {
-    noteStrategy: (noteIndex) => NoteStrategies.getNoteAt(noteIndex, new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4), CHORD.Maj7),
+    keyCenter:  new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4),
+    concept: CHORD.Maj7,
+    noteStrategy: MappingStrategies.getNoteByNoteIndex,
     colorStrategy: KeyboardColorStrategies.degree,
     actionStrategy: ActionStrategies.sound,
     labelStrategy: KeyboardLabelStrategies.interval
@@ -44,9 +50,14 @@ const INITIAL_KEYBOARD_STATE = {
 
 const FRETBOARD_INPUTS = [
     {
-        id: 'noteStrategy',
-        name: 'Note Strategy',
-        component: NoteStrategyInput
+        id: 'keyCenter',
+        name: 'Key Center',
+        component: KeyCenterInput
+    },
+    {
+        id: 'concept',
+        name: 'Concept',
+        component: ConceptInput
     }
 ]
 
