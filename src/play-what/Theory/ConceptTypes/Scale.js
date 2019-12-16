@@ -1,6 +1,6 @@
-import { Concept } from "../Concept";
+import Concept from '../Concept';
 
-export class Scale extends Concept {
+export default class Scale extends Concept {
     constructor(id, name, intervals) {
         super(id, name, intervals);
     }

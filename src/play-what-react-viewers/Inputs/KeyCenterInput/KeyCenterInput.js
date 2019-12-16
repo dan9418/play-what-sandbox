@@ -2,7 +2,7 @@ import * as React from 'react';
 import './KeyCenterInput.css';
 import { NumericInput } from '../NumericInput/NumericInput';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
-import { KeyCenter } from '../../../play-what/Theory/KeyCenter';
+import KeyCenter from '../../../play-what/Theory/KeyCenter';
 import { TONIC, ACCIDENTAL } from '../../../play-what/Theory/Constants';
 
 const TONIC_DATA = Object.values(TONIC);

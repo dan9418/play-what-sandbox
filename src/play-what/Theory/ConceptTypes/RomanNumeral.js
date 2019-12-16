@@ -1,8 +1,8 @@
-import { Chord } from "./Chord";
-import { CommonUtils } from "../../Utils/CommonUtils";
+import Chord from "./Chord";
+import CommonUtils from "../../Utils/CommonUtils";
 import { Interval } from "../Interval";
 
-export class RomanNumeral extends Chord {
+export default class RomanNumeral extends Chord {
     constructor(sourceScale, degree) {
         let intervals = degree ? RomanNumeral._getIntervals(sourceScale, degree) : sourceScale.intervals;
         let relativeIntervals = RomanNumeral._getRelativeIntervals(intervals);

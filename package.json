@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "babel-loader": "^8.0.6",
     "babel-preset-es2015": "^6.24.1",
@@ -32,5 +33,10 @@
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
   }
 }

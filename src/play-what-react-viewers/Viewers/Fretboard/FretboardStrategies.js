@@ -1,17 +1,17 @@
-import { ColorStrategies, LabelStrategies, ColorUtils, COLORS, FilterStrategies } from "../../../play-what/index";
+import { Strategies, Utils } from "../../../play-what/index";
 
 export const DEFAULT_FRETBOARD_COLOR_SCHEMES = {
     stringNumber: [
-        COLORS.White,
-        COLORS.Black
+        Utils.Color.COLORS.White,
+        Utils.Color.COLORS.Black
     ],
     fretNumber: [
-        COLORS.White,
-        COLORS.Black
+        Utils.Color.COLORS.White,
+        Utils.Color.COLORS.Black
     ]
 };
 
-export class FretboardColorStrategies extends ColorStrategies {
+export class FretboardColorStrategies extends Strategies.Color {
     static stringNumber(note, viewerData, scheme = DEFAULT_FRETBOARD_COLOR_SCHEMES.stringNumber) {
         return ColorUtils.continuous(viewerData.stringData.number, 1, viewerData.numStrings, scheme);
     }
@@ -20,7 +20,7 @@ export class FretboardColorStrategies extends ColorStrategies {
     }
 }
 
-export class FretboardLabelStrategies extends LabelStrategies {
+export class FretboardLabelStrategies extends Strategies.Label {
     static stringNumber(note, viewerData) {
         return viewerData.stringData.number;
     }
@@ -29,7 +29,7 @@ export class FretboardLabelStrategies extends LabelStrategies {
     }
 }
 
-export class FretboardFilterStrategies extends FilterStrategies {
+export class FretboardFilterStrategies extends Strategies.Filter {
     static voicing(note, viewerData, voicing = []) {
         // TODO
     }

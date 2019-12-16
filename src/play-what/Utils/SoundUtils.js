@@ -2,7 +2,7 @@ import * as Tone from "tone";
 
 const MASTER_OUT = new Tone.Synth().toMaster();
 
-export class SoundUtils {
+export default class SoundUtils {
     static getSynth() {
         return MASTER_OUT;
     }

@@ -1,57 +1,57 @@
-import { ColorUtils, COLORS } from "../Utils/ColorUtils";
+import ColorUtils from "../Utils/ColorUtils";
 
-export const DEFAULT_COLOR_SCHEMES = {
+const DEFAULT_COLOR_SCHEMES = {
     binary: [
         null,
-        COLORS.Red
+        ColorUtils.COLORS.Red
     ],
     degree: [
         null,
-        COLORS.Red,
-        COLORS.Orange,
-        COLORS.Yellow,
-        COLORS.Green,
-        COLORS.Blue,
-        COLORS.Purple,
-        COLORS.Pink,
-        COLORS.Red,
-        COLORS.Orange,
-        COLORS.Yellow,
-        COLORS.Green,
-        COLORS.Blue,
-        COLORS.Purple,
-        COLORS.Pink,
-        COLORS.Red
+        ColorUtils.COLORS.Red,
+        ColorUtils.COLORS.Orange,
+        ColorUtils.COLORS.Yellow,
+        ColorUtils.COLORS.Green,
+        ColorUtils.COLORS.Blue,
+        ColorUtils.COLORS.Purple,
+        ColorUtils.COLORS.Pink,
+        ColorUtils.COLORS.Red,
+        ColorUtils.COLORS.Orange,
+        ColorUtils.COLORS.Yellow,
+        ColorUtils.COLORS.Green,
+        ColorUtils.COLORS.Blue,
+        ColorUtils.COLORS.Purple,
+        ColorUtils.COLORS.Pink,
+        ColorUtils.COLORS.Red
     ],
     pitchClass: [
-        COLORS.pc0,
-        COLORS.pc1,
-        COLORS.pc2,
-        COLORS.pc3,
-        COLORS.pc4,
-        COLORS.pc5,
-        COLORS.pc6,
-        COLORS.pc7,
-        COLORS.pc8,
-        COLORS.pc9,
-        COLORS.pc10,
-        COLORS.pc11
+        ColorUtils.COLORS.pc0,
+        ColorUtils.COLORS.pc1,
+        ColorUtils.COLORS.pc2,
+        ColorUtils.COLORS.pc3,
+        ColorUtils.COLORS.pc4,
+        ColorUtils.COLORS.pc5,
+        ColorUtils.COLORS.pc6,
+        ColorUtils.COLORS.pc7,
+        ColorUtils.COLORS.pc8,
+        ColorUtils.COLORS.pc9,
+        ColorUtils.COLORS.pc10,
+        ColorUtils.COLORS.pc11
     ],
     octave: [
-        COLORS.Black,
-        COLORS.White
+        ColorUtils.COLORS.Black,
+        ColorUtils.COLORS.White
     ],
     frequency: [
-        COLORS.Black,
-        COLORS.White
+        ColorUtils.COLORS.Black,
+        ColorUtils.COLORS.White
     ],
     noteIndex: [
-        COLORS.Black,
-        COLORS.White
+        ColorUtils.COLORS.Black,
+        ColorUtils.COLORS.White
     ]
 };
 
-export class ColorStrategies {
+export default class ColorStrategies {
     static none() {
         return {};
     }

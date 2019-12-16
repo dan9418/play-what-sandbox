@@ -1,19 +1,5 @@
-import {
-    Fretboard,
-    Keyboard,
-    KeyCenter,
-    TONIC,
-    ACCIDENTAL,
-    INTERVAL_PAIR,
-    CHORD,
-    SCALE,
-    MODE,
-    ActionStrategies,
-    ColorStrategies,
-    FilterStrategies,
-    LabelStrategies,
-    MappingStrategies
-} from '../../../play-what/index';
+import { Theory, Strategies, Utils } from '../../../play-what/index';
+
 
 import {
     KeyboardColorStrategies,
@@ -25,11 +11,11 @@ import { ConceptInput } from '../../Inputs/ConceptInput/ConceptInput';
 import { StrategyInput } from '../../Inputs/StrategyInput/StrategyInput';
 
 export const DEFAULT_KEYBOARD_STATE = {
-    keyCenter:  new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4),
-    concept: CHORD.Maj7,
-    mappingStrategy: MappingStrategies.getNoteByNoteIndex,
+    keyCenter:   new Theory.KeyCenter(Theory.Constants.TONIC.C, Theory.Constants.ACCIDENTAL.Natural, 4),
+    concept: Theory.Presets.CHORD.Maj7,
+    mappingStrategy: Strategies.Mapping.getNoteByNoteIndex,
     colorStrategy: KeyboardColorStrategies.degree,
-    actionStrategy: ActionStrategies.sound,
+    actionStrategy: Strategies.Action.sound,
     labelStrategy: KeyboardLabelStrategies.interval
 }
 

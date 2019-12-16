@@ -1,4 +1,4 @@
-export class KeyCenter {
+export default class KeyCenter {
     constructor(tonic, accidental, octave) {
         this.tonic = tonic;
         this.accidental = accidental;

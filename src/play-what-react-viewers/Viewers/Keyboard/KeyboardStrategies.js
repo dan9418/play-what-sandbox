@@ -1,17 +1,17 @@
-import { ColorStrategies, LabelStrategies, ColorUtils, COLORS, KeyboardKeyType } from "../../../play-what/index";
+import { Strategies, Utils } from "../../../play-what/index";
 
 export const DEFAULT_KEYBOARD_COLOR_SCHEMES = {
     keyNumber: [
-        COLORS.White,
-        COLORS.Black
+        Utils.Color.COLORS.White,
+        Utils.Color.COLORS.Black
     ],
     keyType: [
-        COLORS.Green,
-        COLORS.Red
+        Utils.Color.COLORS.Green,
+        Utils.Color.COLORS.Red
     ]
 };
 
-export class KeyboardColorStrategies extends ColorStrategies {
+export class KeyboardColorStrategies extends Strategies.Color {
     static keyNumber(note, viewerData, scheme = DEFAULT_KEYBOARD_COLOR_SCHEMES.keyNumber) {
         return ColorUtils.continuous(note.noteIndex - viewerData.keyLow, viewerData.minNote.noteIndex - viewerData.keyLow, viewerData.maxNote.noteIndex - viewerData.keyLow, scheme);
     }
@@ -20,7 +20,7 @@ export class KeyboardColorStrategies extends ColorStrategies {
     }
 }
 
-export class KeyboardLabelStrategies extends LabelStrategies {
+export class KeyboardLabelStrategies extends Strategies.Label {
     static keyNumber(note, viewerData) {
         return note.noteIndex - viewerData.keyLow;
     }

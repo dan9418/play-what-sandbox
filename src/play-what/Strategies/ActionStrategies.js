@@ -1,6 +1,6 @@
-import { SoundUtils } from "../Utils/SoundUtils";
+import SoundUtils from "../Utils/SoundUtils";
 
-export class ActionStrategies {
+export default class ActionStrategies {
     static nop() {
         return () => null;
     }

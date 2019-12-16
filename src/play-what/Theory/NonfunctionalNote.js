@@ -1,7 +1,7 @@
-import { CommonUtils } from '../Utils/CommonUtils';
+import CommonUtils from '../Utils/CommonUtils';
 import { CALIBRATION_NOTE, CALIBRATION_CONSTANT } from '../Theory/Constants';
 
-export class NonfunctionalNote {
+export default class NonfunctionalNote {
     constructor(noteIndex) {
         this.keyCenter = null;
         this.interval = null;

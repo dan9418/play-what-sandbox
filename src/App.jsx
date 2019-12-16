@@ -2,7 +2,7 @@ import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import './App.css';
 
-import { Fretboard, Keyboard } from './play-what/index';
+import { Fretboard, Keyboard } from 'play-what-beta';
 import { ViewDriver, DEFAULT_FRETBOARD_STATE, DEFAULT_FRETBOARD_INPUTS, DEFAULT_KEYBOARD_STATE, DEFAULT_KEYBOARD_INPUTS } from './play-what-react-viewers/index';
 
 export function App() {

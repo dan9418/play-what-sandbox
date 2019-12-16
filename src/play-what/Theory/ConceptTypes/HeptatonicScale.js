@@ -1,7 +1,7 @@
-import { Scale } from "./Scale";
-import { RomanNumeral } from "./RomanNumeral";
+import Scale from "./Scale";
+import RomanNumeral from "./RomanNumeral";
 
-export class HeptatonicScale extends Scale {
+export default class HeptatonicScale extends Scale {
     constructor(id, name, intervals) {
         if (intervals.length !== 7) {
             throw 'Heptatonic scale must have exactly 7 intervals';

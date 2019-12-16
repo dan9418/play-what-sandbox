@@ -1,8 +1,8 @@
 import { TONIC } from '../Theory/Constants';
-import { CommonUtils } from '../Utils/CommonUtils';
-import { NonfunctionalNote } from './NonfunctionalNote';
+import CommonUtils from '../Utils/CommonUtils';
+import NonfunctionalNote from './NonfunctionalNote';
 
-export class FunctionalNote {
+export default class FunctionalNote {
     constructor(keyCenter, interval) {
         this.keyCenter = keyCenter;
         this.interval = interval;

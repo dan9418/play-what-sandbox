@@ -1,19 +1,4 @@
-import {
-    Fretboard,
-    Keyboard,
-    KeyCenter,
-    TONIC,
-    ACCIDENTAL,
-    INTERVAL_PAIR,
-    CHORD,
-    SCALE,
-    MODE,
-    ActionStrategies,
-    ColorStrategies,
-    FilterStrategies,
-    LabelStrategies,
-    MappingStrategies
-} from '../../../play-what/index';
+import { Theory, Strategies, Utils } from '../../../play-what/index';
 
 import {
     FretboardColorStrategies,
@@ -25,9 +10,14 @@ import { KeyCenterInput } from '../../Inputs/KeyCenterInput/KeyCenterInput';
 import { ConceptInput } from '../../Inputs/ConceptInput/ConceptInput';
 import { StrategyInput } from '../../Inputs/StrategyInput/StrategyInput';
 
+let MappingStrategies = Strategies.Mapping;
+let ActionStrategies = Strategies.Action;
+let ColorStrategies = Strategies.Color;
+let LabelStrategies = Strategies.Label;
+
 export const DEFAULT_FRETBOARD_STATE = {
-    keyCenter: new KeyCenter(TONIC.C, ACCIDENTAL.Natural, 4),
-    concept: CHORD.Maj7,
+    keyCenter: new Theory.KeyCenter(Theory.Constants.TONIC.C, Theory.Constants.ACCIDENTAL.Natural, 4),
+    concept: Theory.Presets.CHORD.Maj7,
     mappingStrategy: MappingStrategies.getNoteByNoteIndex,
     colorStrategy: FretboardColorStrategies.degree,
     actionStrategy: ActionStrategies.sound,

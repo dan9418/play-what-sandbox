@@ -1,34 +1,11 @@
 import { Fretboard, Keyboard, KeyboardKeyType } from 'play-what-beta';
 
-import { KeyCenter } from './Theory/KeyCenter';
-import { TONIC, ACCIDENTAL } from './Theory/Constants';
-
-import { INTERVAL_PAIR, CHORD, SCALE, MODE } from './Theory/Presets';
-
-import { ActionStrategies } from './Strategies/ActionStrategies';
-import { ColorStrategies } from './Strategies/ColorStrategies';
-import { FilterStrategies } from './Strategies/FilterStrategies';
-import { LabelStrategies } from './Strategies/LabelStrategies';
-import { MappingStrategies } from './Strategies/MappingStrategies';
-
-import { ColorUtils, COLORS } from './Utils/ColorUtils';
+import * as Theory from './Theory/_module';
+import * as Utils from './Utils/_module';
+import * as Strategies from './Strategies/_module';
 
 export {
-    Fretboard,
-    Keyboard,
-    KeyboardKeyType,
-    KeyCenter,
-    TONIC,
-    ACCIDENTAL,
-    INTERVAL_PAIR,
-    CHORD,
-    SCALE,
-    MODE,
-    ActionStrategies,
-    ColorStrategies,
-    FilterStrategies,
-    LabelStrategies,
-    MappingStrategies,
-    ColorUtils,
-    COLORS
+    Theory,
+    Utils,
+    Strategies
 };

@@ -1,8 +1,8 @@
-import { CommonUtils } from '../Utils/CommonUtils';
-import { FunctionalNote } from '../Theory/FunctionalNote';
-import { NonfunctionalNote } from '../Theory/NonfunctionalNote';
+import CommonUtils from '../Utils/CommonUtils';
+import FunctionalNote from '../Theory/FunctionalNote';
+import NonfunctionalNote from '../Theory/NonfunctionalNote';
 
-export class MappingStrategies {
+export default class MappingStrategies {
     // Private
 
     static _getIntervalByPitchClass(keyCenter, intervals, pitchClass) {

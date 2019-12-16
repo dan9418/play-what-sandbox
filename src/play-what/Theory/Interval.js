@@ -1,5 +1,4 @@
-import { CommonUtils } from "../Utils/CommonUtils";
-import { INTERVAL } from '../Theory/Presets'
+import CommonUtils from "../Utils/CommonUtils";
 
 export class Interval {
     constructor(degree, semitones, id, name, ascending = true, octaveOffset = 0) {
@@ -27,11 +26,11 @@ export class Interval {
         return this.add(interval, true);
     }
 
-    add(interval, subtract = false) {
+    /*add(interval, subtract = false) {
         let newDegree = CommonUtils.moduloSum(this.degree, interval.degree, 7, 1, subtract);
         let newSemitones = CommonUtils.moduloSum((this.octaveOffset * 12) + this.semitones, (interval.octaveOffset * 12) + interval.semitones, 12, 0, subtract);
         let allIntervals = Object.values(INTERVAL);
         let newInterval = allIntervals.find((i) => i.degree === newDegree && i.semitones === newSemitones);
         return newInterval ? newInterval.copy() : null;
-    }
+    }*/
 }

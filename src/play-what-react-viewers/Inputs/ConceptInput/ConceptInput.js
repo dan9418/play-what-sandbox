@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './ConceptInput.css';
 import { DropdownInput } from '../DropdownInput/DropdownInput';
-import { INTERVAL_PAIR, CHORD, SCALE, MODE } from '../../../play-what/Theory/Presets';
-import { RomanNumeral } from '../../../play-what/Theory/ConceptTypes/RomanNumeral';
-import { HeptatonicScale } from '../../../play-what/Theory/ConceptTypes/HeptatonicScale';
+import { Theory, Strategies, Utils } from '../../../play-what/index';
 
 const ROMAN_NUMERALS = [
     {
@@ -44,22 +42,22 @@ const PRESET_TYPES = [
     {
         id: 'pair',
         name: 'Pair',
-        presets: Object.values(INTERVAL_PAIR)
+        presets: Object.values(Theory.Presets.INTERVAL_PAIR)
     },
     {
         id: 'chord',
         name: 'Chord',
-        presets: Object.values(CHORD)
+        presets: Object.values(Theory.Presets.CHORD)
     },
     {
         id: 'scale',
         name: 'Scale',
-        presets: Object.values(SCALE)
+        presets: Object.values(Theory.Presets.SCALE)
     },
     {
         id: 'mode',
         name: 'Mode',
-        presets: Object.values(MODE)
+        presets: Object.values(Theory.Presets.MODE)
     }
 ];
 
@@ -91,7 +89,7 @@ export function ConceptInput(props) {
                 />
             </div>
 
-            {props.value instanceof HeptatonicScale &&
+            {props.value instanceof Theory.ConceptTypes.HeptatonicScale &&
                 <div className='input-row'>
                     <label>Roman Numeral:</label>
                     <DropdownInput
@@ -107,7 +105,7 @@ export function ConceptInput(props) {
                 </div>
             }
 
-            {props.value instanceof RomanNumeral &&
+            {props.value instanceof Theory.ConceptTypes.RomanNumeral &&
                 <div className='input-row'>
                     <label>Roman Numeral:</label>
                     <DropdownInput
