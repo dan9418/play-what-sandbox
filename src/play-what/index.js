@@ -3,7 +3,7 @@ import { Fretboard, Keyboard, KeyboardKeyType } from 'play-what-beta';
 import { KeyCenter } from './Theory/KeyCenter';
 import { TONIC, ACCIDENTAL } from './Theory/Constants';
 
-import { INTERVAL_PAIR, CHORD, SCALE, MODE } from './Constants/Presets';
+import { INTERVAL_PAIR, CHORD, SCALE, MODE } from './Theory/Presets';
 
 import { ActionStrategies } from './Strategies/ActionStrategies';
 import { ColorStrategies } from './Strategies/ColorStrategies';

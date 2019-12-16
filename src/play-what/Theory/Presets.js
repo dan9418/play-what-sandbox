@@ -1,8 +1,8 @@
 import { Interval } from "../Theory/Interval"
-import { IntervalPair } from "../ConceptTypes/IntervalPair";
-import { Chord } from "../ConceptTypes/Chord";
-import { HeptatonicScale } from "../ConceptTypes/HeptatonicScale";
-import { Scale } from "../ConceptTypes/Scale";
+import { IntervalPair } from "./ConceptTypes/IntervalPair";
+import { Chord } from "./ConceptTypes/Chord";
+import { HeptatonicScale } from "./ConceptTypes/HeptatonicScale";
+import { Scale } from "./ConceptTypes/Scale";
 
 /***** Intervals *****/
 

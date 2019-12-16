@@ -1,4 +1,4 @@
-import { Concept } from "../Theory/Concept";
+import { Concept } from "../Concept";
 
 export class Scale extends Concept {
     constructor(id, name, intervals) {

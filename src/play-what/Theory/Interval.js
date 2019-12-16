@@ -1,5 +1,5 @@
 import { CommonUtils } from "../Utils/CommonUtils";
-import { INTERVAL } from '../Constants/Presets'
+import { INTERVAL } from '../Theory/Presets'
 
 export class Interval {
     constructor(degree, semitones, id, name, ascending = true, octaveOffset = 0) {
