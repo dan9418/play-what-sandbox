@@ -8,7 +8,7 @@ export function DropdownInput(props) {
     return (
         <select
             className='dropdown-input'
-            value={props.value ? props.value.id : ''}
+            value={props.value ? props.value.id : undefined}
             onChange={(e) => props.setValue(props.data[e.target.selectedIndex])}
         >
             {getDropdownOptions(props.data)}

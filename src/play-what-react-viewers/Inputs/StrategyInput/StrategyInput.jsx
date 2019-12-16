@@ -20,14 +20,12 @@ export class StrategyInput extends React.Component {
     render() {
         return (
             <div className='note-strategy-input'>
-                <div className='input-row'>
-                    <DropdownInput
-                        data={this.props.data}
-                        value={this.props.value.id}
-                        setValue={(value) => this.props.setValue(value.fx)}
-                    />
-                </div>
-            </div >
+                <DropdownInput
+                    data={this.props.data}
+                    value={null}
+                    setValue={(value) => this.props.setValue(value.fx)}
+                />
+            </div>
         );
     }
 }
