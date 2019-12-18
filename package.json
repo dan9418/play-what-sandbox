@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "play-what": "file:C:/_dev/play-what",
+    "play-what-react-viewers": "file:C:/_dev/play-what-react-viewers",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },

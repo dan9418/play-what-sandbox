@@ -3,16 +3,13 @@ import * as React from 'react';
 import './App.css';
 
 import { Theory, Strategies, Utils } from 'play-what';
+import { Fretboard, Keyboard } from 'play-what-react-viewers';
 
 export function App() {
-    console.log(Theory, Strategies, Utils)
     return (
         <div className='app-container'>
-            {/*
             <Fretboard></Fretboard>
             <Keyboard></Keyboard>
-            */}
-            Testing
         </div>
     );
 }
