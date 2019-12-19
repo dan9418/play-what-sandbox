@@ -3,11 +3,13 @@ import * as React from 'react';
 import './App.css';
 
 import { Theory, Strategies, Utils } from 'play-what';
-import { Fretboard, Keyboard } from 'play-what-react-viewers';
+import { Fretboard, Keyboard, RomanNumerals } from 'play-what-react-viewers';
 
 export function App() {
     return (
         <div className='app-container'>
+            <RomanNumerals.Viewer/>
+
             <Fretboard.Viewer
                 fretLow={0}
                 fretHigh={15}
@@ -32,6 +34,7 @@ export function App() {
                 action={Strategies.ActionBy.playSound}
                 actionFilter={Strategies.FilterBy.none}
             />
+
             <Keyboard.Viewer
                 keyLow={-12}
                 keyHigh={24}
