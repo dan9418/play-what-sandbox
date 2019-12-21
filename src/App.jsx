@@ -3,13 +3,30 @@ import * as React from 'react';
 import './App.css';
 
 import { Theory, Strategies, Utils } from 'play-what';
-import { Fretboard, Keyboard, RomanNumerals } from 'play-what-react-viewers';
+import { Fretboard, Keyboard, RomanNumerals, Inputs } from 'play-what-react-viewers';
+
+const DEFAULT_KEY_CENTER = new Theory.KeyCenter(Theory.Constants.TONIC.A, Theory.Constants.ACCIDENTAL.Natural, 3);
+const DEFAULT_CONCEPT = Theory.Presets.SCALE.NatualMinor;
 
 export function App() {
+    let [keyCenter, setKeyCenter] = React.useState(DEFAULT_KEY_CENTER);
+    let [concept, setConcept] = React.useState(DEFAULT_CONCEPT);
+
     return (
         <div className='app-container'>
             <div>
-                <RomanNumerals.Viewer />
+                <Inputs.KeyCenter
+                    keyCenter={keyCenter}
+                    setKeyCenter={setKeyCenter}
+                />
+            </div>
+            <div>
+                <RomanNumerals.Viewer
+                    keyCenter={keyCenter}
+                    concept={concept}
+                    colorStrategy={Strategies.ColorBy.degree}
+                    actionStrategy={Strategies.ActionBy.none}
+                />
             </div>
             <div>
                 <Fretboard.Viewer
@@ -25,11 +42,11 @@ export function App() {
                         { tuning: -3 },   // A
                         { tuning: -8 }    // E
                     }
-                    keyCenter={new Theory.KeyCenter(Theory.Constants.TONIC.E, Theory.Constants.ACCIDENTAL.Natural, 3)}
-                    concept={Theory.Presets.SCALE.Major}
+                    keyCenter={keyCenter}
+                    concept={concept}
                     mapStrategy={Strategies.MapBy.pitchClass}
-                    noteFilter={Fretboard.Strategies.FilterBy.voicing}
-                    colorStrategy={Strategies.ColorBy.pitchClass}
+                    noteFilter={(n, v) => v.stringData.number === 5}
+                    colorStrategy={Strategies.ColorBy.degree}
                     colorFilter={Strategies.FilterBy.active}
                     labelStrategy={Strategies.LabelBy.interval}
                     labelFilter={Strategies.FilterBy.active}
@@ -41,8 +58,8 @@ export function App() {
                 <Keyboard.Viewer
                     keyLow={-12}
                     keyHigh={24}
-                    keyCenter={new Theory.KeyCenter(Theory.Constants.TONIC.E, Theory.Constants.ACCIDENTAL.Natural, 3)}
-                    concept={Theory.Presets.SCALE.Major}
+                    keyCenter={keyCenter}
+                    concept={concept}
                     mapStrategy={Strategies.MapBy.pitchClass}
                     noteFilter={Strategies.FilterBy.none}
                     colorStrategy={(note, data) => Strategies.ColorBy.degree(note, data)}
