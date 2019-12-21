@@ -9,8 +9,8 @@ const DEFAULT_KEY_CENTER = new Theory.KeyCenter(Theory.Constants.TONIC.A, Theory
 const DEFAULT_CONCEPT = Theory.Presets.SCALE.NatualMinor;
 
 export function App() {
-    let [keyCenter, setKeyCenter] = React.useState(DEFAULT_KEY_CENTER);
-    let [concept, setConcept] = React.useState(DEFAULT_CONCEPT);
+    const [keyCenter, setKeyCenter] = React.useState(DEFAULT_KEY_CENTER);
+    const [concept, setConcept] = React.useState(DEFAULT_CONCEPT);
 
     return (
         <div className='app-container'>
@@ -18,6 +18,10 @@ export function App() {
                 <Inputs.KeyCenter
                     keyCenter={keyCenter}
                     setKeyCenter={setKeyCenter}
+                />
+                <Inputs.Concept
+                    concept={concept}
+                    setConcept={setConcept}
                 />
             </div>
             <div>
