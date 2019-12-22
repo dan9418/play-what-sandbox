@@ -1,22 +1,96 @@
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import './App.css';
-
 import { Theory, Strategies, Utils } from 'play-what';
-import { Fretboard, Keyboard, RomanNumerals, Inputs } from 'play-what-react-viewers';
+import { Fretboard, Keyboard, RomanNumerals, Inputs, ViewController } from 'play-what-react-viewers';
 
-const DEFAULT_KEY_CENTER = new Theory.KeyCenter(Theory.Constants.TONIC.A, Theory.Constants.ACCIDENTAL.Natural, 3);
-const DEFAULT_CONCEPT = Theory.Presets.SCALE.NatualMinor;
+const FRETBOARD_INPUTS = [
+    {
+        id: 'keyCenter',
+        name: 'Key Center',
+        component: Inputs.KeyCenter
+    },
+    {
+        id: 'concept',
+        name: 'Concept',
+        component: Inputs.Concept
+    },
+    {
+        id: 'colorStrategy',
+        component: Inputs.DropdownInput,
+        name: 'Color Strategy',
+        props: {
+            data: Object.values(Fretboard.Strategies.ColorBy)
+        },
+    },
+    {
+        id: 'labelStrategy',
+        component: Inputs.DropdownInput,
+        name: 'Label Strategy',
+        props: {
+            data: Object.values(Fretboard.Strategies.LabelBy)
+        },
+    },
+    {
+        id: 'mapStrategy',
+        component: Inputs.DropdownInput,
+        name: 'Map Strategy',
+        props: {
+            data: Object.values(Strategies.MapBy)
+        },
+    }
+];
+
+const KEYBOARD_INPUTS = [
+    {
+        id: 'keyCenter',
+        name: 'Key Center',
+        component: Inputs.KeyCenter
+    },
+    {
+        id: 'concept',
+        name: 'Concept',
+        component: Inputs.Concept
+    },
+    {
+        id: 'colorStrategy',
+        component: Inputs.DropdownInput,
+        name: 'Color Strategy',
+        props: {
+            data: Object.values(Keyboard.Strategies.ColorBy)
+        },
+    },
+    {
+        id: 'labelStrategy',
+        component: Inputs.DropdownInput,
+        name: 'Label Strategy',
+        props: {
+            data: Object.values(Keyboard.Strategies.LabelBy)
+        },
+    },
+    {
+        id: 'mapStrategy',
+        component: Inputs.DropdownInput,
+        name: 'Map Strategy',
+        props: {
+            data: Object.values(Strategies.MapBy)
+        },
+    }
+];
 
 export function App() {
-    const [keyCenter, setKeyCenter] = React.useState(DEFAULT_KEY_CENTER);
-    const [concept, setConcept] = React.useState(DEFAULT_CONCEPT);
-
     return (
         <div className='app-container'>
-            <div>
-                <Fretboard.Controller />
-            </div>
+            <ViewController
+                viewer={Fretboard.Viewer}
+                defaults={Fretboard.Defaults}
+                inputs={FRETBOARD_INPUTS}
+            />
+            <ViewController
+                viewer={Keyboard.Viewer}
+                defaults={Keyboard.Defaults}
+                inputs={KEYBOARD_INPUTS}
+            />
         </div>
     );
 }
