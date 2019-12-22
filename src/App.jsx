@@ -15,64 +15,7 @@ export function App() {
     return (
         <div className='app-container'>
             <div>
-                <Inputs.KeyCenter
-                    keyCenter={keyCenter}
-                    setKeyCenter={setKeyCenter}
-                />
-                <Inputs.Concept
-                    concept={concept}
-                    setConcept={setConcept}
-                />
-            </div>
-            <div>
-                <RomanNumerals.Viewer
-                    keyCenter={keyCenter}
-                    concept={concept}
-                    colorStrategy={Strategies.ColorBy.degree}
-                    actionStrategy={Strategies.ActionBy.none}
-                />
-            </div>
-            <div>
-                <Fretboard.Viewer
-                    fretLow={0}
-                    fretHigh={15}
-                    showFretNumbers={true}
-                    showDots={true}
-                    string={
-                        { tuning: 16 },   // e
-                        { tuning: 11 },   // B
-                        { tuning: 7 },    // G
-                        { tuning: 2 },    // D
-                        { tuning: -3 },   // A
-                        { tuning: -8 }    // E
-                    }
-                    keyCenter={keyCenter}
-                    concept={concept}
-                    mapStrategy={Strategies.MapBy.pitchClass}
-                    noteFilter={(n, v) => v.stringData.number === 5}
-                    colorStrategy={Strategies.ColorBy.degree}
-                    colorFilter={Strategies.FilterBy.active}
-                    labelStrategy={Strategies.LabelBy.interval}
-                    labelFilter={Strategies.FilterBy.active}
-                    action={Strategies.ActionBy.playSound}
-                    actionFilter={Strategies.FilterBy.none}
-                />
-            </div>
-            <div>
-                <Keyboard.Viewer
-                    keyLow={-12}
-                    keyHigh={24}
-                    keyCenter={keyCenter}
-                    concept={concept}
-                    mapStrategy={Strategies.MapBy.pitchClass}
-                    noteFilter={Strategies.FilterBy.none}
-                    colorStrategy={(note, data) => Strategies.ColorBy.degree(note, data)}
-                    colorFilter={Strategies.FilterBy.none}
-                    labelStrategy={Strategies.LabelBy.interval}
-                    labelFilter={Strategies.FilterBy.none}
-                    action={Strategies.ActionBy.playSound}
-                    actionFilter={Strategies.FilterBy.none}
-                />
+                <Fretboard.Controller />
             </div>
         </div>
     );
