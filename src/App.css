@@ -10,3 +10,8 @@ html, body {
     width: 100%;
     background-color: lavender;
 }
+
+.caged > .fretboard {
+    margin: 10px;
+    width: 200px;
+}

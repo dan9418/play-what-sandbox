@@ -3,94 +3,131 @@ import * as React from 'react';
 import './App.css';
 import { Theory, Strategies, Utils } from 'play-what';
 import { Fretboard, Keyboard, RomanNumerals, Inputs, ViewController } from 'play-what-react-viewers';
+import CAGED from './CAGED';
 
-const FRETBOARD_INPUTS = [
-    {
-        id: 'keyCenter',
-        name: 'Key Center',
-        component: Inputs.KeyCenter
+const PARENT = {
+    id: 'common',
+    name: 'Common',
+    defaults: {
+        // theory
+        keyCenter: new Theory.KeyCenter(Theory.Constants.TONIC.C, Theory.Constants.ACCIDENTAL.Natural, 4),
+        concept: Theory.Presets.CHORD.Maj7,
+        // notes
+        mapStrategy: Strategies.MapBy.noteIndex,
+        noteFilter: () => true,
+        // labels
+        labelStrategy: Strategies.LabelBy.interval,
+        labelFilter: () => true,
+        // colors
+        colorStrategy: Strategies.ColorBy.degree,
+        colorFilter: () => true,
+        // actions
+        actionStrategy: Strategies.ActionBy.playSound,
+        actionFilter: () => true
     },
-    {
-        id: 'concept',
-        name: 'Concept',
-        component: Inputs.Concept
-    },
-    {
-        id: 'colorStrategy',
-        component: Inputs.DropdownInput,
-        name: 'Color Strategy',
-        props: {
-            data: Object.values(Fretboard.Strategies.ColorBy)
+    inputs: [
+        {
+            id: 'keyCenter',
+            name: 'Key Center',
+            component: Inputs.KeyCenter
         },
-    },
-    {
-        id: 'labelStrategy',
-        component: Inputs.DropdownInput,
-        name: 'Label Strategy',
-        props: {
-            data: Object.values(Fretboard.Strategies.LabelBy)
+        {
+            id: 'concept',
+            name: 'Concept',
+            component: Inputs.Concept
         },
-    },
-    {
-        id: 'mapStrategy',
-        component: Inputs.DropdownInput,
-        name: 'Map Strategy',
-        props: {
-            data: Object.values(Strategies.MapBy)
+        {
+            id: 'colorStrategy',
+            component: Inputs.DropdownInput,
+            name: 'Color Strategy',
+            props: {
+                data: Object.values(Strategies.ColorBy)
+            },
         },
-    }
-];
-
-const KEYBOARD_INPUTS = [
-    {
-        id: 'keyCenter',
-        name: 'Key Center',
-        component: Inputs.KeyCenter
-    },
-    {
-        id: 'concept',
-        name: 'Concept',
-        component: Inputs.Concept
-    },
-    {
-        id: 'colorStrategy',
-        component: Inputs.DropdownInput,
-        name: 'Color Strategy',
-        props: {
-            data: Object.values(Keyboard.Strategies.ColorBy)
+        {
+            id: 'labelStrategy',
+            component: Inputs.DropdownInput,
+            name: 'Label Strategy',
+            props: {
+                data: Object.values(Strategies.LabelBy)
+            },
         },
-    },
-    {
-        id: 'labelStrategy',
-        component: Inputs.DropdownInput,
-        name: 'Label Strategy',
-        props: {
-            data: Object.values(Keyboard.Strategies.LabelBy)
+        {
+            id: 'mapStrategy',
+            component: Inputs.DropdownInput,
+            name: 'Map Strategy',
+            props: {
+                data: Object.values(Strategies.MapBy)
+            },
+        }
+    ],
+    outputs: [
+        {
+            id: 'summary',
+            name: 'Summary',
+            component: RomanNumerals.Viewer
+        }
+    ],
+    children: [
+        {
+            id: 'fretboard',
+            name: 'Fretboard',
+            defaults: {
+                fretLow: 0,
+                fretHigh: 12
+            },
+            inputs: [
+                {
+                    id: 'fretLow',
+                    name: 'Low Fret',
+                    component: Inputs.NumericInput
+                },
+                {
+                    id: 'fretHigh',
+                    name: 'High Fret',
+                    component: Inputs.NumericInput
+                }
+            ],
+            outputs: [
+                {
+                    id: 'guitar',
+                    name: 'Guitar',
+                    component: Fretboard.Viewer
+                }
+            ]
         },
-    },
-    {
-        id: 'mapStrategy',
-        component: Inputs.DropdownInput,
-        name: 'Map Strategy',
-        props: {
-            data: Object.values(Strategies.MapBy)
-        },
-    }
-];
+        {
+            id: 'keyboard',
+            name: 'Keyboard',
+            defaults: Keyboard.Defaults,
+            inputs: [
+                {
+                    id: 'keyLow',
+                    name: 'Low Key',
+                    component: Inputs.NumericInput
+                },
+                {
+                    id: 'keyHigh',
+                    name: 'High Key',
+                    component: Inputs.NumericInput
+                }
+            ],
+            outputs: [
+                {
+                    id: 'piano',
+                    name: 'Piano',
+                    component: Keyboard.Viewer
+                }
+            ]
+        }
+    ]
+};
 
 export function App() {
     return (
         <div className='app-container'>
-            <ViewController
-                viewer={Fretboard.Viewer}
-                defaults={Fretboard.Defaults}
-                inputs={FRETBOARD_INPUTS}
-            />
-            <ViewController
-                viewer={Keyboard.Viewer}
-                defaults={Keyboard.Defaults}
-                inputs={KEYBOARD_INPUTS}
-            />
+            <ViewController {...PARENT} />
+            {/*<hr /><CAGED />*/}
         </div>
     );
 }
