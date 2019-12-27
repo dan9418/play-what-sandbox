@@ -74,7 +74,9 @@ const PARENT = {
             name: 'Fretboard',
             defaults: {
                 fretLow: 0,
-                fretHigh: 12
+                fretHigh: 12,
+                showDots: true,
+                showFretNumbers: true
             },
             inputs: [
                 {
@@ -86,6 +88,16 @@ const PARENT = {
                     id: 'fretHigh',
                     name: 'High Fret',
                     component: Inputs.NumericInput
+                },
+                {
+                    id: 'showDots',
+                    name: 'Show Dots',
+                    component: Inputs.SwitchInput
+                },
+                {
+                    id: 'showFretNumbers',
+                    name: 'Show Fret Numbers',
+                    component: Inputs.SwitchInput
                 }
             ],
             outputs: [
@@ -126,8 +138,8 @@ const PARENT = {
 export function App() {
     return (
         <div className='app-container'>
-            <ViewController {...PARENT} />
-            {/*<hr /><CAGED />*/}
+            {/*<ViewController {...PARENT} />*/}
+            {<CAGED />}
         </div>
     );
 }
