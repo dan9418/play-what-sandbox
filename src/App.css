@@ -8,7 +8,8 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    background-color: lavender;
+    background-color: #555;
+    color: white;
 }
 
 .caged .sample-list .fretboard {
