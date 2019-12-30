@@ -1,0 +1,11 @@
+.input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #333;
+    min-height: 40px;
+}
+
+.input-row .label {
+    margin-left: 15px;
+}
