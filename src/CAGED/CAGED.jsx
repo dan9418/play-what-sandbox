@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './App.css';
+import './CAGED.css';
 import { Theory, Strategies, Utils } from 'play-what';
 import { Fretboard, Inputs, ViewController } from 'play-what-react-viewers';
 

@@ -11,14 +11,3 @@ html, body {
     background-color: #555;
     color: white;
 }
-
-.caged .sample-list .fretboard {
-    margin: 10px;
-    width: 200px;
-}
-
-.caged .sample .fretboard {
-    margin: 10px;
-    width: 700px;
-    max-width: 700px;
-}
