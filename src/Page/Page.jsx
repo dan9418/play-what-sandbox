@@ -5,6 +5,8 @@ import InputRow from './InputRow/InputRow';
 
 import { Theory, Strategies, Utils } from 'play-what';
 import { Fretboard, Keyboard, Inputs, ViewController, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
+import KeyCenterPanel from './Panels/KeyCenterPanel';
+import ConceptPanel from './Panels/ConceptPanel';
 
 const CONCEPT_TYPES = [
     {
@@ -37,48 +39,6 @@ export default class Page extends React.Component {
             conceptType: CONCEPT_TYPES[2],
             concept: Theory.Presets.SCALE.MajorPentatonic
         }
-    }
-
-    getKeyCenterInputs() {
-        let { keyCenter } = this.state;
-        let setKeyCenter = (tonic, accidental, octave) => this.setState({ keyCenter: new Theory.KeyCenter(tonic, accidental, octave) })
-        return (
-            <Section header='Key Center'>
-                <InputRow label='Tonic'>
-                    <Inputs.TonicInput value={keyCenter.tonic} setValue={tonic => setKeyCenter(tonic, keyCenter.accidental, keyCenter.octave)} />
-                </InputRow>
-                <InputRow label='Accidental'>
-                    <Inputs.AccidentalInput value={keyCenter.accidental} setValue={accidental => setkeyCenter(keyCenter.tonic, accidental, keyCenter.octave)} />
-                </InputRow>
-                <InputRow label='Octave'>
-                    <Inputs.NumericInput value={keyCenter.octave} setValue={octave => setkeyCenter(keyCenter.tonic, keyCenter.accidental, octave)} />
-                </InputRow>
-            </Section>
-        );
-    }
-
-    getConceptInputs() {
-        let { conceptType, concept } = this.state;
-        return (
-            <Section header='Concept'>
-                <InputRow label='Type'>
-                    <Inputs.DropdownInput
-                        data={CONCEPT_TYPES}
-                        value={conceptType}
-                        setValue={type => this.setState({ conceptType: type, concept: type.presets[0] })}
-                    />
-                </InputRow>
-                <InputRow label='Preset'>
-                    <Inputs.DropdownInput
-                        data={conceptType.presets}
-                        value={concept}
-                        setValue={preset => this.setState({ concept: preset })}
-                    />
-                </InputRow>
-                {concept instanceof Theory.ConceptTypes.Scale && this.getScaleInputs()}
-                {concept instanceof Theory.ConceptTypes.Chord && this.getChordInputs()}
-            </Section >
-        );
     }
 
     getScaleInputs() {
@@ -117,9 +77,18 @@ export default class Page extends React.Component {
 
                 <div className='header'>Inputs</div>
 
-                {this.getKeyCenterInputs()}
+                <KeyCenterPanel
+                    keyCenter={this.state.keyCenter}
+                    setKeyCenter={(tonic, accidental, octave) => this.setState({ keyCenter: new Theory.KeyCenter(tonic, accidental, octave) })}
+                />
 
-                {this.getConceptInputs()}
+                <ConceptPanel
+                    data={CONCEPT_TYPES}
+                    conceptType={this.state.conceptType}
+                    setConceptType={type => this.setState({ conceptType: type, concept: type.presets[0] })}
+                    concept={this.state.concept}
+                    setConcept={concept => this.setState({ concept: concept })}
+                />
 
                 <div className='header'>Outputs</div>
 
