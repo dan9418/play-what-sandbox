@@ -12,22 +12,34 @@ const CONCEPT_TYPES = [
     {
         id: 'intervalPair',
         name: 'Interval Pair',
-        presets: Object.values(Theory.Presets.INTERVAL_PAIR)
+        presets: Object.values(Theory.Presets.INTERVAL_PAIR),
+        defaultOptions: {
+            reverse: false
+        }
     },
     {
         id: 'chord',
         name: 'Chord',
-        presets: Object.values(Theory.Presets.CHORD)
+        presets: Object.values(Theory.Presets.CHORD),
+        defaultOptions: {
+            chordInversion: 0
+        }
     },
     {
         id: 'scale',
         name: 'Scale',
-        presets: Object.values(Theory.Presets.SCALE)
+        presets: Object.values(Theory.Presets.SCALE),
+        defaultOptions: {
+            reverse: false
+        }
     },
     {
         id: 'mode',
         name: 'Mode',
-        presets: Object.values(Theory.Presets.MODE)
+        presets: Object.values(Theory.Presets.MODE),
+        defaultOptions: {
+            reverse: false
+        }
     }
 ];
 
@@ -37,38 +49,9 @@ export default class Page extends React.Component {
         this.state = {
             keyCenter: new Theory.KeyCenter(Theory.Constants.TONIC.C, Theory.Constants.ACCIDENTAL.Natural, 4),
             conceptType: CONCEPT_TYPES[2],
-            concept: Theory.Presets.SCALE.MajorPentatonic
+            concept: Theory.Presets.SCALE.MajorPentatonic,
+            conceptOptions: CONCEPT_TYPES[2].defaultOptions
         }
-    }
-
-    getScaleInputs() {
-        let value = this.state.concept_scale_reverse;
-        return (
-            <InputRow label='Reverse'>
-                <Inputs.SwitchInput
-                    value={value}
-                    setValue={(value) => this.setState({
-                        concept: this.state.concept.reverse(),
-                        concept_scale_reverse: value
-                    })}
-                />
-            </InputRow>
-        );
-    }
-
-    getChordInputs() {
-        let value = this.state.concept_chord_inversion || 0;
-        return (
-            <InputRow label='Inversion'>
-                <Inputs.NumericInput
-                    value={value}
-                    setValue={(value) => this.setState({
-                        concept: this.state.concept.chordInversion(value),
-                        concept_chord_inversion: value
-                    })}
-                />
-            </InputRow>
-        );
     }
 
     render() {
@@ -85,9 +68,11 @@ export default class Page extends React.Component {
                 <ConceptPanel
                     data={CONCEPT_TYPES}
                     conceptType={this.state.conceptType}
-                    setConceptType={type => this.setState({ conceptType: type, concept: type.presets[0] })}
+                    setConceptType={type => this.setState({ conceptType: type, concept: type.presets[0], conceptOptions: type.defaultOptions })}
                     concept={this.state.concept}
                     setConcept={concept => this.setState({ concept: concept })}
+                    conceptOptions={this.state.conceptOptions}
+                    setConceptOptions={(options, concept) => this.setState({ conceptOptions: options, concept: concept })}
                 />
 
                 <div className='header'>Outputs</div>

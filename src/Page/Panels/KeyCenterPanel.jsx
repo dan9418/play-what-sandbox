@@ -14,10 +14,10 @@ export default function KeyCenterPanel(props) {
                 <Inputs.TonicInput value={keyCenter.tonic} setValue={tonic => setKeyCenter(tonic, keyCenter.accidental, keyCenter.octave)} />
             </InputRow>
             <InputRow label='Accidental'>
-                <Inputs.AccidentalInput value={keyCenter.accidental} setValue={accidental => setkeyCenter(keyCenter.tonic, accidental, keyCenter.octave)} />
+                <Inputs.AccidentalInput value={keyCenter.accidental} setValue={accidental => setKeyCenter(keyCenter.tonic, accidental, keyCenter.octave)} />
             </InputRow>
             <InputRow label='Octave'>
-                <Inputs.NumericInput value={keyCenter.octave} setValue={octave => setkeyCenter(keyCenter.tonic, keyCenter.accidental, octave)} />
+                <Inputs.NumericInput value={keyCenter.octave} setValue={octave => setKeyCenter(keyCenter.tonic, keyCenter.accidental, octave)} />
             </InputRow>
         </Section>
     );
