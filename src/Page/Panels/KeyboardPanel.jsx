@@ -4,7 +4,6 @@ import InputRow from '../InputRow/InputRow';
 
 import { Theory, Strategies, Utils } from 'play-what';
 import { Keyboard, Inputs } from 'play-what-react-viewers';
-import { render } from 'react-dom';
 
 export default class KeyboardPanel extends React.Component {
 
@@ -12,7 +11,10 @@ export default class KeyboardPanel extends React.Component {
         super(props);
         this.state = {
             keyLow: 0,
-            keyHigh: 25
+            keyHigh: 25,
+            colorStrategy: Keyboard.Strategies.ColorBy.degree,
+            labelStrategy: Keyboard.Strategies.LabelBy.interval,
+            mapStrategy: Strategies.MapBy.noteIndex
         }
     }
 
@@ -33,6 +35,17 @@ export default class KeyboardPanel extends React.Component {
                     <Inputs.NumericInput value={this.state.keyHigh} setValue={value => this.setState({ keyHigh: value })} />
                 </InputRow>
 
+                <InputRow label='Color Strategy'>
+                    <Inputs.DropdownInput data={Object.values(Keyboard.Strategies.ColorBy)} value={this.state.colorStrategy} setValue={value => this.setState({ colorStrategy: value })} />
+                </InputRow>
+
+                <InputRow label='Label Strategy'>
+                    <Inputs.DropdownInput data={Object.values(Keyboard.Strategies.LabelBy)} value={this.state.labelStrategy} setValue={value => this.setState({ labelStrategy: value })} />
+                </InputRow>
+
+                <InputRow label='Map Strategy'>
+                    <Inputs.DropdownInput data={Object.values(Strategies.MapBy)} value={this.state.mapStrategy} setValue={value => this.setState({ mapStrategy: value })} />
+                </InputRow>
 
             </Section>
         );
