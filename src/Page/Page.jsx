@@ -7,6 +7,8 @@ import { Theory, Strategies, Utils } from 'play-what';
 import { Fretboard, Keyboard, Inputs, ViewController, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
 import KeyCenterPanel from './Panels/KeyCenterPanel';
 import ConceptPanel from './Panels/ConceptPanel';
+import FretboardPanel from './Panels/FretboardPanel';
+import KeyboardPanel from './Panels/KeyboardPanel';
 
 const CONCEPT_TYPES = [
     {
@@ -88,6 +90,17 @@ export default class Page extends React.Component {
                 <Section header='Chord Analysis'>
                     <ChordAnalysis {...this.state} />
                 </Section>
+
+                <FretboardPanel
+                    keyCenter={this.state.keyCenter}
+                    concept={this.state.concept}
+                />
+
+                <KeyboardPanel
+                    keyCenter={this.state.keyCenter}
+                    concept={this.state.concept}
+                />
+
             </div>
         );
     }
