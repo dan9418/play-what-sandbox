@@ -1,29 +1,17 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import './Section.css';
 
-export default class Section extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: true
-        }
-    }
+export default function Section(props) {
 
-    toggle() {
-        this.setState({
-            open: !this.state.open
-        });
-    }
+    const [open, setOpen] = useState(true)
 
-    render() {
-        return (
-            <div className='section'>
-                <div className='section-header' onClick={() => this.toggle()}>
-                    {this.props.header}
-                    <div className='section-header-toggle'>{this.state.open ? '-' : '+'}</div>
-                </div>
-                {this.state.open && <div className='section-content'>{this.props.children}</div>}
+    return (
+        <div className='section'>
+            <div className='section-header' onClick={() => setOpen(!open)}>
+                {props.header}
+                <div className='section-header-toggle'>{open ? '-' : '+'}</div>
             </div>
-        );
-    }
+            {open && <div className='section-content'>{props.children}</div>}
+        </div>
+    );
 }

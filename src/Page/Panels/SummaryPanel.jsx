@@ -1,38 +1,32 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Section from '../Section/Section';
 import InputRow from '../InputRow/InputRow';
 
 import { Theory, Strategies, Utils } from 'play-what';
 import { ConceptBlock, Inputs } from 'play-what-react-viewers';
 
-export default class SummaryPanel extends React.Component {
+export default function SummaryPanel(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            colorStrategy: Strategies.ColorBy.degree,
-            labelStrategy: Strategies.LabelBy.interval
-        }
-    }
+    const [colorStrategy, setColorStrategy] = useState(Strategies.ColorBy.degree);
+    const [labelStrategy, setLabelStrategy] = useState(Strategies.LabelBy.interval);
 
-    render() {
-        return (
-            <Section header='Summary'>
-                <ConceptBlock
-                    keyCenter={this.props.keyCenter}
-                    concept={this.props.concept}
-                    {...this.state}
-                />
+    return (
+        <Section header='Summary'>
+            <ConceptBlock
+                keyCenter={props.keyCenter}
+                concept={props.concept}
+                colorStrategy={colorStrategy}
+                labelStrategy={labelStrategy}
+            />
 
-                <InputRow label='Color Strategy'>
-                    <Inputs.DropdownInput data={Object.values(Strategies.ColorBy)} value={this.state.colorStrategy} setValue={value => this.setState({ colorStrategy: value })} />
-                </InputRow>
+            <InputRow label='Color Strategy'>
+                <Inputs.DropdownInput data={Object.values(Strategies.ColorBy)} value={colorStrategy} setValue={setColorStrategy} />
+            </InputRow>
 
-                <InputRow label='Label Strategy'>
-                    <Inputs.DropdownInput data={Object.values(Strategies.LabelBy)} value={this.state.labelStrategy} setValue={value => this.setState({ labelStrategy: value })} />
-                </InputRow>
+            <InputRow label='Label Strategy'>
+                <Inputs.DropdownInput data={Object.values(Strategies.LabelBy)} value={labelStrategy} setValue={setLabelStrategy} />
+            </InputRow>
 
-            </Section>
-        );
-    }
+        </Section>
+    );
 }

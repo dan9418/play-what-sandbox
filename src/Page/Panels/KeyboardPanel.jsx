@@ -1,53 +1,63 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Section from '../Section/Section';
 import InputRow from '../InputRow/InputRow';
 
 import { Theory, Strategies, Utils } from 'play-what';
 import { Keyboard, Inputs } from 'play-what-react-viewers';
 
-export default class KeyboardPanel extends React.Component {
+export default function KeyboardPanel(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            keyLow: 0,
-            keyHigh: 25,
-            colorStrategy: Keyboard.Strategies.ColorBy.degree,
-            labelStrategy: Keyboard.Strategies.LabelBy.interval,
-            mapStrategy: Strategies.MapBy.noteIndex
-        }
-    }
+    const [keyLow, setKeyLow] = useState(0);
+    const [keyHigh, setKeyHigh] = useState(24);
+    const [colorStrategy, setColorStrategy] = useState(Strategies.ColorBy.degree);
+    const [labelStrategy, setLabelStrategy] = useState(Strategies.LabelBy.interval);
+    const [mapStrategy, setMapStrategy] = useState(Strategies.MapBy.noteIndex);
 
-    render() {
-        return (
-            <Section header='Keyboard'>
-                <Keyboard.Viewer
-                    keyCenter={this.props.keyCenter}
-                    concept={this.props.concept}
-                    {...this.state}
+    return (
+        <Section header='Keyboard'>
+            <Keyboard.Viewer
+                keyCenter={props.keyCenter}
+                concept={props.concept}
+                keyLow={keyLow}
+                keyHigh={keyHigh}
+                colorStrategy={colorStrategy}
+                labelStrategy={labelStrategy}
+                mapStrategy={mapStrategy}
+            />
+
+            <InputRow label='Low Key'>
+                <Inputs.NumericInput value={keyLow} setValue={setKeyLow} />
+            </InputRow>
+
+            <InputRow label='High Key'>
+                <Inputs.NumericInput value={keyHigh} setValue={setKeyHigh} />
+            </InputRow>
+
+            <InputRow label='Color Strategy'>
+                <Inputs.DropdownInput
+                    data={Object.values(Keyboard.Strategies.ColorBy)}
+                    value={colorStrategy}
+                    setValue={setColorStrategy}
                 />
+            </InputRow>
 
-                <InputRow label='Low Key'>
-                    <Inputs.NumericInput value={this.state.keyLow} setValue={value => this.setState({ keyLow: value })} />
-                </InputRow>
+            <InputRow label='Label Strategy'>
+                <Inputs.DropdownInput
+                    data={Object.values(Keyboard.Strategies.LabelBy)}
+                    value={labelStrategy}
+                    setValue={setLabelStrategy}
+                />
+            </InputRow>
 
-                <InputRow label='High Key'>
-                    <Inputs.NumericInput value={this.state.keyHigh} setValue={value => this.setState({ keyHigh: value })} />
-                </InputRow>
+            <InputRow label='Map Strategy'>
+                <Inputs.DropdownInput
+                    data={Object.values(Strategies.MapBy)}
+                    value={mapStrategy}
+                    setValue={setMapStrategy}
+                />
+            </InputRow>
 
-                <InputRow label='Color Strategy'>
-                    <Inputs.DropdownInput data={Object.values(Keyboard.Strategies.ColorBy)} value={this.state.colorStrategy} setValue={value => this.setState({ colorStrategy: value })} />
-                </InputRow>
+        </Section>
+    );
 
-                <InputRow label='Label Strategy'>
-                    <Inputs.DropdownInput data={Object.values(Keyboard.Strategies.LabelBy)} value={this.state.labelStrategy} setValue={value => this.setState({ labelStrategy: value })} />
-                </InputRow>
-
-                <InputRow label='Map Strategy'>
-                    <Inputs.DropdownInput data={Object.values(Strategies.MapBy)} value={this.state.mapStrategy} setValue={value => this.setState({ mapStrategy: value })} />
-                </InputRow>
-
-            </Section>
-        );
-    }
 }
