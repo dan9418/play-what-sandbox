@@ -9,6 +9,7 @@ import KeyCenterPanel from './Panels/KeyCenterPanel';
 import ConceptPanel from './Panels/ConceptPanel';
 import FretboardPanel from './Panels/FretboardPanel';
 import KeyboardPanel from './Panels/KeyboardPanel';
+import SummaryPanel from './Panels/SummaryPanel';
 
 const CONCEPT_TYPES = [
     {
@@ -79,9 +80,10 @@ export default class Page extends React.Component {
 
                 <div className='header'>Outputs</div>
 
-                <Section header='Summary'>
-                    <ConceptBlock {...this.state} />
-                </Section>
+                <SummaryPanel
+                    keyCenter={this.state.keyCenter}
+                    concept={this.state.concept}
+                />
 
                 <Section header='Note Data'>
                     <NoteTable {...this.state} />
