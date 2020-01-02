@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import './Page.css';
 import Section from './Section/Section';
 import InputRow from './InputRow/InputRow';
@@ -46,64 +46,62 @@ const CONCEPT_TYPES = [
     }
 ];
 
-export default class Page extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            keyCenter: new Theory.KeyCenter(Theory.Constants.TONIC.C, Theory.Constants.ACCIDENTAL.Natural, 4),
-            conceptType: CONCEPT_TYPES[2],
-            concept: Theory.Presets.SCALE.MajorPentatonic,
-            conceptOptions: CONCEPT_TYPES[2].defaultOptions
-        }
-    }
+export default function Page(props) {
 
-    render() {
-        return (
-            <div className='play-what-sample'>
+    const [keyCenter, setKeyCenter] = useState(new Theory.KeyCenter(Theory.Constants.TONIC.C, Theory.Constants.ACCIDENTAL.Natural, 4));
+    const [conceptData, setConceptData] = useState({
+        type: CONCEPT_TYPES[2],
+        value: CONCEPT_TYPES[2].presets[0],
+        options: CONCEPT_TYPES[2].defaultOptions
+    })
 
-                <div className='header'>Inputs</div>
+    return (
+        <div className='play-what-sample'>
 
-                <KeyCenterPanel
-                    keyCenter={this.state.keyCenter}
-                    setKeyCenter={(tonic, accidental, octave) => this.setState({ keyCenter: new Theory.KeyCenter(tonic, accidental, octave) })}
+            <div className='header'>Inputs</div>
+
+            <KeyCenterPanel
+                keyCenter={keyCenter}
+                setKeyCenter={(tonic, accidental, octave) => setKeyCenter(new Theory.KeyCenter(tonic, accidental, octave))}
+            />
+
+            <ConceptPanel
+                data={CONCEPT_TYPES}
+                conceptData={conceptData}
+                setConceptData={(type, value, options) => setConceptData({ type: type, value: value, options: options })}
+            />
+
+            <div className='header'>Outputs</div>
+
+            <SummaryPanel
+                keyCenter={keyCenter}
+                concept={conceptData.value}
+            />
+
+            <Section header='Note Data'>
+                <NoteTable
+                    keyCenter={keyCenter}
+                    concept={conceptData.value}
                 />
+            </Section>
 
-                <ConceptPanel
-                    data={CONCEPT_TYPES}
-                    conceptType={this.state.conceptType}
-                    setConceptType={type => this.setState({ conceptType: type, concept: type.presets[0], conceptOptions: type.defaultOptions })}
-                    concept={this.state.concept}
-                    setConcept={concept => this.setState({ concept: concept })}
-                    conceptOptions={this.state.conceptOptions}
-                    setConceptOptions={(options, concept) => this.setState({ conceptOptions: options, concept: concept })}
+            <Section header='Chord Analysis'>
+                <ChordAnalysis
+                    keyCenter={keyCenter}
+                    concept={conceptData.value}
                 />
+            </Section>
 
-                <div className='header'>Outputs</div>
+            <FretboardPanel
+                keyCenter={keyCenter}
+                concept={conceptData.value}
+            />
 
-                <SummaryPanel
-                    keyCenter={this.state.keyCenter}
-                    concept={this.state.concept}
-                />
+            <KeyboardPanel
+                keyCenter={keyCenter}
+                concept={conceptData.value}
+            />
 
-                <Section header='Note Data'>
-                    <NoteTable {...this.state} />
-                </Section>
-
-                <Section header='Chord Analysis'>
-                    <ChordAnalysis {...this.state} />
-                </Section>
-
-                <FretboardPanel
-                    keyCenter={this.state.keyCenter}
-                    concept={this.state.concept}
-                />
-
-                <KeyboardPanel
-                    keyCenter={this.state.keyCenter}
-                    concept={this.state.concept}
-                />
-
-            </div>
-        );
-    }
+        </div>
+    );
 }

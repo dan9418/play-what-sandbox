@@ -6,52 +6,64 @@ import { Theory, Strategies, Utils } from 'play-what';
 import { Inputs, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
 
 export default function ConceptPanel(props) {
-    let { data, conceptType, setConceptType, concept, setConcept, conceptOptions, setConceptOptions } = props;
+    let { data, conceptData, setConceptData } = props;
     return (
         <Section header='Concept'>
             <InputRow label='Type'>
                 <Inputs.DropdownInput
                     data={data}
-                    value={conceptType}
-                    setValue={setConceptType}
+                    value={conceptData.type}
+                    setValue={type => setConceptData(type, type.presets[0], type.defaultOptions)}
                 />
             </InputRow>
             <InputRow label='Preset'>
                 <Inputs.DropdownInput
-                    data={conceptType.presets}
-                    value={concept}
-                    setValue={setConcept}
+                    data={conceptData.type.presets}
+                    value={conceptData.value}
+                    setValue={preset => setConceptData(conceptData.type, preset, conceptData.options)}
                 />
             </InputRow>
-            {(concept instanceof Theory.ConceptTypes.Scale || concept instanceof Theory.ConceptTypes.IntervalPair) && <ScalePanel concept={concept} options={conceptOptions} setConceptOptions={setConceptOptions} />}
-            {concept instanceof Theory.ConceptTypes.Chord && <ChordPanel concept={concept} options={conceptOptions} setConceptOptions={setConceptOptions} />}
+
+            {(conceptData.value instanceof Theory.ConceptTypes.Scale || conceptData.value instanceof Theory.ConceptTypes.IntervalPair) && <ScalePanel conceptData={conceptData} setConceptData={setConceptData} />}
+            {conceptData.value instanceof Theory.ConceptTypes.Chord && <ChordPanel conceptData={conceptData} setConceptData={setConceptData} />}
+
         </Section >
     );
 }
 
 function ScalePanel(props) {
+    let { conceptData, setConceptData } = props;
     return (
         <InputRow label='Reverse'>
             <Inputs.SwitchInput
-                value={props.options.reverse}
-                setValue={(value) => props.setConceptOptions({
-                    ...props.options,
-                    reverse: value
-                }, props.concept.copy().reverse())}
+                value={conceptData.options.reverse}
+                setValue={(value) => setConceptData(
+                    conceptData.type,
+                    conceptData.value.copy().reverse(),
+                    {
+                        ...conceptData.options,
+                        reverse: value
+                    })
+                }
             />
         </InputRow>
     );
 }
 
 function ChordPanel(props) {
+    let { conceptData, setConceptData } = props;
     return (
         <InputRow label='Inversion'>
             <Inputs.NumericInput
-                value={props.options.chordInversion}
-                setValue={(value) => props.setConceptOptions({
-                    ...props.options,
-                    chordInversion: value
-                }, props.concept.copy().chordInversion(value))}
+                value={conceptData.options.chordInversion}
+                setValue={(value) => setConceptData(
+                    conceptData.type,
+                    conceptData.value.copy().chordInversion(value),
+                    {
+                        ...conceptData.options,
+                        chordInversion: value
+                    })
+                }
             />
         </InputRow>
     );
