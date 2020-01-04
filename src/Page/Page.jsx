@@ -3,7 +3,7 @@ import './Page.css';
 import Section from './Section/Section';
 import InputRow from './InputRow/InputRow';
 
-import { Theory, Strategies, Utils } from 'play-what';
+import PlayWhat from 'play-what';
 import { Fretboard, Keyboard, Inputs, ViewController, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
 import KeyCenterPanel from './Panels/KeyCenterPanel';
 import ConceptPanel from './Panels/ConceptPanel';
@@ -15,7 +15,7 @@ const CONCEPT_TYPES = [
     {
         id: 'intervalPair',
         name: 'Interval Pair',
-        presets: Object.values(Theory.Presets.INTERVAL_PAIR),
+        presets: Object.values(PlayWhat.Presets.INTERVAL_PAIR),
         defaultOptions: {
             reverse: false
         }
@@ -23,7 +23,7 @@ const CONCEPT_TYPES = [
     {
         id: 'chord',
         name: 'Chord',
-        presets: Object.values(Theory.Presets.CHORD),
+        presets: Object.values(PlayWhat.Presets.CHORD),
         defaultOptions: {
             chordInversion: 0
         }
@@ -31,7 +31,7 @@ const CONCEPT_TYPES = [
     {
         id: 'scale',
         name: 'Scale',
-        presets: Object.values(Theory.Presets.SCALE),
+        presets: Object.values(PlayWhat.Presets.SCALE),
         defaultOptions: {
             reverse: false
         }
@@ -39,7 +39,7 @@ const CONCEPT_TYPES = [
     {
         id: 'mode',
         name: 'Mode',
-        presets: Object.values(Theory.Presets.MODE),
+        presets: Object.values(PlayWhat.Presets.MODE),
         defaultOptions: {
             reverse: false
         }
@@ -48,7 +48,7 @@ const CONCEPT_TYPES = [
 
 export default function Page(props) {
 
-    const [keyCenter, setKeyCenter] = useState(new Theory.KeyCenter(Theory.Constants.TONIC.C, Theory.Constants.ACCIDENTAL.Natural, 4));
+    const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
     const [conceptData, setConceptData] = useState({
         type: CONCEPT_TYPES[2],
         value: CONCEPT_TYPES[2].presets[0],
@@ -62,7 +62,7 @@ export default function Page(props) {
 
             <KeyCenterPanel
                 keyCenter={keyCenter}
-                setKeyCenter={(tonic, accidental, octave) => setKeyCenter(new Theory.KeyCenter(tonic, accidental, octave))}
+                setKeyCenter={(tonic, accidental, octave) => setKeyCenter(new PlayWhat.KeyCenter(tonic, accidental, octave))}
             />
 
             <ConceptPanel

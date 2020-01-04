@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import Section from '../Section/Section';
 import InputRow from '../InputRow/InputRow';
 
-import { Theory, Strategies, Utils } from 'play-what';
+import PlayWhat from 'play-what';
 import { Keyboard, Inputs } from 'play-what-react-viewers';
 
 export default function KeyboardPanel(props) {
 
     const [keyLow, setKeyLow] = useState(0);
     const [keyHigh, setKeyHigh] = useState(24);
-    const [colorStrategy, setColorStrategy] = useState(Strategies.ColorBy.degree);
-    const [labelStrategy, setLabelStrategy] = useState(Strategies.LabelBy.interval);
-    const [mapStrategy, setMapStrategy] = useState(Strategies.MapBy.noteIndex);
+    const [colorStrategy, setColorStrategy] = useState(PlayWhat.ColorBy.degree);
+    const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelBy.interval);
+    const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
 
     return (
         <Section header='Keyboard'>
@@ -51,7 +51,7 @@ export default function KeyboardPanel(props) {
 
             <InputRow label='Map Strategy'>
                 <Inputs.DropdownInput
-                    data={Object.values(Strategies.MapBy)}
+                    data={Object.values(PlayWhat.MapBy)}
                     value={mapStrategy}
                     setValue={setMapStrategy}
                 />

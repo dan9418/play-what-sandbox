@@ -1,10 +1,10 @@
 import * as React from 'react';
 import './CAGED.css';
-import { Theory, Strategies, Utils } from 'play-what';
+import PlayWhat from 'play-what';
 import { Fretboard, Inputs, ViewController } from 'play-what-react-viewers';
 
 let PROPS = {
-    mapStrategy: Strategies.MapBy.pitchClass,
+    mapStrategy: PlayWhat.MapBy.pitchClass,
     colorStrategy: Fretboard.Strategies.ColorBy.degree,
     showFretNumbers: false,
     showDots: false,
@@ -28,7 +28,7 @@ const FRET_RANGES = [
 
 const CONFIG = [
     {
-        concept: Theory.Presets.CHORD.Maj7,
+        concept: PlayWhat.Presets.CHORD.Maj7,
         fretRanges: [
             [0, 3],
             [2, 5],
@@ -38,7 +38,7 @@ const CONFIG = [
         ]
     },
     {
-        concept: Theory.Presets.CHORD.Min7,
+        concept: PlayWhat.Presets.CHORD.Min7,
         fretRanges: [
             [0, 4],
             [3, 6],
@@ -48,7 +48,7 @@ const CONFIG = [
         ]
     },
     {
-        concept: Theory.Presets.CHORD.Dom7,
+        concept: PlayWhat.Presets.CHORD.Dom7,
         fretRanges: [
             [0, 3],
             [2, 6],
@@ -58,7 +58,7 @@ const CONFIG = [
         ]
     },
     {
-        concept: Theory.Presets.CHORD.HalfDim7,
+        concept: PlayWhat.Presets.CHORD.HalfDim7,
         fretRanges: [
             [1, 4],
             [3, 7],
@@ -68,7 +68,7 @@ const CONFIG = [
         ]
     },
     {
-        concept: Theory.Presets.CHORD.Dim7,
+        concept: PlayWhat.Presets.CHORD.Dim7,
         fretRanges: [
             [0, 3],
             [2, 5],
@@ -78,7 +78,7 @@ const CONFIG = [
         ]
     },
     {
-        concept: Theory.Presets.CHORD.Aug7,
+        concept: PlayWhat.Presets.CHORD.Aug7,
         fretRanges: [
             [0, 4],
             [2, 6],
@@ -88,7 +88,7 @@ const CONFIG = [
         ]
     },
     {
-        concept: Theory.Presets.CHORD.AugM7,
+        concept: PlayWhat.Presets.CHORD.AugM7,
         fretRanges: [
             [0, 4],
             [2, 6],
