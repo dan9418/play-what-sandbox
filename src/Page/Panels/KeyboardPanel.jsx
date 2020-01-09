@@ -14,7 +14,7 @@ export default function KeyboardPanel(props) {
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
 
     return (
-        <Section header='Keyboard'>
+        <div>
             <Keyboard.Viewer
                 keyCenter={props.keyCenter}
                 concept={props.concept}
@@ -57,7 +57,7 @@ export default function KeyboardPanel(props) {
                 />
             </InputRow>
 
-        </Section>
+        </div>
     );
 
 }

@@ -16,7 +16,7 @@ export default function FretboardPanel(props) {
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
 
     return (
-        <Section header='Fretboard'>
+        <div>
             <Fretboard.Viewer
                 keyCenter={props.keyCenter}
                 concept={props.concept}
@@ -69,7 +69,7 @@ export default function FretboardPanel(props) {
                 />
             </InputRow>
 
-        </Section>
+        </div>
     );
 
 }

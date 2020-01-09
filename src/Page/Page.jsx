@@ -46,6 +46,34 @@ const CONCEPT_TYPES = [
     }
 ];
 
+const VIEWERS = [
+    {
+        id: 'summary',
+        name: 'Summary',
+        component: SummaryPanel
+    },
+    {
+        id: 'noteData',
+        name: 'Note Data',
+        component: NoteTable
+    },
+    {
+        id: 'chordAnalysis',
+        name: 'Chord Analysis',
+        component: ChordAnalysis
+    },
+    {
+        id: 'fretboard',
+        name: 'Fretboard',
+        component: FretboardPanel
+    },
+    {
+        id: 'keyboard',
+        name: 'Keyboard',
+        component: KeyboardPanel
+    }
+];
+
 export default function Page(props) {
 
     const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
@@ -73,10 +101,19 @@ export default function Page(props) {
 
             <div className='header'>Outputs</div>
 
-            <SummaryPanel
-                keyCenter={keyCenter}
-                concept={conceptData.value}
-            />
+            {
+                VIEWERS.map(viewer => {
+                    let Comp = viewer.component;
+                    return (
+                        <Section header={viewer.name}>
+                            <Comp
+                                keyCenter={keyCenter}
+                                concept={conceptData.value}
+                            />
+                        </Section>
+                    );
+                })
+            }
 
             <Section header='Note Data'>
                 <NoteTable
@@ -85,22 +122,7 @@ export default function Page(props) {
                 />
             </Section>
 
-            <Section header='Chord Analysis'>
-                <ChordAnalysis
-                    keyCenter={keyCenter}
-                    concept={conceptData.value}
-                />
-            </Section>
 
-            <FretboardPanel
-                keyCenter={keyCenter}
-                concept={conceptData.value}
-            />
-
-            <KeyboardPanel
-                keyCenter={keyCenter}
-                concept={conceptData.value}
-            />
 
         </div>
     );

@@ -11,7 +11,7 @@ export default function SummaryPanel(props) {
     const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelBy.name);
 
     return (
-        <Section header='Summary'>
+        <div>
             <ConceptBlock
                 keyCenter={props.keyCenter}
                 concept={props.concept}
@@ -27,6 +27,6 @@ export default function SummaryPanel(props) {
                 <Inputs.DropdownInput data={Object.values(PlayWhat.LabelBy)} value={labelStrategy} setValue={setLabelStrategy} />
             </InputRow>
 
-        </Section>
+        </div>
     );
 }
