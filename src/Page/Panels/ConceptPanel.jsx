@@ -5,8 +5,11 @@ import InputRow from '../InputRow/InputRow';
 import PlayWhat from 'play-what';
 import { Inputs, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
 
+import { CONCEPT_TYPES } from '../Shared/Defaults';
+
 export default function ConceptPanel(props) {
-    let { data, conceptData, setConceptData } = props;
+    let { conceptData, setConceptData } = props;
+    let data = CONCEPT_TYPES;
     return (
         <Section header='Concept'>
             <InputRow label='Type'>
