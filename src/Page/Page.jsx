@@ -6,17 +6,18 @@ import InputRow from './InputRow/InputRow';
 import PlayWhat from 'play-what';
 import { Fretboard, Keyboard, Inputs, ViewController, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
 
-import FretboardController from './Panels/FretboardController';
+import FretboardController from './Controllers/FretboardController';
 import DropdownInput from 'play-what-react-viewers/src/Inputs/DropdownInput/DropdownInput';
-import KeyboardController from './Panels/KeyboardController';
+import KeyboardController from './Controllers/KeyboardController';
+import SummaryController from './Controllers/SummaryController';
 
 const VIEWERS = [
-    /*{
+    {
         id: 'summary',
         name: 'Summary',
-        component: SummaryPanel
+        component: SummaryController
     },
-    {
+    /*{
         id: 'noteData',
         name: 'Note Data',
         component: NoteTable

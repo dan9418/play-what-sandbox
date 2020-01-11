@@ -17,3 +17,7 @@
     justify-content: center;
     box-sizing: border-box;
 }
+
+.controller {
+ padding: 50px;   
+}

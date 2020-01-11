@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import InputRow from '../InputRow/InputRow';
 
 import PlayWhat from 'play-what';
-import { Fretboard, Inputs } from 'play-what-react-viewers';
-import KeyCenterPanel from './KeyCenterPanel';
-import ConceptPanel from './ConceptPanel';
+import { Keyboard, Inputs } from 'play-what-react-viewers';
+import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
+import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
 import { CONCEPT_TYPES } from '../Shared/Defaults';
 import Section from '../Section/Section';
 
-export default function FretboardController(props) {
+export default function KeyboardController(props) {
 
     const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
     const [conceptData, setConceptData] = useState({
@@ -17,25 +17,20 @@ export default function FretboardController(props) {
         value: CONCEPT_TYPES[0].presets[0],
         options: CONCEPT_TYPES[0].defaultOptions
     });
-    const [fretLow, setFretLow] = useState(0);
-    const [fretHigh, setFretHigh] = useState(13);
-    const [showDots, setShowDots] = useState(true);
-    const [showFretNumbers, setShowFretNumbers] = useState(true);
+    const [keyLow, setKeyLow] = useState(0);
+    const [keyHigh, setKeyHigh] = useState(24);
     const [colorStrategy, setColorStrategy] = useState(PlayWhat.ColorBy.degree);
     const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelBy.interval);
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
 
     return (
         <div>
-
             <div className='controller'>
-                <Fretboard.Viewer
+                <Keyboard.Viewer
                     keyCenter={keyCenter}
                     concept={conceptData.value}
-                    fretLow={fretLow}
-                    fretHigh={fretHigh}
-                    showDots={showDots}
-                    showFretNumbers={showFretNumbers}
+                    keyLow={keyLow}
+                    keyHigh={keyHigh}
                     colorStrategy={colorStrategy}
                     labelStrategy={labelStrategy}
                     mapStrategy={mapStrategy}
@@ -52,26 +47,18 @@ export default function FretboardController(props) {
                 setConceptData={(type, value, options) => setConceptData({ type: type, value: value, options: options })}
             />
 
-            <Section header='Fretboard'>
-                <InputRow label='Low Fret'>
-                    <Inputs.NumericInput value={fretLow} setValue={setFretLow} />
+            <Section header='Keyboard'>
+                <InputRow label='Low Key'>
+                    <Inputs.NumericInput value={keyLow} setValue={setKeyLow} />
                 </InputRow>
 
-                <InputRow label='High Fret'>
-                    <Inputs.NumericInput value={fretHigh} setValue={setFretHigh} />
-                </InputRow>
-
-                <InputRow label='Show Dots'>
-                    <Inputs.SwitchInput value={showDots} setValue={setShowDots} />
-                </InputRow>
-
-                <InputRow label='Show Fret Numbers'>
-                    <Inputs.SwitchInput value={showFretNumbers} setValue={setShowFretNumbers} />
+                <InputRow label='High Key'>
+                    <Inputs.NumericInput value={keyHigh} setValue={setKeyHigh} />
                 </InputRow>
 
                 <InputRow label='Color Strategy'>
                     <Inputs.DropdownInput
-                        data={Object.values(Fretboard.Strategies.ColorBy)}
+                        data={Object.values(Keyboard.Strategies.ColorBy)}
                         value={colorStrategy}
                         setValue={setColorStrategy}
                     />
@@ -79,7 +66,7 @@ export default function FretboardController(props) {
 
                 <InputRow label='Label Strategy'>
                     <Inputs.DropdownInput
-                        data={Object.values(Fretboard.Strategies.LabelBy)}
+                        data={Object.values(Keyboard.Strategies.LabelBy)}
                         value={labelStrategy}
                         setValue={setLabelStrategy}
                     />
@@ -92,6 +79,7 @@ export default function FretboardController(props) {
                         setValue={setMapStrategy}
                     />
                 </InputRow>
+
             </Section>
 
         </div>
