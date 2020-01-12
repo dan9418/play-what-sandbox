@@ -25,12 +25,12 @@ export default function ChordAnalysisController(props) {
 
             <KeyCenterPanel
                 keyCenter={keyCenter}
-                setKeyCenter={(tonic, accidental, octave) => setKeyCenter(new PlayWhat.KeyCenter(tonic, accidental, octave))}
+                setKeyCenter={setKeyCenter}
             />
 
             <ConceptPanel
                 conceptData={conceptData}
-                setConceptData={(type, value, options) => setConceptData({ type: type, value: value, options: options })}
+                setConceptData={setConceptData}
             />
 
         </div>

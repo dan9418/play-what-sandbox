@@ -8,7 +8,6 @@ import { Summary } from 'play-what-react-viewers';
 import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
 import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
-import { CONCEPT_TYPES } from '../Shared/Defaults';
 import Section from '../Layout/Section/Section';
 import { useKeyCenter, useConceptData } from '../Shared/Hooks';
 
@@ -33,12 +32,12 @@ export default function SummaryController(props) {
 
             <KeyCenterPanel
                 keyCenter={keyCenter}
-                setKeyCenter={(tonic, accidental, octave) => setKeyCenter(new PlayWhat.KeyCenter(tonic, accidental, octave))}
+                setKeyCenter={setKeyCenter}
             />
 
             <ConceptPanel
                 conceptData={conceptData}
-                setConceptData={(type, value, options) => setConceptData({ type: type, value: value, options: options })}
+                setConceptData={setConceptData}
             />
 
             <Section header='Options'>

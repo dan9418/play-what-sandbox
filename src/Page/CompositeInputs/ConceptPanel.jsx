@@ -5,12 +5,10 @@ import InputRow from '../Layout/InputRow/InputRow';
 import Inputs from '../Inputs/_module';
 
 import PlayWhat from 'play-what';
-import { ChordAnalysis, Summary, NoteTable } from 'play-what-react-viewers';
 
 import { CONCEPT_TYPES } from '../Shared/Defaults';
 
-export default function ConceptPanel(props) {
-    let { conceptData, setConceptData } = props;
+export default function ConceptPanel({ conceptData, setConceptData }) {
     let data = CONCEPT_TYPES;
     return (
         <Section header='Concept'>
@@ -18,14 +16,14 @@ export default function ConceptPanel(props) {
                 <Inputs.DropdownInput
                     data={data}
                     value={conceptData.type}
-                    setValue={type => setConceptData(type, type.presets[0], type.defaultOptions)}
+                    setValue={type => setConceptData({ type: type, value: type.presets[0], options: type.defaultOptions })}
                 />
             </InputRow>
             <InputRow label='Preset'>
                 <Inputs.DropdownInput
                     data={conceptData.type.presets}
                     value={conceptData.value}
-                    setValue={preset => setConceptData(conceptData.type, preset, conceptData.options)}
+                    setValue={preset => setConceptData({ type: conceptData.type, value: preset, options: conceptData.options })}
                 />
             </InputRow>
 
@@ -36,39 +34,37 @@ export default function ConceptPanel(props) {
     );
 }
 
-function ScalePanel(props) {
-    let { conceptData, setConceptData } = props;
+function ScalePanel({ conceptData, setConceptData }) {
     return (
         <InputRow label='Reverse'>
             <Inputs.SwitchInput
                 value={conceptData.options.reverse}
-                setValue={(value) => setConceptData(
-                    conceptData.type,
-                    conceptData.value.copy().reverse(),
-                    {
+                setValue={(value) => setConceptData({
+                    type: conceptData.type,
+                    value: conceptData.value.copy().reverse(),
+                    options: {
                         ...conceptData.options,
                         reverse: value
-                    })
-                }
+                    }
+                })}
             />
         </InputRow>
     );
 }
 
-function ChordPanel(props) {
-    let { conceptData, setConceptData } = props;
+function ChordPanel({ conceptData, setConceptData }) {
     return (
         <InputRow label='Inversion'>
             <Inputs.NumericInput
                 value={conceptData.options.chordInversion}
-                setValue={(value) => setConceptData(
-                    conceptData.type,
-                    conceptData.value.copy().chordInversion(value),
-                    {
+                setValue={(value) => setConceptData({
+                    type: conceptData.type,
+                    value: conceptData.value.copy().chordInversion(value),
+                    options: {
                         ...conceptData.options,
                         chordInversion: value
-                    })
-                }
+                    }
+                })}
             />
         </InputRow>
     );
