@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Section from '../Section/Section';
-import InputRow from '../InputRow/InputRow';
+import Section from '../Layout/Section/Section';
+import InputRow from '../Layout/InputRow/InputRow';
 
 import Inputs from '../Inputs/_module';
 

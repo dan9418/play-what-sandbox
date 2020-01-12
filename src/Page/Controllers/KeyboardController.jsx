@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import InputRow from '../InputRow/InputRow';
+import InputRow from '../Layout/InputRow/InputRow';
 
 import PlayWhat from 'play-what';
 import { Keyboard } from 'play-what-react-viewers';
@@ -10,7 +10,7 @@ import Inputs from '../Inputs/_module';
 
 
 import { CONCEPT_TYPES } from '../Shared/Defaults';
-import Section from '../Section/Section';
+import Section from '../Layout/Section/Section';
 
 export default function KeyboardController(props) {
 

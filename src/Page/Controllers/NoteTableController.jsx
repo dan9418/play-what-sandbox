@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import InputRow from '../InputRow/InputRow';
+import InputRow from '../Layout/InputRow/InputRow';
 
 import PlayWhat from 'play-what';
 import { NoteTable } from 'play-what-react-viewers';
@@ -7,7 +7,7 @@ import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
 import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
 import { CONCEPT_TYPES } from '../Shared/Defaults';
-import Section from '../Section/Section';
+import Section from '../Layout/Section/Section';
 
 export default function NoteTableController(props) {
 
