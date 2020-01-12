@@ -9,7 +9,7 @@ import ConceptPanel from '../CompositeInputs/ConceptPanel';
 import { CONCEPT_TYPES } from '../Shared/Defaults';
 import Section from '../Section/Section';
 
-export default function NoteDataController(props) {
+export default function NoteTableController(props) {
 
     const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
     const [conceptData, setConceptData] = useState({

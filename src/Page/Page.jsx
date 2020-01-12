@@ -8,7 +8,7 @@ import Inputs from './Inputs/_module';
 import FretboardController from './Controllers/FretboardController';
 import KeyboardController from './Controllers/KeyboardController';
 import SummaryController from './Controllers/SummaryController';
-import NoteDataController from './Controllers/NoteDataController';
+import NoteTableController from './Controllers/NoteTableController';
 import ChordAnalysisController from './Controllers/ChordAnalysisController';
 
 const VIEWERS = [
@@ -18,9 +18,9 @@ const VIEWERS = [
         component: SummaryController
     },
     {
-        id: 'noteData',
-        name: 'Note Data',
-        component: NoteDataController
+        id: 'noteTable',
+        name: 'Note Table',
+        component: NoteTableController
     },
     {
         id: 'chordAnalysis',
