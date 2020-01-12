@@ -19,9 +19,9 @@ export default function SummaryController(props) {
     const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelBy.name);
 
     return (
-        <div>
+        <div className='controller'>
 
-            <div className='controller'>
+            <div className='viewer'>
                 <Summary
                     keyCenter={keyCenter}
                     concept={conceptData.value}

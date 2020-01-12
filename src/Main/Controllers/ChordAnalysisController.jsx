@@ -15,8 +15,8 @@ export default function ChordAnalysisController(props) {
     const [conceptData, setConceptData] = useConceptData();
 
     return (
-        <div>
-            <div className='controller'>
+        <div className='controller'>
+            <div className='viewer'>
                 <ChordAnalysis
                     keyCenter={keyCenter}
                     concept={conceptData.value}

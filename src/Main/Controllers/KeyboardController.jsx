@@ -24,8 +24,8 @@ export default function KeyboardController(props) {
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
 
     return (
-        <div>
-            <div className='controller'>
+        <div className='controller'>
+            <div className='viewer'>
                 <Keyboard.Viewer
                     keyCenter={keyCenter}
                     concept={conceptData.value}

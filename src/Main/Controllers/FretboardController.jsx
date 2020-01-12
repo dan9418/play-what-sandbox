@@ -25,9 +25,9 @@ export default function FretboardController(props) {
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
 
     return (
-        <div>
+        <div className='controller'>
 
-            <div className='controller'>
+            <div className='viewer'>
                 <Fretboard.Viewer
                     keyCenter={keyCenter}
                     concept={conceptData.value}

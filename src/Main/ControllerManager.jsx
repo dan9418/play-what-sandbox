@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Page.css';
+import './ControllerManager.css';
 
 // Inputs
 import Inputs from './Inputs/_module';
@@ -11,7 +11,7 @@ import SummaryController from './Controllers/SummaryController';
 import NoteTableController from './Controllers/NoteTableController';
 import ChordAnalysisController from './Controllers/ChordAnalysisController';
 
-const VIEWERS = [
+const CONTROLLERS = [
     {
         id: 'summary',
         name: 'Summary',
@@ -40,17 +40,18 @@ const VIEWERS = [
 ];
 
 
-export default function Page(props) {
+export default function ControllerManager(props) {
 
-    const [viewer, setViewer] = useState(VIEWERS[0]);
+    const [controller, setController] = useState(CONTROLLERS[0]);
 
-    const Viewer = viewer.component;
+    const Controller = controller.component;
 
     return (
-        <div className='play-what-sample'>
-            <Inputs.DropdownInput data={VIEWERS} value={viewer} setValue={setViewer} />
-            <br />
-            <Viewer />
+        <div className='controller-manager'>
+            <div className='title'>
+                <Inputs.DropdownInput data={CONTROLLERS} value={controller} setValue={setController} />
+            </div>
+            <Controller />
         </div>
     );
 }

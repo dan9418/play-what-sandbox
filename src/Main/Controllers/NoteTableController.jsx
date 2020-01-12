@@ -16,8 +16,8 @@ export default function NoteTableController(props) {
     const [conceptData, setConceptData] = useConceptData();
 
     return (
-        <div>
-            <div className='controller'>
+        <div className='controller'>
+            <div className='viewer'>
                 <NoteTable
                     keyCenter={keyCenter}
                     concept={conceptData.value}
