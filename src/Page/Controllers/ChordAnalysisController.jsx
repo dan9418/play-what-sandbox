@@ -6,17 +6,13 @@ import { ChordAnalysis } from 'play-what-react-viewers';
 import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
 import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
-import { CONCEPT_TYPES } from '../Shared/Defaults';
 import Section from '../Layout/Section/Section';
+import { useKeyCenter, useConceptData } from '../Shared/Hooks';
 
 export default function ChordAnalysisController(props) {
 
-    const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
-    const [conceptData, setConceptData] = useState({
-        type: CONCEPT_TYPES[3],
-        value: CONCEPT_TYPES[3].presets[0],
-        options: CONCEPT_TYPES[3].defaultOptions
-    });
+    const [keyCenter, setKeyCenter] = useKeyCenter();
+    const [conceptData, setConceptData] = useConceptData();
 
     return (
         <div>

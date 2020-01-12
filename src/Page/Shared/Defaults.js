@@ -34,3 +34,13 @@ export const CONCEPT_TYPES = [
         }
     }
 ];
+
+export const DEFAULT_CONCEPT_TYPE = CONCEPT_TYPES[3];
+
+export const DEFAULT_CONCEPT_DATA = {
+    type: DEFAULT_CONCEPT_TYPE,
+    value: DEFAULT_CONCEPT_TYPE.presets[0],
+    options: DEFAULT_CONCEPT_TYPE.defaultOptions
+}
+
+export const DEFAULT_KEY_CENTER = new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4)

@@ -11,15 +11,12 @@ import Inputs from '../Inputs/_module';
 
 import { CONCEPT_TYPES } from '../Shared/Defaults';
 import Section from '../Layout/Section/Section';
+import { useKeyCenter, useConceptData } from '../Shared/Hooks';
 
 export default function KeyboardController(props) {
 
-    const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
-    const [conceptData, setConceptData] = useState({
-        type: CONCEPT_TYPES[3],
-        value: CONCEPT_TYPES[3].presets[0],
-        options: CONCEPT_TYPES[3].defaultOptions
-    });
+    const [keyCenter, setKeyCenter] = useKeyCenter();
+    const [conceptData, setConceptData] = useConceptData();
     const [keyLow, setKeyLow] = useState(0);
     const [keyHigh, setKeyHigh] = useState(24);
     const [colorStrategy, setColorStrategy] = useState(PlayWhat.ColorBy.degree);
