@@ -4,7 +4,7 @@ import InputRow from '../InputRow/InputRow';
 import Inputs from '../Inputs/_module';
 
 import PlayWhat from 'play-what';
-import { ConceptBlock } from 'play-what-react-viewers';
+import { Summary } from 'play-what-react-viewers';
 import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
 import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
@@ -26,7 +26,7 @@ export default function SummaryController(props) {
         <div>
 
             <div className='controller'>
-                <ConceptBlock
+                <Summary
                     keyCenter={keyCenter}
                     concept={conceptData.value}
                     colorStrategy={colorStrategy}

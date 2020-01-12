@@ -5,7 +5,7 @@ import InputRow from '../InputRow/InputRow';
 import Inputs from '../Inputs/_module';
 
 import PlayWhat from 'play-what';
-import { ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
+import { ChordAnalysis, Summary, NoteTable } from 'play-what-react-viewers';
 
 export default function KeyCenterPanel(props) {
     let { keyCenter, setKeyCenter } = props;
