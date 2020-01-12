@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import './Page.css';
-import Section from './Section/Section';
-import InputRow from './InputRow/InputRow';
 
-import PlayWhat from 'play-what';
-import { Fretboard, Keyboard, Inputs, ViewController, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
-
-import FretboardController from './Controllers/FretboardController';
+// Viewers
 import DropdownInput from 'play-what-react-viewers/src/Inputs/DropdownInput/DropdownInput';
+
+// Controllers
+import FretboardController from './Controllers/FretboardController';
 import KeyboardController from './Controllers/KeyboardController';
 import SummaryController from './Controllers/SummaryController';
+import NoteDataController from './Controllers/NoteDataController';
+import ChordAnalysisController from './Controllers/ChordAnalysisController';
 
 const VIEWERS = [
     {
@@ -17,16 +17,16 @@ const VIEWERS = [
         name: 'Summary',
         component: SummaryController
     },
-    /*{
+    {
         id: 'noteData',
         name: 'Note Data',
-        component: NoteTable
+        component: NoteDataController
     },
     {
         id: 'chordAnalysis',
         name: 'Chord Analysis',
-        component: ChordAnalysis
-    },*/
+        component: ChordAnalysisController
+    },
     {
         id: 'fretboard',
         name: 'Fretboard',
