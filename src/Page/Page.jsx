@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Page.css';
 
-// Viewers
-import DropdownInput from 'play-what-react-viewers/src/Inputs/DropdownInput/DropdownInput';
+// Inputs
+import Inputs from './Inputs/_module';
 
 // Controllers
 import FretboardController from './Controllers/FretboardController';
@@ -48,7 +48,7 @@ export default function Page(props) {
 
     return (
         <div className='play-what-sample'>
-            <DropdownInput data={VIEWERS} value={viewer} setValue={setViewer} />
+            <Inputs.DropdownInput data={VIEWERS} value={viewer} setValue={setViewer} />
             <br />
             <Viewer />
         </div>

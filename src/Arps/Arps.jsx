@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Arps.css';
 import PlayWhat from 'play-what';
-import { Fretboard, Inputs, ViewController } from 'play-what-react-viewers';
+import { Fretboard } from 'play-what-react-viewers';
 
 let PROPS = {
     fretLow: 7,

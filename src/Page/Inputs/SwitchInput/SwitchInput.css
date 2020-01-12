@@ -1,0 +1,37 @@
+.switch-input {
+    margin: 5px;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.switch-input {
+
+}
+
+.switch-input .shell {
+    height: 25px;
+    width: 50px;
+    border-radius: 20px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.switch-input.false .shell {
+    background-color: #DDD;
+    flex-direction: row;
+}
+
+.switch-input.true .shell {
+    background-color: #5E99D1;
+    flex-direction: row-reverse;
+}
+
+.switch-input .ball {
+    height: 27px;
+    width: 27px;
+    background-color: #333;
+    border-radius: 100%;
+}

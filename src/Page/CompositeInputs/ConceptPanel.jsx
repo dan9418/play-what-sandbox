@@ -2,8 +2,10 @@ import * as React from 'react';
 import Section from '../Section/Section';
 import InputRow from '../InputRow/InputRow';
 
+import Inputs from '../Inputs/_module';
+
 import PlayWhat from 'play-what';
-import { Inputs, ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
+import { ChordAnalysis, ConceptBlock, NoteTable } from 'play-what-react-viewers';
 
 import { CONCEPT_TYPES } from '../Shared/Defaults';
 

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import InputRow from '../InputRow/InputRow';
 
+import Inputs from '../Inputs/_module';
+
 import PlayWhat from 'play-what';
-import { ConceptBlock, Inputs } from 'play-what-react-viewers';
+import { ConceptBlock } from 'play-what-react-viewers';
 import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
 import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
@@ -13,9 +15,9 @@ export default function SummaryController(props) {
 
     const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
     const [conceptData, setConceptData] = useState({
-        type: CONCEPT_TYPES[0],
-        value: CONCEPT_TYPES[0].presets[0],
-        options: CONCEPT_TYPES[0].defaultOptions
+        type: CONCEPT_TYPES[3],
+        value: CONCEPT_TYPES[3].presets[0],
+        options: CONCEPT_TYPES[3].defaultOptions
     });
     const [colorStrategy, setColorStrategy] = useState(PlayWhat.ColorBy.degree);
     const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelBy.name);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputRow from '../InputRow/InputRow';
 
 import PlayWhat from 'play-what';
-import { NoteTable, Inputs } from 'play-what-react-viewers';
+import { NoteTable } from 'play-what-react-viewers';
 import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
 import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
@@ -13,9 +13,9 @@ export default function NoteDataController(props) {
 
     const [keyCenter, setKeyCenter] = useState(new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4));
     const [conceptData, setConceptData] = useState({
-        type: CONCEPT_TYPES[0],
-        value: CONCEPT_TYPES[0].presets[0],
-        options: CONCEPT_TYPES[0].defaultOptions
+        type: CONCEPT_TYPES[3],
+        value: CONCEPT_TYPES[3].presets[0],
+        options: CONCEPT_TYPES[3].defaultOptions
     });
 
     return (
