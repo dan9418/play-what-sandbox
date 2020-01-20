@@ -1,0 +1,9 @@
+table.fretboard-strings-input {
+    border-collapse: collapse;
+    border: none;
+}
+
+table.fretboard-strings-input th, table.fretboard-strings-input td {
+    min-height: 20px;
+    min-width: 20px;
+}

@@ -42,7 +42,7 @@ const CONTROLLERS = [
 
 export default function ControllerManager(props) {
 
-    const [controller, setController] = useState(CONTROLLERS[0]);
+    const [controller, setController] = useState(CONTROLLERS[3]);
 
     const Controller = controller.component;
 

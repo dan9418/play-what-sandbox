@@ -1,11 +1,8 @@
 import * as React from 'react';
 import Section from '../Layout/Section/Section';
 import InputRow from '../Layout/InputRow/InputRow';
-
 import Inputs from '../Inputs/_module';
-
 import PlayWhat from 'play-what';
-import { ChordAnalysis, Summary, NoteTable } from 'play-what-react-viewers';
 
 export default function KeyCenterPanel({ keyCenter, setKeyCenter }) {
     return (

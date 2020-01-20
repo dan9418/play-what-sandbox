@@ -11,6 +11,7 @@ import ConceptPanel from '../CompositeInputs/ConceptPanel';
 import { CONCEPT_TYPES } from '../Shared/Defaults';
 import Section from '../Layout/Section/Section';
 import { useKeyCenter, useConceptData } from '../Shared/Hooks';
+import FretboardStringsInput from '../CompositeInputs/FretboardStringsInput';
 
 export default function FretboardController(props) {
 
@@ -20,6 +21,7 @@ export default function FretboardController(props) {
     const [fretHigh, setFretHigh] = useState(13);
     const [showDots, setShowDots] = useState(true);
     const [showFretNumbers, setShowFretNumbers] = useState(true);
+    const [strings, setStrings] = useState(Fretboard.Defaults.strings);
     const [colorStrategy, setColorStrategy] = useState(PlayWhat.ColorBy.degree);
     const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelBy.interval);
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
@@ -35,6 +37,7 @@ export default function FretboardController(props) {
                     fretHigh={fretHigh}
                     showDots={showDots}
                     showFretNumbers={showFretNumbers}
+                    strings={strings}
                     colorStrategy={colorStrategy}
                     labelStrategy={labelStrategy}
                     mapStrategy={mapStrategy}
@@ -66,6 +69,10 @@ export default function FretboardController(props) {
 
                 <InputRow label='Show Fret Numbers'>
                     <Inputs.SwitchInput value={showFretNumbers} setValue={setShowFretNumbers} />
+                </InputRow>
+
+                <InputRow label='Strings'>
+                    <FretboardStringsInput strings={strings} setStrings={setStrings} />
                 </InputRow>
 
                 <InputRow label='Color Strategy'>
