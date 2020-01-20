@@ -54,7 +54,7 @@ export default function FretboardController(props) {
                 setConceptData={setConceptData}
             />
 
-            <Section header='Fretboard'>
+            <Section header='Display'>
                 <InputRow label='Low Fret'>
                     <Inputs.NumericInput value={fretLow} setValue={setFretLow} />
                 </InputRow>
@@ -69,10 +69,6 @@ export default function FretboardController(props) {
 
                 <InputRow label='Show Fret Numbers'>
                     <Inputs.SwitchInput value={showFretNumbers} setValue={setShowFretNumbers} />
-                </InputRow>
-
-                <InputRow label='Strings'>
-                    <FretboardStringsInput strings={strings} setStrings={setStrings} />
                 </InputRow>
 
                 <InputRow label='Color Strategy'>
@@ -98,6 +94,10 @@ export default function FretboardController(props) {
                         setValue={setMapStrategy}
                     />
                 </InputRow>
+            </Section>
+
+            <Section header='Tuning'>
+                <FretboardStringsInput strings={strings} setStrings={setStrings} />
             </Section>
 
         </div>
