@@ -6,6 +6,10 @@
     min-height: 40px;
 }
 
+.input-row:first-child {
+    border-top: none;
+}
+
 .input-row .label {
     margin-left: 15px;
 }
