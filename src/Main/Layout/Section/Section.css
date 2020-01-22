@@ -41,6 +41,16 @@
     align-items: center;
 }
 
+.section-header .toggle svg, .section-header .toggle svg * {
+    fill: gray;
+    height: 20px;
+    width: 20px;
+}
+
+.section-header:hover .toggle svg, .section-header:hover .toggle svg * {
+    fill: #5E99D1;
+}
+
 .section-content {
     padding: 10px;
 }
