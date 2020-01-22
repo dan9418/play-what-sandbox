@@ -54,13 +54,23 @@ export default function FretboardController(props) {
                 setConceptData={setConceptData}
             />
 
-            <Section header='Display'>
-                <InputRow label='Low Fret'>
-                    <Inputs.NumericInput value={fretLow} setValue={setFretLow} />
+            <Section header='Colors' preview={colorStrategy.name}>
+                <InputRow label='Color by...'>
+                    <Inputs.DropdownInput
+                        data={Object.values(Fretboard.Strategies.ColorBy)}
+                        value={colorStrategy}
+                        setValue={setColorStrategy}
+                    />
                 </InputRow>
+            </Section>
 
-                <InputRow label='High Fret'>
-                    <Inputs.NumericInput value={fretHigh} setValue={setFretHigh} />
+            <Section header='Labels' preview={labelStrategy.name}>
+                <InputRow label='Label by...'>
+                    <Inputs.DropdownInput
+                        data={Object.values(Fretboard.Strategies.LabelBy)}
+                        value={labelStrategy}
+                        setValue={setLabelStrategy}
+                    />
                 </InputRow>
 
                 <InputRow label='Show Dots'>
@@ -70,24 +80,20 @@ export default function FretboardController(props) {
                 <InputRow label='Show Fret Numbers'>
                     <Inputs.SwitchInput value={showFretNumbers} setValue={setShowFretNumbers} />
                 </InputRow>
+            </Section>
 
-                <InputRow label='Color Strategy'>
-                    <Inputs.DropdownInput
-                        data={Object.values(Fretboard.Strategies.ColorBy)}
-                        value={colorStrategy}
-                        setValue={setColorStrategy}
-                    />
+            <Section header='Fret Range' preview={fretLow + ' - ' + fretHigh}>
+                <InputRow label='Low Fret'>
+                    <Inputs.NumericInput value={fretLow} setValue={setFretLow} />
                 </InputRow>
 
-                <InputRow label='Label Strategy'>
-                    <Inputs.DropdownInput
-                        data={Object.values(Fretboard.Strategies.LabelBy)}
-                        value={labelStrategy}
-                        setValue={setLabelStrategy}
-                    />
+                <InputRow label='High Fret'>
+                    <Inputs.NumericInput value={fretHigh} setValue={setFretHigh} />
                 </InputRow>
+            </Section>
 
-                <InputRow label='Map Strategy'>
+            <Section header='Filters' preview={mapStrategy.name}>
+                <InputRow label='Map notes by...'>
                     <Inputs.DropdownInput
                         data={Object.values(PlayWhat.MapBy)}
                         value={mapStrategy}
@@ -96,7 +102,7 @@ export default function FretboardController(props) {
                 </InputRow>
             </Section>
 
-            <Section header='Tuning'>
+            <Section header='Tuning' preview={strings.length + ' Strings'}>
                 <FretboardStringsInput strings={strings} setStrings={setStrings} />
             </Section>
 

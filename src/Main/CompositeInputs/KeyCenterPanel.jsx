@@ -6,7 +6,7 @@ import PlayWhat from 'play-what';
 
 export default function KeyCenterPanel({ keyCenter, setKeyCenter }) {
     return (
-        <Section header='Key Center'>
+        <Section header='Key Center' preview={keyCenter.tonic.name + keyCenter.accidental.name + ' ' + keyCenter.octave}>
             <InputRow label='Tonic'>
                 <Inputs.TonicInput value={keyCenter.tonic} setValue={tonic => setKeyCenter(new PlayWhat.KeyCenter(tonic, keyCenter.accidental, keyCenter.octave))} />
             </InputRow>

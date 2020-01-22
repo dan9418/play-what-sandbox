@@ -11,7 +11,7 @@ import { CONCEPT_TYPES } from '../Shared/Defaults';
 export default function ConceptPanel({ conceptData, setConceptData }) {
     let data = CONCEPT_TYPES;
     return (
-        <Section header='Concept'>
+        <Section header='Notes' preview={conceptData.value.name + ' ' + conceptData.type.name}>
             <InputRow label='Type'>
                 <Inputs.DropdownInput
                     data={data}
