@@ -6,5 +6,4 @@ import SwitchInput from './SwitchInput/SwitchInput';
 import TonicInput from './TonicInput/TonicInput';
 import AccidentalInput from './AccidentalInput/AccidentalInput';
 
-
 export default { DropdownInput, NumericInput, SwitchInput, TonicInput, AccidentalInput, BoxButton, ButtonList };

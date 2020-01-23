@@ -1,9 +1,8 @@
 import * as React from 'react';
-import Inputs from '../Inputs/_module';
 import PlayWhat from 'play-what';
-import './FretboardStringsInput.css';
+import './Inputs.css';
 
-function getInputRow(stringDef, setStringDef, index) {
+const getInputRow = (stringDef, setStringDef, index) => {
     const tuneString = tuning => setStringDef({ tuning: tuning });
     const deleteString = () => setStringDef(null);
 
@@ -12,13 +11,13 @@ function getInputRow(stringDef, setStringDef, index) {
             <td>{index + 1}</td>
             <td>{PlayWhat.Constants.PITCH_CLASS_NAMES[PlayWhat.Common.modulo(stringDef.tuning, 12)]}</td>
             <td>{4 + Math.floor(stringDef.tuning / 12)}</td>
-            <td><Inputs.NumericInput value={stringDef.tuning} setValue={tuneString} /></td>
-            <td><Inputs.BoxButton text='D' action={deleteString} /></td>
+            <td><Common.Inputs.NumericInput value={stringDef.tuning} setValue={tuneString} /></td>
+            <td><Common.Inputs.BoxButton text='D' action={deleteString} /></td>
         </tr>
     );
 }
 
-export default function FretboardStringsInput({ strings, setStrings }) {
+export const Strings = ({ strings, setStrings }) => {
     const setString = (stringDef, index) => {
         if (stringDef) {
             let stringsCopy = [...strings];
@@ -50,7 +49,7 @@ export default function FretboardStringsInput({ strings, setStrings }) {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><Inputs.BoxButton text='+' action={addString} /></td>
+                    <td><Common.Inputs.BoxButton text='+' action={addString} /></td>
                     <td></td>
                 </tr>
             </tbody>

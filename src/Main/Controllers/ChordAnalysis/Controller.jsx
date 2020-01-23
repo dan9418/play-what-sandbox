@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import InputRow from '../Layout/InputRow/InputRow';
-
 import PlayWhat from 'play-what';
 import { ChordAnalysis } from 'play-what-react-viewers';
-import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
-import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
-import Section from '../Layout/Section/Section';
-import { useKeyCenter, useConceptData } from '../Shared/Hooks';
+import Common from '../../Common/_module';
 
 export default function ChordAnalysisController(props) {
 
-    const [keyCenter, setKeyCenter] = useKeyCenter();
-    const [conceptData, setConceptData] = useConceptData();
+    const [keyCenter, setKeyCenter] = Common.Hooks.useKeyCenter();
+    const [conceptData, setConceptData] = Common.Hooks.useConceptData();
 
     return (
         <div className='controller'>
@@ -23,12 +18,12 @@ export default function ChordAnalysisController(props) {
                 />
             </div>
 
-            <KeyCenterPanel
+            <Common.Sections.KeyCenter
                 keyCenter={keyCenter}
                 setKeyCenter={setKeyCenter}
             />
 
-            <ConceptPanel
+            <Common.Sections.Concept
                 conceptData={conceptData}
                 setConceptData={setConceptData}
             />

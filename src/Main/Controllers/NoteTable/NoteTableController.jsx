@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
-import InputRow from '../Layout/InputRow/InputRow';
-
 import PlayWhat from 'play-what';
 import { NoteTable } from 'play-what-react-viewers';
-import KeyCenterPanel from '../CompositeInputs/KeyCenterPanel';
-import ConceptPanel from '../CompositeInputs/ConceptPanel';
 
-import { CONCEPT_TYPES } from '../Shared/Defaults';
-import Section from '../Layout/Section/Section';
-import { useKeyCenter, useConceptData } from '../Shared/Hooks';
+import Common from '../../Common/_module';
 
 export default function NoteTableController(props) {
 
-    const [keyCenter, setKeyCenter] = useKeyCenter();
-    const [conceptData, setConceptData] = useConceptData();
+    const [keyCenter, setKeyCenter] = Common.Hooks.useKeyCenter();
+    const [conceptData, setConceptData] = Common.Hooks.useConceptData();
 
     return (
         <div className='controller'>
@@ -24,12 +18,12 @@ export default function NoteTableController(props) {
                 />
             </div>
 
-            <KeyCenterPanel
+            <Common.Sections.KeyCenter
                 keyCenter={keyCenter}
                 setKeyCenter={setKeyCenter}
             />
 
-            <ConceptPanel
+            <Common.Sections.Concept
                 conceptData={conceptData}
                 setConceptData={setConceptData}
             />

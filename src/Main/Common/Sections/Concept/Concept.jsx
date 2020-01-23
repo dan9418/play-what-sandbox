@@ -1,43 +1,34 @@
 import * as React from 'react';
-import Section from '../Layout/Section/Section';
-import InputRow from '../Layout/InputRow/InputRow';
-
-import Inputs from '../Inputs/_module';
-
 import PlayWhat from 'play-what';
 
-import { CONCEPT_TYPES } from '../Shared/Defaults';
+import Common from '../../_module';
 
-export default function ConceptPanel({ conceptData, setConceptData }) {
-    let data = CONCEPT_TYPES;
+export default function ConceptSection({ conceptData, setConceptData }) {
+    let data = Common.Defaults.CONCEPT_TYPES;
     return (
-        <Section header='Notes' preview={conceptData.value.name + ' ' + conceptData.type.name}>
-            <InputRow label='Type'>
-                <Inputs.DropdownInput
+        <Common.Layout.Section header='Notes' preview={conceptData.value.name + ' ' + conceptData.type.name}>
+            <Common.Layout.InputRow label='Type'>
+                <Common.Inputs.DropdownInput
                     data={data}
                     value={conceptData.type}
                     setValue={type => setConceptData({ type: type, value: type.presets[0], options: type.defaultOptions })}
                 />
-            </InputRow>
-            <InputRow label='Preset'>
-                <Inputs.DropdownInput
+            </Common.Layout.InputRow>
+            <Common.Layout.InputRow label='Preset'>
+                <Common.Inputs.DropdownInput
                     data={conceptData.type.presets}
                     value={conceptData.value}
                     setValue={preset => setConceptData({ type: conceptData.type, value: preset, options: conceptData.options })}
                 />
-            </InputRow>
-
-            {(conceptData.value instanceof PlayWhat.ConceptTypes.Scale || conceptData.value instanceof PlayWhat.ConceptTypes.IntervalPair) && <ScalePanel conceptData={conceptData} setConceptData={setConceptData} />}
-            {conceptData.value instanceof PlayWhat.ConceptTypes.Chord && <ChordPanel conceptData={conceptData} setConceptData={setConceptData} />}
-
-        </Section >
+            </Common.Layout.InputRow>
+        </Common.Layout.Section >
     );
 }
-
+/*
 function ScalePanel({ conceptData, setConceptData }) {
     return (
-        <InputRow label='Reverse'>
-            <Inputs.SwitchInput
+        <Common.Layout.InputRow label='Reverse'>
+            <Common.Inputs.SwitchInput
                 value={conceptData.options.reverse}
                 setValue={(value) => setConceptData({
                     type: conceptData.type,
@@ -48,14 +39,14 @@ function ScalePanel({ conceptData, setConceptData }) {
                     }
                 })}
             />
-        </InputRow>
+        </Common.Layout.InputRow>
     );
 }
 
 function ChordPanel({ conceptData, setConceptData }) {
     return (
-        <InputRow label='Inversion'>
-            <Inputs.NumericInput
+        <Common.Layout.InputRow label='Inversion'>
+            <Common.Inputs.NumericInput
                 value={conceptData.options.chordInversion}
                 setValue={(value) => setConceptData({
                     type: conceptData.type,
@@ -66,6 +57,6 @@ function ChordPanel({ conceptData, setConceptData }) {
                     }
                 })}
             />
-        </InputRow>
+        </Common.Layout.InputRow>
     );
-}
+}*/

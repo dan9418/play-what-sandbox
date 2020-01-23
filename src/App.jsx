@@ -2,13 +2,13 @@ import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import './App.css';
 import CAGED from './CAGED/CAGED';
-import ControllerManager from './Main/ControllerManager';
+import Main from './Main/Main';
 import Arps from './Arps/Arps';
 
 export function App() {
     return (
         <div className='app-container'>
-            {<ControllerManager />}
+            {<Main />}
             {/*<CAGED />*/}
             {/*<Arps />*/}
         </div>

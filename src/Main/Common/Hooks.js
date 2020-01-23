@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { DEFAULT_CONCEPT_DATA, DEFAULT_KEY_CENTER } from './Defaults';
 
-export function useConceptData() {
+export const useConceptData = () => {
     return useState(DEFAULT_CONCEPT_DATA);
 }
 
-export function useKeyCenter() {
+export const useKeyCenter = () => {
     return useState(DEFAULT_KEY_CENTER);
 }
