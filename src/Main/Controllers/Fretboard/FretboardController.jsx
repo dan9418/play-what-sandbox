@@ -15,7 +15,7 @@ export default function FretboardController(props) {
     const [showFretNumbers, setShowFretNumbers] = useState(true);
     const [strings, setStrings] = useState(Fretboard.Defaults.strings);
     const [colorStrategy, setColorStrategy] = useState(PlayWhat.ColorBy.degree);
-    const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelBy.interval);
+    const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelUtils.interval);
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
 
     return (

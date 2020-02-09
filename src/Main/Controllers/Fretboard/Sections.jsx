@@ -1,6 +1,5 @@
 import React from 'react';
 import PlayWhat from 'play-what';
-import { Fretboard } from 'play-what-react-viewers';
 
 import Common from '../../Common/_module';
 import * as Inputs from './Inputs'
@@ -9,7 +8,7 @@ export const Color = ({ colorStrategy, setColorStrategy }) => (
     <Common.Layout.Section header='Colors' preview={colorStrategy.name}>
         <Common.Layout.InputRow label='Color by...'>
             <Common.Inputs.DropdownInput
-                data={Object.values(Fretboard.Strategies.ColorBy)}
+                data={Object.values({})}
                 value={colorStrategy}
                 setValue={setColorStrategy}
             />
@@ -21,7 +20,7 @@ export const Label = ({ labelStrategy, setLabelStrategy, showDots, setShowDots, 
     <Common.Layout.Section header='Labels' preview={labelStrategy.name}>
         <Common.Layout.InputRow label='Label by...'>
             <Common.Inputs.DropdownInput
-                data={Object.values(Fretboard.Strategies.LabelBy)}
+                data={Object.values({})}
                 value={labelStrategy}
                 setValue={setLabelStrategy}
             />
