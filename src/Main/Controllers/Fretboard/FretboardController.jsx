@@ -43,7 +43,7 @@ export default function FretboardController(props) {
     return (
         <div className='controller'>
 
-            <div className='title'>Fretboard</div>
+            <div className='controller-title'>Fretboard</div>
 
             <div className='viewer'>
                 <div className='sizer left' draggable={true} onDragStart={onDragStart} onDrag={resize} onDragEnd={onDragEnd}/>
@@ -65,7 +65,9 @@ export default function FretboardController(props) {
                 <div className='sizer right' draggable={true} onDragStart={onDragStart} onDrag={resize} onDragEnd={onDragEnd}/>
             </div>
 
-            {configOpen && <>
+            <div className='footer' onClick={() => setConfigOpen(!configOpen)}>Edit</div>
+
+            {configOpen && <div className='edit-panel'>
 
                 <Common.Sections.KeyCenter
                     keyCenter={keyCenter}
@@ -104,7 +106,7 @@ export default function FretboardController(props) {
                     setStrings={setStrings}
                 />
 
-            </>}
+            </div>}
 
         </div>
     );

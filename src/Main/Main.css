@@ -33,15 +33,31 @@
 
 .viewer {
     position: relative;
+    background: #333;
 }
 
 .viewer-sizer {
     min-width: 100px;
+    padding: 15px;
 }
 
-.controller .title {
+.controller {
+    border-radius: 20px;
+    position: relative;
+}
+
+.controller-title {
     font-weight: bold;
-    margin: 10px;
+    padding: 10px;
+    background-color: #555;
+    border-radius: 20px 20px 0 0;
+}
+
+.controller .footer {
+    font-weight: bold;
+    padding: 10px;
+    background-color: #555;
+    cursor: pointer;
 }
 
 .sizer {
@@ -56,9 +72,15 @@
 }
 
 .sizer.right {
-    right: -5;
+    right: 0;
 }
 
 .sizer.left {
-    left: -5;
+    left: 0;
+}
+
+.edit-panel {
+    position: absolute;
+    width: 100%;
+    z-index: 10000;
 }
