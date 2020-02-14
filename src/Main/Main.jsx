@@ -32,19 +32,31 @@ const CONTROLLERS = [
     }
 ];
 
+const getControllers = (controllerData) => {
+    let controllers = [];
+    for(let i = 0; i < controllerData.length; i++) {
+        const Controller = controllerData[i].component;
+        controllers.push(<Controller key={i} />);
+    }
+    return controllers;
+}
+
+const ControllerSelector = props => {
+    return (
+        <div className='controller-selector'>
+            <Common.Inputs.DropdownInput data={CONTROLLERS} value={null} setValue={props.addController} />
+        </div>
+    );
+}
 
 export default function Main() {
 
-    const [controller, setController] = useState(CONTROLLERS[3]);
-
-    const Controller = controller.component;
+    const [controllers, setControllers] = useState([CONTROLLERS[3]]);
 
     return (
         <div className='controller-manager'>
-            <div className='title'>
-                <Common.Inputs.DropdownInput data={CONTROLLERS} value={controller} setValue={setController} />
-            </div>
-            <Controller />
+            {getControllers(controllers)}
+            <ControllerSelector addController={(controller) => setControllers([...controllers, controller])} />
         </div>
     );
 }

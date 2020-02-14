@@ -19,8 +19,7 @@ export const Color = ({ colorStrategy, setColorStrategy }) => (
 export const Label = ({ labelStrategy, setLabelStrategy, showDots, setShowDots, showFretNumbers, setShowFretNumbers }) => (
     <Common.Layout.Section header='Labels' preview={labelStrategy.name}>
         <Common.Layout.InputRow label='Label by...'>
-            <Common.Inputs.DropdownInput
-                data={Object.values({})}
+            <Common.Inputs.LabelInput
                 value={labelStrategy}
                 setValue={setLabelStrategy}
             />

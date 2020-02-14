@@ -7,71 +7,78 @@ import * as Sections from './Sections';
 
 export default function FretboardController(props) {
 
+    const [configOpen, setConfigOpen] = useState(false);
+
     const [keyCenter, setKeyCenter] = Common.Hooks.useKeyCenter();
     const [conceptData, setConceptData] = Common.Hooks.useConceptData();
-    const [fretLow, setFretLow] = useState(0);
-    const [fretHigh, setFretHigh] = useState(13);
+    const [fretLow, setFretLow] = useState(7);
+    const [fretHigh, setFretHigh] = useState(10);
     const [showDots, setShowDots] = useState(true);
     const [showFretNumbers, setShowFretNumbers] = useState(true);
     const [strings, setStrings] = useState(Fretboard.Defaults.strings);
     const [colorStrategy, setColorStrategy] = useState(PlayWhat.ColorBy.degree);
     const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelUtils.interval);
-    const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.noteIndex);
+    const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.pitchClass);
 
     return (
         <div className='controller'>
 
             <div className='viewer'>
                 <Fretboard.Viewer
-                    keyCenter={keyCenter}
-                    concept={conceptData.value}
                     fretLow={fretLow}
                     fretHigh={fretHigh}
                     showDots={showDots}
                     showFretNumbers={showFretNumbers}
                     strings={strings}
+
+                    keyCenter={keyCenter}
+                    concept={conceptData.value}
                     colorStrategy={colorStrategy}
                     labelStrategy={labelStrategy}
                     mapStrategy={mapStrategy}
                 />
             </div>
 
-            <Common.Sections.KeyCenter
-                keyCenter={keyCenter}
-                setKeyCenter={setKeyCenter}
-            />
+            {configOpen && <>
 
-            <Common.Sections.Concept
-                conceptData={conceptData}
-                setConceptData={setConceptData}
-            />
+                <Common.Sections.KeyCenter
+                    keyCenter={keyCenter}
+                    setKeyCenter={setKeyCenter}
+                />
 
-            <Sections.Range
-                fretLow={fretLow}
-                setFretLow={setFretLow}
-                fretHigh={fretHigh}
-                setFretHigh={setFretHigh}
-            />
+                <Common.Sections.Concept
+                    conceptData={conceptData}
+                    setConceptData={setConceptData}
+                />
 
-            <Sections.Color
-                colorStrategy={colorStrategy}
-                setColorStrategy={setColorStrategy}
-            />
+                <Sections.Range
+                    fretLow={fretLow}
+                    setFretLow={setFretLow}
+                    fretHigh={fretHigh}
+                    setFretHigh={setFretHigh}
+                />
 
-            <Sections.Label
-                labelStrategy={labelStrategy}
-                setLabelStrategy={setLabelStrategy}
-            />
+                <Sections.Color
+                    colorStrategy={colorStrategy}
+                    setColorStrategy={setColorStrategy}
+                />
 
-            <Sections.Filter
-                mapStrategy={mapStrategy}
-                setMapStrategy={setMapStrategy}
-            />
+                <Sections.Label
+                    labelStrategy={labelStrategy}
+                    setLabelStrategy={setLabelStrategy}
+                />
 
-            <Sections.Tuning
-                strings={strings}
-                setStrings={setStrings}
-            />
+                <Sections.Filter
+                    mapStrategy={mapStrategy}
+                    setMapStrategy={setMapStrategy}
+                />
+
+                <Sections.Tuning
+                    strings={strings}
+                    setStrings={setStrings}
+                />
+
+            </>}
 
         </div>
     );

@@ -1,6 +1,6 @@
 .controller-manager {
     font-family: Verdana, sans-serif;
-    width: 600px;
+    width: 100%;
     min-height: 100%;
     margin: auto;
     border-left: 1px solid black;
@@ -27,11 +27,14 @@
     box-sizing: border-box;
 }
 
-.controller {
-
+.controller, .controller-selector {
+    background: #222;
+    margin: 20px;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 20px;
 }
 
 .viewer {
-    padding: 50px;
-    background: #222; 
+    width: 300px;
 }
