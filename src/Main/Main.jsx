@@ -44,6 +44,7 @@ const getControllers = (controllerData) => {
 const ControllerSelector = props => {
     return (
         <div className='controller-selector'>
+            <div className='label'>Add a Viewer:</div>
             <Common.Inputs.DropdownInput data={CONTROLLERS} value={null} setValue={props.addController} />
         </div>
     );

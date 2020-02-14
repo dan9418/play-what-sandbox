@@ -8,6 +8,9 @@ import * as Sections from './Sections';
 export default function FretboardController(props) {
 
     const [configOpen, setConfigOpen] = useState(false);
+    const [dragStartX, setDragStartX] = useState(0);
+    const [dragStartWidth, setDragStartWidth] = useState(300);
+    const [width, setWidth] = useState(300);
 
     const [keyCenter, setKeyCenter] = Common.Hooks.useKeyCenter();
     const [conceptData, setConceptData] = Common.Hooks.useConceptData();
@@ -20,23 +23,46 @@ export default function FretboardController(props) {
     const [labelStrategy, setLabelStrategy] = useState(PlayWhat.LabelUtils.interval);
     const [mapStrategy, setMapStrategy] = useState(PlayWhat.MapBy.pitchClass);
 
+    const onDragStart = e => {
+        setDragStartX(e.pageX);
+        setDragStartWidth(width);
+    };
+    
+    const resize = e => {
+        let distance = e.pageX - dragStartX;
+        setWidth(dragStartWidth + distance);
+    };
+
+    const onDragEnd = e => {
+        let distance = e.pageX - dragStartX;
+        setWidth(dragStartWidth + distance);
+        setDragStartX(0);
+        setDragStartWidth(0);
+    };
+
     return (
         <div className='controller'>
 
-            <div className='viewer'>
-                <Fretboard.Viewer
-                    fretLow={fretLow}
-                    fretHigh={fretHigh}
-                    showDots={showDots}
-                    showFretNumbers={showFretNumbers}
-                    strings={strings}
+            <div className='title'>Fretboard</div>
 
-                    keyCenter={keyCenter}
-                    concept={conceptData.value}
-                    colorStrategy={colorStrategy}
-                    labelStrategy={labelStrategy}
-                    mapStrategy={mapStrategy}
-                />
+            <div className='viewer'>
+                <div className='sizer left' draggable={true} onDragStart={onDragStart} onDrag={resize} onDragEnd={onDragEnd}/>
+                <div className='viewer-sizer' style={{width: width}}>
+                    <Fretboard.Viewer
+                        fretLow={fretLow}
+                        fretHigh={fretHigh}
+                        showDots={showDots}
+                        showFretNumbers={showFretNumbers}
+                        strings={strings}
+
+                        keyCenter={keyCenter}
+                        concept={conceptData.value}
+                        colorStrategy={colorStrategy}
+                        labelStrategy={labelStrategy}
+                        mapStrategy={mapStrategy}
+                    />
+                </div>
+                <div className='sizer right' draggable={true} onDragStart={onDragStart} onDrag={resize} onDragEnd={onDragEnd}/>
             </div>
 
             {configOpen && <>

@@ -8,15 +8,6 @@
     background-color: #111;
 }
 
-.controller-manager .title {
-    padding: 10px;
-    background-color: #333;
-}
-
-.controller-manager .title .dropdown-input {
-    
-}
-
 .header {
     width: 100%;
     padding: 10px;
@@ -30,11 +21,44 @@
 .controller, .controller-selector {
     background: #222;
     margin: 20px;
-    padding: 20px;
+    
     display: inline-block;
-    border-radius: 20px;
+    
+}
+
+.controller-selector .label {
+    font-weight: bold;
+    margin: 10px;
 }
 
 .viewer {
-    width: 300px;
+    position: relative;
+}
+
+.viewer-sizer {
+    min-width: 100px;
+}
+
+.controller .title {
+    font-weight: bold;
+    margin: 10px;
+}
+
+.sizer {
+    width: 5px;
+    height: 100%;
+    background-color: #555;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    cursor: w-resize;
+}
+
+.sizer.right {
+    right: -5;
+}
+
+.sizer.left {
+    left: -5;
 }
