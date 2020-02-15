@@ -65,7 +65,7 @@ export default function FretboardController(props) {
                 <div className='sizer right' draggable={true} onDragStart={onDragStart} onDrag={resize} onDragEnd={onDragEnd}/>
             </div>
 
-            <div className='footer' onClick={() => setConfigOpen(!configOpen)}>Edit</div>
+            {/*<div className='footer' onClick={() => setConfigOpen(!configOpen)}>Edit</div>*/}
 
             {configOpen && <div className='edit-panel'>
 

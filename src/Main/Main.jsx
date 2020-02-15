@@ -52,7 +52,7 @@ const ControllerSelector = props => {
 
 export default function Main() {
 
-    const [controllers, setControllers] = useState([CONTROLLERS[3]]);
+    const [controllers, setControllers] = useState([CONTROLLERS[3], CONTROLLERS[3], CONTROLLERS[3]]);
 
     return (
         <div className='controller-manager'>
@@ -61,7 +61,22 @@ export default function Main() {
                 {getControllers(controllers)}
                 <ControllerSelector addController={(controller) => setControllers([...controllers, controller])} />
             </div>
-            <div className="bottom-nav"></div>
+            <div className="bottom-nav">
+                <div>
+                    <div className="fake-input">Input</div>
+                    <div className="fake-input">Another Input</div>
+                    <div className="fake-input">Scales or Modes</div>
+                    <div className="fake-input">Music Music Music</div>
+                    <div className="fake-input">Howdy Doo</div>
+                    <div className="fake-input">[][][]</div>
+                    <div className="fake-input">123</div>
+                    <div className="fake-input">A</div>
+                    <div className="fake-input">B</div>
+                    <div className="fake-input">C</div>
+                    <div className="fake-input">Input</div>
+                    <div className="fake-input">Some Data Here</div>
+                </div>
+            </div>
         </div>
     );
 }
