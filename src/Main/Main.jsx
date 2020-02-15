@@ -34,7 +34,7 @@ const CONTROLLERS = [
 
 const getControllers = (controllerData) => {
     let controllers = [];
-    for(let i = 0; i < controllerData.length; i++) {
+    for (let i = 0; i < controllerData.length; i++) {
         const Controller = controllerData[i].component;
         controllers.push(<Controller key={i} />);
     }
@@ -56,8 +56,12 @@ export default function Main() {
 
     return (
         <div className='controller-manager'>
-            {getControllers(controllers)}
-            <ControllerSelector addController={(controller) => setControllers([...controllers, controller])} />
+            <div className="top-nav">Play What</div>
+            <div className="stage">
+                {getControllers(controllers)}
+                <ControllerSelector addController={(controller) => setControllers([...controllers, controller])} />
+            </div>
+            <div className="bottom-nav"></div>
         </div>
     );
 }
