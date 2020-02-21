@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     mode: 'development',
     entry: './src/App.jsx',
@@ -19,7 +21,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx'],
+        alias: {
+            react: path.resolve('./node_modules/react')
+        }
     },
     output: {
         path: __dirname + '/build/',
