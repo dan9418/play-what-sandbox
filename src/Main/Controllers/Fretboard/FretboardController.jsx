@@ -42,7 +42,7 @@ export default function FretboardController(props) {
 
     return (
         <div className='controller'>
-            <Fretboard.Viewer
+            <Fretboard.Controller
                 fretLow={fretLow}
                 fretHigh={fretHigh}
                 showDots={showDots}
