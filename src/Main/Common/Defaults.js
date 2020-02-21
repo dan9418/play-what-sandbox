@@ -39,8 +39,8 @@ export const DEFAULT_CONCEPT_TYPE = CONCEPT_TYPES[3];
 
 export const DEFAULT_CONCEPT_DATA = {
     type: DEFAULT_CONCEPT_TYPE,
-    value: DEFAULT_CONCEPT_TYPE.presets[0],
+    value: DEFAULT_CONCEPT_TYPE.presets[5],
     options: DEFAULT_CONCEPT_TYPE.defaultOptions
 }
 
-export const DEFAULT_KEY_CENTER = new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.C, PlayWhat.Constants.ACCIDENTAL.Natural, 4)
+export const DEFAULT_KEY_CENTER = new PlayWhat.KeyCenter(PlayWhat.Constants.TONIC.G, PlayWhat.Constants.ACCIDENTAL.Natural, 4)

@@ -13,20 +13,24 @@
     line-height: 50px;
     font-weight: bold;
     font-size: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #ccc;
+    box-shadow: 0px 0px 25px 10px rgba(0,0,0,0.5)
 }
 
 .stage {
+    margin-top: 50px;
     background-color: #AAA;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.5);
+    align-items: flex-start;
     overflow-x: auto;
     overflow-y: auto;
-}
-
-.bottom-nav {
-   
+    height: 100%;
 }
 
 .header {
@@ -40,21 +44,16 @@
 }
 
 .controller, .controller-selector {
-    background: #BBB;
     margin: 20px;
     
     display: inline-block;
 }
 
 .controller-manager {
-    display: grid;
-    grid-template-rows: 50px auto 300px;
-    max-height: 100%;
-    overflow: hidden;
+    
 }
 
 .controller-selector {
-    height: 100%;
     padding: 20px;
 }
 
@@ -74,13 +73,9 @@
 
 .controller {
     position: relative;
-    border: 2px solid #BBB;
-    border-radius: 5px;;
-}
 
-.controller:hover {
-    border: 2px solid white;
-    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
 }
 
 .controller-title {
@@ -113,9 +108,7 @@
 }
 
 .edit-panel {
-    position: absolute;
     width: 100%;
-    z-index: 10000;
 }
 
 .fake-input {

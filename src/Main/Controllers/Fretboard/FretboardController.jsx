@@ -7,15 +7,15 @@ import * as Sections from './Sections';
 
 export default function FretboardController(props) {
 
-    const [configOpen, setConfigOpen] = useState(false);
+    const [configOpen, setConfigOpen] = useState(true);
     const [dragStartX, setDragStartX] = useState(0);
     const [dragStartWidth, setDragStartWidth] = useState(300);
     const [width, setWidth] = useState(300);
 
     const [keyCenter, setKeyCenter] = Common.Hooks.useKeyCenter();
     const [conceptData, setConceptData] = Common.Hooks.useConceptData();
-    const [fretLow, setFretLow] = useState(7);
-    const [fretHigh, setFretHigh] = useState(10);
+    const [fretLow, setFretLow] = useState(0);
+    const [fretHigh, setFretHigh] = useState(12);
     const [showDots, setShowDots] = useState(true);
     const [showFretNumbers, setShowFretNumbers] = useState(true);
     const [strings, setStrings] = useState(Fretboard.Defaults.strings);
@@ -27,7 +27,7 @@ export default function FretboardController(props) {
         setDragStartX(e.pageX);
         setDragStartWidth(width);
     };
-    
+
     const resize = e => {
         let distance = e.pageX - dragStartX;
         setWidth(dragStartWidth + distance);
@@ -41,6 +41,24 @@ export default function FretboardController(props) {
     };
 
     return (
+        <div className='controller'>
+            <Fretboard.Viewer
+                fretLow={fretLow}
+                fretHigh={fretHigh}
+                showDots={showDots}
+                showFretNumbers={showFretNumbers}
+                strings={strings}
+
+                keyCenter={keyCenter}
+                concept={conceptData.value}
+                colorStrategy={colorStrategy}
+                labelStrategy={labelStrategy}
+                mapStrategy={mapStrategy}
+            />
+        </div>
+    );
+
+    /*return (
         <div className='controller'>
 
             <div className='controller-title'>Fretboard</div>
@@ -65,7 +83,7 @@ export default function FretboardController(props) {
                 <div className='sizer right' draggable={true} onDragStart={onDragStart} onDrag={resize} onDragEnd={onDragEnd}/>
             </div>
 
-            {/*<div className='footer' onClick={() => setConfigOpen(!configOpen)}>Edit</div>*/}
+            <div className='footer' onClick={() => setConfigOpen(!configOpen)}>Edit</div>
 
             {configOpen && <div className='edit-panel'>
 
@@ -109,6 +127,6 @@ export default function FretboardController(props) {
             </div>}
 
         </div>
-    );
+    );*/
 
 }
