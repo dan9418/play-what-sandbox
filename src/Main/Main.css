@@ -18,13 +18,13 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: #ccc;
+    background: #AAA;
     box-shadow: 0px 0px 25px 10px rgba(0,0,0,0.5)
 }
 
 .stage {
     margin-top: 50px;
-    background-color: #AAA;
+    background-color: #CCC;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
