@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Main.css';
+import PW from 'play-what';
+import { Fretboard } from 'play-what-react-viewers';
 
+/*
 import Controllers from './Controllers/_module';
 import Common from './Common/_module';
 
@@ -48,18 +51,17 @@ const ControllerSelector = props => {
             <Common.Inputs.DropdownInput data={CONTROLLERS} value={null} setValue={props.addController} />
         </div>
     );
-}
+}*/
 
 export default function Main() {
 
-    const [controllers, setControllers] = useState([CONTROLLERS[3]]);
+    //const [controllers, setControllers] = useState([CONTROLLERS[3]]);
 
     return (
         <div className='controller-manager'>
             <div className="top-nav">Play What</div>
             <div className="stage">
-                {getControllers(controllers)}
-                {/*<ControllerSelector addController={(controller) => setControllers([...controllers, controller])} />*/}
+                <Fretboard.Controller />
             </div>
         </div>
     );
