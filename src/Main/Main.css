@@ -21,6 +21,8 @@
     background: #AAA;
     box-shadow: 0px 0px 25px 10px rgba(0,0,0,0.5);
     text-align: center;
+    color: #EEE;
+    letter-spacing: 5px;
 }
 
 .stage {
