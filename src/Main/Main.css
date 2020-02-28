@@ -115,15 +115,3 @@
 .edit-panel {
     width: 100%;
 }
-
-.fake-input {
-    height: 50px;
-    line-height: 50px;
-    min-width: 100px;
-    background-color: #DDD;
-    margin: 20px;
-    cursor: pointer;
-    border-radius: 20px;
-    display: inline-block;
-    padding: 5px;
-}
