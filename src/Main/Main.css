@@ -1,11 +1,5 @@
 .controller-manager {
     font-family: Verdana, sans-serif;
-    width: 100%;
-    min-height: 100%;
-    margin: auto;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    background-color: #CCC;
 }
 
 .top-nav {
@@ -34,6 +28,21 @@
     height: 100%;
 }
 
+.stage-controller {
+    height: 50px;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #badbeb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    box-sizing: border-box;
+}
+
 .stage {
     margin-top: 50px;
     background-color: #deeaf5;
@@ -41,10 +50,9 @@
     justify-content: space-around;
     align-items: flex-start;
     overflow-x: auto;
-    overflow-y: hidden;
-    height: 100%;
-    width: fit-content;
-    padding-top: 50px;
+    overflow-y: auto;
+    padding: 50px;
+    min-height: 100%;
 }
 
 .header {
@@ -62,10 +70,6 @@
     padding: 20px;
     
     display: inline-block;
-}
-
-.controller-manager {
-    
 }
 
 .controller-selector {
@@ -147,4 +151,20 @@
 .app-title {
     text-align: center;
     width: 100%;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+}
+
+.grid-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-input-container .text {
+    color: black;
+    margin: 0 10px;
 }
