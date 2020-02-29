@@ -13,6 +13,8 @@ const Main = () => {
             </div>
             <div className="stage">
                 <Fretboard.Controller />
+                <Fretboard.Controller />
+                <Fretboard.Controller />
             </div>
         </div>
     );
