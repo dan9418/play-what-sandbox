@@ -3,11 +3,15 @@ import './Main.css';
 import Common from './Common/_module';
 import { Fretboard } from 'play-what-react-viewers';
 import NumericInput from 'play-what-react-viewers/src/Inputs/NumericInput/NumericInput';
+import PW from 'play-what';
 
 const Main = () => {
 
-    const [x, setX] = useState(2);
-    const [y, setY] = useState(3);
+    const [x, setX] = useState(4);
+    const [y, setY] = useState(4);
+
+    const FRET_LOW = 1;
+    const FRET_HIGH = 7;
 
     return (
         <div className='controller-manager'>
@@ -26,7 +30,107 @@ const Main = () => {
             </div>
             <div className="stage">
                 <div className="grid" style={{ gridTemplateColumns: `repeat(${x}, 1fr)`, gridTemplateRows: `repeat(${y}, 1fr)` }}>
-                    {[...Array(x * y)].map((e, i) => <Fretboard.Controller key={i} />)}
+                    {/*[...Array(x * y)].map((e, i) => <Fretboard.Controller key={i} />)*/}
+                    {/* A1 */}
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.G, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Maj7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.G, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Maj7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.B, PW.Constants.ACCIDENTAL.Flat, 3)}
+                        concept={PW.Presets.CHORD.Min7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Flat, 3)}
+                        concept={PW.Presets.CHORD.Dom7}
+                    />
+                    {/* A2 */}
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.G, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Maj7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.G, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Maj7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.B, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Min7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Dom7}
+                    />
+                    {/* B1 */}
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.A, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Min7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Dom7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.A, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Min7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.A, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Min7}
+                    />
+                    {/* B2 */}
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Flat, 3)}
+                        concept={PW.Presets.CHORD.Dom7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Flat, 3)}
+                        concept={PW.Presets.CHORD.Dom7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.A, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Min7}
+                    />
+                    <Fretboard.Controller
+                        fretLow={FRET_LOW}
+                        fretHigh={FRET_HIGH}
+                        keyCenter={new PW.KeyCenter(PW.Constants.TONIC.D, PW.Constants.ACCIDENTAL.Natural, 3)}
+                        concept={PW.Presets.CHORD.Dom7}
+                    />
                 </div>
             </div>
         </div>
