@@ -7,11 +7,11 @@ import PW from 'play-what';
 
 const Main = () => {
 
-    const [x, setX] = useState(4);
+    const [x, setX] = useState(2);
     const [y, setY] = useState(4);
 
     const FRET_LOW = 1;
-    const FRET_HIGH = 7;
+    const FRET_HIGH = 8;
 
     return (
         <div className='controller-manager'>
@@ -49,12 +49,14 @@ const Main = () => {
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.B, PW.Constants.ACCIDENTAL.Flat, 3)}
                         concept={PW.Presets.CHORD.Min7}
+                        rootString={5}
                     />
                     <Fretboard.Controller
                         fretLow={FRET_LOW}
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Flat, 3)}
                         concept={PW.Presets.CHORD.Dom7}
+                        rootString={5}
                     />
                     {/* A2 */}
                     <Fretboard.Controller
@@ -74,12 +76,14 @@ const Main = () => {
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.B, PW.Constants.ACCIDENTAL.Natural, 3)}
                         concept={PW.Presets.CHORD.Min7}
+                        rootString={5}
                     />
                     <Fretboard.Controller
                         fretLow={FRET_LOW}
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Natural, 3)}
-                        concept={PW.Presets.CHORD.Dom7}
+                        concept={PW.Presets.CHORD.Dom7b9}
+                        rootString={5}
                     />
                     {/* B1 */}
                     <Fretboard.Controller
@@ -92,7 +96,8 @@ const Main = () => {
                         fretLow={FRET_LOW}
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Natural, 3)}
-                        concept={PW.Presets.CHORD.Dom7}
+                        concept={PW.Presets.CHORD.Dom7b9}
+                        rootString={5}
                     />
                     <Fretboard.Controller
                         fretLow={FRET_LOW}
@@ -112,12 +117,14 @@ const Main = () => {
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Flat, 3)}
                         concept={PW.Presets.CHORD.Dom7}
+                        rootString={5}
                     />
                     <Fretboard.Controller
                         fretLow={FRET_LOW}
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.E, PW.Constants.ACCIDENTAL.Flat, 3)}
                         concept={PW.Presets.CHORD.Dom7}
+                        rootString={5}
                     />
                     <Fretboard.Controller
                         fretLow={FRET_LOW}
@@ -130,6 +137,7 @@ const Main = () => {
                         fretHigh={FRET_HIGH}
                         keyCenter={new PW.KeyCenter(PW.Constants.TONIC.D, PW.Constants.ACCIDENTAL.Natural, 3)}
                         concept={PW.Presets.CHORD.Dom7}
+                        rootString={5}
                     />
                 </div>
             </div>
