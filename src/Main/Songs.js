@@ -6,7 +6,7 @@ export const G_MAJOR_SCALE = {
     sections: [
         {
             keyCenter: 'G',
-            intervals: PW.Presets.SCALE.Major.intervals,
+            concept: PW.Presets.SCALE.Major,
             repeat: 1
         }
     ]
@@ -18,7 +18,7 @@ export const A_MINOR_SCALE = {
     sections: [
         {
             keyCenter: 'A',
-            intervals: PW.Presets.SCALE.NatualMinor.intervals,
+            concept: PW.Presets.SCALE.NatualMinor,
             repeat: 1
         }
     ]
@@ -31,63 +31,63 @@ export const OUT_OF_NOWHERE = {
         // A
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
+            concept: PW.Presets.CHORD.Maj7,
             repeat: 2
         },
         {
             keyCenter: 'Bb',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'Eb',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
+            concept: PW.Presets.CHORD.Maj7,
             repeat: 2
         },
         {
             keyCenter: 'B',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'E',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         // B
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'E',
-            intervals: PW.Presets.CHORD.Dom7b9.intervals,
+            concept: PW.Presets.CHORD.Dom7b9,
             repeat: 1
         },
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 2
         },
         {
             keyCenter: 'Eb',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 2
         },
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'D',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         }
     ]
@@ -100,155 +100,155 @@ export const AUTUMN_LEAVES = {
         // A
         {
             keyCenter: 'C',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'F',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'Bb',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
+            concept: PW.Presets.CHORD.Maj7,
             repeat: 1
         },
         {
             keyCenter: 'Eb',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
+            concept: PW.Presets.CHORD.Maj7,
             repeat: 1
         },
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.HalfDim7.intervals,
+            concept: PW.Presets.CHORD.HalfDim7,
             repeat: 1
         },
         {
             keyCenter: 'D',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         // B
         {
             keyCenter: 'C',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'F',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'Bb',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
+            concept: PW.Presets.CHORD.Maj7,
             repeat: 1
         },
         {
             keyCenter: 'Eb',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
+            concept: PW.Presets.CHORD.Maj7,
             repeat: 1
         },
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.HalfDim7.intervals,
+            concept: PW.Presets.CHORD.HalfDim7,
             repeat: 1
         },
         {
             keyCenter: 'D',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 2
         },
         // C
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.HalfDim7.intervals,
+            concept: PW.Presets.CHORD.HalfDim7,
             repeat: 1
         },
         {
             keyCenter: 'D',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 2
         },
         {
             keyCenter: 'C',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'F',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'Bb',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
+            concept: PW.Presets.CHORD.Maj7,
             repeat: 2
         },
         // D
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.HalfDim7.intervals,
+            concept: PW.Presets.CHORD.HalfDim7,
             repeat: 1
         },
         {
             keyCenter: 'D',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'C',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'F',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 1
         },
         {
             keyCenter: 'Bb',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'A',
-            intervals: PW.Presets.CHORD.HalfDim7.intervals,
+            concept: PW.Presets.CHORD.HalfDim7,
             repeat: 1
         },
         {
             keyCenter: 'D',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
+            concept: PW.Presets.CHORD.Dom7,
             repeat: 1
         },
         {
             keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Min7.intervals,
+            concept: PW.Presets.CHORD.Min7,
             repeat: 2
         }
     ]

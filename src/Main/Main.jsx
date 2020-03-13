@@ -13,7 +13,8 @@ const parseJsong = (sections) => {
     let viewers = [];
     for (let i = 0; i < sections.length; i++) {
         const s = sections[i];
-        const intervals = s.intervals.map(ivl => typeof ivl === 'object' ? ivl : PW.Constants.INTERVAL[ivl]);
+        //const intervals = s.intervals.map(ivl => typeof ivl === 'object' ? ivl : PW.Constants.INTERVAL[ivl]);
+        //const concept = new PW.Concept('', '', intervals);
         const reps = s.repeat ? s.repeat : 1;
         const instances = [...Array(reps)].map((e, r) => (
             <Fretboard.Controller
@@ -21,7 +22,7 @@ const parseJsong = (sections) => {
                 fretLow={FRET_LOW}
                 fretHigh={FRET_HIGH}
                 keyCenter={new PW.KeyCenter(s.keyCenter)}
-                concept={new PW.Concept('', '', intervals)}
+                concept={s.concept}
             />
         ));
         viewers = viewers.concat(instances);
