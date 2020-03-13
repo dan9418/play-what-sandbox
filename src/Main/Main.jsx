@@ -4,6 +4,7 @@ import Common from './Common/_module';
 import { Fretboard } from 'play-what-react-viewers';
 import NumericInput from 'play-what-react-viewers/src/Inputs/NumericInput/NumericInput';
 import PW from 'play-what';
+import * as Songs from './Songs';
 
 const FRET_LOW = 1;
 const FRET_HIGH = 8;
@@ -28,75 +29,6 @@ const parseJsong = (sections) => {
     return viewers;
 }
 
-const jsong = {
-    bpm: 120,
-    timeSignature: [4, 4],
-    sections: [
-        // A
-        {
-            keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
-            repeat: 2
-        },
-        {
-            keyCenter: 'Bb',
-            intervals: PW.Presets.CHORD.Min7.intervals,
-            repeat: 1
-        },
-        {
-            keyCenter: 'Eb',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
-            repeat: 1
-        },
-        {
-            keyCenter: 'G',
-            intervals: PW.Presets.CHORD.Maj7.intervals,
-            repeat: 2
-        },
-        {
-            keyCenter: 'B',
-            intervals: PW.Presets.CHORD.Min7.intervals,
-            repeat: 1
-        },
-        {
-            keyCenter: 'E',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
-            repeat: 1
-        },
-        // B
-        {
-            keyCenter: 'A',
-            intervals: PW.Presets.CHORD.Min7.intervals,
-            repeat: 1
-        },
-        {
-            keyCenter: 'E',
-            intervals: PW.Presets.CHORD.Dom7b9.intervals,
-            repeat: 1
-        },
-        {
-            keyCenter: 'A',
-            intervals: PW.Presets.CHORD.Min7.intervals,
-            repeat: 2
-        },
-        {
-            keyCenter: 'Eb',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
-            repeat: 2
-        },
-        {
-            keyCenter: 'A',
-            intervals: PW.Presets.CHORD.Min7.intervals,
-            repeat: 1
-        },
-        {
-            keyCenter: 'D',
-            intervals: PW.Presets.CHORD.Dom7.intervals,
-            repeat: 1
-        }
-    ]
-};
-
 const Main = () => {
 
     const [x, setX] = useState(2);
@@ -119,7 +51,7 @@ const Main = () => {
             </div>
             <div className="stage">
                 <div className="grid" style={{ gridTemplateColumns: `repeat(${x}, 1fr)`, gridTemplateRows: `repeat(${y}, 1fr)` }}>
-                    {parseJsong(jsong.sections)}
+                    {parseJsong(Songs.OUT_OF_NOWHERE.sections)}
                 </div>
             </div>
         </div>
