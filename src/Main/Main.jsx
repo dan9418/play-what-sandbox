@@ -31,6 +31,8 @@ const parseJsong = (sections) => {
 
 const Main = () => {
 
+    const song = Songs.AUTUMN_LEAVES.sections;
+
     const [x, setX] = useState(2);
     const [y, setY] = useState(4);
 
@@ -51,7 +53,7 @@ const Main = () => {
             </div>
             <div className="stage">
                 <div className="grid" style={{ gridTemplateColumns: `repeat(${x}, 1fr)`, gridTemplateRows: `repeat(${y}, 1fr)` }}>
-                    {parseJsong(Songs.OUT_OF_NOWHERE.sections)}
+                    {parseJsong(song)}
                 </div>
             </div>
         </div>
