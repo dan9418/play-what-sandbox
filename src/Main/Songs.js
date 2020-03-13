@@ -101,12 +101,18 @@ export const AUTUMN_LEAVES = {
         {
             keyCenter: 'C',
             concept: PW.Presets.CHORD.Min7,
-            repeat: 1
+            repeat: 1,
+            /*colorStrategy: 'frequency',
+            fretLow: 0,
+            fretHigh: 12*/
         },
         {
             keyCenter: 'F',
             concept: PW.Presets.CHORD.Dom7,
-            repeat: 1
+            repeat: 1,
+            /*colorStrategy: 'noteIndex',
+            fretLow: 0,
+            fretHigh: 12*/
         },
         {
             keyCenter: 'Bb',

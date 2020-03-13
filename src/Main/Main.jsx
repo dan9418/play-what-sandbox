@@ -19,10 +19,11 @@ const parseJsong = (sections) => {
         const instances = [...Array(reps)].map((e, r) => (
             <Fretboard.Controller
                 key={i + '-' + r}
-                fretLow={FRET_LOW}
-                fretHigh={FRET_HIGH}
+                fretLow={typeof s.fretLow !== 'undefined' ? s.fretLow : FRET_LOW}
+                fretHigh={typeof s.fretHigh !== 'undefined' ? s.fretHigh : FRET_HIGH}
                 keyCenter={new PW.KeyCenter(s.keyCenter)}
                 concept={s.concept}
+                colorStrategy={s.colorStrategy}
             />
         ));
         viewers = viewers.concat(instances);
