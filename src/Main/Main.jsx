@@ -24,6 +24,9 @@ const parseJsong = (sections) => {
                 keyCenter={new PW.KeyCenter(s.keyCenter)}
                 concept={s.concept}
                 colorStrategy={s.colorStrategy}
+                labelStrategy={s.labelStrategy}
+                actionStrategy={s.actionStrategy}
+                mapStrategy={s.mapStrategy}
             />
         ));
         viewers = viewers.concat(instances);

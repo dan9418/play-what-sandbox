@@ -102,6 +102,7 @@ export const AUTUMN_LEAVES = {
             keyCenter: 'C',
             concept: PW.Presets.CHORD.Min7,
             repeat: 1,
+            // labelStrategy: 'noteIndex'
             /*colorStrategy: 'frequency',
             fretLow: 0,
             fretHigh: 12*/
