@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './Main.css';
 import Common from './Common/_module';
-import { Fretboard } from 'play-what-react-viewers';
-import NumericInput from 'play-what-react-viewers/src/Inputs/NumericInput/NumericInput';
+import Viewers from 'play-what-react-viewers';
 import PW from 'play-what';
 import * as Songs from './Songs';
 
+const Fretboard = Viewers.v1.Fretboard;
+const NumericInput = Viewers.v1.Inputs.NumericInput;
+
 const FRET_LOW = 1;
-const FRET_HIGH = 8;
+const FRET_HIGH = 7;
 
 const parseJsong = (sections) => {
     let viewers = [];
@@ -34,9 +36,22 @@ const parseJsong = (sections) => {
     return viewers;
 }
 
+const TEST = {
+    strategy: 'NOTES_FROM_INTERVALS',
+    args: {
+        keyCenter: 'D4',
+        intervals: {
+            strategy: 'CHORD',
+            args: {
+                preset: 'Min7'
+            }
+        }
+    }
+}
+
 const Main = () => {
 
-    const song = Songs.AUTUMN_LEAVES.sections;
+    const song = Songs.G_MAJOR_SCALE.sections;
 
     const [x, setX] = useState(2);
     const [y, setY] = useState(4);
@@ -57,6 +72,9 @@ const Main = () => {
                 </div>
             </div>
             <div className="stage">
+                <pre>
+                    {JSON.stringify(PW.v2.parse(TEST), null, '\t')}
+                </pre>
                 <div className="grid" style={{ gridTemplateColumns: `repeat(${x}, 1fr)`, gridTemplateRows: `repeat(${y}, 1fr)` }}>
                     {parseJsong(song)}
                 </div>

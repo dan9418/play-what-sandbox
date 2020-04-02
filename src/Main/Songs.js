@@ -93,6 +93,49 @@ export const OUT_OF_NOWHERE = {
     ]
 };
 
+
+export const G_MAJOR_ARPS = {
+    bpm: 120,
+    timeSignature: [4, 4],
+    sections: [
+        {
+            keyCenter: 'G',
+            concept: PW.Presets.CHORD.Maj7,
+            repeat: 1
+        },
+        {
+            keyCenter: 'A',
+            concept: PW.Presets.CHORD.Min7,
+            repeat: 1
+        },
+        {
+            keyCenter: 'B',
+            concept: PW.Presets.CHORD.Min7,
+            repeat: 1
+        },
+        {
+            keyCenter: 'C',
+            concept: PW.Presets.CHORD.Maj7,
+            repeat: 1
+        },
+        {
+            keyCenter: 'D',
+            concept: PW.Presets.CHORD.Dom7,
+            repeat: 1
+        },
+        {
+            keyCenter: 'E',
+            concept: PW.Presets.CHORD.Min7,
+            repeat: 1
+        },
+        {
+            keyCenter: 'F#',
+            concept: PW.Presets.CHORD.HalfDim7,
+            repeat: 1
+        }
+    ]
+};
+
 export const AUTUMN_LEAVES = {
     bpm: 120,
     timeSignature: [4, 4],
