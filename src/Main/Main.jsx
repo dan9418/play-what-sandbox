@@ -39,11 +39,11 @@ const parseJsong = (sections) => {
 const TEST = {
     strategy: 'NOTES_FROM_INTERVALS',
     args: {
-        keyCenter: 'D4',
+        keyCenter: 'G4',
         intervals: {
-            strategy: 'CHORD',
+            strategy: 'SCALE',
             args: {
-                preset: 'Min7'
+                preset: 'Major'
             }
         }
     }

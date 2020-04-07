@@ -48,9 +48,9 @@
 .stage {
     margin-top: 100px;
     background-color: #deeaf5;
-    display: flex;
+    /*display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: flex-start;*/
     overflow-x: auto;
     overflow-y: auto;
     min-height: 100%;
