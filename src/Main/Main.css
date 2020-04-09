@@ -35,25 +35,18 @@
     top: 50px;
     left: 0;
     right: 0;
-    z-index: 1000;
     background: #badbeb;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: white;
-    box-sizing: border-box;
-    z-index: 2000;
+    justify-content: center;
 }
 
 .stage {
     margin-top: 100px;
-    background-color: #deeaf5;
-    /*display: flex;
-    justify-content: space-around;
-    align-items: flex-start;*/
-    overflow-x: auto;
-    overflow-y: auto;
     min-height: 100%;
+    background-color: #deeaf5;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .header {
