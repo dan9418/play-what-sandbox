@@ -7,7 +7,7 @@ import * as Songs from './Songs';
 
 const Fretboard = Viewers.v2.Fretboard;
 
-const TEST = {
+const NOTE_CONFIG = {
     strategy: 'NOTES_FROM_INTERVALS',
     args: {
         keyCenter: 'G4',
@@ -17,6 +17,13 @@ const TEST = {
                 preset: 'Major'
             }
         }
+    }
+}
+
+const FRETBOARD_CONFIG = {
+    strategy: 'SINGLE',
+    args: {
+        
     }
 }
 
@@ -34,10 +41,10 @@ const Main = () => {
             </div>
             <div className="stage">
                 <pre>
-                    {JSON.stringify(PW.v2.parse(TEST), null, '\t')}
+                    {JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')}
                 </pre>
                 <div>
-                    {Fretboard.Api.fromConfig()}
+                    {Fretboard.Api.fromConfig(FRETBOARD_CONFIG, NOTE_CONFIG)}
                 </div>
             </div>
         </div>
