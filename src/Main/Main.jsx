@@ -21,14 +21,33 @@ const NOTE_CONFIG = {
 }
 
 const FRETBOARD_CONFIG = {
-    strategy: 'SINGLE',
-    args: {
-        
+    fretLow: 0,
+    fretHigh: 12,
+    strings: [
+        { tuning: 16 },   // e
+        { tuning: 11 },   // B
+        { tuning: 7 },    // G
+        { tuning: 2 },    // D
+        { tuning: -3 },   // A
+        { tuning: -8 }    // E
+    ],
+    showFretNumbers: true,
+    showDots: true,
+    fretMapping: {
+        // mapBy: 'PITCH_CLASS',
+        label: {
+            strategy: 'NAME'
+        },
+        color: {
+            strategy: 'DEGREE',
+            args: {
+                d1: '#fff'
+            }
+        }
     }
 }
 
 const Main = () => {
-
     return (
         <div className='controller-manager'>
             <div className="top-nav">
@@ -40,12 +59,12 @@ const Main = () => {
                 Name
             </div>
             <div className="stage">
-                <pre>
-                    {JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')}
-                </pre>
                 <div>
                     {Fretboard.Api.fromConfig(FRETBOARD_CONFIG, NOTE_CONFIG)}
                 </div>
+                <pre>
+                    {JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')}
+                </pre>
             </div>
         </div>
     );
