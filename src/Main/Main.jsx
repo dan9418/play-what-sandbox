@@ -36,10 +36,10 @@ const FRETBOARD_CONFIG = {
     fretMapping: {
         // mapBy: 'PITCH_CLASS',
         label: {
-            strategy: 'NAME'
+            strategy: 'INTERVAL'
         },
         color: {
-            strategy: 'OCTAVE'
+            strategy: 'PITCH_CLASS'
         }
     }
 }
