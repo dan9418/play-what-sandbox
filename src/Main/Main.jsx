@@ -39,10 +39,7 @@ const FRETBOARD_CONFIG = {
             strategy: 'NAME'
         },
         color: {
-            strategy: 'DEGREE',
-            args: {
-                d1: '#fff'
-            }
+            strategy: 'OCTAVE'
         }
     }
 }
