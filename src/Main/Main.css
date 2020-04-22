@@ -161,3 +161,16 @@
     color: black;
     margin: 0 10px;
 }
+
+/* hs*/
+
+.overtone {
+    display: grid;
+    width: 100%;
+    background-color: white;
+}
+
+.n {
+    border-right: 1px solid black;
+    height: 20px;
+}

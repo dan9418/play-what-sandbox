@@ -44,6 +44,20 @@ const FRETBOARD_CONFIG = {
     }
 }
 
+const Overtone = props => {
+    return (
+        <div className="overtone" style={{ gridTemplateColumns: `repeat(${props.n}, 1fr)` }}>
+            {[...Array(props.n)].map((e, i) => <div className="n" key={props.n} />)}
+        </div>
+    );
+};
+
+const HarmonicSeries = props => {
+    return (
+        [...Array(props.n)].map((e, i) => <Overtone n={i + 1} />)
+    );
+};
+
 const Main = () => {
     return (
         <div className='controller-manager'>
@@ -62,6 +76,9 @@ const Main = () => {
                 <pre>
                     {JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')}
                 </pre>
+                <div>
+                    <HarmonicSeries n={50} />
+                </div>
             </div>
         </div>
     );
