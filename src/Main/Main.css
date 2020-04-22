@@ -43,7 +43,7 @@
 }
 
 .stage {
-    margin-top: 100px;
+    margin-top: 200px;
     min-height: 100%;
     background-color: #deeaf5;
     display: grid;
@@ -164,13 +164,21 @@
 
 /* hs*/
 
-.overtone {
-    display: grid;
-    width: 100%;
+
+
+.harmonic-series {
+    position: relative;
     background-color: white;
 }
 
+.overtone {
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    width: 100%;
+    height: 200px;
+}
+
 .n {
-    border-right: 1px solid black;
-    height: 20px;
+    height: 100%;
 }

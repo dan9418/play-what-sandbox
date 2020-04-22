@@ -44,17 +44,23 @@ const FRETBOARD_CONFIG = {
     }
 }
 
-const Overtone = props => {
+const Overtone = ({ n }) => {
+    const color = (n * 1000).toString(16);
+    //const color = Math.floor(Math.random() * parseInt('aaaaaa', 16)).toString(16);
+    console.log(color);
+
     return (
-        <div className="overtone" style={{ gridTemplateColumns: `repeat(${props.n}, 1fr)` }}>
-            {[...Array(props.n)].map((e, i) => <div className="n" key={props.n} />)}
+        <div className="overtone" style={{gridTemplateColumns: `repeat(${n}, 1fr)`}}>
+            {[...Array(n)].map((e, i) => <div className="n" key={n} style={{ borderRight: `1px solid #${color}` }} />)}
         </div>
     );
 };
 
 const HarmonicSeries = props => {
     return (
-        [...Array(props.n)].map((e, i) => <Overtone n={i + 1} />)
+        <div className="harmonic-series">
+            {[...Array(props.n)].map((e, i) => <Overtone n={i + 1} />)}
+        </div>
     );
 };
 
@@ -69,6 +75,9 @@ const Main = () => {
             <div className="stage-controller">
                 Name
             </div>
+            <div>
+                <HarmonicSeries n={21} />
+            </div>
             <div className="stage">
                 <div>
                     {Fretboard.Api.fromConfig(FRETBOARD_CONFIG, NOTE_CONFIG)}
@@ -76,9 +85,6 @@ const Main = () => {
                 <pre>
                     {JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')}
                 </pre>
-                <div>
-                    <HarmonicSeries n={50} />
-                </div>
             </div>
         </div>
     );
