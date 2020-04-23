@@ -59,7 +59,7 @@ const Main = () => {
 
             <div className="stage">
                 <div>
-                    <HarmonicSeries f={100} n={21} />
+                    <HarmonicSeries f={100} n={27} />
                 </div>
                 <div>
                     {Fretboard.Api.fromConfig(FRETBOARD_CONFIG, NOTE_CONFIG)}

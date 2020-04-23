@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './HarmonicSeries.css';
 import PW from 'play-what';
 
-const MAX_PRIME = 23;
+const MAX_PRIME = 27;
 
 const PRIMES = {
     ['1']: 'black',
@@ -14,7 +14,11 @@ const PRIMES = {
     ['13']: 'indigo',
     ['17']: 'purple',
     ['19']: 'darkblue',
-    ['23']: 'darkgreen'
+    ['23']: 'darkgreen',
+    // ???
+    ['9']: 'salmon',
+    ['21']: 'aqua',
+    ['27']: 'lime'
 }
 
 
@@ -42,7 +46,7 @@ const Overtone = ({ f, n }) => {
             {[...Array(n)].map((e, i) => (
                 <div className="n" key={n} >
                     <div className="overtone-line"
-                    style={{ backgroundColor: color }}
+                    style={{ backgroundColor: i === 1 && PRIMES[n] ? color : '#ddd' }}
                     onClick={() => PW.Sound.play(f * n)}
                     />
                     <div className="overtone-info">
@@ -57,7 +61,7 @@ const Overtone = ({ f, n }) => {
 const HarmonicSeries = ({ f, n }) => {
     return (
         <div className="harmonic-series">
-            {[...Array(n)].map((e, i) => <Overtone f={f} n={n - i - 1} />)}
+            {[...Array(n)].map((e, i) => <Overtone f={f} n={n - i} />)}
         </div>
     );
 };
