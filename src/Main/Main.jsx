@@ -4,6 +4,7 @@ import Common from './Common/_module';
 import Viewers from 'play-what-react-viewers';
 import PW from 'play-what';
 import * as Songs from './Songs';
+import HarmonicSeries from './HarmonicSeries/HarmonicSeries';
 
 const Fretboard = Viewers.v2.Fretboard;
 
@@ -44,26 +45,6 @@ const FRETBOARD_CONFIG = {
     }
 }
 
-const Overtone = ({ n }) => {
-    const color = (n * 1000).toString(16);
-    //const color = Math.floor(Math.random() * parseInt('aaaaaa', 16)).toString(16);
-    console.log(color);
-
-    return (
-        <div className="overtone" style={{gridTemplateColumns: `repeat(${n}, 1fr)`}}>
-            {[...Array(n)].map((e, i) => <div className="n" key={n} style={{ borderRight: `1px solid #${color}` }} />)}
-        </div>
-    );
-};
-
-const HarmonicSeries = props => {
-    return (
-        <div className="harmonic-series">
-            {[...Array(props.n)].map((e, i) => <Overtone n={i + 1} />)}
-        </div>
-    );
-};
-
 const Main = () => {
     return (
         <div className='controller-manager'>
@@ -75,15 +56,16 @@ const Main = () => {
             <div className="stage-controller">
                 Name
             </div>
-            <div>
-                <HarmonicSeries n={21} />
-            </div>
+
             <div className="stage">
+                <div>
+                    <HarmonicSeries n={21} />
+                </div>
                 <div>
                     {Fretboard.Api.fromConfig(FRETBOARD_CONFIG, NOTE_CONFIG)}
                 </div>
                 <pre>
-                    {JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')}
+                    {/*JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')*/}
                 </pre>
             </div>
         </div>

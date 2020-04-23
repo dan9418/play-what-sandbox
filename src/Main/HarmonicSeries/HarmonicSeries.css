@@ -1,0 +1,18 @@
+.harmonic-series {
+    position: relative;
+    background-color: white;
+    margin: 10px;
+    height: 200px;
+}
+
+.overtone {
+    position: absolute;
+    top: 0;
+    display: grid;
+    width: 100%;
+    height: 200px;
+}
+
+.n {
+    height: 100%;
+}
