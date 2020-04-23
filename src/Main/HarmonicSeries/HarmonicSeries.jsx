@@ -10,14 +10,14 @@ const PRIMES = {
     ['3']: 'orange',
     ['5']: 'yellow',
     ['7']: 'green',
+    ['9']: 'salmon',
     ['11']: 'blue',
     ['13']: 'indigo',
+    ['15']: 'darkred',
     ['17']: 'purple',
     ['19']: 'darkblue',
-    ['23']: 'darkgreen',
-    // ???
-    ['9']: 'salmon',
     ['21']: 'aqua',
+    ['23']: 'darkgreen',
     ['27']: 'lime'
 }
 
