@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './Main.css';
-import Common from './Common/_module';
+import Common from '../Common/_module';
 import Viewers from 'play-what-react-viewers';
 import PW from 'play-what';
 import * as Songs from './Songs';
+
+import TrueScale from './TrueScale/TrueScale';
 import Vectors from './Vectors/Vectors';
 import HarmonicSeries from './HarmonicSeries/HarmonicSeries';
 
@@ -46,46 +48,7 @@ const FRETBOARD_CONFIG = {
     }
 }
 
-const MAP = [
-    'P1',
-    'm2',
-    'M2',
-    'm3',
-    'M3',
-    'P4',
-    'TT',
-    'TT',
-    'P5',
-    'm6',
-    'm6',
-    'M6',
-    'm7',
-    'm7',
-    'M7',
-    'M7'
-]
 
-const getHz = (f, i) => {
-    const octave = f * 2;
-    let hz = f * i;
-    while(hz > octave) {
-        hz = hz / 2;
-    }
-    return hz;
-}
-
-const getButtons = () => {
-    const fundamental = 100;
-    const overtones = 32;
-    const freq = [];
-    for(let i = 1; i <= overtones; i++) {
-        if(i % 2 === 1) {
-            freq.push(getHz(fundamental, i));
-        }
-    }
-    freq.sort((a, b) => a - b)
-    return freq.map((f, i) => <div key={i} className="button" onClick={() => PW.Sound.play(f)}>{MAP[i]}</div>);
-}
 
 const Main = () => {
     return (
@@ -101,7 +64,7 @@ const Main = () => {
                 </div>
                 <br />
                 <div>
-                    {getButtons()}
+                    <TrueScale />
                 </div>
                 <div>
                     <HarmonicSeries f={100} n={27} />

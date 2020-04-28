@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Vectors.css';
-import Common from '../Common/_module';
+import Common from '../../Common/_module';
 import Viewers from 'play-what-react-viewers';
 import PW from 'play-what';
 
