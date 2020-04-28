@@ -14,9 +14,8 @@ const DIM_7 = [
     { p: 9, d: 6}
 ];
 
-const NUM_PITCHES = 12;
+const MAX_VECTOR = { p: 12, d: 7};
 
-const NUM_DEGREES = 7;
 const DEGREE_MAPPING = [
     {
         name: 'A',
@@ -67,8 +66,8 @@ const getAccidentalString = (offset) => {
 
 const addVectors = (origin, vector) => {
     return {
-        p: (origin.p + vector.p) % NUM_PITCHES,
-        d: (origin.d + vector.d) % NUM_DEGREES
+        p: (origin.p + vector.p) % MAX_VECTOR.p,
+        d: (origin.d + vector.d) % MAX_VECTOR.d
     };
 }
 
@@ -96,6 +95,7 @@ const VectorInput = props => {
 };
 
 const Vectors = () => {
+    const [max, setMax] = useState(MAX_VECTOR);
     const [origin, setOrigin] = useState(Cs_MAJ);
     const [vectors, setVectors] = useState(DIM_7);
 
@@ -109,6 +109,10 @@ const Vectors = () => {
 
     return (
         <div className='vectors'>
+            <div className='origin-input'>
+                <label>Max Vector</label>
+                <VectorInput value={max} setValue={setMax} />
+            </div>
             <div className='origin-input'>
                 <label>Origin</label>
                 <VectorInput value={origin} setValue={setOrigin} />
