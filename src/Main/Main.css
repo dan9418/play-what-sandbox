@@ -1,7 +1,3 @@
-.controller-manager {
-    font-family: Verdana, sans-serif;
-}
-
 .top-nav {
     height: 50px;
     line-height: 50px;
@@ -29,97 +25,11 @@
     height: 100%;
 }
 
-.stage-controller {
-    height: 50px;
-    position: fixed;
-    z-index: 2000;
-    top: 50px;
-    left: 0;
-    right: 0;
-    background: #badbeb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .stage {
-    margin-top: 100px;
+    margin-top: 50px;
     min-height: 100%;
     background-color: #deeaf5;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-gap: 24px;
     padding: 24px;
-}
-
-.header {
-    width: 100%;
-    padding: 10px;
-    background-color: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.controller, .controller-selector {
-    margin: 20px;
-    padding: 20px;
-    
-    display: inline-block;
-}
-
-.controller-selector {
-    padding: 20px;
-}
-
-.controller-selector .label {
-    font-weight: bold;
-    margin: 10px;
-}
-
-.viewer {
-    position: relative;
-}
-
-.viewer-sizer {
-    min-width: 100px;
-    padding: 15px;
-}
-
-.controller {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-}
-
-.controller .footer {
-    font-weight: bold;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.sizer {
-    width: 5px;
-    height: 100%;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    z-index: 1000;
-    cursor: w-resize;
-}
-
-.sizer.right {
-    right: 0;
-}
-
-.sizer.left {
-    left: 0;
-}
-
-.edit-panel {
-    width: 100%;
 }
 
 .menu, .link {
@@ -145,22 +55,6 @@
     width: 100%;
 }
 
-.grid {
-    display: grid;
-    width: 100%;
-    position: relative;
-}
-
-.grid-input-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.grid-input-container .text {
-    color: black;
-    margin: 0 10px;
-}
 
 
 

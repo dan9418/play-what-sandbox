@@ -12,7 +12,7 @@ const Fretboard = Viewers.v2.Fretboard;
 const NOTE_CONFIG = {
     strategy: 'NOTES_FROM_INTERVALS',
     args: {
-        keyCenter: 'C4',
+        keyCenter: 'Db4',
         intervals: {
             strategy: 'SCALE',
             args: {
@@ -89,16 +89,12 @@ const getButtons = () => {
 
 const Main = () => {
     return (
-        <div className='controller-manager'>
-            <div className="top-nav">
+        <div className='main'>
+            <nav className="top-nav">
                 <div className="link"><Common.Icons.GitHub /></div>
                 <div className="app-title">Play What</div>
                 <div className="menu"><Common.Icons.Menu /></div>
-            </div>
-            <div className="stage-controller">
-                Name
-            </div>
-
+            </nav>
             <div className="stage">
                 <div>
                     <Vectors />
@@ -113,9 +109,6 @@ const Main = () => {
                 <div>
                     {Fretboard.Api.fromConfig(FRETBOARD_CONFIG, NOTE_CONFIG)}
                 </div>
-                <pre>
-                    {/*JSON.stringify(PW.v2.parse(NOTE_CONFIG), null, '\t')*/}
-                </pre>
             </div>
         </div>
     );
