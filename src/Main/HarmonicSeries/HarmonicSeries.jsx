@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './HarmonicSeries.css';
 import PW from 'play-what';
 
-const MAX_PRIME = 27;
+const DEMO_FUND = 100; // Hz
+const DEMO_N = 32 // Overtones
 
 const PRIMES = {
     ['1']: 'black',
@@ -58,10 +59,10 @@ const Overtone = ({ f, n }) => {
     );
 };
 
-const HarmonicSeries = ({ f, n }) => {
+const HarmonicSeries = () => {
     return (
         <div className="harmonic-series">
-            {[...Array(n)].map((e, i) => <Overtone f={f} n={n - i} />)}
+            {[...Array(DEMO_N)].map((e, i) => <Overtone key={i} f={DEMO_FUND} n={DEMO_N - i} />)}
         </div>
     );
 };

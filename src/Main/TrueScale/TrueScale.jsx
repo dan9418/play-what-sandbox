@@ -1,4 +1,5 @@
 import React from 'react';
+import './TrueScale.css';
 
 const DEMO_FUND = 100; // Hz
 const DEMO_N = 32 // Overtones
@@ -42,7 +43,7 @@ const getButtons = () => {
     return freq.map((f, i) => <div key={i} className="button" onClick={() => PW.Sound.play(f)}>{TRUE_INTERVAL_MAP[i]}</div>);
 }
 
-const TrueScale = props => {
+const TrueScale = () => {
     return (
         <div className="true-scale">
             {getButtons()}
