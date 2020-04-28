@@ -1,0 +1,15 @@
+.vector-input {
+    padding: 10px;
+    margin: 10px;
+}
+
+.vector-input input {
+    padding: 2px;
+    margin: 2px;
+}
+
+.vector-input label {
+    font-weight: bold;
+    padding: 2px;
+    margin: 2px;
+}

@@ -4,6 +4,7 @@ import Common from './Common/_module';
 import Viewers from 'play-what-react-viewers';
 import PW from 'play-what';
 import * as Songs from './Songs';
+import Vectors from './Vectors/Vectors';
 import HarmonicSeries from './HarmonicSeries/HarmonicSeries';
 
 const Fretboard = Viewers.v2.Fretboard;
@@ -11,7 +12,7 @@ const Fretboard = Viewers.v2.Fretboard;
 const NOTE_CONFIG = {
     strategy: 'NOTES_FROM_INTERVALS',
     args: {
-        keyCenter: 'G4',
+        keyCenter: 'C4',
         intervals: {
             strategy: 'SCALE',
             args: {
@@ -40,7 +41,7 @@ const FRETBOARD_CONFIG = {
             strategy: 'INTERVAL'
         },
         color: {
-            strategy: 'PITCH_CLASS'
+            strategy: 'DEGREE'
         }
     }
 }
@@ -99,6 +100,9 @@ const Main = () => {
             </div>
 
             <div className="stage">
+                <div>
+                    <Vectors />
+                </div>
                 <div>
                     {getButtons()}
                 </div>
