@@ -21,16 +21,16 @@ const Main = () => {
                 <div className="menu"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage">
-                <Card>
+                <Card title='Vectors (p, d)'>
                     <Vectors />
                 </Card>
-                <Card>
+                <Card title='True Scale (100Hz, n = 32)'>
                     <TrueScale />
                 </Card>
-                <Card>
+                <Card title='Harmonic Series (100Hz, n = 32)'>
                     <HarmonicSeries />
                 </Card>
-                <Card>
+                <Card title='Guitar (Db Major Scale)'>
                     <Guitar />
                 </Card>
             </div>

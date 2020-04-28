@@ -4,7 +4,7 @@ import './Card.css';
 const Card = ({ title, children }) => {
     return (
         <div className="card">
-            <div className="title">{title}</div>
+            <h2 className="title">{title}</h2>
             <div className="content">{children}</div>
         </div>
     )

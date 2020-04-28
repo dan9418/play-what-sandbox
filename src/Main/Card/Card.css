@@ -2,3 +2,7 @@
     max-width: 800px;
     margin: auto;
 }
+
+.card .title, .card .content {
+    text-align: center;
+}

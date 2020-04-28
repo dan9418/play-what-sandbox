@@ -1,15 +1,21 @@
-.vector-input {
+.vectors .vector-input, .vectors input[type="button"] {
     padding: 10px;
     margin: 10px;
 }
 
-.vector-input input {
+.vectors .vector-input input {
     padding: 2px;
     margin: 2px;
 }
 
-.vector-input label {
+.vectors label {
     font-weight: bold;
-    padding: 2px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.vectors .resultant {
+    display: inline-block;
     margin: 2px;
+    padding: 2px;
 }
