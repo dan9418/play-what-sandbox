@@ -5,6 +5,8 @@ import Viewers from 'play-what-react-viewers';
 import PW from 'play-what';
 import * as Songs from './Songs';
 
+import Card from './Card//Card';
+
 import TrueScale from './TrueScale/TrueScale';
 import Vectors from './Vectors/Vectors';
 import HarmonicSeries from './HarmonicSeries/HarmonicSeries';
@@ -19,19 +21,18 @@ const Main = () => {
                 <div className="menu"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage">
-                <div>
+                <Card>
                     <Vectors />
-                </div>
-                <br />
-                <div>
+                </Card>
+                <Card>
                     <TrueScale />
-                </div>
-                <div>
+                </Card>
+                <Card>
                     <HarmonicSeries />
-                </div>
-                <div>
+                </Card>
+                <Card>
                     <Guitar />
-                </div>
+                </Card>
             </div>
         </div>
     );
