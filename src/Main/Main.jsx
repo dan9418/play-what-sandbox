@@ -8,7 +8,7 @@ import * as Songs from './Songs';
 import TrueScale from './TrueScale/TrueScale';
 import Vectors from './Vectors/Vectors';
 import HarmonicSeries from './HarmonicSeries/HarmonicSeries';
-import Fretboard from 'play-what-react-viewers/src/v1/Fretboard/Fretboard';
+import Guitar from './Guitar/Guitar';
 
 const Main = () => {
     return (
@@ -30,7 +30,7 @@ const Main = () => {
                     <HarmonicSeries />
                 </div>
                 <div>
-                    <Fretboard />
+                    <Guitar />
                 </div>
             </div>
         </div>
