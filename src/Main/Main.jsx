@@ -103,6 +103,7 @@ const Main = () => {
                 <div>
                     <Vectors />
                 </div>
+                <br />
                 <div>
                     {getButtons()}
                 </div>
