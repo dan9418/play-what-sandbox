@@ -14,12 +14,39 @@ const DIM_7 = [
     { p: 9, d: 6}
 ];
 
-
-const DIATONIC_NAMES = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-const DIATONIC_MAPPING = [9, 11, 0, 2, 4, 5, 7];
+const NUM_PITCHES = 12;
 
 const NUM_DEGREES = 7;
-const NUM_PITCHES = 12;
+const DEGREE_MAPPING = [
+    {
+        name: 'A',
+        pitch: 9
+    },
+    {
+        name: 'B',
+        pitch: 11
+    },
+    {
+        name: 'C',
+        pitch: 0
+    },
+    {
+        name: 'D',
+        pitch: 2
+    },
+    {
+        name: 'E',
+        pitch: 4
+    },
+    {
+        name: 'F',
+        pitch: 5
+    },
+    {
+        name: 'G',
+        pitch: 7
+    }
+]
 
 const getAccidentalString = (offset) => {
     switch (offset) {
@@ -49,8 +76,8 @@ const Resultant = props => {
     const { p, d } = props.value;
     return (
         <div className='resultant'>
-            <span>{DIATONIC_NAMES[d]}</span>
-            <span>{getAccidentalString(p - DIATONIC_MAPPING[d])}</span>
+            <span>{DEGREE_MAPPING[d].name}</span>
+            <span>{getAccidentalString(p - DEGREE_MAPPING[d].pitch)}</span>
         </div>
     );
 };
