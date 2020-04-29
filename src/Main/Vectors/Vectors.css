@@ -6,6 +6,7 @@
 .vectors .vector-input input {
     padding: 2px;
     margin: 2px;
+    width: 50px;
 }
 
 .vectors label {
