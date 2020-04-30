@@ -15,6 +15,11 @@
     background: #5E99D1;
     color: white;
     font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card.open .title {
     border-radius: 10px 10px 0 0;
 }
 
