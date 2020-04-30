@@ -4,11 +4,11 @@ import Card from '../Card/Card';
 
 import Vectors from './Vectors';
 
-const VectorsCard = ({ title, children, defaultOpen }) => {
-    const [open, setOpen] = useState(defaultOpen || false);
+const VectorsCard = () => {
+    const [open, setOpen] = useState(false);
 
     return (
-        <Card title="Vectors">
+        <Card title="Vectors" defaultOpen>
             <Vectors />
         </Card>
     )

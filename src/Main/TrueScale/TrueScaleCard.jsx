@@ -5,11 +5,12 @@ import Card from '../Card/Card';
 import TrueScale from './TrueScale';
 
 const TrueScaleCard = () => {
-    const [open, setOpen] = useState(defaultOpen || false);
+    const [fundamental, setFundamental] = useState(100);
+    const [n, setN] = useState(12);
 
     return (
         <Card title="TrueScale">
-            <TrueScale fundamental={100} n={12} />
+            <TrueScale fundamental={fundamental} n={n} />
         </Card>
     )
 }

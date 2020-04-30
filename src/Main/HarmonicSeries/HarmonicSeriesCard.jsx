@@ -5,11 +5,12 @@ import Card from '../Card/Card';
 import HarmonicSeries from './HarmonicSeries';
 
 const HarmonicSeriesCard = () => {
-    const [open, setOpen] = useState(defaultOpen || false);
+    const [fundamental, setFundamental] = useState(100);
+    const [n, setN] = useState(16);
 
     return (
         <Card title="HarmonicSeries">
-            <HarmonicSeries fundamental={100} n={32} />
+            <HarmonicSeries fundamental={fundamental} n={n} />
         </Card>
     )
 }

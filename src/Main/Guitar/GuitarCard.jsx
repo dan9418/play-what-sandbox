@@ -4,8 +4,8 @@ import Card from '../Card/Card';
 
 import Guitar from './Guitar';
 
-const GuitarCard = ({ title, children, defaultOpen }) => {
-    const [open, setOpen] = useState(defaultOpen || false);
+const GuitarCard = () => {
+    const [open, setOpen] = useState(false);
 
     return (
         <Card title="Guitar">
