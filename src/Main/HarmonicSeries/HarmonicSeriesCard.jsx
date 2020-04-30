@@ -4,12 +4,12 @@ import Card from '../Card/Card';
 
 import HarmonicSeries from './HarmonicSeries';
 
-const HarmonicSeriesCard = ({ title, children, defaultOpen }) => {
+const HarmonicSeriesCard = () => {
     const [open, setOpen] = useState(defaultOpen || false);
 
     return (
         <Card title="HarmonicSeries">
-            <HarmonicSeries />
+            <HarmonicSeries fundamental={100} n={32} />
         </Card>
     )
 }

@@ -1,9 +1,6 @@
 import React from 'react';
 import './TrueScale.css';
 
-const DEMO_FUND = 100; // Hz
-const DEMO_N = 32 // Overtones
-
 const TRUE_INTERVAL_MAP = [
     'P1',
     'm2',
@@ -32,21 +29,22 @@ const getHz = (fund, n) => {
     return hz;
 }
 
-const getButtons = () => {
+const getButtons = (fundamental, n) => {
     const freq = [];
-    for(let n = 1; n <= DEMO_N; n++) {
-        if(n % 2 === 1) {
-            freq.push(getHz(DEMO_FUND, n));
+    for(let i = 1; i <= n; i++) {
+        if(i % 2 === 1) {
+            freq.push(getHz(fundamental, i));
         }
     }
     freq.sort((a, b) => a - b);
     return freq.map((f, i) => <div key={i} className="button" onClick={() => PW.Sound.play(f)}>{TRUE_INTERVAL_MAP[i]}</div>);
 }
 
-const TrueScale = () => {
+const TrueScale = props => {
+    const { fundamental, n } = props;
     return (
         <div className="true-scale">
-            {getButtons()}
+            {getButtons(fundamental, n)}
         </div>
     )
 }

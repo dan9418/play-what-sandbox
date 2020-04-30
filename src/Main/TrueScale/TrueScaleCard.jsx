@@ -4,12 +4,12 @@ import Card from '../Card/Card';
 
 import TrueScale from './TrueScale';
 
-const TrueScaleCard = ({ title, children, defaultOpen }) => {
+const TrueScaleCard = () => {
     const [open, setOpen] = useState(defaultOpen || false);
 
     return (
         <Card title="TrueScale">
-            <TrueScale />
+            <TrueScale fundamental={100} n={12} />
         </Card>
     )
 }
