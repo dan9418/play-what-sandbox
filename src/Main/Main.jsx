@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import './Main.css';
+import React from 'react';
+
 import Common from '../Common/_module';
-import Viewers from 'play-what-react-viewers';
-import PW from 'play-what';
-import * as Songs from './Songs';
 
-import Card from './Card//Card';
+import TrueScaleCard from './TrueScale/TrueScaleCard';
+import VectorsCard from './Vectors/VectorsCard';
+import HarmonicSeriesCard from './HarmonicSeries/HarmonicSeriesCard';
+import GuitarCard from './Guitar/GuitarCard';
 
-import TrueScale from './TrueScale/TrueScale';
-import Vectors from './Vectors/Vectors';
-import HarmonicSeries from './HarmonicSeries/HarmonicSeries';
-import Guitar from './Guitar/Guitar';
+import './Main.css';
 
 const Main = () => {
     return (
@@ -21,18 +18,10 @@ const Main = () => {
                 <div className="menu"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage">
-                <Card title='Vectors (p, d)'>
-                    <Vectors />
-                </Card>
-                <Card title='True Scale (100Hz, n = 32)'>
-                    <TrueScale />
-                </Card>
-                <Card title='Harmonic Series (100Hz, n = 32)'>
-                    <HarmonicSeries />
-                </Card>
-                <Card title='Guitar (Db Major Scale)'>
-                    <Guitar />
-                </Card>
+                <VectorsCard />
+                <TrueScaleCard />
+                <HarmonicSeriesCard />
+                <GuitarCard />
             </div>
         </div>
     );
