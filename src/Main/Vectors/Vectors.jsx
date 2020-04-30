@@ -263,7 +263,8 @@ const Resultant = props => {
 
 const VectorInput = props => {
     const { p, d } = props.value;
-    const interval = INTERVALS.find(i => i.p === p && i.d === d);
+    const data = props.point ? KEY_CENTERS : INTERVALS;
+    const interval = data.find(i => i.p === p && i.d === d);
     const label = interval ? interval.id : '';
     return (
         <div className='vector-input'>
@@ -297,7 +298,7 @@ const Vectors = () => {
             </div>
             <div className='origin-input'>
                 <label>Origin</label>
-                <VectorInput value={origin} setValue={setOrigin} />
+                <VectorInput value={origin} setValue={setOrigin} point />
             </div>
             <div className='vectors-input'>
                 <label>Vectors</label>

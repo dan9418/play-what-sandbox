@@ -1,8 +1,23 @@
 .card {
+    width: 100%;
     max-width: 800px;
-    margin: auto;
+    background-color: #EEF4FA;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .card .title, .card .content {
     text-align: center;
+    padding: 10px;
+}
+
+.card .title {
+    background: #5E99D1;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+.card .content {
+    
 }
