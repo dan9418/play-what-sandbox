@@ -3,6 +3,7 @@
     background-color: white;
     margin: 10px;
     height: 200px;
+    margin-bottom: 20px;
 }
 
 .overtone {
@@ -35,7 +36,6 @@
     bottom: -25px;
     height: 20px;
     width: 20px;
-    background-color: #eee;
     border-radius: 5px;
     text-align: center;
     line-height: 20px;

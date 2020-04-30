@@ -45,7 +45,7 @@ const Overtone = ({ f, n }) => {
     return (
         <div className="overtone" style={{ gridTemplateColumns: `repeat(${n}, 1fr)` }}>
             {[...Array(n)].map((e, i) => (
-                <div className="n" key={n} >
+                <div className="n" key={i} >
                     <div className="overtone-line"
                     style={{ backgroundColor: i === 1 && PRIMES[n] ? color : '#ddd' }}
                     onClick={() => PW.Sound.play(f * n)}

@@ -4,6 +4,7 @@
     background-color: #EEF4FA;
     margin: 10px;
     border-radius: 10px;
+    box-shadow: 2px 2px 10px #AAA;
 }
 
 .card .title, .card .content {
@@ -12,10 +13,14 @@
 }
 
 .card .title {
-    background: #5E99D1;
+    background: #8EB7DE;
     color: white;
     font-weight: bold;
     border-radius: 10px;
+}
+
+.card .title:hover {
+    background: #5E99D1;
     cursor: pointer;
 }
 
