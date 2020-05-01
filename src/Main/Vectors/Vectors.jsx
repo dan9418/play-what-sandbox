@@ -6,8 +6,10 @@ import PW from 'play-what';
 import Graph from '../Graph/Graph';
 
 const Theory = PW.v2.TheoryNew;
+const Constants = PW.v2.ConstantsNew;
+const Presets = PW.v2.PresetsNew;
 
-const MAX_VECTOR = Theory.MAX_VECTOR;
+const MAX_VECTOR = Constants.MAX_VECTOR;
 const ORIGIN = { p: 0, d: 2 };
 const VECTORS = [
     { p: 0, d: 0 },
@@ -21,15 +23,15 @@ const Resultant = props => {
     const { p, d } = props.value;
     return (
         <div className='resultant'>
-            <span>{Theory.DEGREE_MAPPING[d].name}</span>
-            <span>{Theory.getAccidentalString(p - Theory.DEGREE_MAPPING[d].pitch)}</span>
+            <span>{Constants.DEGREE_MAPPING[d].name}</span>
+            <span>{Theory.getAccidentalString(p - Constants.DEGREE_MAPPING[d].pitch)}</span>
         </div>
     );
 };
 
 const VectorInput = props => {
     const { p, d } = props.value;
-    const data = props.point ? Theory.KEY_CENTERS : Theory.INTERVALS;
+    const data = props.point ? Constants.KEY_CENTERS : Constants.INTERVALS;
     const interval = data.find(i => i.p === p && i.d === d);
     const label = interval ? interval.id : '';
     return (
