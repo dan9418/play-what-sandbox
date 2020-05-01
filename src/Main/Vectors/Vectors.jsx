@@ -20,26 +20,24 @@ const VECTORS = [
 
 
 const Resultant = props => {
-    const { p, d } = props.value;
     return (
         <div className='resultant'>
-            <span>{Constants.DEGREE_MAPPING[d].name}</span>
-            <span>{Theory.getAccidentalString(p - Constants.DEGREE_MAPPING[d].pitch)}</span>
+            {Theory.getNoteName(props.value, props.max)}
         </div>
     );
 };
 
-const VectorInput = props => {
+const Vector = props => {
     const { p, d } = props.value;
-    const data = props.point ? Constants.KEY_CENTERS : Constants.INTERVALS;
+    const data = props.point ? Presets.KEY_CENTERS : Presets.INTERVALS;
     const interval = data.find(i => i.p === p && i.d === d);
     const label = interval ? interval.id : '';
     return (
         <div className='vector-input'>
             <label>p: </label>
-            <input type="number" value={p} onChange={e => props.setValue({ p: parseInt(e.target.value), d: d })} />
+            <input type='number' value={p} onChange={e => props.setValue({ p: parseInt(e.target.value), d: d })} />
             <label>d: </label>
-            <input type="number" value={d} onChange={e => props.setValue({ p: p, d: parseInt(e.target.value) })} />
+            <input type='number' value={d} onChange={e => props.setValue({ p: p, d: parseInt(e.target.value) })} />
             <label>{label}</label>
         </div>
     );
@@ -50,27 +48,25 @@ const Vectors = () => {
     const [origin, setOrigin] = useState(ORIGIN);
     const [vectors, setVectors] = useState(VECTORS);
 
-    const vectorInputs = [];
-    const resultants = [];
-    const resultantData = [];
-    for (let i = 0; i < vectors.length; i++) {
-        vectorInputs.push(<VectorInput key={i} value={vectors[i]} setValue={v => setVectors([...vectors.slice(0, i), v, ...(vectors.slice(i + 1))])} />);
-        const resultant = Theory.addVectors(origin, vectors[i], max);
-        resultantData.push(resultant)
-        resultants.push(<Resultant key={i} value={resultant} />);
-    }
-    const Add = () => <input type="button" value="Add" onClick={() => setVectors([...vectors, origin])} />
+    const resultants = Theory.addVectorsBatch(origin, vectors, max);
+    
+    const maxInput = <Vector value={max} setValue={setMax} />
+    const originInput = <Vector value={origin} setValue={setOrigin} point />
+    const vectorInputs = resultants.map((v, i) => <Vector key={i} value={v} setValue={x => setVectors([...vectors.slice(0, i), x, ...(vectors.slice(i + 1))])} />);
+    const resultantOutputs = resultants.map((r, i) => <Resultant key={i} value={r} max={max} />);
+
+    const Add = () => <input type='button' value='Add' onClick={() => setVectors([...vectors, origin])} />
 
     return (
         <div className='vectors'>
-            <div className="left">
+            <div className='left'>
                 <div className='origin-input'>
                     <label>Max Vector</label>
-                    <VectorInput value={max} setValue={setMax} />
+                    {maxInput}
                 </div>
                 <div className='origin-input'>
                     <label>Origin</label>
-                    <VectorInput value={origin} setValue={setOrigin} point />
+                    {originInput}
                 </div>
                 <div className='vectors-input'>
                     <label>Vectors</label>
@@ -79,10 +75,10 @@ const Vectors = () => {
                 </div>
                 <div className='resultants'>
                     <label>Resultants</label>
-                    {resultants}
+                    {resultantOutputs}
                 </div>
             </div>
-            <div className="right">
+            <div className='right'>
                 <Graph origin={origin} vectors={vectors} x={max.p} y={max.d} />
             </div>
         </div>
