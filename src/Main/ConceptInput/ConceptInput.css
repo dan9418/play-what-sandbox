@@ -1,0 +1,31 @@
+.concept-input {
+    
+}
+
+.concept-input label {
+    font-weight: bold;
+    display: block;
+    padding: 5px;
+}
+
+.concept-input .vector-row {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    padding: 5px;
+}
+
+.concept-input .vector-input {
+    display: inline-block;
+}
+
+.concept-input .vector-input input {
+    height: 20px;
+    line-height: 20px;
+    width: 50px;
+    margin: 5px;
+}
+
+.concept-input .vector-label {
+    text-align: left;
+    margin: 5px;
+}

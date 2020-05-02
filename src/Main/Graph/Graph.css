@@ -40,3 +40,8 @@
     left: -10px;
     text-align: center;
 }
+
+.graph-card {
+    display: grid;
+    grid-template-columns: auto auto;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import Common from '../Common/_module';
 
 import TrueScaleCard from './TrueScale/TrueScaleCard';
-import VectorsCard from './Vectors/VectorsCard';
+import GraphCard from './Graph/GraphCard';
 import HarmonicSeriesCard from './HarmonicSeries/HarmonicSeriesCard';
 import GuitarCard from './Guitar/GuitarCard';
 
@@ -18,7 +18,7 @@ const Main = () => {
                 <div className="menu"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage">
-                <VectorsCard />
+                <GraphCard />
                 <TrueScaleCard />
                 <HarmonicSeriesCard />
                 <GuitarCard />
