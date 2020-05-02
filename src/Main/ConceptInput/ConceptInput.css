@@ -1,5 +1,5 @@
 .concept-input {
-    
+
 }
 
 .concept-input label {
@@ -25,12 +25,8 @@
     margin: 5px;
 }
 
-.vector-label {
-    text-align: left;
-    margin: 5px;
-}
-
-.interval-label {
+.note-label, .interval-label  {
+    display: inline-block;
     text-align: left;
     margin: 5px;
 }

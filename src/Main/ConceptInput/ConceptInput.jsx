@@ -54,12 +54,12 @@ const ConceptInput = props => {
     return (
         <div className="concept-input">
             <div className='origin-input'>
-                <label>Origin</label>
+                <label>Key Center</label>
                 <VectorInput value={keyCenter} setValue={setKeyCenter} point />
                 <NoteLabel value={keyCenter} max={max} />
             </div>
             <div className='vector-rows'>
-                <label>Vectors</label>
+                <label>Intervals</label>
                 {rows}
             </div>
         </div>

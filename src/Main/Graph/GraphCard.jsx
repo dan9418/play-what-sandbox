@@ -32,7 +32,7 @@ const GraphCard = () => {
                     <ConceptInput keyCenter={origin} setKeyCenter={setOrigin} intervals={vectors} setIntervals={setVectors} max={max} />
                 </div>
                 <div className='right'>
-                    <Graph origin={origin} vectors={vectors} x='d' y='p' max={max} />
+                    <Graph origin={origin} vectors={vectors} x='d' y='p' max={max} title="d vs p" yLabel="p" xLabel="d" />
                 </div>
             </div>
         </Card>

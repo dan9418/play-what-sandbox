@@ -42,9 +42,16 @@ const getCells = (origin, vectors, x, y, max) => {
 };
 
 const Graph = props => {
-    const { origin, vectors, x, y, max } = props;
+    const { origin, vectors, x, y, max, title, xLabel, yLabel } = props;
     return (
-        <div className="graph">{getCells(origin, vectors, x, y, max)}</div>
+        <div className="graph-container">
+            <div className="graph-title">{title}</div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div className="y-label">{yLabel}</div>
+                <div className="graph">{getCells(origin, vectors, x, y, max)}</div>
+            </div>
+            <div className="x-label">{xLabel}</div>
+        </div>
     );
 }
 
