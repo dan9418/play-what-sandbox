@@ -39,7 +39,7 @@ const VectorRow = ({ vector, origin, max, setValue }) => {
             <VectorInput value={vector} setValue={setValue} />
             <IntervalLabel value={vector} max={max} />
             <VectorInput value={resultant} />
-            <NoteLabel value={resultant} max={max} />*
+            <NoteLabel value={resultant} max={max} />
         </div>
     );
 };
