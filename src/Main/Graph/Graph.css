@@ -1,7 +1,7 @@
 .graph {
     display: inline-grid;
-    grid-template-columns: repeat(13, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(13, 1fr);
 }
 
 .graph .cell {

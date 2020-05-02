@@ -2,7 +2,7 @@ import React from 'react';
 import './Graph.css';
 
 const Cell = props => {
-    const { p, d, color } = props;
+    const { x, y, color } = props;
     return (
         <div className='cell'>
             {color && <div className='point' style={{ backgroundColor: color }} />}
@@ -18,23 +18,23 @@ const Label = ({ axis, children }) => {
     );
 };
 
-const areEqual = (v1, v2) => {
-    return v1.d === v2.d && v1.p === v2.p;
+const areEqual = (v1, v2, x, y) => {
+    return v1[x] === v2[x] && v1[y] === v2[y];
 }
 
-const getCells = (origin, vectors, x, y) => {
+const getCells = (origin, vectors, x, y, max) => {
     const cells = [];
-    for (let d = y; d >= -1; d--) {
-        cells.push(<Label key={'d' + d} axis='y'>{d > -1 && d}</Label>)
-        for (let p = 0; p < x; p++) {
-            if (d === -1) {
-                cells.push(<Label key={'p' + p} axis='x'>{p}</Label>)
+    for (let i = max[y] - 1; i >= -1; i--) {
+        cells.push(<Label key={'y' + i} axis='y'>{i > -1 && i}</Label>)
+        for (let j = 0; j < max[x]; j++) {
+            if (i === -1) {
+                cells.push(<Label key={'x' + j} axis='x'>{j}</Label>)
             }
             else {
-                const point = { p: p, d: d };
-                const isOrigin = areEqual(origin, point);
-                const isResultant = vectors.findIndex(v => areEqual(v, point)) >= 0;
-                cells.push(<Cell key={d + '-' + p} p={p} d={d} color={isOrigin ? 'red' : isResultant ? 'blue' : null} />)
+                const point = { [x]: j, [y]: i };
+                const isOrigin = areEqual(origin, point, x, y);
+                const isResultant = vectors.findIndex(v => areEqual(v, point, x, y)) >= 0;
+                cells.push(<Cell key={j + '-' + i} x={j} y={i} color={isOrigin ? 'red' : isResultant ? 'blue' : null} />)
             }
         }
     }
@@ -42,9 +42,9 @@ const getCells = (origin, vectors, x, y) => {
 };
 
 const Graph = props => {
-    const { origin, vectors, x, y } = props;
+    const { origin, vectors, x, y, max } = props;
     return (
-        <div className="graph">{getCells(origin, vectors, x, y)}</div>
+        <div className="graph">{getCells(origin, vectors, x, y, max)}</div>
     );
 }
 
