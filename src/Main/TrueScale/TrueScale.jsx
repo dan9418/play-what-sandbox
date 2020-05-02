@@ -1,4 +1,5 @@
 import React from 'react';
+import PW from 'play-what';
 import './TrueScale.css';
 
 const TRUE_INTERVAL_MAP = [

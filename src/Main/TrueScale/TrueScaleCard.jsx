@@ -6,7 +6,7 @@ import TrueScale from './TrueScale';
 
 const TrueScaleCard = () => {
     const [fundamental, setFundamental] = useState(100);
-    const [n, setN] = useState(12);
+    const [n, setN] = useState(32);
 
     return (
         <Card title="TrueScale">
