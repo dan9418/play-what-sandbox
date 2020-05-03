@@ -7,8 +7,8 @@ const Dropdown = props => {
     return (
         <select
             className='dropdown'
-            onChange={e => setValue(e.target.value)}
-            value={value.id}
+            onChange={e => setValue(options[e.target.selectedIndex])}
+            value={value ? value.id : ''}
         >
             {options.map((v, i) => (
                 <option key={i} value={v.id}>{v.name}</option>
