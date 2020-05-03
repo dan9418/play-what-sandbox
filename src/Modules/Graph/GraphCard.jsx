@@ -4,8 +4,8 @@ import PW from 'play-what';
 const Theory = PW.v2.TheoryNew;
 const Constants = PW.v2.ConstantsNew;
 const Presets = PW.v2.PresetsNew;
-import Graph from '../Graph/Graph';
-import ConceptInput from '../ConceptInput/ConceptInput';
+import Graph from './Graph';
+import ConceptInput from '../../Common/UI/ConceptInput/ConceptInput';
 
 const MAX_VECTOR = Constants.MAX_VECTOR;
 const ORIGIN = { p: 0, d: 2 };
@@ -16,7 +16,7 @@ const VECTORS = [
     { d: 6, p: 11 }
 ];
 
-import Card from '../Card/Card';
+import Card from '../../Common/UI/Card/Card';
 
 import './Graph.css';
 

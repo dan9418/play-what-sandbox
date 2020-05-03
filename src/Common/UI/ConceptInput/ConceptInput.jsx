@@ -1,6 +1,8 @@
 import React from 'react';
 import './ConceptInput.css';
 
+import PresetInput from './PresetInput'
+
 import PW from 'play-what';
 const Theory = PW.v2.TheoryNew;
 const Constants = PW.v2.ConstantsNew;
@@ -60,9 +62,7 @@ const ConceptInput = props => {
             </div>
             <div className='vector-rows'>
                 <label>Intervals</label>
-                <div className='preset-input'>
-                    Preset:
-                </div>
+                <PresetInput value={intervals} setValue={setIntervals} />
                 {rows}
             </div>
         </div>
