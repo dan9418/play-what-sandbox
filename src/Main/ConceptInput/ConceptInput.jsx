@@ -60,6 +60,9 @@ const ConceptInput = props => {
             </div>
             <div className='vector-rows'>
                 <label>Intervals</label>
+                <div className='preset-input'>
+                    Preset:
+                </div>
                 {rows}
             </div>
         </div>
