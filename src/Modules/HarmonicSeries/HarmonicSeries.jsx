@@ -45,7 +45,7 @@ const Overtone = ({ f, n }) => {
                 <div className="n" key={i} >
                     <div className="overtone-line"
                     style={{ backgroundColor: i === 1 && PRIMES[n] ? color : '#ddd' }}
-                    onClick={() => PW.Sound.play(f * n)}
+                    onClick={() => Pw.v2.Sound.play(f * n)}
                     />
                     <div className="overtone-info">
                         {n}

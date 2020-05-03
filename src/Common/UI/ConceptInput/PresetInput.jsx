@@ -3,23 +3,22 @@ import './PresetInput.css';
 
 import PW from 'play-what';
 import Dropdown from '../Dropdown/Dropdown';
-const { Theory, Constants, Presets } = PW.v2;
 
 const PRESET_TYPES = [
     {
         id: 'intervalPair',
         name: 'Interval Pair',
-        options: Presets.INTERVAL_PAIR_VALUES
+        options: PW.Presets.INTERVAL_PAIR_VALUES
     },
     {
         id: 'chord',
         name: 'Chord',
-        options: Presets.CHORD_VALUES
+        options: PW.Presets.CHORD_VALUES
     },
     {
         id: 'scale',
         name: 'Scale',
-        options: Presets.SCALE_VALUES
+        options: PW.Presets.SCALE_VALUES
     }
 ];
 

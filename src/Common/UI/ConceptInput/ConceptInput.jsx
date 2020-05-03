@@ -4,7 +4,6 @@ import './ConceptInput.css';
 import PresetInput from './PresetInput'
 
 import PW from 'play-what';
-const { Theory, Constants, Presets } = PW.v2;
 
 const VectorInput = ({ value, setValue }) => {
     const { p, d } = value;
@@ -19,7 +18,7 @@ const VectorInput = ({ value, setValue }) => {
 const IntervalLabel = ({ value, max }) => {
     return (
         <div className='interval-label'>
-            {Theory.getIntervalName(value, max)}
+            {Pw.Theory.getIntervalName(value, max)}
         </div>
     );
 };
@@ -27,13 +26,13 @@ const IntervalLabel = ({ value, max }) => {
 const NoteLabel = ({ value, max }) => {
     return (
         <div className='note-label'>
-            {Theory.getNoteName(value, max)}
+            {PW.Theory.getNoteName(value, max)}
         </div>
     );
 };
 
 const VectorRow = ({ vector, origin, max, setValue }) => {
-    const resultant = Theory.addVectors(origin, vector, max);
+    const resultant = PW.Theory.addVectors(origin, vector, max);
     return (
         <div className='vector-row'>
             <VectorInput value={vector} setValue={setValue} />

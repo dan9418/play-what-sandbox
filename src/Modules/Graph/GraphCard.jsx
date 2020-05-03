@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import PW from 'play-what';
 
-const { Theory, Constants, Presets } = PW.v2;
-
 import Graph from './Graph';
 import ConceptInput from '../../Common/UI/ConceptInput/ConceptInput';
 
-const MAX_VECTOR = Constants.MAX_VECTOR;
+const MAX_VECTOR = PW.Constants.MAX_VECTOR;
 const ORIGIN = { p: 0, d: 2 };
 const VECTORS = [
     { d: 0, p: 0 },
