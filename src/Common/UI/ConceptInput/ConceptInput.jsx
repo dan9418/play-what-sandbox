@@ -33,7 +33,7 @@ const NoteLabel = ({ value, max }) => {
 };
 
 const VectorRow = ({ vector, origin, max, setValue }) => {
-    const resultant = Theory.addVectors(origin, vector, max)
+    const resultant = Theory.addVectors(origin, vector, max);
     return (
         <div className='vector-row'>
             <VectorInput value={vector} setValue={setValue} />
