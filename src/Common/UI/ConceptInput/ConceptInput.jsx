@@ -18,7 +18,7 @@ const VectorInput = ({ value, setValue }) => {
 const IntervalLabel = ({ value, max }) => {
     return (
         <div className='interval-label'>
-            {Pw.Theory.getIntervalName(value, max)}
+            {PW.Theory.getIntervalName(value, max)}
         </div>
     );
 };
