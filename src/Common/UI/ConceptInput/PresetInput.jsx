@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-//import './PresetInput.css';
+import './PresetInput.css';
 
 import PW from 'play-what';
 import Dropdown from '../Dropdown/Dropdown';
-const Theory = PW.v2.TheoryNew;
-const Constants = PW.v2.ConstantsNew;
-const Presets = PW.v2.PresetsNew;
+const { Theory, Constants, Presets } = PW.v2;
 
 const PRESET_TYPES = [
     {

@@ -4,9 +4,7 @@ import './ConceptInput.css';
 import PresetInput from './PresetInput'
 
 import PW from 'play-what';
-const Theory = PW.v2.TheoryNew;
-const Constants = PW.v2.ConstantsNew;
-const Presets = PW.v2.PresetsNew;
+const { Theory, Constants, Presets } = PW.v2;
 
 const VectorInput = ({ value, setValue }) => {
     const { p, d } = value;

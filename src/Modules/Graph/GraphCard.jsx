@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PW from 'play-what';
 
-const Theory = PW.v2.TheoryNew;
-const Constants = PW.v2.ConstantsNew;
-const Presets = PW.v2.PresetsNew;
+const { Theory, Constants, Presets } = PW.v2;
+
 import Graph from './Graph';
 import ConceptInput from '../../Common/UI/ConceptInput/ConceptInput';
 
