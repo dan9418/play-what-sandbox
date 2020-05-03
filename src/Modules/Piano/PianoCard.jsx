@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 
 import Card from '../../Common/UI/Card/Card';
 
-import Guitar from './Guitar';
+import Piano from './Piano';
 
-const GuitarCard = () => {
+const PianoCard = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <Card title="Guitar" defaultOpen>
-            <Guitar />
+        <Card title="Piano" defaultOpen>
+            <Piano />
         </Card>
     )
 }
 
-export default GuitarCard;
+export default PianoCard;

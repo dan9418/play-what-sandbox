@@ -8,6 +8,7 @@ import HarmonicSeriesCard from '../Modules/HarmonicSeries/HarmonicSeriesCard';
 import GuitarCard from '../Modules/Guitar/GuitarCard';
 
 import './Main.css';
+import PianoCard from '../Modules/Piano/PianoCard';
 
 const Main = () => {
     return (
@@ -19,9 +20,10 @@ const Main = () => {
             </nav>
             <div className="stage">
                 <GraphCard />
+                <GuitarCard />
+                <PianoCard />
                 <TrueScaleCard />
                 <HarmonicSeriesCard />
-                <GuitarCard />
             </div>
         </div>
     );
