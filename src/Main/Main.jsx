@@ -1,14 +1,8 @@
 import React from 'react';
+import Viewers from 'play-what-react-viewers';
 
 import Common from '../Common/_module';
-
-import TrueScaleCard from '../Modules/TrueScale/TrueScaleCard';
-import GraphCard from '../Modules/Graph/GraphCard';
-import HarmonicSeriesCard from '../Modules/HarmonicSeries/HarmonicSeriesCard';
-import GuitarCard from '../Modules/Guitar/GuitarCard';
-
 import './Main.css';
-import PianoCard from '../Modules/Piano/PianoCard';
 
 const Main = () => {
     return (
@@ -19,11 +13,11 @@ const Main = () => {
                 <div className="menu"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage">
-                <GraphCard />
-                <GuitarCard />
-                <PianoCard />
-                <TrueScaleCard />
-                <HarmonicSeriesCard />
+                <Viewers.Modules.GraphCard />
+                <Viewers.Modules.GuitarCard />
+                <Viewers.Modules.PianoCard />
+                <Viewers.Modules.TrueScaleCard />
+                <Viewers.Modules.HarmonicSeriesCard />
             </div>
         </div>
     );
