@@ -14,8 +14,8 @@ const Main = () => {
             </nav>
             <div className="stage">
                 <Viewers.Modules.GraphCard />
-                <Viewers.Modules.GuitarCard />
-                <Viewers.Modules.PianoCard />
+                <Viewers.Modules.FretboardCard />
+                <Viewers.Modules.KeyboardCard />
                 <Viewers.Modules.TrueScaleCard />
                 <Viewers.Modules.HarmonicSeriesCard />
             </div>
