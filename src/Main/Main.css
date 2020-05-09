@@ -24,10 +24,9 @@
     margin-top: 50px;
     min-height: 100%;
     background-color: #deeaf5;
-    padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -82,4 +81,11 @@
 .meatball {
     position: absolute;
     right: 0;
+}
+
+.column {
+    background-color: #EEF4FA;
+    min-height: 100%;
+    width: 100%;
+    max-width: 1024px;
 }

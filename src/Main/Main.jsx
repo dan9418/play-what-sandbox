@@ -16,11 +16,13 @@ const Main = () => {
                 <div className="icon meatball"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage">
-                <Viewers.Modules.GraphCard />
-                <Viewers.Modules.FretboardCard />
-                <Viewers.Modules.KeyboardCard />
-                <Viewers.Modules.TrueScaleCard />
-                <Viewers.Modules.HarmonicSeriesCard />
+                <div className="column">
+                    <Viewers.Modules.GraphCard />
+                    <Viewers.Modules.FretboardCard />
+                    <Viewers.Modules.KeyboardCard />
+                    <Viewers.Modules.TrueScaleCard />
+                    <Viewers.Modules.HarmonicSeriesCard />
+                </div>
             </div>
         </div>
     );
