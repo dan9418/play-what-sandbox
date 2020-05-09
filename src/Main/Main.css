@@ -1,22 +1,17 @@
 .top-nav {
     height: 50px;
     line-height: 50px;
-    font-weight: bold;
-    font-size: 20px;
+    box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 2000;
     background: #5E99D1;
+    color: white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    box-sizing: border-box;
-    z-index: 2000;
+    /*justify-content: space-between;*/
 }
 
 .top-nav svg, .top-nav svg * {
@@ -36,7 +31,7 @@
     align-items: center;
 }
 
-.menu, .link {
+.icon {
     height: 50px;
     width: 50px;
     cursor: pointer;
@@ -44,25 +39,31 @@
     box-sizing: border-box;
 }
 
-.menu {
-    position: absolute;
-    right: 0;
+.spacer {
+    width: 1px;
+    margin: 0 10px;
+}
+
+.spacer::after {
+    content: "|";
+}
+
+.logo {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: bolder;
+    margin: 0 10px;
+    cursor: pointer;
 }
 
 .link {
-    position: absolute;
-    left: 0;
+    cursor: pointer;
 }
 
-.app-title {
-    text-align: center;
-    width: 100%;
+.link:hover {
+    color: #ddd;
 }
-
-
-
-
-
 
 .button {
     height: 50px;
@@ -76,4 +77,9 @@
 .button:hover {
     cursor: pointer;
     border: 1px solid white;
+}
+
+.meatball {
+    position: absolute;
+    right: 0;
 }

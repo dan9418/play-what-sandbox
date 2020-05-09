@@ -8,9 +8,12 @@ const Main = () => {
     return (
         <div className='main'>
             <nav className="top-nav">
-                <div className="link"><Common.Icons.GitHub /></div>
-                <div className="app-title">Play What</div>
-                <div className="menu"><Common.Icons.Menu /></div>
+                <div className="icon"><Common.Icons.GitHub /></div>
+                <div className="logo link">Play What</div>
+                <div className="link">Modules</div>
+                <div className="spacer" />
+                <div className="link">Docs</div>
+                <div className="icon meatball"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage">
                 <Viewers.Modules.GraphCard />
