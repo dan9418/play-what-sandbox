@@ -106,9 +106,8 @@ const Main = () => {
             <nav className="top-nav pw-primary">
                 <div className="icon"><Common.Icons.GitHub /></div>
                 <div className="logo link">Play What</div>
-                <div className="link">Modules</div>
                 <div className="spacer" />
-                <div className="link">Docs</div>
+                <div className="link">Modules</div>
                 <div className="icon meatball"><Common.Icons.Menu /></div>
             </nav>
             <div className="stage" id="stage">
