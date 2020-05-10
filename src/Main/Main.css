@@ -19,6 +19,7 @@
 }
 
 .stage {
+    background-color: #ddd;
     position: relative;
     margin-top: 50px;
     min-height: 100%;
@@ -84,33 +85,44 @@
     min-height: 100%;
     width: 100%;
     max-width: 1024px;
-    padding-top: 64px;
+    margin: 64px 0;
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    padding: 16px;
 }
 
 .module-table {
-    background-color: #fff;
     border-collapse: collapse;
     width: 100%;
 }
 
 .module-table td, .module-table th {
-    border: 1px solid #ddd;
+    border: none;
     padding: 8px;
+    vertical-align: text-top;
 }
 
-.module-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+.module-table th:first-child {
+    border-radius: 8px 0 0 8px;
+}
+.module-table th:last-child {
+    border-radius: 0 8px 8px 0;
 }
 
-.module-table tr:hover {
-    background-color: #ddd;
-    cursor: pointer;
+.module-table td:first-child {
+    font-size: large;
+    font-weight: bold;
+}
+
+.module-table tr:not(:last-child) {
+    border-bottom: 1px solid #aaa;
 }
 
 .module-table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #5E99D1;
     color: white;
 }

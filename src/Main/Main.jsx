@@ -111,7 +111,7 @@ const Main = () => {
                 <div className="link">Docs</div>
                 <div className="icon meatball"><Common.Icons.Menu /></div>
             </nav>
-            <div className="stage pw-light" id="stage">
+            <div className="stage" id="stage">
                 <div className="column">
                     <ModuleTable openModal={() => setModalOpen(true)} />
                 </div>
