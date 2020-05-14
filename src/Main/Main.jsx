@@ -93,7 +93,7 @@ const ModuleTable = ({ openModal }) => {
                 </tr>
             </thead>
             <tbody>
-                {data.map(d => <ModuleRow module={d} openModal={openModal} />)}
+                {data.map((d, i) => <ModuleRow key={i} module={d} openModal={openModal} />)}
             </tbody>
         </table>
     );
