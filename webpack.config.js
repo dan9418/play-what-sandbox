@@ -32,7 +32,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: __dirname + "/build/",
+        contentBase: __dirname + "/",
         port: 9000
     },
 };
