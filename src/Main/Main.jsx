@@ -6,21 +6,7 @@ import './Main.css';
 import NavBar from '../NavBar/NavBar';
 import useRouteContext, { RouteContextProvider } from '../Common/Router';
 import Stage from '../Stage/Stage';
-import Splash from '../Splash/Splash';
-import ModuleList from '../ModuleList/ModuleList';
-
-const PAGES = {
-    splash: {
-        id: 'splash',
-        name: 'Splash',
-        component: Splash
-    },
-    modules: {
-        id: 'modules',
-        name: 'Modules',
-        component: ModuleList
-    }
-};
+import PAGES from '../Common/Pages';
 
 const Page = () => {
     const routeContext = useRouteContext();
@@ -28,7 +14,7 @@ const Page = () => {
     const pageId = routeContext.route[routeContext.route.length - 1];
     const PageComponent = PAGES[pageId].component;
     return <PageComponent />;
-}
+};
 
 const Main = () => {
     return (
