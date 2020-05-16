@@ -12,20 +12,23 @@ const NavBar = () => {
     const routeContext = useRouteContext();
     return (
         <nav className="top-nav pw-primary">
-            <div className="icon"><Common.Icons.GitHub /></div>
-            <div className="logo link" onClick={() => routeContext.setRoute([HOME])}>Play What</div>
+            <div className="logo nav-link" onClick={() => routeContext.setRoute([HOME])}>Play What</div>
             <div className="spacer" />
             {routeContext.route.map((r, i) => r === HOME ? null : (
                 <div
                     key={r}
-                    className="link breadcrumb"
+                    className="nav-link breadcrumb"
                     onClick={() => routeContext.setRouteIndex(i)}
                 >
                     {PAGES[r].name}
                 </div>
             )
             )}
-            <div className="icon meatball"><Common.Icons.Menu /></div>
+            <div className="left-nav">
+                <a className="icon" href="https://github.com/dan9418/play-what-sandbox" target="_blank"><Common.Icons.GitHub /></a>
+                <div className="icon meatball"><Common.Icons.Menu /></div>
+            </div>
+
         </nav >
     );
 }

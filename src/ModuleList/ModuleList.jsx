@@ -67,10 +67,10 @@ const ModuleList = () => {
         <table className='module-table'>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Preview</th>
-                    <th>Launch</th>
+                    <th className="pw-secondary">Name</th>
+                    <th className="pw-secondary">Description</th>
+                    <th className="pw-secondary">Preview</th>
+                    <th className="pw-secondary">Launch</th>
                 </tr>
             </thead>
             <tbody>

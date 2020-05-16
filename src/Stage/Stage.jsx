@@ -7,11 +7,11 @@ import useRouteContext from '../Common/Router';
 const Stage = ({ children }) => {
     const routeContext = useRouteContext();
     return (
-        <div className="stage" id="stage">
+        <div className="stage pw-medium" id="stage">
             {routeContext.route.length > 1 &&
                 <Viewers.UI.ButtonInput className="back" onClick={() => routeContext.pop()} >← Back</Viewers.UI.ButtonInput>
             }
-            <div className="column">
+            <div className="column pw-light">
                 {children}
             </div>
         </div>

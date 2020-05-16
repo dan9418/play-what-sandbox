@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+    color: #FFF;
 }
 
 .top-nav svg, .top-nav svg * {
@@ -38,15 +39,16 @@
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: bolder;
-    margin: 0 10px;
+    margin: 0 0 0 16px;
     cursor: pointer;
 }
 
-.link {
+.nav-link {
     cursor: pointer;
+    color: white;
 }
 
-.link:hover {
+.nav-link:hover {
     color: #ddd;
 }
 
@@ -68,7 +70,8 @@
     border: 1px solid white;
 }
 
-.meatball {
+.left-nav {
     position: absolute;
     right: 0;
+    display: flex;
 }
