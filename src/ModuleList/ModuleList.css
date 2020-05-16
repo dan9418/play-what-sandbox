@@ -1,0 +1,55 @@
+.module-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.module-table td, .module-table th {
+    border: none;
+    padding: 8px;
+    vertical-align: text-top;
+}
+
+.module-table th:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.module-table th:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.module-table td:first-child {
+    font-size: large;
+    font-weight: bold;
+}
+
+.module-table tr:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.module-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #5E99D1;
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 64px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
