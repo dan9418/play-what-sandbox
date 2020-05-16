@@ -24,3 +24,9 @@
         margin: 64px 0;
     }
 }
+
+.back {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}

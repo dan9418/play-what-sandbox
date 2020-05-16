@@ -15,7 +15,16 @@ const NavBar = () => {
             <div className="icon"><Common.Icons.GitHub /></div>
             <div className="logo link" onClick={() => routeContext.setRoute([HOME])}>Play What</div>
             <div className="spacer" />
-            {routeContext.route.map(r => r === HOME ? null : <div key={r} className="link">{PAGES[r].name}</div>)}
+            {routeContext.route.map((r, i) => r === HOME ? null : (
+                <div
+                    key={r}
+                    className="link breadcrumb"
+                    onClick={() => routeContext.setRouteIndex(i)}
+                >
+                    {PAGES[r].name}
+                </div>
+            )
+            )}
             <div className="icon meatball"><Common.Icons.Menu /></div>
         </nav >
     );

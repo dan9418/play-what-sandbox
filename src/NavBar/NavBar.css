@@ -33,10 +33,6 @@
     font-size: 20px;
 }
 
-.spacer::after {
-    content: ">";
-}
-
 .logo {
     font-size: 20px;
     text-transform: uppercase;
@@ -52,6 +48,11 @@
 
 .link:hover {
     color: #ddd;
+}
+
+.breadcrumb::after {
+    content: ">";
+    padding: 0 8px;
 }
 
 .button {

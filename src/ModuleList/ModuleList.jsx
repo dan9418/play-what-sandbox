@@ -1,18 +1,12 @@
-import ReactDOM from 'react-dom';
+
 import React, { useState, useEffect } from 'react';
 import Viewers from 'play-what-react-viewers';
+import useRouteContext from '../Common/Router';
 
 import Common from '../Common/_module';
 import './ModuleList.css';
 
 const MODULES = [
-    {
-        id: 'inputDocs',
-        name: 'Inputs',
-        description: 'A list of input types',
-        component: null,
-        cardComponent: Viewers.Modules.InputDocsCard
-    },
     {
         id: 'graph',
         name: 'Graph',
@@ -50,32 +44,19 @@ const MODULES = [
     }
 ];
 
-const Modal = ({ closeModal, children }) => {
-    const el = document.getElementById('stage');
-    const content = (
-        <div className='modal-backdrop'>
-            <Viewers.UI.ButtonInput onClick={closeModal} className="modal-close">X</Viewers.UI.ButtonInput>
-            <div id="modal" >{children}</div>
-        </div>
-    );
-    return ReactDOM.createPortal(content, el);
-};
 
 const ModuleRow = ({ module }) => {
-    const [modalOpen, setModalOpen] = useState(false);
-    const Card = module.cardComponent;
     const Module = module.component;
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => setModalOpen(false);
 
-    const button = <Viewers.UI.ButtonInput onClick={openModal}>Go!</Viewers.UI.ButtonInput>;
-    const modal = <Modal closeModal={closeModal}><Card /></Modal>;
+    const routeContext = useRouteContext();
+
+    const button = <Viewers.UI.ButtonInput onClick={() => routeContext.push(module.id)}>Go!</Viewers.UI.ButtonInput>;
     return (
         <tr>
             <td>{module.name}</td>
             <td>{module.description}...</td>
             <td>{Module ? <Module /> : null}</td>
-            <td>{button}{modalOpen && modal}</td>
+            <td>{button}</td>
         </tr>
     );
 };

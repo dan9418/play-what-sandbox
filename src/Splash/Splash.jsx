@@ -15,7 +15,7 @@ const Splash = () => {
         <div className='splash'>
             <h1>Play What?</h1>
             <p>Play What is a JavaScript library for musical concepts</p>
-            <ButtonInput onClick={() => routeContext.setRoute(['modules'])} >See Modules</ButtonInput>
+            <ButtonInput onClick={() => routeContext.push('modules')} >See Modules</ButtonInput>
         </div>
     );
 }

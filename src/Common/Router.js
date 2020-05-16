@@ -15,7 +15,10 @@ export const RouteContextProvider = ({ children }) => {
 
     const routeContextValue = {
         route: route,
-        setRoute: setRoute
+        setRoute: setRoute,
+        setRouteIndex: i => setRoute(route.slice(0, i + 1)),
+        push: r => setRoute([...route, r]),
+        pop: () => setRoute(route.slice(0, route.length - 1))
     }
 
     return (
