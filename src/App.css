@@ -1,6 +1,5 @@
 * {
     font-family: sans-serif;
-    color: #232323;
 }
 
 html, body {
@@ -8,4 +7,5 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+    color: #232323;
 }
