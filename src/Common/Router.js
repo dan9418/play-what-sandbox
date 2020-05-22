@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 
-const DEFAULT_ROUTE = ['splash'];
+const DEFAULT_ROUTE = ['modules'];
 const NOP = () => null;
 const DEFAULT_ROUTE_CONTEXT = {
     route: DEFAULT_ROUTE,

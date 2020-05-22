@@ -45,12 +45,14 @@ const MODULES = [
 ];
 
 
+const Button = Viewers.UI.ButtonInput;
+
 const ModuleRow = ({ module }) => {
     const Module = module.component;
 
     const routeContext = useRouteContext();
 
-    const button = <Viewers.UI.ButtonInput onClick={() => routeContext.push(module.id)}>Go!</Viewers.UI.ButtonInput>;
+    const button = <Button className='pw-accent' onClick={() => routeContext.push(module.id)}>Go!</Button>;
     return (
         <tr>
             <td>{module.name}</td>
