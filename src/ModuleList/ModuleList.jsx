@@ -66,7 +66,7 @@ const ModuleRow = ({ module }) => {
 const ModuleList = () => {
     const data = MODULES;
     return (
-        <table className='module-table'>
+        <table className='module-table pw-lighter'>
             <thead>
                 <tr>
                     <th className="pw-secondary">Name</th>

@@ -11,9 +11,7 @@ const Stage = ({ children }) => {
             {routeContext.route.length > 1 &&
                 <Viewers.UI.ButtonInput className="back" onClick={() => routeContext.pop()} >← Back</Viewers.UI.ButtonInput>
             }
-            <div className="column pw-light">
-                {children}
-            </div>
+            {children}
         </div>
     );
 }

@@ -1,11 +1,14 @@
 .module-table {
     border-collapse: collapse;
     width: 100%;
+    max-width: 1024px;
+    margin: 50px;
+    border-radius: 8px;
 }
 
 .module-table td, .module-table th {
     border: none;
-    padding: 8px;
+    padding: 16px;
     vertical-align: text-top;
 }
 
@@ -20,6 +23,10 @@
 .module-table td:first-child {
     font-size: large;
     font-weight: bold;
+}
+
+.module-table tr {
+    
 }
 
 .module-table tr:not(:last-child) {
