@@ -13,14 +13,14 @@ const Page = () => {
 
     const pageId = routeContext.route[routeContext.route.length - 1];
     const PageComponent = PAGES[pageId].component;
-    return <PageComponent />;
+    return <PageComponent back={routeContext.pop} />;
 };
 
 const Main = () => {
     return (
         <RouteContextProvider>
-            <NavBar />
             <Stage>
+                <NavBar />
                 <Page />
             </Stage>
         </RouteContextProvider>

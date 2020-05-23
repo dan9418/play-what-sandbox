@@ -15,7 +15,7 @@ const Splash = () => {
         <div className='splash'>
             <h1>Play What?</h1>
             <p>Play What is a JavaScript library for musical concepts. More info TBA...</p>
-            <ButtonInput onClick={() => routeContext.push('modules')} >See Modules</ButtonInput>
+            <ButtonInput className="pw-accent" onClick={() => routeContext.push('modules')} >See Modules</ButtonInput>
         </div>
     );
 }
