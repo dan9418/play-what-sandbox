@@ -38,6 +38,11 @@ const PAGES = {
         id: 'harmonicSeries',
         name: 'Hamonic Series',
         component: Viewers.Modules.HarmonicSeriesCard
+    },
+    rhythm: {
+        id: 'rhythm',
+        name: 'Rhythm',
+        component: Viewers.Modules.RhythmCard
     }
 };
 

@@ -41,6 +41,13 @@ const MODULES = [
         description: 'Visualization of harmonic series frequencies',
         component: Viewers.Modules.HarmonicSeries,
         cardComponent: Viewers.Modules.HarmonicSeriesCard
+    },
+    {
+        id: 'rhythm',
+        name: 'Rhythm',
+        description: 'Rhythmic ideas',
+        component: Viewers.Modules.Rhythm,
+        cardComponent: Viewers.Modules.RhythmCard
     }
 ];
 
