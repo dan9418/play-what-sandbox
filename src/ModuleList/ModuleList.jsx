@@ -48,6 +48,13 @@ const MODULES = [
         description: 'Rhythmic ideas',
         component: Viewers.Modules.Rhythm,
         cardComponent: Viewers.Modules.RhythmCard
+    },
+    {
+        id: 'chart',
+        name: 'Concept Chart',
+        description: 'Generic chart for chords, jazz standards, etc...',
+        component: Viewers.Modules.Chart,
+        cardComponent: Viewers.Modules.ChartCard
     }
 ];
 

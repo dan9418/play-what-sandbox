@@ -43,6 +43,11 @@ const PAGES = {
         id: 'rhythm',
         name: 'Rhythm',
         component: Viewers.Modules.RhythmCard
+    },
+    chart: {
+        id: 'chart',
+        name: 'Chart',
+        component: Viewers.Modules.ChartCard
     }
 };
 
