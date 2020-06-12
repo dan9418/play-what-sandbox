@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 
-const DEFAULT_ROUTE = ['splash', 'modules', 'chart'];
+const DEFAULT_ROUTE = ['splash', 'modules', 'fretboard'];
 const NOP = () => null;
 
 const RouteContext = createContext();
