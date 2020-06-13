@@ -7,6 +7,9 @@ import NavBar from '../NavBar/NavBar';
 import useRouteContext, { RouteContextProvider } from '../Common/Router';
 import Stage from '../Stage/Stage';
 import PAGES from '../Common/Pages';
+import PW from 'play-what';
+
+const NoteContextProvider = Viewers.Utils.NoteContextProvider;
 
 const Page = () => {
     const routeContext = useRouteContext();
@@ -19,10 +22,12 @@ const Page = () => {
 const Main = () => {
     return (
         <RouteContextProvider>
-            <Stage>
-                <NavBar />
-                <Page />
-            </Stage>
+            <NoteContextProvider>
+                <Stage>
+                    <NavBar />
+                    <Page />
+                </Stage>
+            </NoteContextProvider>
         </RouteContextProvider>
     );
 };
