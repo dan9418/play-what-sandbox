@@ -44,6 +44,16 @@ const PAGES = {
         name: 'Rhythm',
         component: Viewers.Modules.RhythmCard
     },
+    concept: {
+        id: 'concept',
+        name: 'Concept',
+        component: () => null
+    },
+    progression: {
+        id: 'progression',
+        name: 'Progression',
+        component: () => null
+    },
     chart: {
         id: 'chart',
         name: 'Chart',

@@ -8,6 +8,27 @@ import './ModuleList.css';
 
 const MODULES = [
     {
+        id: 'concept',
+        name: 'Concept',
+        description: 'Preview a single chord, scale, etc...',
+        component: () => null,
+        cardComponent: () => null
+    },
+    {
+        id: 'progression',
+        name: 'Concept Progression',
+        description: 'Generic progression for chords, etc...',
+        component: () => null,
+        cardComponent: () => null
+    },
+    {
+        id: 'chart',
+        name: 'Concept Chart',
+        description: 'Generic chart for chords, jazz standards, etc...',
+        component: Viewers.Modules.Chart,
+        cardComponent: Viewers.Modules.ChartCard
+    },
+    {
         id: 'graph',
         name: 'Graph',
         description: 'Cartesian graph for 2D vectors',
@@ -42,20 +63,13 @@ const MODULES = [
         component: Viewers.Modules.HarmonicSeries,
         cardComponent: Viewers.Modules.HarmonicSeriesCard
     },
-    {
+    /*{
         id: 'rhythm',
         name: 'Rhythm',
         description: 'Rhythmic ideas',
         component: Viewers.Modules.Rhythm,
         cardComponent: Viewers.Modules.RhythmCard
-    },
-    {
-        id: 'chart',
-        name: 'Concept Chart',
-        description: 'Generic chart for chords, jazz standards, etc...',
-        component: Viewers.Modules.Chart,
-        cardComponent: Viewers.Modules.ChartCard
-    }
+    },*/
 ];
 
 
