@@ -8,8 +8,11 @@
     align-items: center;
 }
 
-.back {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+.stage hr {
+    width: 90%;
 }
+
+.input-mode-selector .button-input {
+    margin: 8px;
+}
+

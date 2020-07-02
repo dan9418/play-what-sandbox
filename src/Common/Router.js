@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 
-const DEFAULT_ROUTE = ['splash', 'modules', 'chart'];
+const DEFAULT_ROUTE = ['splash'];
 const NOP = () => null;
 
 const RouteContext = createContext();
@@ -14,7 +14,8 @@ export const RouteContextProvider = ({ children }) => {
         setRoute: setRoute,
         setRouteIndex: i => setRoute(route.slice(0, i + 1)),
         push: r => setRoute([...route, r]),
-        pop: () => setRoute(route.slice(0, route.length - 1))
+        pop: () => setRoute(route.slice(0, route.length - 1)),
+        popPush: r => setRoute([...route.slice(0, route.length - 1), r])
     }
 
     return (
