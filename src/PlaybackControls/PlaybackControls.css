@@ -1,0 +1,25 @@
+.playback-controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 16px;
+}
+
+.blinker {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: white;
+	border: 1px solid #555;
+}
+
+.blinker.pulse {
+	animation-name: blink;
+	animation-duration: .1s;
+}
+
+@keyframes blink {
+	to {
+		background-color: red;
+	}
+}

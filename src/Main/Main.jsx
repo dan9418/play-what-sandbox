@@ -5,10 +5,9 @@ import Common from '../Common/_module';
 import './Main.css';
 import NavBar from '../NavBar/NavBar';
 import useRouteContext, { RouteContextProvider } from '../Common/Router';
+import useNoteContext, { NoteContextProvider } from '../Common/NoteContext';
 import Stage from '../Stage/Stage';
 import PW from 'play-what';
-
-const NoteContextProvider = Viewers.Utils.NoteContextProvider;
 
 const Main = () => {
     return (
