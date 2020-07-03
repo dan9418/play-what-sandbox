@@ -16,6 +16,7 @@ const Stage = () => {
                 <MasterSelector />
                 <hr />
                 <PlaybackControls />
+                <hr />
                 <OutputList />
             </div>
         </div>

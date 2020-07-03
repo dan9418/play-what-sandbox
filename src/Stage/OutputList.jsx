@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './Stage.css';
 
-import Fretboard from 'play-what-react-viewers/src/Modules/Fretboard/Fretboard';
+import Viewers from 'play-what-react-viewers';
 import { useRecoilValue } from 'recoil';
 import { noteState, inputModeState, sourceState, positionState } from './State';
 import { useResetRecoilState } from 'recoil';
+
+const { Fretboard, Keyboard } = Viewers.Modules;
 
 const Stage = () => {
 
@@ -16,6 +18,7 @@ const Stage = () => {
     return (
         <div className="output-list">
             <Fretboard concept={concept} />
+            <Keyboard concept={concept} />
         </div>
     );
 }

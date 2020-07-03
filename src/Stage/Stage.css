@@ -22,3 +22,7 @@
     max-width: 1024px;
     padding: 32px;
 }
+
+.output-list > * {
+    margin: 32px 0;
+}
