@@ -16,3 +16,8 @@
     margin: 8px;
 }
 
+.stage .center {
+    width: 100%;
+    max-width: 1024px;
+    padding: 32px;
+}
