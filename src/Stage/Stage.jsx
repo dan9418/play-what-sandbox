@@ -5,6 +5,7 @@ import PlaybackControls from '../PlaybackControls/PlaybackControls';
 
 import MasterSelector from './MasterSelector';
 import ConceptPreview from './ConceptPreview';
+import OutputList from './OutputList';
 
 const Stage = () => {
     return (
@@ -15,6 +16,7 @@ const Stage = () => {
                 <MasterSelector />
                 <hr />
                 <PlaybackControls />
+                <OutputList />
             </div>
         </div>
     );
