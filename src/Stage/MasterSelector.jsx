@@ -3,56 +3,29 @@ import './Stage.css';
 import Viewers from 'play-what-react-viewers';
 import AUTUMN_LEAVES from '../Common/AutumnLeaves';
 import { useRecoilState } from 'recoil';
-import { atom } from 'recoil';
-import { useRecoilValue } from 'recoil';
-import { noteState } from './Stage';
+import { inputModeState, sourceState, INPUT_MODES, positionState } from './State';
+import { useSetRecoilState } from 'recoil';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput } = UI;
 const { Concept, Progression, Chart } = Modules;
 
-const INPUT_MODES = [
-    {
-        id: 'concept',
-        name: 'Concept',
-        label: '•',
-        component: Concept,
-        presets: [AUTUMN_LEAVES.sections[0].rows[0].cols[0]]
-    },
-    {
-        id: 'progression',
-        name: 'Progression',
-        label: '••',
-        component: Progression,
-        presets: [AUTUMN_LEAVES.sections[0].rows[0].cols[0]]
-    },
-    {
-        id: 'chart',
-        name: 'Chart',
-        label: '••••',
-        component: Chart,
-        presets: [AUTUMN_LEAVES]
-    }
-];
-
 const MasterSelector = () => {
 
-    const [inputMode, setInputMode] = useState(INPUT_MODES[2]);
-
-    const [source, setSource] = useState(inputMode.presets[0]);
+    const [inputMode, setInputMode] = useRecoilState(inputModeState);
+    const [source, setSource] = useRecoilState(sourceState);
+    const [position, setPosition] = useRecoilState(positionState)
 
     const InputModeComponent = inputMode.component;
 
-    const x = useRecoilValue(noteState);
-
     return (
-        <div className="master-selectot">
-            {x}
+        <div className="master-selector">
             <div className="input-mode-selector">
                 {INPUT_MODES.map((m, i) => {
                     const onClick = () => {
-                        setSource(m.presets[0]);
                         setInputMode(m);
+                        setPosition(m.startPosition);
+                        setSource(m.presets[0]);
                     };
                     return (
                         <ButtonInput
@@ -64,8 +37,11 @@ const MasterSelector = () => {
                     );
                 })}
             </div>
-            <h1>{source.name}</h1>
-            <InputModeComponent source={source} />
+            <div className="source-preset">
+
+            </div>
+            <h1>{inputMode.name}</h1>
+            <InputModeComponent source={source} position={position} setPosition={setPosition} />
         </div>
     );
 }
