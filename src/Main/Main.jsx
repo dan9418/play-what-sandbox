@@ -8,15 +8,18 @@ import useRouteContext, { RouteContextProvider } from '../Common/Router';
 import useNoteContext, { NoteContextProvider } from '../Common/NoteContext';
 import Stage from '../Stage/Stage';
 import PW from 'play-what';
+import { RecoilRoot } from 'recoil';
 
 const Main = () => {
     return (
-        <RouteContextProvider>
-            <NoteContextProvider>
-                <NavBar />
-                <Stage/>
-            </NoteContextProvider>
-        </RouteContextProvider>
+        <RecoilRoot>
+            <RouteContextProvider>
+                <NoteContextProvider>
+                    <NavBar />
+                    <Stage />
+                </NoteContextProvider>
+            </RouteContextProvider>
+        </RecoilRoot>
     );
 };
 

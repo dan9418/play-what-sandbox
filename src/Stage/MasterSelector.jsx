@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './Stage.css';
 import Viewers from 'play-what-react-viewers';
 import AUTUMN_LEAVES from '../Common/AutumnLeaves';
+import { useRecoilState } from 'recoil';
+import { atom } from 'recoil';
+import { useRecoilValue } from 'recoil';
+import { noteState } from './Stage';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput } = UI;
@@ -39,14 +43,17 @@ const MasterSelector = () => {
 
     const InputModeComponent = inputMode.component;
 
+    const x = useRecoilValue(noteState);
+
     return (
         <div className="master-selectot">
+            {x}
             <div className="input-mode-selector">
                 {INPUT_MODES.map((m, i) => {
                     const onClick = () => {
                         setSource(m.presets[0]);
                         setInputMode(m);
-                    }
+                    };
                     return (
                         <ButtonInput
                             key={i}

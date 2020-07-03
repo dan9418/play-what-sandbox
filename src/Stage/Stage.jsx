@@ -4,6 +4,12 @@ import './Stage.css';
 import PlaybackControls from '../PlaybackControls/PlaybackControls';
 
 import MasterSelector from './MasterSelector';
+import { atom } from 'recoil';
+
+export const noteState = atom({
+    key: 'note',
+    default: 0
+});
 
 const Stage = () => {
     return (

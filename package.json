@@ -15,7 +15,8 @@
     "play-what": "file:C:/_dev/play-what",
     "play-what-react-viewers": "file:C:/_dev/play-what-react-viewers",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "recoil": "0.0.10"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
