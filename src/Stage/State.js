@@ -20,7 +20,7 @@ export const INPUT_MODES = [
         name: 'Progression',
         label: '••',
         component: Progression,
-        presets: [AUTUMN_LEAVES.sections[0].rows[0].cols],
+        presets: [AUTUMN_LEAVES.sections[0].rows[0]],
         startPosition: 0
     },
     {
@@ -58,7 +58,7 @@ export const noteState = selector({
             case 'concept':
                 return source;
             case 'progression':
-                return source[position];
+                return source.cols[position];
             case 'chart':
                 const [s, r, c] = position;
                 return source.sections[s].rows[r].cols[c];
