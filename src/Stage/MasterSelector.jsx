@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Stage.css';
 import Viewers from 'play-what-react-viewers';
 import { useRecoilState } from 'recoil';
-import { inputModeState, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
+import { inputModeSelector, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
 import { useRecoilValue } from 'recoil';
 import { useSetRecoilState } from 'recoil';
 import ConceptPreview from './ConceptPreview';
@@ -13,7 +13,7 @@ const { Concept, Progression, Chart } = Modules;
 
 const MasterSelector = () => {
 
-    const [inputMode, setInputMode] = useRecoilState(inputModeState);
+    const [inputMode, setInputMode] = useRecoilState(inputModeSelector);
     const [source, setSource] = useRecoilState(sourceState);
     const setA = useSetRecoilState(aState);
     const setB = useSetRecoilState(BState);
@@ -28,15 +28,10 @@ const MasterSelector = () => {
         <div className="master-selector">
             <div className="input-mode-selector">
                 {INPUT_MODES.map((m, i) => {
-                    const onClick = () => {
-                        setInputMode(m);
-                        setPosition(m.startPosition);
-                        setSource(m.presets[0]);
-                    };
                     return (
                         <ButtonInput
                             key={i}
-                            onClick={onClick}
+                            onClick={() => setInputMode(m)}
                             className={inputMode.id === m.id ? 'pw-accent' : 'pw-secondary'}>
                             {`${m.label} ${m.name}`}
                         </ButtonInput>

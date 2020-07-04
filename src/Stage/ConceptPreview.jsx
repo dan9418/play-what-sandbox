@@ -6,7 +6,7 @@ import PlaybackControls from '../PlaybackControls/PlaybackControls';
 
 import MasterSelector from './MasterSelector';
 import { useRecoilValue } from 'recoil';
-import { inputModeState, conceptState, aState, BState } from './State';
+import { conceptState } from './State';
 
 const ConceptPreview = () => {
     const concept = useRecoilValue(conceptState);

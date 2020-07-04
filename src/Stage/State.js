@@ -48,10 +48,20 @@ export const positionState = atom({
     default: INPUT_MODES[2].startPosition
 });
 
+export const inputModeSelector = selector({
+    key: 'inputModeSelector',
+    get: ({ get }) => get(inputModeState),
+    set: ({ set }, inputMode) => {
+        set(inputModeState, inputMode);
+        set(sourceState, inputMode.presets[0]);
+        set(positionState, inputMode.startPosition);
+    }
+});
+
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const inputMode = get(inputModeState);
+        const inputMode = get(inputModeSelector);
         const source = get(sourceState);
         const position = get(positionState);
         switch (inputMode.id) {
@@ -65,7 +75,7 @@ export const conceptState = selector({
         }
     },
     set: ({ set, get }, concept) => {
-        const inputMode = get(inputModeState);
+        const inputMode = get(inputModeSelector);
         const source = get(sourceState);
         const position = get(positionState);
         const sourceCopy = { ...source };
