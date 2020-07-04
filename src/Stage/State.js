@@ -48,8 +48,8 @@ export const positionState = atom({
     default: INPUT_MODES[2].startPosition
 });
 
-export const noteState = selector({
-    key: 'note',
+export const conceptState = selector({
+    key: 'concept',
     get: ({ get }) => {
         const inputMode = get(inputModeState);
         const source = get(sourceState);
@@ -63,5 +63,49 @@ export const noteState = selector({
                 const [s, r, c] = position;
                 return source.sections[s].rows[r].cols[c];
         }
+    },
+    set: ({ set, get }, concept) => {
+        const inputMode = get(inputModeState);
+        const source = get(sourceState);
+        const position = get(positionState);
+        const sourceCopy = { ...source };
+        switch (inputMode.id) {
+            case 'concept':
+                set(sourceState, concept);
+                break;
+            case 'progression':
+                sourceCopy.cols[position] = concept;
+                set(sourceState, sourceCopy)
+                break;
+            case 'chart':
+                const [s, r, c] = position;
+                source.sections[s].rows[r].cols[c] = concept;
+                set(sourceState, sourceCopy);
+                break;
+        }
     }
-})
+});
+
+export const aState = selector({
+    key: 'a',
+    get: ({ get }) => {
+        const concept = get(conceptState);
+        return concept.a;
+    },
+    set: ({ get, set }, newConcept) => {
+        const oldConcept = get(conceptState);
+        set(conceptState, { ...newConcept, B: oldConcept.B })
+    }
+});
+
+export const BState = selector({
+    key: 'B',
+    get: ({ get }) => {
+        const concept = get(conceptState);
+        return concept.B;
+    },
+    set: ({ get, set }, newConcept) => {
+        const oldConcept = get(conceptState);
+        set(conceptState, { ...newConcept, a: oldConcept.a })
+    }
+});

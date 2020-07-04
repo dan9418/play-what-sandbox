@@ -1,13 +1,39 @@
 import PW from 'play-what';
 
-const DEFAULT_NOTE = { a: [0, 0], B: [[0, 0]] };
+const DEFAULT_NOTE = { a: PW.Presets.KEY_CENTERS.C, B: PW.Presets.CHORD.Maj.intervals };
+
+const mapPresetsToVectors = presets => presets.map(p => ({ id: p.id || '', name: p.name || '', B: p.intervals }));
 
 export const CONCEPTS = [
     {
         id: 'select',
         name: 'Select...',
         ...DEFAULT_NOTE
-    }
+    },
+    {
+        id: 'intervals',
+        name: '---INTERVALS---',
+        ...DEFAULT_NOTE
+    },
+    ...mapPresetsToVectors(PW.Presets.INTERVAL_PAIR_VALUES),
+    {
+        id: 'chords',
+        name: '---CHORDS---',
+        ...DEFAULT_NOTE
+    },
+    ...mapPresetsToVectors(PW.Presets.CHORD_VALUES),
+    {
+        id: 'scales',
+        name: '---SCALES---',
+        ...DEFAULT_NOTE
+    },
+    ...mapPresetsToVectors(PW.Presets.SCALE_VALUES),
+    {
+        id: 'modes',
+        name: '---MODES---',
+        ...DEFAULT_NOTE
+    },
+    ...mapPresetsToVectors(PW.Presets.QUICK_MODE_VALUES),
 ];
 
 export const PROGRESSIONS = [
