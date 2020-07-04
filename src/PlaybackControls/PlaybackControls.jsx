@@ -106,6 +106,7 @@ const PlaybackControls = () => {
             const nextPosition = getNextPosition(song, position);
             const nextCol = getCol(song, ...nextPosition);
             setTimeout(() => {
+                setPosition(nextPosition);
                 setState([beatIndex + 1, nextCol.t]);
             }, beatDuration * 1000)
             console.log(beatIndex, remBeats, '>', state);
