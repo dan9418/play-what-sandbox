@@ -11,8 +11,6 @@ const Stage = () => {
     return (
         <div className="stage pw-medium">
             <div className="center pw-light">
-                <ConceptPreview />
-                <hr />
                 <MasterSelector />
                 <hr />
                 <PlaybackControls />

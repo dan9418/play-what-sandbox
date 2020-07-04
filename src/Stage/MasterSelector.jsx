@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil';
 import { inputModeState, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
 import { useRecoilValue } from 'recoil';
 import { useSetRecoilState } from 'recoil';
+import ConceptPreview from './ConceptPreview';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput, Dropdown } = UI;
@@ -37,17 +38,20 @@ const MasterSelector = () => {
                             key={i}
                             onClick={onClick}
                             className={inputMode.id === m.id ? 'pw-accent' : 'pw-secondary'}>
-                            {m.label}
+                            {`${m.label} ${m.name}`}
                         </ButtonInput>
                     );
                 })}
             </div>
             <div className="source-preset">
-
+                <Dropdown value={source} setValue={setB} options={inputMode.presets} />
             </div>
-            <h1>{inputMode.name}</h1>
-            <Dropdown value={source} setValue={setB} options={inputMode.presets} />
-            <InputModeComponent source={source} position={position} setPosition={setPosition} />
+            <div className="concept-preview">
+                <ConceptPreview />
+            </div>
+            {inputMode.id !== 'concept' &&
+                <InputModeComponent source={source} position={position} setPosition={setPosition} />
+            }
         </div>
     );
 }

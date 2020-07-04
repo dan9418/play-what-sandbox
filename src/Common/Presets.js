@@ -1,6 +1,8 @@
 import PW from 'play-what';
 
-const DEFAULT_NOTE = { a: PW.Presets.KEY_CENTERS.C, B: PW.Presets.CHORD.Maj.intervals };
+//const DEFAULT_NOTE = { a: PW.Presets.KEY_CENTERS.C, B: PW.Presets.CHORD.Maj.intervals };
+const DEFAULT_NOTE = { a: { p: 0, d: 0 }, B: [[{ p: 0, d: 0 }]] };
+
 
 const mapPresetsToVectors = presets => presets.map(p => ({ id: p.id || '', name: p.name || '', B: p.intervals }));
 
@@ -8,29 +10,34 @@ export const CONCEPTS = [
     {
         id: 'select',
         name: 'Select...',
+        placeholder: true,
         ...DEFAULT_NOTE
     },
     {
         id: 'intervals',
         name: '---INTERVALS---',
+        placeholder: true,
         ...DEFAULT_NOTE
     },
     ...mapPresetsToVectors(PW.Presets.INTERVAL_PAIR_VALUES),
     {
         id: 'chords',
         name: '---CHORDS---',
+        placeholder: true,
         ...DEFAULT_NOTE
     },
     ...mapPresetsToVectors(PW.Presets.CHORD_VALUES),
     {
         id: 'scales',
         name: '---SCALES---',
+        placeholder: true,
         ...DEFAULT_NOTE
     },
     ...mapPresetsToVectors(PW.Presets.SCALE_VALUES),
     {
         id: 'modes',
         name: '---MODES---',
+        placeholder: true,
         ...DEFAULT_NOTE
     },
     ...mapPresetsToVectors(PW.Presets.QUICK_MODE_VALUES),
@@ -38,8 +45,8 @@ export const CONCEPTS = [
 
 export const PROGRESSIONS = [
     {
-        id: 'al1',
-        name: 'Autumn Leaves, Row 1',
+        id: 'm251',
+        name: 'Minor ii V I',
         cols: [
             {
                 a: PW.Presets.KEY_CENTERS.C,
@@ -54,12 +61,7 @@ export const PROGRESSIONS = [
             {
                 a: PW.Presets.KEY_CENTERS.Bb,
                 B: PW.Presets.CHORD.Maj7.intervals,
-                t: 4
-            },
-            {
-                a: PW.Presets.KEY_CENTERS.Eb,
-                B: PW.Presets.CHORD.Maj7.intervals,
-                t: 4
+                t: 8
             }
         ]
     }

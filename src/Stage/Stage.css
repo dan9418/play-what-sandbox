@@ -26,3 +26,7 @@
 .output-list > * {
     margin: 32px 0;
 }
+
+.source-preset {
+    margin: 16px;
+}

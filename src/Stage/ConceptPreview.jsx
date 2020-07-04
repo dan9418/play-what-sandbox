@@ -6,15 +6,16 @@ import PlaybackControls from '../PlaybackControls/PlaybackControls';
 
 import MasterSelector from './MasterSelector';
 import { useRecoilValue } from 'recoil';
-import { inputModeState, conceptState } from './State';
+import { inputModeState, conceptState, aState, BState } from './State';
 
 const ConceptPreview = () => {
-    const note = useRecoilValue(conceptState);
-    const tonic = note.a.name;
-    const preset = PW.Theory.findPreset(note.B);
+    const concept = useRecoilValue(conceptState);
+    const { placeholder, a, B } = concept;
+    const tonic = PW.Theory.getNoteName(a);
+    const preset = PW.Theory.findPreset(B);
     return (
         <h1 className="concept-preview">
-            {`${tonic} ${preset.name}`}
+            {!placeholder && `${tonic} ${preset.name}`}
         </h1>
     );
 }
