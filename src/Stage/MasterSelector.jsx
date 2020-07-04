@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Stage.css';
 import Viewers from 'play-what-react-viewers';
-import AUTUMN_LEAVES from '../Common/AutumnLeaves';
 import { useRecoilState } from 'recoil';
 import { inputModeState, sourceState, INPUT_MODES, positionState } from './State';
-import { useSetRecoilState } from 'recoil';
 
 const { UI, Modules } = Viewers;
-const { ButtonInput } = UI;
+const { ButtonInput, Dropdown } = UI;
 const { Concept, Progression, Chart } = Modules;
 
 const MasterSelector = () => {
@@ -41,6 +39,7 @@ const MasterSelector = () => {
 
             </div>
             <h1>{inputMode.name}</h1>
+            <Dropdown value={source} setValue={setSource} options={inputMode.presets} />
             <InputModeComponent source={source} position={position} setPosition={setPosition} />
         </div>
     );

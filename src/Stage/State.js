@@ -1,6 +1,6 @@
 import { atom, selector } from 'recoil';
-import AUTUMN_LEAVES from '../Common/AutumnLeaves';
 import Viewers from 'play-what-react-viewers';
+import { CHARTS, PROGRESSIONS, CONCEPTS } from '../Common/Presets';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput } = UI;
@@ -12,7 +12,7 @@ export const INPUT_MODES = [
         name: 'Concept',
         label: '•',
         component: Concept,
-        presets: [AUTUMN_LEAVES.sections[0].rows[0].cols[0]],
+        presets: CONCEPTS,
         startPosition: null
     },
     {
@@ -20,7 +20,7 @@ export const INPUT_MODES = [
         name: 'Progression',
         label: '••',
         component: Progression,
-        presets: [AUTUMN_LEAVES.sections[0].rows[0]],
+        presets: PROGRESSIONS,
         startPosition: 0
     },
     {
@@ -28,7 +28,7 @@ export const INPUT_MODES = [
         name: 'Chart',
         label: '••••',
         component: Chart,
-        presets: [AUTUMN_LEAVES],
+        presets: CHARTS,
         startPosition: [0, 0, 0]
     }
 ];

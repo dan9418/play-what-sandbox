@@ -6,11 +6,9 @@ import ButtonInput from 'play-what-react-viewers/src/UI/ButtonInput/ButtonInput'
 import ScalarInput from 'play-what-react-viewers/src/UI/ScalarInput/ScalerInput';
 import { useRecoilState } from 'recoil';
 import { positionState, sourceState, inputModeState } from '../Stage/State';
-import AUTUMN_LEAVES from '../Common/AutumnLeaves';
 import { useRecoilValue } from 'recoil';
 
 const DEFAULT_NOTE = { a: [0, 0], B: [[0, 0]] };
-const DEFAULT_SONG = AUTUMN_LEAVES;
 const DEFAULT_TEMPO = 120;
 const NOP = () => null;
 
