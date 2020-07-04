@@ -46,7 +46,28 @@ export const CONCEPTS = [
 export const PROGRESSIONS = [
     {
         id: 'm251',
-        name: 'Minor ii V I',
+        name: 'Minor ii` v i',
+        cols: [
+            {
+                a: PW.Presets.KEY_CENTERS.C,
+                B: PW.Presets.CHORD.HalfDim7.intervals,
+                t: 4
+            },
+            {
+                a: PW.Presets.KEY_CENTERS.F,
+                B: PW.Presets.CHORD.Min7.intervals,
+                t: 4
+            },
+            {
+                a: PW.Presets.KEY_CENTERS.Bb,
+                B: PW.Presets.CHORD.Min7.intervals,
+                t: 8
+            }
+        ]
+    },
+    {
+        id: 'M251',
+        name: 'Major II V I',
         cols: [
             {
                 a: PW.Presets.KEY_CENTERS.C,

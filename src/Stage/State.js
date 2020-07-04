@@ -78,19 +78,22 @@ export const conceptState = selector({
         const inputMode = get(inputModeSelector);
         const source = get(sourceState);
         const position = get(positionState);
-        const sourceCopy = { ...source };
         switch (inputMode.id) {
             case 'concept':
-                set(sourceState, concept);
+                set(sourceState, source);
                 break;
             case 'progression':
-                sourceCopy.cols[position] = concept;
-                set(sourceState, sourceCopy)
+                const progressionCopy = { ...source };
+                progressionCopy.cols = [...source.cols]
+                progressionCopy.cols[position] = concept;
+                set(sourceState, progressionCopy);
                 break;
             case 'chart':
                 const [s, r, c] = position;
-                source.sections[s].rows[r].cols[c] = concept;
-                set(sourceState, sourceCopy);
+                const chartCopy = { ...source };
+                chartCopy.sections[s].rows[r].cols = [...source.sections[s].rows[r].cols];
+                chartCopy.sections[s].rows[r].cols[c] = concept;
+                set(sourceState, chartCopy);
                 break;
         }
     }
