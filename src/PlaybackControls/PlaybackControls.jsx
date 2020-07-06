@@ -9,7 +9,7 @@ import { positionState, nextConceptState, inputModeSelector, conceptState, nextP
 import { useRecoilValue } from 'recoil';
 
 const DEFAULT_NOTE = { a: [0, 0], B: [[0, 0]] };
-const DEFAULT_TEMPO = 120;
+const DEFAULT_TEMPO = 160;
 const NOP = () => null;
 
 const useToggle = (initValue = false) => {
@@ -61,9 +61,11 @@ const PlaybackControls = () => {
 
     return (
         <div className='playback-controls'>
-            <ButtonInput className='pw-secondary' onClick={togglePlay}>{playing ? 'Pause' : 'Play'}</ButtonInput>
-            <ScalarInput value={tempo} setValue={setTempo} />
             <div className={`blinker ${beatIndex % 2 === 0 ? 'pulse' : ''}`} />
+            <div>
+                <ScalarInput value={tempo} setValue={setTempo} /> bpm
+            </div>
+            <ButtonInput className='pw-secondary' onClick={togglePlay}>{playing ? 'Pause' : 'Play'}</ButtonInput>
         </div>
     );
 }

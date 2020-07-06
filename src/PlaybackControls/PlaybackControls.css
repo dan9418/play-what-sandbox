@@ -4,6 +4,10 @@
 	align-items: center;
 	justify-content: space-around;
 	padding: 16px;
+	background-color: #eee;
+	border-radius: 16px;
+	box-sizing: border-box;
+	margin: 16px 0;
 }
 
 .blinker {
