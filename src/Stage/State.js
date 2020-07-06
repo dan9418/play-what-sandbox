@@ -99,6 +99,55 @@ export const conceptState = selector({
     }
 });
 
+export const nextPositionState = selector({
+    key: 'nextPosition',
+    get: ({ get }) => {
+        const inputMode = get(inputModeSelector);
+        const source = get(sourceState);
+        const position = get(positionState);
+        switch (inputMode.id) {
+            case 'concept':
+                return null;
+            case 'progression':
+                const isLast = position === source.cols.length - 1;
+                return isLast ? 0 : position + 1;
+            case 'chart':
+                const [s, r, c] = position;
+                const isLastSection = s === source.sections.length - 1;
+                const isLastRow = r === source.sections[s].rows.length - 1;
+                const isLastCol = c === source.sections[s].rows[r].cols.length - 1;
+                if (isLastCol) {
+                    if (isLastRow) {
+                        if (isLastSection) {
+                            return [0, 0, 0];
+                        }
+                        return [s + 1, 0, 0];
+                    }
+                    return [s, r + 1, 0];
+                }
+                return [s, r, c + 1];
+        }
+    }
+});
+
+export const nextConceptState = selector({
+    key: 'nextConcept',
+    get: ({ get }) => {
+        const inputMode = get(inputModeState);
+        const source = get(sourceState);
+        const nextPosition = get(nextPositionState);
+        switch (inputMode.id) {
+            case 'concept':
+                return source;
+            case 'progression':
+                return source.cols[nextPosition];
+            case 'chart':
+                const [s, r, c] = nextPosition;
+                return source.sections[s].rows[r].cols[c];
+        }
+    }
+});
+
 export const aState = selector({
     key: 'a',
     get: ({ get }) => {

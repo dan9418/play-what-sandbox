@@ -4,6 +4,7 @@ import './Stage.css';
 import Viewers from 'play-what-react-viewers';
 import { useRecoilValue } from 'recoil';
 import { conceptState } from './State';
+import ConceptPreview from './ConceptPreview';
 
 const { Fretboard, Keyboard } = Viewers.Modules;
 
@@ -13,6 +14,7 @@ const Stage = () => {
 
     return (
         <div className="output-list">
+            <ConceptPreview />
             <Fretboard concept={concept} />
             <Keyboard concept={concept} />
         </div>

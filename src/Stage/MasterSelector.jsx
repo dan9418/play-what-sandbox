@@ -4,8 +4,6 @@ import Viewers from 'play-what-react-viewers';
 import { useRecoilState } from 'recoil';
 import { inputModeSelector, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
 import { useRecoilValue } from 'recoil';
-import { useSetRecoilState } from 'recoil';
-import ConceptPreview from './ConceptPreview';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput, Dropdown } = UI;
@@ -42,9 +40,6 @@ const MasterSelector = () => {
             </div>
             <div className="source-preset">
                 <Dropdown value={source} setValue={setSourceSafe} options={inputMode.presets} />
-            </div>
-            <div className="concept-preview">
-                <ConceptPreview />
             </div>
             {inputMode.id !== 'concept' &&
                 <InputModeComponent source={source} position={position} setPosition={setPosition} />

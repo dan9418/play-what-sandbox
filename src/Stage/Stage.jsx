@@ -4,7 +4,6 @@ import './Stage.css';
 import PlaybackControls from '../PlaybackControls/PlaybackControls';
 
 import MasterSelector from './MasterSelector';
-import ConceptPreview from './ConceptPreview';
 import OutputList from './OutputList';
 
 const Stage = () => {
