@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput, Dropdown } = UI;
-const { Concept, Progression, Chart } = Modules;
+const { Chart } = Modules;
 
 const MasterSelector = () => {
 
@@ -17,8 +17,6 @@ const MasterSelector = () => {
     //const setB = useSetRecoilState(BState);
     const concept = useRecoilValue(conceptState);
     const [position, setPosition] = useRecoilState(positionState);
-
-    const InputModeComponent = inputMode.component;
 
     console.log(source, concept);
 
@@ -41,9 +39,7 @@ const MasterSelector = () => {
             <div className="source-preset">
                 <Dropdown value={source} setValue={setSourceSafe} options={inputMode.presets} />
             </div>
-            {inputMode.id !== 'concept' &&
-                <InputModeComponent source={source} position={position} setPosition={setPosition} />
-            }
+            <Chart source={source} position={position} setPosition={setPosition} inputModeId={inputMode.id}/>
         </div>
     );
 }

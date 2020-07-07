@@ -4,14 +4,12 @@ import { CHARTS, PROGRESSIONS, CONCEPTS } from '../Common/Presets';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput } = UI;
-const { Concept, Progression, Chart } = Modules;
 
 export const INPUT_MODES = [
     {
         id: 'concept',
         name: 'Concept',
         label: '•',
-        component: Concept,
         presets: CONCEPTS,
         startPosition: null
     },
@@ -19,7 +17,6 @@ export const INPUT_MODES = [
         id: 'progression',
         name: 'Progression',
         label: '••',
-        component: Progression,
         presets: PROGRESSIONS,
         startPosition: 0
     },
@@ -27,7 +24,6 @@ export const INPUT_MODES = [
         id: 'chart',
         name: 'Chart',
         label: '••••',
-        component: Chart,
         presets: CHARTS,
         startPosition: [0, 0, 0]
     }
