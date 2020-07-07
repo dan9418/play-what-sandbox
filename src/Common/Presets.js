@@ -49,7 +49,7 @@ export const PROGRESSIONS = [
     {
         id: 'm251',
         name: 'Minor ii` v i',
-        cols: [
+        progression: [
             {
                 a: KEY_CENTERS.C.a,
                 B: CHORD.HalfDim7.B,
@@ -61,7 +61,7 @@ export const PROGRESSIONS = [
                 t: 4
             },
             {
-                a: KEY_CENTERS.Bb,
+                a: KEY_CENTERS.Bb.a,
                 B: CHORD.Min7.B,
                 t: 8
             }
@@ -70,7 +70,7 @@ export const PROGRESSIONS = [
     {
         id: 'M251',
         name: 'Major II V I',
-        cols: [
+        progression: [
             {
                 a: KEY_CENTERS.C.a,
                 B: CHORD.Min7.B,
@@ -82,7 +82,7 @@ export const PROGRESSIONS = [
                 t: 4
             },
             {
-                a: KEY_CENTERS.Bb,
+                a: KEY_CENTERS.Bb.a,
                 B: CHORD.Maj7.B,
                 t: 8
             }
@@ -99,26 +99,26 @@ export const CHARTS = [
                 name: 'A',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: CHORD.Maj7.B,
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: CHORD.Maj7.B,
@@ -142,7 +142,7 @@ export const CHARTS = [
                 name: 'B',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.A.a,
                                 B: CHORD.Min7.B,
@@ -161,14 +161,14 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Dom7.B,
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Min7.B,
                                 t: 4
                             },
@@ -185,26 +185,26 @@ export const CHARTS = [
                 name: 'A',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: CHORD.Maj7.B,
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: CHORD.Maj7.B,
@@ -228,7 +228,7 @@ export const CHARTS = [
                 name: 'C',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.A.a,
                                 B: CHORD.Min7.B,
@@ -252,14 +252,14 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.B.a,
                                 B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.HalfDim7.B,
                                 t: 2
                             },
@@ -303,7 +303,7 @@ export const CHARTS = [
                     name: 'A',
                     rows: [
                         {
-                            cols: [
+                            progression: [
                                 {
                                     a: KEY_CENTERS.C.a,
                                     B: CHORD.Min7.B,
@@ -315,19 +315,19 @@ export const CHARTS = [
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb,
+                                    a: KEY_CENTERS.Bb.a,
                                     B: CHORD.Maj7.B,
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Eb,
+                                    a: KEY_CENTERS.Eb.a,
                                     B: CHORD.Maj7.B,
                                     t: 4
                                 }
                             ]
                         },
                         {
-                            cols: [
+                            progression: [
                                 {
                                     a: KEY_CENTERS.A.a,
                                     B: CHORD.HalfDim7.B,
@@ -356,7 +356,7 @@ export const CHARTS = [
                     name: 'A\'',
                     rows: [
                         {
-                            cols: [
+                            progression: [
                                 {
                                     a: KEY_CENTERS.C.a,
                                     B: CHORD.Min7.B,
@@ -368,12 +368,12 @@ export const CHARTS = [
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb,
+                                    a: KEY_CENTERS.Bb.a,
                                     B: CHORD.Maj7.B,
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Eb,
+                                    a: KEY_CENTERS.Eb.a,
                                     B: CHORD.Maj7.B,
                                     t: 4
                                 },
@@ -381,7 +381,7 @@ export const CHARTS = [
                             ]
                         },
                         {
-                            cols: [
+                            progression: [
                                 {
                                     a: KEY_CENTERS.A.a,
                                     B: CHORD.HalfDim7.B,
@@ -405,7 +405,7 @@ export const CHARTS = [
                     name: 'B',
                     rows: [
                         {
-                            cols: [
+                            progression: [
                                 {
                                     section: 'B',
                                     a: KEY_CENTERS.A.a,
@@ -431,7 +431,7 @@ export const CHARTS = [
                             ]
                         },
                         {
-                            cols: [
+                            progression: [
                                 {
                                     a: KEY_CENTERS.C.a,
                                     B: CHORD.Min7.B,
@@ -443,12 +443,12 @@ export const CHARTS = [
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb,
+                                    a: KEY_CENTERS.Bb.a,
                                     B: CHORD.Maj7.B,
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Eb,
+                                    a: KEY_CENTERS.Eb.a,
                                     B: CHORD.Maj7.B,
                                     t: 4
                                 }
@@ -460,7 +460,7 @@ export const CHARTS = [
                     name: 'C',
                     rows: [
                         {
-                            cols: [
+                            progression: [
                                 {
                                     section: 'C',
                                     a: KEY_CENTERS.A.a,
@@ -488,7 +488,7 @@ export const CHARTS = [
                                     t: 2
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb,
+                                    a: KEY_CENTERS.Bb.a,
                                     B: CHORD.Dom7.B,
                                     t: 2
                                 },
@@ -496,7 +496,7 @@ export const CHARTS = [
                             ]
                         },
                         {
-                            cols: [
+                            progression: [
                                 {
                                     a: KEY_CENTERS.A.a,
                                     B: CHORD.HalfDim7.B,
@@ -531,7 +531,7 @@ export const CHARTS = [
                 name: 'A',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: CHORD.Min7.B,
@@ -543,14 +543,14 @@ export const CHARTS = [
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: CHORD.HalfDim7.B,
@@ -574,26 +574,26 @@ export const CHARTS = [
                 name: 'B',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Ab,
+                                a: KEY_CENTERS.Ab.a,
                                 B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Db,
+                                a: KEY_CENTERS.Db.a,
                                 B: CHORD.Maj7.B,
                                 t: 8
                             }
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: CHORD.HalfDim7.B,
@@ -633,7 +633,7 @@ export const CHARTS = [
                 name: 'A',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: CHORD.Min7.B,
@@ -645,26 +645,26 @@ export const CHARTS = [
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Maj7.B,
                                 t: 8
                             }
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.F.a,
                                 B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Dom7.B,
                                 t: 8
                             }
@@ -676,14 +676,14 @@ export const CHARTS = [
                 name: 'B',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Min7.B,
                                 t: 2
                             },
@@ -693,26 +693,26 @@ export const CHARTS = [
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Gb,
+                                a: KEY_CENTERS.Gb.a,
                                 B: CHORD.Maj7.B,
                                 t: 4
                             },
@@ -722,7 +722,7 @@ export const CHARTS = [
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Gb,
+                                a: KEY_CENTERS.Gb.a,
                                 B: CHORD.Maj7.B,
                                 t: 2
                             },
@@ -739,7 +739,7 @@ export const CHARTS = [
                 name: 'A',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: CHORD.Min7.B,
@@ -751,26 +751,26 @@ export const CHARTS = [
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Maj7.B,
                                 t: 8
                             }
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.F.a,
                                 B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Dom7.B,
                                 t: 8
                             }
@@ -782,24 +782,24 @@ export const CHARTS = [
                 name: 'C',
                 rows: [
                     {
-                        cols: [
+                        progression: [
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb,
+                                a: KEY_CENTERS.Eb.a,
                                 B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Ab,
+                                a: KEY_CENTERS.Ab.a,
                                 B: CHORD.Maj7.B,
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Maj7.B,
                                 t: 2
                             },
@@ -821,7 +821,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        cols: [
+                        progression: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: CHORD.Maj7.B,
@@ -838,7 +838,7 @@ export const CHARTS = [
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb,
+                                a: KEY_CENTERS.Bb.a,
                                 B: CHORD.Maj7.B,
                                 t: 8
                             }

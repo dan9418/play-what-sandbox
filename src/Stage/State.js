@@ -68,10 +68,10 @@ export const conceptState = selector({
             case 'concept':
                 return source;
             case 'progression':
-                return source.cols[position];
+                return source.progression[position];
             case 'chart':
                 const [s, r, c] = position;
-                return source.sections[s].rows[r].cols[c];
+                return source.sections[s].rows[r].progression[c];
         }
     },
     set: ({ set, get }, concept) => {
@@ -84,15 +84,15 @@ export const conceptState = selector({
                 break;
             case 'progression':
                 const progressionCopy = { ...source };
-                progressionCopy.cols = [...source.cols]
-                progressionCopy.cols[position] = concept;
+                progressionCopy.progression = [...source.progression]
+                progressionCopy.progression[position] = concept;
                 set(sourceState, progressionCopy);
                 break;
             case 'chart':
                 const [s, r, c] = position;
                 const chartCopy = { ...source };
-                chartCopy.sections[s].rows[r].cols = [...source.sections[s].rows[r].cols];
-                chartCopy.sections[s].rows[r].cols[c] = concept;
+                chartCopy.sections[s].rows[r].progression = [...source.sections[s].rows[r].progression];
+                chartCopy.sections[s].rows[r].progression[c] = concept;
                 set(sourceState, chartCopy);
                 break;
         }
@@ -109,13 +109,13 @@ export const nextPositionState = selector({
             case 'concept':
                 return null;
             case 'progression':
-                const isLast = position === source.cols.length - 1;
+                const isLast = position === source.progression.length - 1;
                 return isLast ? 0 : position + 1;
             case 'chart':
                 const [s, r, c] = position;
                 const isLastSection = s === source.sections.length - 1;
                 const isLastRow = r === source.sections[s].rows.length - 1;
-                const isLastCol = c === source.sections[s].rows[r].cols.length - 1;
+                const isLastCol = c === source.sections[s].rows[r].progression.length - 1;
                 if (isLastCol) {
                     if (isLastRow) {
                         if (isLastSection) {
@@ -140,10 +140,10 @@ export const nextConceptState = selector({
             case 'concept':
                 return source;
             case 'progression':
-                return source.cols[nextPosition];
+                return source.progression[nextPosition];
             case 'chart':
                 const [s, r, c] = nextPosition;
-                return source.sections[s].rows[r].cols[c];
+                return source.sections[s].rows[r].progression[c];
         }
     }
 });
