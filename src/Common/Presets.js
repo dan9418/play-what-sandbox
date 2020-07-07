@@ -1,6 +1,8 @@
 import PW from 'play-what';
 
-//const DEFAULT_NOTE = { a: PW.Presets.KEY_CENTERS.C, B: PW.Presets.CHORD.Maj.B };
+const { KEY_CENTERS, INTERVAL_PAIR, CHORD, QUICK_MODE: MODE, SCALE } = PW.Presets;
+
+//const DEFAULT_NOTE = { a: KEY_CENTERS.C.a, B: CHORD.Maj.B };
 const DEFAULT_NOTE = { a: { p: 0, d: 0 }, B: [[{ p: 0, d: 0 }]] };
 
 
@@ -49,18 +51,18 @@ export const PROGRESSIONS = [
         name: 'Minor ii` v i',
         cols: [
             {
-                a: PW.Presets.KEY_CENTERS.C,
-                B: PW.Presets.CHORD.HalfDim7.B,
+                a: KEY_CENTERS.C.a,
+                B: CHORD.HalfDim7.B,
                 t: 4
             },
             {
-                a: PW.Presets.KEY_CENTERS.F,
-                B: PW.Presets.CHORD.Min7.B,
+                a: KEY_CENTERS.F.a,
+                B: CHORD.Min7.B,
                 t: 4
             },
             {
-                a: PW.Presets.KEY_CENTERS.Bb,
-                B: PW.Presets.CHORD.Min7.B,
+                a: KEY_CENTERS.Bb,
+                B: CHORD.Min7.B,
                 t: 8
             }
         ]
@@ -70,18 +72,18 @@ export const PROGRESSIONS = [
         name: 'Major II V I',
         cols: [
             {
-                a: PW.Presets.KEY_CENTERS.C,
-                B: PW.Presets.CHORD.Min7.B,
+                a: KEY_CENTERS.C.a,
+                B: CHORD.Min7.B,
                 t: 4
             },
             {
-                a: PW.Presets.KEY_CENTERS.F,
-                B: PW.Presets.CHORD.Dom7.B,
+                a: KEY_CENTERS.F.a,
+                B: CHORD.Dom7.B,
                 t: 4
             },
             {
-                a: PW.Presets.KEY_CENTERS.Bb,
-                B: PW.Presets.CHORD.Maj7.B,
+                a: KEY_CENTERS.Bb,
+                B: CHORD.Maj7.B,
                 t: 8
             }
         ]
@@ -99,18 +101,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
@@ -118,18 +120,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.B,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.B.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.E,
-                                B: PW.Presets.CHORD.Dom7b9.B,
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Dom7b9.B,
                                 t: 4
                             }
                         ]
@@ -142,18 +144,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.A,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.E,
-                                B: PW.Presets.CHORD.Dom7b9.B,
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Dom7b9.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.A,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
                                 t: 8
                             }
                         ]
@@ -161,18 +163,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Dom7.B,
                                 t: 8
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.D,
-                                B: PW.Presets.CHORD.Dom7b9.B,
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Dom7b9.B,
                                 t: 8
                             }
                         ]
@@ -185,18 +187,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
@@ -204,18 +206,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.B,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.B.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.E,
-                                B: PW.Presets.CHORD.Dom7b9.B,
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Dom7b9.B,
                                 t: 4
                             }
                         ]
@@ -228,23 +230,23 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.A,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.E,
-                                B: PW.Presets.CHORD.Dom7b9.B,
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Dom7b9.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.A,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min6.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min6.B,
                                 t: 4
                             }
                         ]
@@ -252,38 +254,38 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.B,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.B.a,
+                                B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.HalfDim7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.HalfDim7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.A,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.D,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Dom7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Maj6.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Maj6.B,
                                 t: 8
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.A,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.D,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
@@ -303,23 +305,23 @@ export const CHARTS = [
                         {
                             cols: [
                                 {
-                                    a: PW.Presets.KEY_CENTERS.C,
-                                    B: PW.Presets.CHORD.Min7.B,
+                                    a: KEY_CENTERS.C.a,
+                                    B: CHORD.Min7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.F,
-                                    B: PW.Presets.CHORD.Dom7.B,
+                                    a: KEY_CENTERS.F.a,
+                                    B: CHORD.Dom7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.Bb,
-                                    B: PW.Presets.CHORD.Maj7.B,
+                                    a: KEY_CENTERS.Bb,
+                                    B: CHORD.Maj7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.Eb,
-                                    B: PW.Presets.CHORD.Maj7.B,
+                                    a: KEY_CENTERS.Eb,
+                                    B: CHORD.Maj7.B,
                                     t: 4
                                 }
                             ]
@@ -327,23 +329,23 @@ export const CHARTS = [
                         {
                             cols: [
                                 {
-                                    a: PW.Presets.KEY_CENTERS.A,
-                                    B: PW.Presets.CHORD.HalfDim7.B,
+                                    a: KEY_CENTERS.A.a,
+                                    B: CHORD.HalfDim7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.D,
-                                    B: PW.Presets.CHORD.Dom7b9.B,
+                                    a: KEY_CENTERS.D.a,
+                                    B: CHORD.Dom7b9.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Min6.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Min6.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Maj7.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Maj7.B,
                                     t: 4
                                 }
                             ]
@@ -356,23 +358,23 @@ export const CHARTS = [
                         {
                             cols: [
                                 {
-                                    a: PW.Presets.KEY_CENTERS.C,
-                                    B: PW.Presets.CHORD.Min7.B,
+                                    a: KEY_CENTERS.C.a,
+                                    B: CHORD.Min7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.F,
-                                    B: PW.Presets.CHORD.Dom7.B,
+                                    a: KEY_CENTERS.F.a,
+                                    B: CHORD.Dom7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.Bb,
-                                    B: PW.Presets.CHORD.Maj7.B,
+                                    a: KEY_CENTERS.Bb,
+                                    B: CHORD.Maj7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.Eb,
-                                    B: PW.Presets.CHORD.Maj7.B,
+                                    a: KEY_CENTERS.Eb,
+                                    B: CHORD.Maj7.B,
                                     t: 4
                                 },
 
@@ -381,18 +383,18 @@ export const CHARTS = [
                         {
                             cols: [
                                 {
-                                    a: PW.Presets.KEY_CENTERS.A,
-                                    B: PW.Presets.CHORD.HalfDim7.B,
+                                    a: KEY_CENTERS.A.a,
+                                    B: CHORD.HalfDim7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.D,
-                                    B: PW.Presets.CHORD.Dom7b9.B,
+                                    a: KEY_CENTERS.D.a,
+                                    B: CHORD.Dom7b9.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Min6.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Min6.B,
                                     t: 8
                                 }
                             ]
@@ -406,23 +408,23 @@ export const CHARTS = [
                             cols: [
                                 {
                                     section: 'B',
-                                    a: PW.Presets.KEY_CENTERS.A,
-                                    B: PW.Presets.CHORD.HalfDim7.B,
+                                    a: KEY_CENTERS.A.a,
+                                    B: CHORD.HalfDim7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.D,
-                                    B: PW.Presets.CHORD.Dom7b9.B,
+                                    a: KEY_CENTERS.D.a,
+                                    B: CHORD.Dom7b9.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Min6.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Min6.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Min6.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Min6.B,
                                     t: 4
                                 },
 
@@ -431,23 +433,23 @@ export const CHARTS = [
                         {
                             cols: [
                                 {
-                                    a: PW.Presets.KEY_CENTERS.C,
-                                    B: PW.Presets.CHORD.Min7.B,
+                                    a: KEY_CENTERS.C.a,
+                                    B: CHORD.Min7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.F,
-                                    B: PW.Presets.CHORD.Dom7.B,
+                                    a: KEY_CENTERS.F.a,
+                                    B: CHORD.Dom7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.Bb,
-                                    B: PW.Presets.CHORD.Maj7.B,
+                                    a: KEY_CENTERS.Bb,
+                                    B: CHORD.Maj7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.Eb,
-                                    B: PW.Presets.CHORD.Maj7.B,
+                                    a: KEY_CENTERS.Eb,
+                                    B: CHORD.Maj7.B,
                                     t: 4
                                 }
                             ]
@@ -461,33 +463,33 @@ export const CHARTS = [
                             cols: [
                                 {
                                     section: 'C',
-                                    a: PW.Presets.KEY_CENTERS.A,
-                                    B: PW.Presets.CHORD.HalfDim7.B,
+                                    a: KEY_CENTERS.A.a,
+                                    B: CHORD.HalfDim7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.D,
-                                    B: PW.Presets.CHORD.Dom7b9.B,
+                                    a: KEY_CENTERS.D.a,
+                                    B: CHORD.Dom7b9.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Min7.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Min7.B,
                                     t: 2
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.C,
-                                    B: PW.Presets.CHORD.Dom7.B,
+                                    a: KEY_CENTERS.C.a,
+                                    B: CHORD.Dom7.B,
                                     t: 2
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.F,
-                                    B: PW.Presets.CHORD.Min7.B,
+                                    a: KEY_CENTERS.F.a,
+                                    B: CHORD.Min7.B,
                                     t: 2
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.Bb,
-                                    B: PW.Presets.CHORD.Dom7.B,
+                                    a: KEY_CENTERS.Bb,
+                                    B: CHORD.Dom7.B,
                                     t: 2
                                 },
 
@@ -496,23 +498,23 @@ export const CHARTS = [
                         {
                             cols: [
                                 {
-                                    a: PW.Presets.KEY_CENTERS.A,
-                                    B: PW.Presets.CHORD.HalfDim7.B,
+                                    a: KEY_CENTERS.A.a,
+                                    B: CHORD.HalfDim7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.D,
-                                    B: PW.Presets.CHORD.Dom7b9.B,
+                                    a: KEY_CENTERS.D.a,
+                                    B: CHORD.Dom7b9.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Min7.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Min7.B,
                                     t: 4
                                 },
                                 {
-                                    a: PW.Presets.KEY_CENTERS.G,
-                                    B: PW.Presets.CHORD.Min7.B,
+                                    a: KEY_CENTERS.G.a,
+                                    B: CHORD.Min7.B,
                                     t: 4
                                 }
                             ]
@@ -531,18 +533,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
                                 t: 8
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Min6.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Min6.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
@@ -550,18 +552,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.D,
-                                B: PW.Presets.CHORD.HalfDim7.B,
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.HalfDim7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
                                 t: 8
                             }
                         ]
@@ -574,18 +576,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Ab,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Ab,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Db,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Db,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             }
                         ]
@@ -593,28 +595,28 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.D,
-                                B: PW.Presets.CHORD.HalfDim7.B,
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.HalfDim7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.D,
-                                B: PW.Presets.CHORD.HalfDim7.B,
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.HalfDim7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Dom7.B,
                                 t: 2
                             }
                         ]
@@ -633,18 +635,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             }
                         ]
@@ -652,18 +654,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Dom7.B,
                                 t: 8
                             }
                         ]
@@ -676,28 +678,28 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Dom7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             }
                         ]
@@ -705,28 +707,28 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Gb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Gb,
+                                B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Maj7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Gb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Gb,
+                                B: CHORD.Maj7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Maj7.B,
                                 t: 4
                             }
                         ]
@@ -739,18 +741,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             }
                         ]
@@ -758,18 +760,18 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Min7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Dom7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Dom7.B,
                                 t: 8
                             }
                         ]
@@ -782,38 +784,38 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Eb,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.Eb,
+                                B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Ab,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Ab,
+                                B: CHORD.Maj7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Maj7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.D,
-                                B: PW.Presets.CHORD.HalfDim7.B,
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.HalfDim7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.G,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Dom7.B,
                                 t: 2
                             }
                         ]
@@ -821,23 +823,23 @@ export const CHARTS = [
                     {
                         cols: [
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Maj7.B,
                                 t: 4
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.C,
-                                B: PW.Presets.CHORD.Min7.B,
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.F,
-                                B: PW.Presets.CHORD.Dom7.B,
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Dom7.B,
                                 t: 2
                             },
                             {
-                                a: PW.Presets.KEY_CENTERS.Bb,
-                                B: PW.Presets.CHORD.Maj7.B,
+                                a: KEY_CENTERS.Bb,
+                                B: CHORD.Maj7.B,
                                 t: 8
                             }
                         ]
