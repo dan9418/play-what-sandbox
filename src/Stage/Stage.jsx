@@ -10,8 +10,8 @@ const Stage = () => {
     return (
         <div className="stage pw-medium">
             <div className="center pw-light">
-                <MasterSelector />
                 <PlaybackControls />
+                <MasterSelector />
                 <OutputList />
             </div>
         </div>

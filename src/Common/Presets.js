@@ -92,6 +92,239 @@ export const PROGRESSIONS = [
 
 export const CHARTS = [
     {
+        id: 'onGreenDolphinStreet',
+        name: 'On Green Dolphin Street',
+        sections: [
+            {
+                name: 'A',
+                rows: [
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Maj7.B,
+                                t: 8
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
+                                t: 8
+                            }
+                        ]
+                    },
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Dom7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.Db.a,
+                                B: CHORD.Maj7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Maj7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Dom7.B,
+                                t: 2
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: 'B',
+                rows: [
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Min7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Dom7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Maj7.B,
+                                t: 8
+                            }
+                        ]
+                    },
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.F.a,
+                                B: CHORD.Min7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.Bb.a,
+                                B: CHORD.Dom7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.Eb.a,
+                                B: CHORD.Maj7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Dom7.B,
+                                t: 2
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: 'A',
+                rows: [
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Maj7.B,
+                                t: 8
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Min7.B,
+                                t: 8
+                            }
+                        ]
+                    },
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Dom7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.Db.a,
+                                B: CHORD.Maj7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: CHORD.Maj7.B,
+                                t: 4
+                            },
+                            {
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Dom7.B,
+                                t: 2
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: 'C',
+                rows: [
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.B.a,
+                                B: CHORD.HalfDim7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Dom7b9.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.Fs.a,
+                                B: CHORD.HalfDim7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.B.a,
+                                B: CHORD.Dom7b9.B,
+                                t: 2
+                            },
+                        ]
+                    },
+                    {
+                        progression: [
+                            {
+                                a: KEY_CENTERS.E.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.A.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.D.a,
+                                B: CHORD.Min7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Dom7.B,
+                                t: 2
+                            },
+                            {
+                                a: KEY_CENTERS.G.a,
+                                B: CHORD.Maj7.B,
+                                t: 8
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         id: 'outOfNowhere',
         name: 'Out of Nowhere',
         sections: [
