@@ -1,4 +1,5 @@
 import { atom, selector } from 'recoil';
+import PW from 'play-what';
 import Viewers from 'play-what-react-viewers';
 import { CHARTS, PROGRESSIONS, CONCEPTS } from '../Common/Presets';
 
@@ -29,19 +30,21 @@ export const INPUT_MODES = [
     }
 ];
 
+const I_M = 2;
+
 export const inputModeState = atom({
     key: 'inputMode',
-    default: INPUT_MODES[2]
+    default: INPUT_MODES[I_M]
 });
 
 export const sourceState = atom({
     key: 'source',
-    default: INPUT_MODES[2].presets[0]
+    default: INPUT_MODES[I_M].presets[0]
 });
 
 export const positionState = atom({
     key: 'position',
-    default: INPUT_MODES[2].startPosition
+    default: INPUT_MODES[I_M].startPosition
 });
 
 export const inputModeSelector = selector({
@@ -54,6 +57,17 @@ export const inputModeSelector = selector({
     }
 });
 
+const parseConceptPresets = c => {
+    const concept = { ...c };
+    if (typeof concept.a === 'string') {
+
+    }
+    if (typeof concept.B === 'string') {
+        concept.B = PW.Theory.findPresetWithId(concept.B).B;
+    }
+    return concept;
+}
+
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
@@ -62,12 +76,12 @@ export const conceptState = selector({
         const position = get(positionState);
         switch (inputMode.id) {
             case 'concept':
-                return source;
+                return parseConceptPresets(source);
             case 'progression':
-                return source.progression[position];
+                return parseConceptPresets(source.progression[position]);
             case 'chart':
                 const [s, r, c] = position;
-                return source.sections[s].rows[r].progression[c];
+                return parseConceptPresets(source.sections[s].rows[r].progression[c]);
         }
     },
     set: ({ set, get }, concept) => {
