@@ -75,3 +75,7 @@
     right: 0;
     display: flex;
 }
+
+.zoom-selector .button-input {
+    margin: 8px;
+}

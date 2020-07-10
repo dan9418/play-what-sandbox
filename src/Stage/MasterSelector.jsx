@@ -24,18 +24,6 @@ const MasterSelector = () => {
 
     return (
         <div className="master-selector">
-            <div className="input-mode-selector">
-                {INPUT_MODES.map((m, i) => {
-                    return (
-                        <ButtonInput
-                            key={i}
-                            onClick={() => setInputMode(m)}
-                            className={inputMode.id === m.id ? 'pw-accent' : 'pw-secondary'}>
-                            {`${m.label} ${m.name}`}
-                        </ButtonInput>
-                    );
-                })}
-            </div>
             <div className="source-preset">
                 <Dropdown value={source} setValue={setSourceSafe} options={inputMode.presets} />
             </div>
