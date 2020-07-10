@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import PW from 'play-what';
 import './Stage.css';
 
-import PlaybackControls from '../PlaybackControls/PlaybackControls';
-
-import MasterSelector from './MasterSelector';
 import { useRecoilValue } from 'recoil';
 import { conceptState } from './State';
 

@@ -15,18 +15,13 @@
 .stage .center {
     width: 100%;
     min-height: 100vh;
-    max-width: 100%;
-    padding: 32px;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
 }
 
 @media(min-width: 1024px) {
-    .stage .center {
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-    }
+
 }
 
 .output-list>* {
@@ -35,4 +30,29 @@
 
 .source-preset {
     margin: 16px;
+}
+
+.menu {
+    width: 0;
+    min-height: 100%;
+    position: relative;
+    transition: width .2s;
+}
+
+.menu.open {
+    width: 512px;
+}
+
+.menu .tab {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0 8px 8px 0;
 }
