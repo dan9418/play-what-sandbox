@@ -3,7 +3,7 @@ import './Stage.css';
 
 import Viewers from 'play-what-react-viewers';
 import { useRecoilValue } from 'recoil';
-import { conceptState } from './State';
+import { conceptState } from '../Common/State';
 import ConceptPreview from './ConceptPreview';
 
 const { Fretboard, Keyboard } = Viewers.Modules;

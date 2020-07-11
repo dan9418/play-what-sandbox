@@ -1,5 +1,5 @@
 import React from 'react';
-import './Stage.css';
+import './Menu.css';
 
 import Viewers from 'play-what-react-viewers';
 const { UI, Modules } = Viewers;
@@ -7,7 +7,7 @@ const { ButtonInput, Dropdown } = UI;
 const { Chart } = Modules;
 
 import { useRecoilState } from 'recoil';
-import { sourceSelector, zoomLevelSelector, PRESETS } from './State';
+import { sourceSelector, zoomLevelSelector, PRESETS } from '../Common/State';
 import { useRecoilValue } from 'recoil';
 
 const PresetSelector = ({ level, children }) => {

@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom';
 import React, { useState, useEffect } from 'react';
 import Viewers from 'play-what-react-viewers';
 import Common from '../Common/_module';
-import './Stage.css';
-import { zoomLevelSelector } from '../Stage/State';
+import './Menu.css';
+import { zoomLevelSelector } from '../Common/State';
 import ButtonInput from 'play-what-react-viewers/src/UI/ButtonInput/ButtonInput';
 import { useRecoilState } from 'recoil';
 

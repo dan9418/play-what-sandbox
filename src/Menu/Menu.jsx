@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './Stage.css';
-
-import Viewers from 'play-what-react-viewers';
-const { UI, Modules } = Viewers;
-const { ButtonInput, Dropdown } = UI;
-const { Chart } = Modules;
-
+import './Menu.css';
+import Chart from './Chart/Chart';
 import { useRecoilState } from 'recoil';
-import { zoomLevelSelector, sourceSelector, INPUT_MODES, positionState, conceptState } from './State';
-import { useRecoilValue } from 'recoil';
-import PlaybackControls from '../PlaybackControls/PlaybackControls';
+import { zoomLevelSelector, sourceSelector, positionState } from '../Common/State';
+import PlaybackControls from './PlaybackControls/PlaybackControls';
 import ZoomSelector from './ZoomSelector';
 import PresetSelector from './PresetSelector';
 

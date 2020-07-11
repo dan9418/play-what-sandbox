@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PW from 'play-what';
-import './Stage.css';
 
 import { useRecoilValue } from 'recoil';
-import { conceptState } from './State';
+import { conceptState } from '../Common/State';
 
 const ConceptPreview = () => {
     const concept = useRecoilValue(conceptState);
