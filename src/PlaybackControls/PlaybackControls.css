@@ -1,9 +1,8 @@
 .playback-controls {
-	width: 90%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	margin: auto;
+	margin: 8px 16px;
 	padding: 16px;
 	background-color: #eee;
 	border-radius: 16px;

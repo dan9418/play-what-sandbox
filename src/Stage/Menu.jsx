@@ -1,39 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import './Stage.css';
-import Viewers from 'play-what-react-viewers';
-import { useRecoilState } from 'recoil';
-import { inputModeSelector, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
-import { useRecoilValue } from 'recoil';
-import PlaybackControls from '../PlaybackControls/PlaybackControls';
-import Heading from './Heading';
 
+import Viewers from 'play-what-react-viewers';
 const { UI, Modules } = Viewers;
 const { ButtonInput, Dropdown } = UI;
 const { Chart } = Modules;
 
-const MasterSelector = () => {
+import { useRecoilState } from 'recoil';
+import { inputModeSelector, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
+import { useRecoilValue } from 'recoil';
+import PlaybackControls from '../PlaybackControls/PlaybackControls';
+import ZoomSelector from '../NavBar/ZoomSelector';
+import PresetSelector from './PresetSelector';
+
+const Menu = () => {
 
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
 
     const [inputMode, setInputMode] = useRecoilState(inputModeSelector);
     const [source, setSource] = useRecoilState(sourceState);
-    //const setA = useSetRecoilState(aState);
-    //const setB = useSetRecoilState(BState);
-    const concept = useRecoilValue(conceptState);
     const [position, setPosition] = useRecoilState(positionState);
-
-    console.log(source, concept);
-
-    const setSourceSafe = src => setSource({ a: { p: 0, d: 0 }, ...src })
 
     return (
         <div className={`menu pw-lighter ${open && 'open'}`}>
             {open &&
                 <>
                     <h1>Inputs</h1>
-                    <h2>Preset</h2>
-                    <Dropdown value={source} setValue={setSourceSafe} options={inputMode.presets} />
+                    <h2>Zoom Level</h2>
+                    <ZoomSelector />
+                    <h2>Presets</h2>
+                    <PresetSelector />
                     <h2>Playback</h2>
                     <PlaybackControls />
                     <Chart source={source} position={position} setPosition={setPosition} inputModeId={inputMode.id} />
@@ -44,4 +41,4 @@ const MasterSelector = () => {
     );
 }
 
-export default MasterSelector;
+export default Menu;

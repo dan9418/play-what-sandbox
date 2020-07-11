@@ -76,6 +76,8 @@
     display: flex;
 }
 
-.zoom-selector .button-input {
-    margin: 8px;
+.zoom-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

@@ -19,7 +19,7 @@ const ZoomSelector = () => {
                     <ButtonInput
                         key={i}
                         onClick={() => setInputMode(m)}
-                        className={inputMode.id === m.id ? 'pw-secondary' : 'pw-primary'}>
+                        className={inputMode.id === m.id ? 'pw-accent' : 'pw-secondary'}>
                         {`${m.label} ${m.name}`}
                     </ButtonInput>
                 );
