@@ -47,11 +47,14 @@
     margin-bottom: 4px;
 }
 
+.chart .concept:only-child {
+    margin: 0 8px;
+}
+
 .chart .concept .tonic {
     font-weight: bold;
 }
 
-
 .chart .concept .preset {
-   margin-left: 4px;
+    margin-left: 4px;
 }

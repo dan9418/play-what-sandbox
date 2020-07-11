@@ -94,8 +94,12 @@ export const conceptState = selector({
         const [s, p, c] = position;
 
         const sourceCopy = { ...source };
+        sourceCopy.sections = [...source.sections];
+        sourceCopy.sections[s] = { ...source.sections[s] };
+        sourceCopy.sections[s].progressions = [...source.sections[s].progressions];
+        sourceCopy.sections[s].progressions[p] = { ...source.sections[s].progressions[p] };
         sourceCopy.sections[s].progressions[p].concepts = [...source.sections[s].progressions[p].concepts];
-        sourceCopy.sections[s].progressions[p].concepts[c] = concept;
+        sourceCopy.sections[s].progressions[p].concepts[c] = { ...concept };
 
         set(sourceState, sourceCopy);
     }
@@ -142,7 +146,7 @@ export const nextConceptState = selector({
     }
 });
 
-/*
+
 export const aState = selector({
     key: 'a',
     get: ({ get }) => {
@@ -166,4 +170,3 @@ export const BState = selector({
         set(conceptState, { ...newConcept, a: oldConcept.a })
     }
 });
-*/

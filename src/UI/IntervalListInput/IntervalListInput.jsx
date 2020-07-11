@@ -16,13 +16,11 @@ const getIntervalRows = (intervals, setIntervals) => {
 
 const IntervalListInput = props => {
     return (
-        <div className="pw-input-block">
-            <table>
-                <tbody>
-                    {getIntervalRows(props.B, props.setIntervals)}
-                </tbody>
-            </table>
-        </div>
+        <table className="interval-list-input">
+            <tbody>
+                {getIntervalRows(props.intervals, props.setIntervals)}
+            </tbody>
+        </table>
     )
 }
 
