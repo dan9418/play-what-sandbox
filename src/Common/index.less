@@ -1,0 +1,132 @@
+//@primary: #5E99D1;
+@primary: #414770;
+@primary-fg: #FFF;
+@primary-hover: darken(@primary, 10%);
+
+@secondary: #5B85AA;
+@secondary-fg: #FFF;
+@secondary-hover: darken(@secondary, 10%);
+
+@accent: #F46036;
+@accent-fg: #FFF;
+@accent-hover: darken(@accent, 10%);
+
+@light: #DDD;
+@light-fg: #333;
+@light-hover: darken(@light, 10%);
+
+@lighter: lighten(@light, 10%);
+@lighter-hover: darken(@lighter, 10%);
+
+@lightest: lighten(@light, 20%);
+@lightest-hover: darken(@lightest, 10%);
+
+@medium: #C0C0C0;
+@medium-fg: #333;
+@medium-hover: darken(@medium, 10%);
+
+@dark: #232323;
+@dark-fg: #FFF;
+@dark-hover: lighten(@dark, 10%);
+
+
+/* Conditions */
+
+.pw-hov {
+    cursor: pointer;
+}
+
+.pw-no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Theme */
+
+.pw-primary {
+    background-color: @primary;
+    color: @primary-fg;
+    border-color: @primary-fg;
+}
+.pw-primary.pw-hov:hover {
+    background-color: @primary-hover;
+}
+
+.pw-secondary {
+    background-color: @secondary;
+    color: @secondary-fg;
+    border-color: @secondary-fg
+}
+.pw-secondary.pw-hov:hover {
+    background-color: @secondary-hover;
+}
+
+.pw-accent {
+    background-color: @accent;
+    color: @accent-fg;
+    border-color: @accent-fg;
+}
+.pw-accent.pw-hov:hover {
+    background-color: @accent-fg;
+    color: @accent;
+    border-color: @accent;
+}
+
+/* Neutral */
+
+.pw-light {
+    background-color: @light;
+    color: @light-fg;
+    border-color: @light-fg;
+}
+.pw-light.pw-hov:hover {
+    background-color: @light-hover;
+}
+
+.pw-lighter {
+    background-color: @lighter;
+    color: @light-fg;
+    border-color: @light-fg
+}
+.pw-lighter.pw-hov:hover {
+    background-color: @lighter-hover;
+}
+
+.pw-lightest {
+    background-color: @lightest;
+    color: @light-fg;
+    border-color: @medium
+}
+.pw-lightest.pw-hov:hover {
+    background-color: @lightest-hover;
+}
+
+.pw-medium {
+    background-color: @medium;
+    color: @medium-fg;
+    border-color: @medium-fg
+}
+.pw-medium.pw-hov:hover {
+    background-color: @medium-hover;
+}
+
+
+.pw-dark {
+    background-color: @dark;
+    color: @dark-fg;
+    border-color: @dark-fg;
+}
+.pw-dark.pw-hov:hover {
+    background-color: @dark-hover;
+}
+
+/* States */
+
+.pw-disabled {
+    background-color: @medium;
+    color: darken(@medium, 25%);
+}

@@ -1,0 +1,85 @@
+/* Conditions */
+.pw-hov {
+  cursor: pointer;
+}
+.pw-no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Theme */
+.pw-primary {
+  background-color: #414770;
+  color: #FFF;
+  border-color: #FFF;
+}
+.pw-primary.pw-hov:hover {
+  background-color: #2e3350;
+}
+.pw-secondary {
+  background-color: #5B85AA;
+  color: #FFF;
+  border-color: #FFF;
+}
+.pw-secondary.pw-hov:hover {
+  background-color: #486b8a;
+}
+.pw-accent {
+  background-color: #F46036;
+  color: #FFF;
+  border-color: #FFF;
+}
+.pw-accent.pw-hov:hover {
+  background-color: #FFF;
+  color: #F46036;
+  border-color: #F46036;
+}
+/* Neutral */
+.pw-light {
+  background-color: #DDD;
+  color: #333;
+  border-color: #333;
+}
+.pw-light.pw-hov:hover {
+  background-color: #c4c4c4;
+}
+.pw-lighter {
+  background-color: #f7f7f7;
+  color: #333;
+  border-color: #333;
+}
+.pw-lighter.pw-hov:hover {
+  background-color: #dddddd;
+}
+.pw-lightest {
+  background-color: #ffffff;
+  color: #333;
+  border-color: #C0C0C0;
+}
+.pw-lightest.pw-hov:hover {
+  background-color: #e6e6e6;
+}
+.pw-medium {
+  background-color: #C0C0C0;
+  color: #333;
+  border-color: #333;
+}
+.pw-medium.pw-hov:hover {
+  background-color: #a7a7a7;
+}
+.pw-dark {
+  background-color: #232323;
+  color: #FFF;
+  border-color: #FFF;
+}
+.pw-dark.pw-hov:hover {
+  background-color: #3d3d3d;
+}
+/* States */
+.pw-disabled {
+  background-color: #C0C0C0;
+  color: #808080;
+}

@@ -1,0 +1,33 @@
+.controller-header {
+    text-align: left;
+}
+
+.controller-header > h1 {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.controller-header .edit {
+    font-size: medium;
+    cursor: pointer;
+}
+
+.controller-header .content {
+    border: 1px solid black;
+    width: 95%;
+    margin: auto;
+    max-height: 0px;
+    box-sizing: border-box;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+}
+
+.controller-header.open .content {
+    padding: 16px;
+    max-height: 10000px;
+    transition: max-height 2s ease-in;
+}
