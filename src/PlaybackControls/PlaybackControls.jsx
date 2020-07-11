@@ -5,7 +5,7 @@ import './PlaybackControls.css';
 import ButtonInput from 'play-what-react-viewers/src/UI/ButtonInput/ButtonInput';
 import ScalarInput from 'play-what-react-viewers/src/UI/ScalarInput/ScalerInput';
 import { useRecoilState } from 'recoil';
-import { positionState, nextConceptState, inputModeSelector, conceptState, nextPositionState } from '../Stage/State';
+import { positionState, nextConceptState, conceptState, nextPositionState } from '../Stage/State';
 import { useRecoilValue } from 'recoil';
 
 const DEFAULT_NOTE = { a: [0, 0], B: [[0, 0]] };

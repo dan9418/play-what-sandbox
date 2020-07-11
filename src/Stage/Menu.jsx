@@ -7,10 +7,10 @@ const { ButtonInput, Dropdown } = UI;
 const { Chart } = Modules;
 
 import { useRecoilState } from 'recoil';
-import { inputModeSelector, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
+import { zoomLevelSelector, sourceSelector, INPUT_MODES, positionState, conceptState } from './State';
 import { useRecoilValue } from 'recoil';
 import PlaybackControls from '../PlaybackControls/PlaybackControls';
-import ZoomSelector from '../NavBar/ZoomSelector';
+import ZoomSelector from './ZoomSelector';
 import PresetSelector from './PresetSelector';
 
 const Menu = () => {
@@ -18,8 +18,8 @@ const Menu = () => {
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
 
-    const [inputMode, setInputMode] = useRecoilState(inputModeSelector);
-    const [source, setSource] = useRecoilState(sourceState);
+    const [zoomLevel, setZoomLevel] = useRecoilState(zoomLevelSelector);
+    const [source, setSource] = useRecoilState(sourceSelector);
     const [position, setPosition] = useRecoilState(positionState);
 
     return (
@@ -33,7 +33,7 @@ const Menu = () => {
                     <PresetSelector />
                     <h2>Playback</h2>
                     <PlaybackControls />
-                    <Chart source={source} position={position} setPosition={setPosition} inputModeId={inputMode.id} />
+                    <Chart source={source} position={position} setPosition={setPosition} inputModeId={zoomLevel} />
                 </>
             }
             <div className={`tab pw-lighter pw-medium pw-hov`} onClick={toggleOpen} >{open ? '<' : '>'}</div>

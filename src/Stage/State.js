@@ -3,61 +3,76 @@ import PW from 'play-what';
 import Viewers from 'play-what-react-viewers';
 import { CHARTS, PROGRESSIONS, CONCEPTS } from '../Common/Presets';
 
+export const PRESETS = {
+    concept: CONCEPTS,
+    progression: PROGRESSIONS,
+    chart: CHARTS
+};
+
 const { UI, Modules } = Viewers;
 const { ButtonInput } = UI;
 
-export const INPUT_MODES = [
-    {
-        id: 'concept',
-        name: 'Concept',
-        label: '•',
-        presets: CONCEPTS,
-        startPosition: null
-    },
-    {
-        id: 'progression',
-        name: 'Progression',
-        label: '••',
-        presets: PROGRESSIONS,
-        startPosition: 0
-    },
-    {
-        id: 'chart',
-        name: 'Chart',
-        label: '••••',
-        presets: CHARTS,
-        startPosition: [0, 0, 0]
+export const ZOOM_LEVEL = {
+    concept: 'concept',
+    progression: 'progression',
+    chart: 'chart'
+};
+
+const formatSourceForZoomLevel = (z, rawSource) => {
+    const source = rawSource || PRESETS[z][0];
+    switch (z) {
+        case ZOOM_LEVEL.concept:
+            return { sections: [{ progressions: [{ concepts: [source] }] }] };
+        case ZOOM_LEVEL.progression:
+            return { sections: [{ progressions: [source] }] };
+        case ZOOM_LEVEL.chart:
+            return source;
     }
-];
+}
 
-const I_M = 2;
+const DEFAULT_POSITION = [0, 0, 0];
+const Z = ZOOM_LEVEL.chart;
 
-export const inputModeState = atom({
-    key: 'inputMode',
-    default: INPUT_MODES[I_M]
+// CORE
+
+const zoomLevelState = atom({
+    key: 'zoomLevel',
+    default: Z
 });
 
-export const sourceState = atom({
+const sourceState = atom({
     key: 'source',
-    default: INPUT_MODES[I_M].presets[0]
+    default: formatSourceForZoomLevel(Z)
 });
 
 export const positionState = atom({
     key: 'position',
-    default: INPUT_MODES[I_M].startPosition
+    default: DEFAULT_POSITION
 });
 
-export const inputModeSelector = selector({
-    key: 'inputModeSelector',
-    get: ({ get }) => get(inputModeState),
-    set: ({ set }, inputMode) => {
-        set(inputModeState, inputMode);
-        set(sourceState, inputMode.presets[0]);
-        set(positionState, inputMode.startPosition);
+// HELPERS
+
+export const zoomLevelSelector = selector({
+    key: 'zoomLevelSelector',
+    get: ({ get }) => get(zoomLevelState),
+    set: ({ set }, z) => {
+        set(zoomLevelState, z);
+        set(sourceState, formatSourceForZoomLevel(z));
+        set(positionState, DEFAULT_POSITION);
     }
 });
 
-const parseConceptPresets = c => {
+export const sourceSelector = selector({
+    key: 'sourceSelector',
+    get: ({ get }) => get(sourceState),
+    set: ({ get, set }, rawSource) => {
+        const zoomLevel = get(zoomLevelSelector);
+        const source = formatSourceForZoomLevel(zoomLevel, rawSource);
+        set(sourceState, source);
+    }
+});
+
+const parseConceptConfig = c => {
     const concept = { ...c };
     if (typeof concept.a === 'string') {
 
@@ -71,71 +86,52 @@ const parseConceptPresets = c => {
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const inputMode = get(inputModeSelector);
         const source = get(sourceState);
         const position = get(positionState);
-        switch (inputMode.id) {
-            case 'concept':
-                return parseConceptPresets(source);
-            case 'progression':
-                return parseConceptPresets(source.concepts[position]);
-            case 'chart':
-                const [s, r, c] = position;
-                return parseConceptPresets(source.sections[s].progressions[r].concepts[c]);
-        }
+        const [s, p, c] = position;
+        const conceptConfig = source.sections[s].progressions[p].concepts[c];
+        return parseConceptConfig(conceptConfig);
     },
     set: ({ set, get }, concept) => {
-        const inputMode = get(inputModeSelector);
         const source = get(sourceState);
         const position = get(positionState);
-        switch (inputMode.id) {
-            case 'concept':
-                set(sourceState, source);
-                break;
-            case 'progression':
-                const progressionCopy = { ...source };
-                progressionCopy.concepts = [...source.concepts]
-                progressionCopy.concepts[position] = concept;
-                set(sourceState, progressionCopy);
-                break;
-            case 'chart':
-                const [s, r, c] = position;
-                const chartCopy = { ...source };
-                chartCopy.sections[s].progressions[r].concepts = [...source.sections[s].progressions[r].concepts];
-                chartCopy.sections[s].progressions[r].concepts[c] = concept;
-                set(sourceState, chartCopy);
-                break;
-        }
+        const [s, p, c] = position;
+
+        const sourceCopy = { ...source };
+        sourceCopy.sections[s].progressions[p].concepts = [...source.sections[s].progressions[p].concepts];
+        sourceCopy.sections[s].progressions[p].concepts[c] = concept;
+
+        set(sourceState, sourceCopy);
     }
 });
 
 export const nextPositionState = selector({
     key: 'nextPosition',
     get: ({ get }) => {
-        const inputMode = get(inputModeSelector);
+        const zoomLevel = get(zoomLevelSelector);
         const source = get(sourceState);
         const position = get(positionState);
-        switch (inputMode.id) {
+        switch (zoomLevel) {
             case 'concept':
-                return null;
+                return DEFAULT_POSITION;
             case 'progression':
-                const isLast = position === source.concepts.length - 1;
-                return isLast ? 0 : position + 1;
+                const isLast = position[2] === source.sections[0].progressions[0].concepts.length - 1;
+                return isLast ? DEFAULT_POSITION : [0, 0, position + 1];
             case 'chart':
-                const [s, r, c] = position;
+                const [s, p, c] = position;
                 const isLastSection = s === source.sections.length - 1;
-                const isLastRow = r === source.sections[s].progressions.length - 1;
-                const isLastCol = c === source.sections[s].progressions[r].concepts.length - 1;
-                if (isLastCol) {
-                    if (isLastRow) {
+                const isLastProgression = p === source.sections[s].progressions.length - 1;
+                const isLastConcept = c === source.sections[s].progressions[p].concepts.length - 1;
+                if (isLastConcept) {
+                    if (isLastProgression) {
                         if (isLastSection) {
                             return [0, 0, 0];
                         }
                         return [s + 1, 0, 0];
                     }
-                    return [s, r + 1, 0];
+                    return [s, p + 1, 0];
                 }
-                return [s, r, c + 1];
+                return [s, p, c + 1];
         }
     }
 });
@@ -143,21 +139,14 @@ export const nextPositionState = selector({
 export const nextConceptState = selector({
     key: 'nextConcept',
     get: ({ get }) => {
-        const inputMode = get(inputModeState);
         const source = get(sourceState);
         const nextPosition = get(nextPositionState);
-        switch (inputMode.id) {
-            case 'concept':
-                return source;
-            case 'progression':
-                return source.concepts[nextPosition];
-            case 'chart':
-                const [s, r, c] = nextPosition;
-                return source.sections[s].progressions[r].concepts[c];
-        }
+        const [s, p, c] = nextPosition;
+        return source.sections[s].progressions[p].concepts[c];
     }
 });
 
+/*
 export const aState = selector({
     key: 'a',
     get: ({ get }) => {
@@ -181,3 +170,4 @@ export const BState = selector({
         set(conceptState, { ...newConcept, a: oldConcept.a })
     }
 });
+*/

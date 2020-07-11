@@ -69,3 +69,9 @@
 h1, h2 {
     margin-left: 16px;
 }
+
+.zoom-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
