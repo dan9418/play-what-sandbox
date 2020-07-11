@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil';
 import { inputModeSelector, sourceState, INPUT_MODES, positionState, conceptState, aState, BState } from './State';
 import { useRecoilValue } from 'recoil';
 import PlaybackControls from '../PlaybackControls/PlaybackControls';
+import Heading from './Heading';
 
 const { UI, Modules } = Viewers;
 const { ButtonInput, Dropdown } = UI;
@@ -30,9 +31,10 @@ const MasterSelector = () => {
         <div className={`menu pw-lighter ${open && 'open'}`}>
             {open &&
                 <>
-                    <div className="source-preset">
-                        <Dropdown value={source} setValue={setSourceSafe} options={inputMode.presets} />
-                    </div>
+                    <h1>Inputs</h1>
+                    <h2>Preset</h2>
+                    <Dropdown value={source} setValue={setSourceSafe} options={inputMode.presets} />
+                    <h2>Playback</h2>
                     <PlaybackControls />
                     <Chart source={source} position={position} setPosition={setPosition} inputModeId={inputMode.id} />
                 </>

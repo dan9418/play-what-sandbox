@@ -6,11 +6,9 @@ import OutputList from './OutputList';
 
 const Stage = () => {
     return (
-        <div className="stage pw-medium">
-            <div className="center pw-light">
-                <Menu />
-                <OutputList />
-            </div>
+        <div className="stage">
+            <Menu />
+            <OutputList />
         </div>
     );
 }

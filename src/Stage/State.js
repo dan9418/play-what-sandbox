@@ -78,10 +78,10 @@ export const conceptState = selector({
             case 'concept':
                 return parseConceptPresets(source);
             case 'progression':
-                return parseConceptPresets(source.progression[position]);
+                return parseConceptPresets(source.concepts[position]);
             case 'chart':
                 const [s, r, c] = position;
-                return parseConceptPresets(source.sections[s].rows[r].progression[c]);
+                return parseConceptPresets(source.sections[s].progressions[r].concepts[c]);
         }
     },
     set: ({ set, get }, concept) => {
@@ -94,15 +94,15 @@ export const conceptState = selector({
                 break;
             case 'progression':
                 const progressionCopy = { ...source };
-                progressionCopy.progression = [...source.progression]
-                progressionCopy.progression[position] = concept;
+                progressionCopy.concepts = [...source.concepts]
+                progressionCopy.concepts[position] = concept;
                 set(sourceState, progressionCopy);
                 break;
             case 'chart':
                 const [s, r, c] = position;
                 const chartCopy = { ...source };
-                chartCopy.sections[s].rows[r].progression = [...source.sections[s].rows[r].progression];
-                chartCopy.sections[s].rows[r].progression[c] = concept;
+                chartCopy.sections[s].progressions[r].concepts = [...source.sections[s].progressions[r].concepts];
+                chartCopy.sections[s].progressions[r].concepts[c] = concept;
                 set(sourceState, chartCopy);
                 break;
         }
@@ -119,13 +119,13 @@ export const nextPositionState = selector({
             case 'concept':
                 return null;
             case 'progression':
-                const isLast = position === source.progression.length - 1;
+                const isLast = position === source.concepts.length - 1;
                 return isLast ? 0 : position + 1;
             case 'chart':
                 const [s, r, c] = position;
                 const isLastSection = s === source.sections.length - 1;
-                const isLastRow = r === source.sections[s].rows.length - 1;
-                const isLastCol = c === source.sections[s].rows[r].progression.length - 1;
+                const isLastRow = r === source.sections[s].progressions.length - 1;
+                const isLastCol = c === source.sections[s].progressions[r].concepts.length - 1;
                 if (isLastCol) {
                     if (isLastRow) {
                         if (isLastSection) {
@@ -150,10 +150,10 @@ export const nextConceptState = selector({
             case 'concept':
                 return source;
             case 'progression':
-                return source.progression[nextPosition];
+                return source.concepts[nextPosition];
             case 'chart':
                 const [s, r, c] = nextPosition;
-                return source.sections[s].rows[r].progression[c];
+                return source.sections[s].progressions[r].concepts[c];
         }
     }
 });

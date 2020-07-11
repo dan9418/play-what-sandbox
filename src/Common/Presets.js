@@ -49,7 +49,7 @@ export const PROGRESSIONS = [
     {
         id: 'm251',
         name: 'Minor ii` v i',
-        progression: [
+        concepts: [
             {
                 a: KEY_CENTERS.C.a,
                 B: 'HalfDim7',
@@ -70,7 +70,7 @@ export const PROGRESSIONS = [
     {
         id: 'M251',
         name: 'Major II V I',
-        progression: [
+        concepts: [
             {
                 a: KEY_CENTERS.C.a,
                 B: 'Min7',
@@ -97,9 +97,9 @@ export const CHARTS = [
         sections: [
             {
                 name: 'A',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Maj7',
@@ -113,7 +113,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: 'Dom7',
@@ -145,9 +145,9 @@ export const CHARTS = [
             },
             {
                 name: 'B',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: 'Min7',
@@ -166,7 +166,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.F.a,
                                 B: 'Min7',
@@ -198,9 +198,9 @@ export const CHARTS = [
             },
             {
                 name: 'A',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Maj7',
@@ -214,7 +214,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: 'Dom7',
@@ -246,9 +246,9 @@ export const CHARTS = [
             },
             {
                 name: 'C',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: 'Min7',
@@ -292,7 +292,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.E.a,
                                 B: 'Min7',
@@ -330,9 +330,9 @@ export const CHARTS = [
         sections: [
             {
                 name: 'A',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: 'Maj7',
@@ -351,7 +351,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: 'Maj7',
@@ -373,9 +373,9 @@ export const CHARTS = [
             },
             {
                 name: 'B',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.A.a,
                                 B: 'Min7',
@@ -394,7 +394,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.Eb.a,
                                 B: 'Dom7',
@@ -416,9 +416,9 @@ export const CHARTS = [
             },
             {
                 name: 'A',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: 'Maj7',
@@ -437,7 +437,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.G.a,
                                 B: 'Maj7',
@@ -459,9 +459,9 @@ export const CHARTS = [
             },
             {
                 name: 'C',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.A.a,
                                 B: 'Min7',
@@ -485,7 +485,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.B.a,
                                 B: 'Min7',
@@ -534,9 +534,9 @@ export const CHARTS = [
             [
                 {
                     name: 'A',
-                    rows: [
+                    progressions: [
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     a: KEY_CENTERS.C.a,
                                     B: 'Min7',
@@ -560,7 +560,7 @@ export const CHARTS = [
                             ]
                         },
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     a: KEY_CENTERS.A.a,
                                     B: 'HalfDim7',
@@ -587,9 +587,9 @@ export const CHARTS = [
                 },
                 {
                     name: 'A\'',
-                    rows: [
+                    progressions: [
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     a: KEY_CENTERS.C.a,
                                     B: 'Min7',
@@ -614,7 +614,7 @@ export const CHARTS = [
                             ]
                         },
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     a: KEY_CENTERS.A.a,
                                     B: 'HalfDim7',
@@ -636,9 +636,9 @@ export const CHARTS = [
                 },
                 {
                     name: 'B',
-                    rows: [
+                    progressions: [
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     section: 'B',
                                     a: KEY_CENTERS.A.a,
@@ -664,7 +664,7 @@ export const CHARTS = [
                             ]
                         },
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     a: KEY_CENTERS.C.a,
                                     B: 'Min7',
@@ -691,9 +691,9 @@ export const CHARTS = [
                 },
                 {
                     name: 'C',
-                    rows: [
+                    progressions: [
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     section: 'C',
                                     a: KEY_CENTERS.A.a,
@@ -729,7 +729,7 @@ export const CHARTS = [
                             ]
                         },
                         {
-                            progression: [
+                            concepts: [
                                 {
                                     a: KEY_CENTERS.A.a,
                                     B: 'HalfDim7',
@@ -762,9 +762,9 @@ export const CHARTS = [
         sections: [
             {
                 name: 'A',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Min7',
@@ -783,7 +783,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: 'HalfDim7',
@@ -805,9 +805,9 @@ export const CHARTS = [
             },
             {
                 name: 'B',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.Eb.a,
                                 B: 'Min7',
@@ -826,7 +826,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.D.a,
                                 B: 'HalfDim7',
@@ -864,9 +864,9 @@ export const CHARTS = [
         sections: [
             {
                 name: 'A',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Min7',
@@ -885,7 +885,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.F.a,
                                 B: 'Min7',
@@ -907,9 +907,9 @@ export const CHARTS = [
             },
             {
                 name: 'B',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.Eb.a,
                                 B: 'Maj7',
@@ -938,7 +938,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.Eb.a,
                                 B: 'Min7',
@@ -970,9 +970,9 @@ export const CHARTS = [
             },
             {
                 name: 'A',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Min7',
@@ -991,7 +991,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.F.a,
                                 B: 'Min7',
@@ -1013,9 +1013,9 @@ export const CHARTS = [
             },
             {
                 name: 'C',
-                rows: [
+                progressions: [
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.Eb.a,
                                 B: 'Maj7',
@@ -1054,7 +1054,7 @@ export const CHARTS = [
                         ]
                     },
                     {
-                        progression: [
+                        concepts: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Maj7',

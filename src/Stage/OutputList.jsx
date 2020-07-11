@@ -13,7 +13,7 @@ const Stage = () => {
     const concept = useRecoilValue(conceptState);
 
     return (
-        <div className="output-list">
+        <div className="output-list pw-light">
             <ConceptPreview />
             <Fretboard concept={concept} />
             <Keyboard concept={concept} />
