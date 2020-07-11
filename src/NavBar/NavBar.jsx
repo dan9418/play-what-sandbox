@@ -1,6 +1,4 @@
-import ReactDOM from 'react-dom';
-import React, { useState, useEffect } from 'react';
-import Viewers from 'play-what-react-viewers';
+import React from 'react';
 import Common from '../Common/_module';
 import './NavBar.css';
 

@@ -1,10 +1,7 @@
-import ReactDOM from 'react-dom';
-import React, { useState, useEffect } from 'react';
-import Viewers from 'play-what-react-viewers';
-import Common from '../Common/_module';
+import React from 'react';
 import './Menu.css';
+import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import { zoomLevelSelector } from '../Common/State';
-import ButtonInput from 'play-what-react-viewers/src/UI/ButtonInput/ButtonInput';
 import { useRecoilState } from 'recoil';
 
 export const ZOOM_LEVEL_INFO = [

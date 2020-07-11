@@ -1,11 +1,8 @@
-import ReactDOM from 'react-dom';
-import React, { useState, useEffect } from 'react';
-import Viewers from 'play-what-react-viewers';
-import Common from '../Common/_module';
+import React from 'react';
 import './Main.css';
+import '../Common/index.css';
 import NavBar from '../NavBar/NavBar';
 import Stage from '../Stage/Stage';
-import PW from 'play-what';
 import { RecoilRoot } from 'recoil';
 
 const Main = () => {

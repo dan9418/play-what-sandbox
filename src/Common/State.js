@@ -1,6 +1,5 @@
 import { atom, selector } from 'recoil';
 import PW from 'play-what';
-import Viewers from 'play-what-react-viewers';
 import { CHARTS, PROGRESSIONS, CONCEPTS } from '../Common/Presets';
 
 export const PRESETS = {
@@ -8,9 +7,6 @@ export const PRESETS = {
     progression: PROGRESSIONS,
     chart: CHARTS
 };
-
-const { UI, Modules } = Viewers;
-const { ButtonInput } = UI;
 
 export const ZOOM_LEVEL = {
     concept: 'concept',

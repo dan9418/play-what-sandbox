@@ -1,10 +1,6 @@
 import React from 'react';
 import './Menu.css';
-
-import Viewers from 'play-what-react-viewers';
-const { UI, Modules } = Viewers;
-const { ButtonInput, Dropdown } = UI;
-const { Chart } = Modules;
+import Dropdown from '../UI/Dropdown/Dropdown';
 
 import { useRecoilState } from 'recoil';
 import { sourceSelector, zoomLevelSelector, PRESETS } from '../Common/State';
