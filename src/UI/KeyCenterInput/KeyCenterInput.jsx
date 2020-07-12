@@ -4,8 +4,7 @@ import './KeyCenterInput.css';
 import PW from 'play-what';
 import ButtonInput from '../ButtonInput/ButtonInput';
 import ScalarInput from '../ScalarInput/ScalerInput';
-import LabeledInput from '../LabeledInput/LabeledInput'
-    ;
+
 const DegreeInput = ({ degree, setDegree }) => {
     const allDegrees = PW.Theory.getAllDegrees();
     return (
