@@ -92,6 +92,432 @@ export const PROGRESSIONS = [
 
 export const CHARTS = [
     {
+        id: 'shapes',
+        name: 'Shapes',
+        sections: [
+            {
+                name: 'Diatonic Scales & Arpeggios',
+                progressions: [
+                    {
+                        name: 'Major',
+                        concepts: [
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Major',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 7,
+                                        fretHigh: 10
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Maj7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 7,
+                                        fretHigh: 10
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Major',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 2,
+                                        fretHigh: 5
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Maj7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 2,
+                                        fretHigh: 5
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Minor',
+                        concepts: [
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'NaturalMinor',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 8,
+                                        fretHigh: 11
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Min7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 8,
+                                        fretHigh: 11
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'NaturalMinor',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 3,
+                                        fretHigh: 6
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Min7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 3,
+                                        fretHigh: 6
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Dominant',
+                        concepts: [
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Mixolydian',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 7,
+                                        fretHigh: 11
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Dom7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 7,
+                                        fretHigh: 11
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Mixolydian',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 2,
+                                        fretHigh: 6
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Dom7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 2,
+                                        fretHigh: 6
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Half-Diminished',
+                        concepts: [
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Locrian',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 8,
+                                        fretHigh: 11
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'HalfDim7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 8,
+                                        fretHigh: 11
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'Locrian',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 3,
+                                        fretHigh: 7
+                                    }
+                                }
+                            },
+                            {
+                                a: KEY_CENTERS.C.a,
+                                B: 'HalfDim7',
+                                outputs: {
+                                    fretboard: {
+                                        fretLow: 3,
+                                        fretHigh: 7
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'autumnLeaves',
+        name: 'Autumn Leaves',
+        sections:
+            [
+                {
+                    name: 'A',
+                    progressions: [
+                        {
+                            concepts: [
+                                {
+                                    a: KEY_CENTERS.C.a,
+                                    B: 'Min7',
+                                    t: 4,
+                                    outputs: {
+                                        fretboard: {
+                                            fretLow: 8,
+                                            fretHigh: 11
+                                        }
+                                    }
+                                },
+                                {
+                                    a: KEY_CENTERS.F.a,
+                                    B: 'Dom7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.Bb.a,
+                                    B: 'Maj7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.Eb.a,
+                                    B: 'Maj7',
+                                    t: 4
+                                }
+                            ]
+                        },
+                        {
+                            concepts: [
+                                {
+                                    a: KEY_CENTERS.A.a,
+                                    B: 'HalfDim7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.D.a,
+                                    B: 'Dom7b9',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Min6',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Maj7',
+                                    t: 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'A\'',
+                    progressions: [
+                        {
+                            concepts: [
+                                {
+                                    a: KEY_CENTERS.C.a,
+                                    B: 'Min7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.F.a,
+                                    B: 'Dom7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.Bb.a,
+                                    B: 'Maj7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.Eb.a,
+                                    B: 'Maj7',
+                                    t: 4
+                                },
+
+                            ]
+                        },
+                        {
+                            concepts: [
+                                {
+                                    a: KEY_CENTERS.A.a,
+                                    B: 'HalfDim7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.D.a,
+                                    B: 'Dom7b9',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Min6',
+                                    t: 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'B',
+                    progressions: [
+                        {
+                            concepts: [
+                                {
+                                    section: 'B',
+                                    a: KEY_CENTERS.A.a,
+                                    B: 'HalfDim7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.D.a,
+                                    B: 'Dom7b9',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Min6',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Min6',
+                                    t: 4
+                                },
+
+                            ]
+                        },
+                        {
+                            concepts: [
+                                {
+                                    a: KEY_CENTERS.C.a,
+                                    B: 'Min7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.F.a,
+                                    B: 'Dom7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.Bb.a,
+                                    B: 'Maj7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.Eb.a,
+                                    B: 'Maj7',
+                                    t: 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'C',
+                    progressions: [
+                        {
+                            concepts: [
+                                {
+                                    section: 'C',
+                                    a: KEY_CENTERS.A.a,
+                                    B: 'HalfDim7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.D.a,
+                                    B: 'Dom7b9',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Min7',
+                                    t: 2
+                                },
+                                {
+                                    a: KEY_CENTERS.C.a,
+                                    B: 'Dom7',
+                                    t: 2
+                                },
+                                {
+                                    a: KEY_CENTERS.F.a,
+                                    B: 'Min7',
+                                    t: 2
+                                },
+                                {
+                                    a: KEY_CENTERS.Bb.a,
+                                    B: 'Dom7',
+                                    t: 2
+                                },
+
+                            ]
+                        },
+                        {
+                            concepts: [
+                                {
+                                    a: KEY_CENTERS.A.a,
+                                    B: 'HalfDim7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.D.a,
+                                    B: 'Dom7b9',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Min7',
+                                    t: 4
+                                },
+                                {
+                                    a: KEY_CENTERS.G.a,
+                                    B: 'Min7',
+                                    t: 4
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+    },
+    {
         id: 'onGreenDolphinStreet',
         name: 'On Green Dolphin Street',
         sections: [
@@ -526,235 +952,6 @@ export const CHARTS = [
                 ]
             }
         ]
-    },
-    {
-        id: 'autumnLeaves',
-        name: 'Autumn Leaves',
-        sections:
-            [
-                {
-                    name: 'A',
-                    progressions: [
-                        {
-                            concepts: [
-                                {
-                                    a: KEY_CENTERS.C.a,
-                                    B: 'Min7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.F.a,
-                                    B: 'Dom7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.Bb.a,
-                                    B: 'Maj7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.Eb.a,
-                                    B: 'Maj7',
-                                    t: 4
-                                }
-                            ]
-                        },
-                        {
-                            concepts: [
-                                {
-                                    a: KEY_CENTERS.A.a,
-                                    B: 'HalfDim7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.D.a,
-                                    B: 'Dom7b9',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Min6',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Maj7',
-                                    t: 4
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: 'A\'',
-                    progressions: [
-                        {
-                            concepts: [
-                                {
-                                    a: KEY_CENTERS.C.a,
-                                    B: 'Min7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.F.a,
-                                    B: 'Dom7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.Bb.a,
-                                    B: 'Maj7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.Eb.a,
-                                    B: 'Maj7',
-                                    t: 4
-                                },
-
-                            ]
-                        },
-                        {
-                            concepts: [
-                                {
-                                    a: KEY_CENTERS.A.a,
-                                    B: 'HalfDim7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.D.a,
-                                    B: 'Dom7b9',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Min6',
-                                    t: 8
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: 'B',
-                    progressions: [
-                        {
-                            concepts: [
-                                {
-                                    section: 'B',
-                                    a: KEY_CENTERS.A.a,
-                                    B: 'HalfDim7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.D.a,
-                                    B: 'Dom7b9',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Min6',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Min6',
-                                    t: 4
-                                },
-
-                            ]
-                        },
-                        {
-                            concepts: [
-                                {
-                                    a: KEY_CENTERS.C.a,
-                                    B: 'Min7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.F.a,
-                                    B: 'Dom7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.Bb.a,
-                                    B: 'Maj7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.Eb.a,
-                                    B: 'Maj7',
-                                    t: 4
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: 'C',
-                    progressions: [
-                        {
-                            concepts: [
-                                {
-                                    section: 'C',
-                                    a: KEY_CENTERS.A.a,
-                                    B: 'HalfDim7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.D.a,
-                                    B: 'Dom7b9',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Min7',
-                                    t: 2
-                                },
-                                {
-                                    a: KEY_CENTERS.C.a,
-                                    B: 'Dom7',
-                                    t: 2
-                                },
-                                {
-                                    a: KEY_CENTERS.F.a,
-                                    B: 'Min7',
-                                    t: 2
-                                },
-                                {
-                                    a: KEY_CENTERS.Bb.a,
-                                    B: 'Dom7',
-                                    t: 2
-                                },
-
-                            ]
-                        },
-                        {
-                            concepts: [
-                                {
-                                    a: KEY_CENTERS.A.a,
-                                    B: 'HalfDim7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.D.a,
-                                    B: 'Dom7b9',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Min7',
-                                    t: 4
-                                },
-                                {
-                                    a: KEY_CENTERS.G.a,
-                                    B: 'Min7',
-                                    t: 4
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
     },
     {
         id: 'blueBossa',
