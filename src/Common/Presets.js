@@ -104,42 +104,46 @@ export const CHARTS = [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Major',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 7,
                                         fretHigh: 10
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Maj7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 7,
                                         fretHigh: 10
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Major',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 2,
                                         fretHigh: 5
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Maj7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 2,
                                         fretHigh: 5
                                     }
-                                }
+                                ]
                             }
                         ]
                     },
@@ -149,42 +153,46 @@ export const CHARTS = [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'NaturalMinor',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 8,
                                         fretHigh: 11
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Min7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 8,
                                         fretHigh: 11
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'NaturalMinor',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 3,
                                         fretHigh: 6
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Min7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 3,
                                         fretHigh: 6
                                     }
-                                }
+                                ]
                             }
                         ]
                     },
@@ -194,92 +202,105 @@ export const CHARTS = [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Mixolydian',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 7,
                                         fretHigh: 11
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Dom7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 7,
                                         fretHigh: 11
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Mixolydian',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 2,
                                         fretHigh: 6
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Dom7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 2,
                                         fretHigh: 6
                                     }
-                                }
+                                ]
                             }
                         ]
                     },
+                ]
+            },
+            {
+                name: 'Diatonic Scales & Arpeggios',
+                progressions: [
                     {
                         name: 'Half-Diminished',
                         concepts: [
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Locrian',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 8,
                                         fretHigh: 11
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'HalfDim7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 8,
                                         fretHigh: 11
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'Locrian',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 3,
                                         fretHigh: 7
                                     }
-                                }
+                                ]
                             },
                             {
                                 a: KEY_CENTERS.C.a,
                                 B: 'HalfDim7',
-                                outputs: {
-                                    fretboard: {
+                                outputs: [
+                                    {
+                                        viewerId: 'fretboard',
                                         fretLow: 3,
                                         fretHigh: 7
                                     }
-                                }
+                                ]
                             }
                         ]
                     }
                 ]
-            }
+            },
         ]
     },
     {
@@ -295,13 +316,7 @@ export const CHARTS = [
                                 {
                                     a: KEY_CENTERS.C.a,
                                     B: 'Min7',
-                                    t: 4,
-                                    outputs: {
-                                        fretboard: {
-                                            fretLow: 8,
-                                            fretHigh: 11
-                                        }
-                                    }
+                                    t: 4
                                 },
                                 {
                                     a: KEY_CENTERS.F.a,
