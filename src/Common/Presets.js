@@ -245,11 +245,6 @@ export const CHARTS = [
                             }
                         ]
                     },
-                ]
-            },
-            {
-                name: 'Diatonic Scales & Arpeggios',
-                progressions: [
                     {
                         name: 'Half-Diminished',
                         concepts: [

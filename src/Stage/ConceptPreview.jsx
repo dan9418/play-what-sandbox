@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import PW from 'play-what';
 
-import { useRecoilValue } from 'recoil';
-import { conceptState } from '../Common/State';
-
-const ConceptPreview = () => {
-    const concept = useRecoilValue(conceptState);
+const ConceptPreview = ({ concept }) => {
     const { placeholder, a, B } = concept;
     const tonic = PW.Theory.getNoteName(a);
     const preset = PW.Theory.findPreset(B);

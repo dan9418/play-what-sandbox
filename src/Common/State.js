@@ -79,14 +79,13 @@ const parseConceptConfig = c => {
     return concept;
 }
 
-export const conceptState = selector({
-    key: 'concept',
+export const rawConceptState = selector({
+    key: 'rawConcept',
     get: ({ get }) => {
         const source = get(sourceState);
         const position = get(positionState);
         const [s, p, c] = position;
-        const conceptConfig = source.sections[s].progressions[p].concepts[c];
-        return parseConceptConfig(conceptConfig);
+        return source.sections[s].progressions[p].concepts[c];
     },
     set: ({ set, get }, concept) => {
         const source = get(sourceState);
@@ -102,6 +101,14 @@ export const conceptState = selector({
         sourceCopy.sections[s].progressions[p].concepts[c] = { ...concept };
 
         set(sourceState, sourceCopy);
+    }
+});
+
+export const conceptState = selector({
+    key: 'concept',
+    get: ({ get }) => {
+        const raw = get(rawConceptState);
+        return parseConceptConfig(raw);
     }
 });
 

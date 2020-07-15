@@ -35,7 +35,7 @@ const Stage = () => {
 
     return (
         <div className="output-list pw-light">
-            <ConceptPreview />
+            <ConceptPreview concept={concept} />
             {getViewers(concept)}
         </div>
     );
