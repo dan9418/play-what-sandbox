@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import './Chart.css';
 import PW from 'play-what';
 import { useRecoilState } from 'recoil';
-import { positionState } from '../../Common/State';
+import { positionState, parseConceptConfig } from '../../Common/State';
 
 const DEFAULT_COL = { a: PW.Presets.KEY_CENTERS.C, B: PW.Presets.QUICK_MODE.Ionian.B };
 const DEFAULT_ROW = [DEFAULT_COL];
 
 export const Concept = props => {
-    const { concept, s, p, c } = props;
+    const { conceptConfig, s, p, c, defaults: progDefaults } = props;
+
+    const mergedConcept = { ...(progDefaults || {}), ...(conceptConfig || {}) }
+
+    const concept = parseConceptConfig(mergedConcept);
 
     const [position, setPosition] = useRecoilState(positionState)
 
     const tonic = PW.Theory.getNoteName(concept.a);
-    const preset = PW.Theory.findPresetWithId(concept.B);
+    const preset = PW.Theory.findPreset(concept.B);
 
     const style = { flexGrow: concept.t };
 
@@ -30,27 +34,30 @@ export const Concept = props => {
 };
 
 export const Progression = props => {
-    const { progression, s, p } = props;
+    const { progression, s, p, defaults: secDefaults } = props;
+    const defaults = { ...(secDefaults || {}), ...(progression.defaults || {}) }
+
     return (
         <div className={`progression pw-light`}>
             <h4 className='progression-name'>{progression.name || `${p + 1}`}</h4>
             <div className={`progression-concepts`}>
-                {progression.concepts.map((c, i) => <Concept key={i} s={s} p={p} c={i} concept={c} />)}
+                {progression.concepts.map((c, i) => <Concept key={i} s={s} p={p} c={i} conceptConfig={c} defaults={defaults} />)}
             </div>
         </div>
     );
 };
 
 export const Section = props => {
-    const { section, s } = props;
+    const { section, s, defaults: chartDefaults } = props;
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
+    const defaults = { ...(chartDefaults || {}), ...(section.defaults || {}) }
     return (
         <div className={`section`}>
             <h3 className='section-name' onClick={toggleOpen}>{section.name}</h3>
             <div>
                 {open && section.progressions.map((p, i) =>
-                    <Progression key={i} s={s} p={i} progression={p} />
+                    <Progression key={i} s={s} p={i} progression={p} defaults={defaults} />
                 )}
             </div>
         </div>

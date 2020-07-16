@@ -51,7 +51,7 @@ const Menu = () => {
 
                         {zoomLevel === 'chart' && <>
                             <h2>Sections</h2>
-                            {source.sections.map((s, i) => <Section key={i} s={i} section={s} />)}
+                            {source.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={source.defaults} />)}
                         </>}
                         {zoomLevel === 'progression' && <>
                             <h2>Concepts</h2>

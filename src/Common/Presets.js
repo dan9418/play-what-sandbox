@@ -94,15 +94,20 @@ export const CHARTS = [
     {
         id: 'shapes',
         name: 'Shapes',
+        defaults: {
+            a: KEY_CENTERS.A.a,
+        },
         sections: [
             {
                 name: 'Diatonic Scales & Arpeggios',
                 progressions: [
                     {
+                        defaults: {
+                            a: KEY_CENTERS.B.a,
+                        },
                         name: 'Major',
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
                                 B: 'Major',
                                 outputs: [
                                     {
@@ -113,7 +118,6 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
                                 B: 'Maj7',
                                 outputs: [
                                     {
@@ -124,7 +128,6 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
                                 B: 'Major',
                                 outputs: [
                                     {
@@ -135,7 +138,6 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
                                 B: 'Maj7',
                                 outputs: [
                                     {
@@ -151,7 +153,7 @@ export const CHARTS = [
                         name: 'Minor',
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'NaturalMinor',
                                 outputs: [
                                     {
@@ -162,7 +164,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Min7',
                                 outputs: [
                                     {
@@ -173,7 +175,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'NaturalMinor',
                                 outputs: [
                                     {
@@ -184,7 +186,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Min7',
                                 outputs: [
                                     {
@@ -200,7 +202,7 @@ export const CHARTS = [
                         name: 'Dominant',
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Mixolydian',
                                 outputs: [
                                     {
@@ -211,7 +213,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Dom7',
                                 outputs: [
                                     {
@@ -222,7 +224,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Mixolydian',
                                 outputs: [
                                     {
@@ -233,7 +235,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Dom7',
                                 outputs: [
                                     {
@@ -249,7 +251,7 @@ export const CHARTS = [
                         name: 'Half-Diminished',
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Locrian',
                                 outputs: [
                                     {
@@ -260,7 +262,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'HalfDim7',
                                 outputs: [
                                     {
@@ -271,7 +273,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'Locrian',
                                 outputs: [
                                     {
@@ -282,7 +284,7 @@ export const CHARTS = [
                                 ]
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+
                                 B: 'HalfDim7',
                                 outputs: [
                                     {

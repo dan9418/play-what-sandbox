@@ -36,7 +36,7 @@ const zoomLevelState = atom({
     default: Z
 });
 
-const sourceState = atom({
+const chartState = atom({
     key: 'source',
     default: formatSourceForZoomLevel(Z)
 });
@@ -53,42 +53,68 @@ export const zoomLevelSelector = selector({
     get: ({ get }) => get(zoomLevelState),
     set: ({ set }, z) => {
         set(zoomLevelState, z);
-        set(sourceState, formatSourceForZoomLevel(z));
+        set(chartState, formatSourceForZoomLevel(z));
         set(positionState, DEFAULT_POSITION);
     }
 });
 
 export const sourceSelector = selector({
     key: 'sourceSelector',
-    get: ({ get }) => get(sourceState),
+    get: ({ get }) => get(chartState),
     set: ({ get, set }, rawSource) => {
         const zoomLevel = get(zoomLevelSelector);
         const source = formatSourceForZoomLevel(zoomLevel, rawSource);
-        set(sourceState, source);
+        set(chartState, source);
     }
 });
 
-const parseConceptConfig = c => {
-    const concept = { ...c };
-    if (typeof concept.a === 'string') {
-
+export const parseConceptConfig = (conceptConfig) => {
+    const concept = { ...conceptConfig };
+    if (!concept.a && chart.a) {
+        concept.a = chart.a;
     }
     if (typeof concept.B === 'string') {
         concept.B = PW.Theory.findPresetWithId(concept.B).B;
     }
     return concept;
+};
+
+export const mergeConceptConfig = (levels) => {
+    const { chart, section, progression, concept } = levels;
+    return { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}), ...concept };
 }
+
+
+export const sectionState = selector({
+    key: 'section',
+    get: ({ get }) => {
+        const source = get(chartState);
+        const position = get(positionState);
+        const [s] = position;
+        return source.sections[s];
+    }
+});
+
+export const progressionState = selector({
+    key: 'progression',
+    get: ({ get }) => {
+        const source = get(chartState);
+        const position = get(positionState);
+        const [s, p] = position;
+        return source.sections[s].progressions[p];
+    }
+});
 
 export const rawConceptState = selector({
     key: 'rawConcept',
     get: ({ get }) => {
-        const source = get(sourceState);
+        const source = get(chartState);
         const position = get(positionState);
         const [s, p, c] = position;
         return source.sections[s].progressions[p].concepts[c];
     },
     set: ({ set, get }, concept) => {
-        const source = get(sourceState);
+        const source = get(chartState);
         const position = get(positionState);
         const [s, p, c] = position;
 
@@ -100,15 +126,33 @@ export const rawConceptState = selector({
         sourceCopy.sections[s].progressions[p].concepts = [...source.sections[s].progressions[p].concepts];
         sourceCopy.sections[s].progressions[p].concepts[c] = { ...concept };
 
-        set(sourceState, sourceCopy);
+        set(chartState, sourceCopy);
     }
 });
+
+export const levelsState = selector({
+    key: 'levels',
+    get: ({ get }) => {
+        const source = get(chartState);
+        const position = get(positionState);
+        const [s, p, c] = position;
+        return {
+            chart: source,
+            section: source.sections[s],
+            progression: source.sections[s].progressions[p],
+            concept: source.sections[s].progressions[p].concepts[c]
+        };
+    }
+});
+
 
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const raw = get(rawConceptState);
-        return parseConceptConfig(raw);
+        const levels = get(levelsState);
+        const { chart, section, progression, concept } = levels;
+        const mergedConcept = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}), ...concept };
+        return parseConceptConfig(mergedConcept);
     }
 });
 
@@ -116,7 +160,7 @@ export const nextPositionState = selector({
     key: 'nextPosition',
     get: ({ get }) => {
         const zoomLevel = get(zoomLevelSelector);
-        const source = get(sourceState);
+        const source = get(chartState);
         const position = get(positionState);
         switch (zoomLevel) {
             case 'concept':
@@ -146,7 +190,7 @@ export const nextPositionState = selector({
 export const nextConceptState = selector({
     key: 'nextConcept',
     get: ({ get }) => {
-        const source = get(sourceState);
+        const source = get(chartState);
         const nextPosition = get(nextPositionState);
         const [s, p, c] = nextPosition;
         return source.sections[s].progressions[p].concepts[c];
