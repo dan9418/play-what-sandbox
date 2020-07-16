@@ -27,7 +27,7 @@ const formatSourceForZoomLevel = (z, rawSource) => {
 }
 
 const DEFAULT_POSITION = [0, 0, 0];
-const Z = ZOOM_LEVEL.chart;
+const Z = ZOOM_LEVEL.concept;
 
 // CORE
 
@@ -70,8 +70,8 @@ export const sourceSelector = selector({
 
 export const parseConceptConfig = (conceptConfig) => {
     const concept = { ...conceptConfig };
-    if (!concept.a && chart.a) {
-        concept.a = chart.a;
+    if (typeof concept.a === 'string') {
+        //concept.a = concept.a;
     }
     if (typeof concept.B === 'string') {
         concept.B = PW.Theory.findPresetWithId(concept.B).B;

@@ -55,10 +55,10 @@ const Menu = () => {
                         </>}
                         {zoomLevel === 'progression' && <>
                             <h2>Concepts</h2>
-                            <Progression s={0} p={0} progression={source.sections[0].progressions[0]} />
+                            <Progression s={0} p={0} progression={source.sections[0].progressions[0]} defaults={source.sections[0].defaults} />
                         </>}
                         {zoomLevel === 'concept' && <div className='concept-input-2'>
-                            <div><Concept s={0} p={0} c={0} concept={source.sections[0].progressions[0].concepts[0]} /></div>
+                            <div><Concept s={0} p={0} c={0} conceptConfig={source.sections[0].progressions[0].concepts[0]} defaults={source.sections[0].progressions[0].defaults} /></div>
                             <h2>Key Center</h2>
                             <KeyCenterInput keyCenter={a} setKeyCenter={setA} />
                             <h2>Intervals</h2>

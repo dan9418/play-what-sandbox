@@ -6,7 +6,7 @@ const { KEY_CENTERS, INTERVAL_PAIR, CHORD, QUICK_MODE: MODE, SCALE } = PW.Preset
 const DEFAULT_NOTE = { a: { p: 0, d: 0 }, B: [[{ p: 0, d: 0 }]] };
 
 
-const mapPresetsToVectors = presets => presets.map(p => ({ id: p.id || '', name: p.name || '', B: p.B }));
+const mapPresetsToVectors = presets => presets.map(p => ({ id: p.id || '', name: p.name || '', a: p.B[0], B: p.B }));
 
 export const CONCEPTS = [
     {
