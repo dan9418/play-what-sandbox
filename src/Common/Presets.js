@@ -1,4 +1,5 @@
 import PW from 'play-what';
+import { INTERVALS } from 'play-what/src/Presets';
 
 const { KEY_CENTERS, INTERVAL_PAIR, CHORD, QUICK_MODE: MODE, SCALE } = PW.Presets;
 
@@ -161,10 +162,42 @@ export const OUTPUTS = [
 
 export const CHARTS = [
     {
+        id: 'test',
+        name: 'Test',
+        defaults: {
+            a: KEY_CENTERS.C.a,
+            outputs: ['keyboard']
+        },
+        sections: [
+            {
+                name: 'Test',
+                progressions: [
+                    {
+                        name: 'Test',
+                        concepts: [
+                            {
+                                B: 'Major',
+                                outputs: ['fretboard'],
+                                transforms: [
+                                    {
+                                        id: 'transpose',
+                                        args: {
+                                            a: INTERVALS.P5.a
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+        ]
+    },
+    {
         id: 'shapes',
         name: 'Shapes',
         defaults: {
-            a: KEY_CENTERS.A.a,
+            a: KEY_CENTERS.C.a,
             outputs: ['keyboard']
         },
         sections: [
@@ -172,9 +205,6 @@ export const CHARTS = [
                 name: 'Diatonic Scales & Arpeggios',
                 progressions: [
                     {
-                        defaults: {
-                            a: KEY_CENTERS.B.a,
-                        },
                         name: 'Major',
                         concepts: [
                             {
@@ -281,6 +311,9 @@ export const CHARTS = [
     {
         id: 'autumnLeaves',
         name: 'Autumn Leaves',
+        defaults: {
+            outputs: ['fretboard']
+        },
         sections:
             [
                 {

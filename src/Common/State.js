@@ -27,7 +27,7 @@ const formatSourceForZoomLevel = (z, rawSource) => {
 }
 
 const DEFAULT_POSITION = [0, 0, 0];
-const Z = ZOOM_LEVEL.concept;
+const Z = ZOOM_LEVEL.chart;
 
 // CORE
 
@@ -75,6 +75,13 @@ export const parseConceptConfig = (conceptConfig) => {
     }
     if (typeof concept.B === 'string') {
         concept.B = PW.Theory.findPresetWithId(concept.B).B;
+    }
+    if(concept.transforms) {
+        concept.transforms.forEach(t => {
+            if(t.id === 'transpose') {
+                concept.a = PW.Theory.addVectors(concept.a, t.args.a);
+            }
+        })
     }
     return concept;
 };
