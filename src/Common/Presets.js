@@ -184,6 +184,12 @@ export const CHARTS = [
                                         args: {
                                             a: INTERVALS.P5.a
                                         }
+                                    },
+                                    {
+                                        id: 'chordalInversion',
+                                        args: {
+                                            inversion: 1
+                                        }
                                     }
                                 ]
                             }

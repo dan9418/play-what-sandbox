@@ -69,17 +69,22 @@ export const sourceSelector = selector({
 });
 
 export const parseConceptConfig = (conceptConfig) => {
-    const concept = { ...conceptConfig };
+    let concept = { ...conceptConfig };
     if (typeof concept.a === 'string') {
         //concept.a = concept.a;
     }
     if (typeof concept.B === 'string') {
         concept.B = PW.Theory.findPresetWithId(concept.B).B;
     }
-    if(concept.transforms) {
+    if (concept.transforms) {
         concept.transforms.forEach(t => {
-            if(t.id === 'transpose') {
-                concept.a = PW.Theory.addVectors(concept.a, t.args.a);
+            switch (t.id) {
+                case 'transpose':
+                    concept = PW.Theory.transpose(concept, t.args.a);
+                    break;
+                case 'chordalInversion':
+                    concept = PW.Theory.chordalInversion(concept, t.args.inversion)
+                    break;
             }
         })
     }
