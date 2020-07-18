@@ -6,9 +6,14 @@ import { useRecoilState } from 'recoil';
 
 export const ZOOM_LEVEL_INFO = [
     {
-        id: 'concept',
-        name: 'Concept',
-        label: '•'
+        id: 'chart',
+        name: 'Chart',
+        label: '•• ••'
+    },
+    {
+        id: 'section',
+        name: 'Section',
+        label: '•••'
     },
     {
         id: 'progression',
@@ -16,9 +21,9 @@ export const ZOOM_LEVEL_INFO = [
         label: '••'
     },
     {
-        id: 'chart',
-        name: 'Chart',
-        label: '••••'
+        id: 'concept',
+        name: 'Concept',
+        label: '•'
     }
 ];
 

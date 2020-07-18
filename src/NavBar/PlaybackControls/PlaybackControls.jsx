@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PW from 'play-what';
-import ButtonInput from '../../UI/ButtonInput/ButtonInput';
-import ScalarInput from '../../UI/ScalarInput/ScalerInput';
+import ButtonInput from '../UI/ButtonInput/ButtonInput';
+import ScalarInput from '../UI/ScalarInput/ScalerInput';
 import './PlaybackControls.css';
 import { useRecoilState } from 'recoil';
-import { positionState, nextConceptState, conceptState, nextPositionState } from '../../Common/State';
+import { positionState, nextConceptState, conceptState, nextPositionState } from '../Common/State';
 import { useRecoilValue } from 'recoil';
 
 const DEFAULT_NOTE = { a: [0, 0], B: [[0, 0]] };

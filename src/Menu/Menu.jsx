@@ -3,7 +3,6 @@ import './Menu.css';
 import { Section, Progression, Concept } from './Chart/Chart';
 import { useRecoilState } from 'recoil';
 import { zoomLevelSelector, sourceSelector, positionState, aState, BState } from '../Common/State';
-import PlaybackControls from './PlaybackControls/PlaybackControls';
 import ZoomSelector from './ZoomSelector';
 import PresetSelector from './PresetSelector';
 import KeyCenterInput from '../UI/KeyCenterInput/KeyCenterInput';
@@ -47,7 +46,6 @@ const Menu = () => {
                     <div className="chart">
                         <h1>{zoomLevel.toUpperCase()}</h1>
                         <PresetSelector />
-                        <PlaybackControls />
 
                         {zoomLevel === 'chart' && <>
                             <h2>Sections</h2>
