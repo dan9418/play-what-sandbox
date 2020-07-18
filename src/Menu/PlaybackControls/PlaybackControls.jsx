@@ -37,8 +37,7 @@ const PlaybackControls = () => {
     else {
         const beatDuration = 1 / (tempo / 60);
         if (remBeats === concept.t) {
-            const notes = PW.Theory.addVectorsBatch(concept.a, concept.B);
-            const freqs = PW.Theory.getFrequencies(notes);
+            const freqs = PW.Theory.getFrequencies(concept.C);
             const pulseDuration = beatDuration * concept.t; // seconds
             PW.Sound.playNotes(freqs, pulseDuration / 2);
             console.log(beatIndex, 'P');

@@ -164,7 +164,10 @@ export const conceptState = selector({
         const levels = get(levelsState);
         const { chart, section, progression, concept } = levels;
         const mergedConcept = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}), ...concept };
-        return parseConceptConfig(mergedConcept);
+        const mergedConfig = parseConceptConfig(mergedConcept);
+        mergedConfig.C = PW.Theory.addVectorsBatch(mergedConfig.a, mergedConfig.B);
+
+        return mergedConfig;
     }
 });
 
