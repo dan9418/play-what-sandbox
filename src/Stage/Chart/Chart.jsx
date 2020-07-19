@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './Chart.css';
 import PW from 'play-what';
+import PresetSelecor from '../../Menu/PresetSelector';
 import { useRecoilState } from 'recoil';
-import { positionState, parseConceptConfig } from '../../Common/State';
+import { zoomLevelSelector, sourceSelector, aState, BState, positionState, parseConceptConfig } from '../../Common/State';
 
-const DEFAULT_COL = { a: PW.Presets.KEY_CENTERS.C, B: PW.Presets.QUICK_MODE.Ionian.B };
-const DEFAULT_ROW = [DEFAULT_COL];
-
-export const Concept = props => {
+const Concept = props => {
     const { conceptConfig, s, p, c, defaults: progDefaults } = props;
 
     const mergedConcept = { ...(progDefaults || {}), ...(conceptConfig || {}) }
@@ -33,7 +31,7 @@ export const Concept = props => {
     );
 };
 
-export const Progression = props => {
+const Progression = props => {
     const { progression, s, p, defaults: secDefaults } = props;
     const defaults = { ...(secDefaults || {}), ...(progression.defaults || {}) }
 
@@ -47,7 +45,7 @@ export const Progression = props => {
     );
 };
 
-export const Section = props => {
+const Section = props => {
     const { section, s, defaults: chartDefaults } = props;
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
@@ -63,3 +61,34 @@ export const Section = props => {
         </div>
     );
 };
+
+export const Chart = props => {
+
+    const [a, setA] = useRecoilState(aState);
+    const [B, setB] = useRecoilState(BState);
+    const [zoomLevel, setZoomLevel] = useRecoilState(zoomLevelSelector);
+    const [source, setSource] = useRecoilState(sourceSelector);
+    const [position, setPosition] = useRecoilState(positionState);
+
+    return (
+        <div className="chart">
+            <label>Select Preset:</label>
+            <PresetSelecor />
+            {zoomLevel === 'chart' && <>
+                <h2>Sections</h2>
+                {source.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={source.defaults} />)}
+            </>}
+            {zoomLevel === 'progression' && <>
+                <h2>Concepts</h2>
+                <Progression s={0} p={0} progression={source.sections[0].progressions[0]} defaults={source.sections[0].defaults} />
+            </>}
+            {zoomLevel === 'concept' && <div className='concept-input-2'>
+                <div><Concept s={0} p={0} c={0} conceptConfig={source.sections[0].progressions[0].concepts[0]} defaults={source.sections[0].progressions[0].defaults} /></div>
+                <h2>Key Center</h2>
+                <KeyCenterInput keyCenter={a} setKeyCenter={setA} />
+                <h2>Intervals</h2>
+                <IntervalListInput intervals={B} setIntervals={setB} />
+            </div>}
+        </div>
+    )
+}

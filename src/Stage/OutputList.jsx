@@ -8,6 +8,7 @@ import { useRecoilValue } from 'recoil';
 import { conceptState } from '../Common/State';
 import ConceptPreview from './ConceptPreview';
 import { OUTPUTS } from '../Common/Presets';
+import { Chart } from './Chart/Chart';
 
 const VIEWERS = {
     fretboard: {
@@ -41,6 +42,7 @@ const Stage = () => {
     return (
         <div className="output-list pw-light">
             <ConceptPreview concept={concept} />
+            <Chart />
             {getViewers(concept)}
         </div>
     );

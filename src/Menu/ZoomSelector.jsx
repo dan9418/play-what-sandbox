@@ -8,7 +8,7 @@ export const ZOOM_LEVEL_INFO = [
     {
         id: 'chart',
         name: 'Chart',
-        label: '•• ••'
+        label: '••••'
     },
     {
         id: 'section',
@@ -39,7 +39,7 @@ const ZoomSelector = () => {
                         key={i}
                         onClick={() => setZoomLevel(z.id)}
                         className={zoomLevel === z.id ? 'pw-accent' : 'pw-secondary'}>
-                        {`${z.label} ${z.name}`}
+                        {`${z.label}`}
                     </ButtonInput>
                 );
             })}
