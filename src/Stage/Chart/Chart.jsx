@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './Chart.css';
 import PW from 'play-what';
-import PresetSelecor from '../../Menu/PresetSelector';
-import { useRecoilState } from 'recoil';
-import { zoomLevelSelector, sourceSelector, aState, BState, positionState, parseConceptConfig } from '../../Common/State';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { chartState, positionState, parseConceptConfig } from '../../Common/State';
 
 const Concept = props => {
     const { conceptConfig, s, p, c, defaults: progDefaults } = props;
@@ -64,31 +63,12 @@ const Section = props => {
 
 export const Chart = props => {
 
-    const [a, setA] = useRecoilState(aState);
-    const [B, setB] = useRecoilState(BState);
-    const [zoomLevel, setZoomLevel] = useRecoilState(zoomLevelSelector);
-    const [source, setSource] = useRecoilState(sourceSelector);
-    const [position, setPosition] = useRecoilState(positionState);
+    const chart = useRecoilValue(chartState);
 
     return (
         <div className="chart">
-            <label>Select Preset:</label>
-            <PresetSelecor />
-            {zoomLevel === 'chart' && <>
-                <h2>Sections</h2>
-                {source.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={source.defaults} />)}
-            </>}
-            {zoomLevel === 'progression' && <>
-                <h2>Concepts</h2>
-                <Progression s={0} p={0} progression={source.sections[0].progressions[0]} defaults={source.sections[0].defaults} />
-            </>}
-            {zoomLevel === 'concept' && <div className='concept-input-2'>
-                <div><Concept s={0} p={0} c={0} conceptConfig={source.sections[0].progressions[0].concepts[0]} defaults={source.sections[0].progressions[0].defaults} /></div>
-                <h2>Key Center</h2>
-                <KeyCenterInput keyCenter={a} setKeyCenter={setA} />
-                <h2>Intervals</h2>
-                <IntervalListInput intervals={B} setIntervals={setB} />
-            </div>}
+            <h2>Sections</h2>
+            {chart.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={chart.defaults} />)}
         </div>
     )
 }

@@ -2,71 +2,31 @@ import { atom, selector } from 'recoil';
 import PW from 'play-what';
 import { CHARTS, PROGRESSIONS, CONCEPTS } from '../Common/Presets';
 
+// CONSTS
+
 export const PRESETS = {
     concept: CONCEPTS,
     progression: PROGRESSIONS,
     chart: CHARTS
 };
 
-export const ZOOM_LEVEL = {
+export const ZOOM = {
     concept: 'concept',
     progression: 'progression',
     chart: 'chart'
 };
 
-const formatSourceForZoomLevel = (z, rawSource) => {
-    const source = rawSource || PRESETS[z][0];
-    switch (z) {
-        case ZOOM_LEVEL.concept:
-            return { sections: [{ progressions: [{ concepts: [source] }] }] };
-        case ZOOM_LEVEL.progression:
-            return { sections: [{ progressions: [source] }] };
-        case ZOOM_LEVEL.chart:
-            return source;
-    }
-}
+// DEFAULTS
 
 const DEFAULT_POSITION = [0, 0, 0];
-const Z = ZOOM_LEVEL.chart;
+const DEFAULT_PRESET_INDEX = 0;
 
-// CORE
+const DEFAULT_CONCEPT_CONFIG = { a: { p: 0, d: 0 }, B: [], C: [] };
+const DEFAULT_PROGRESSION = { concepts: [DEFAULT_CONCEPT_CONFIG] };
+const DEFAULT_SECTION = { progressions: [DEFAULT_PROGRESSION] };
+const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
 
-const zoomLevelState = atom({
-    key: 'zoomLevel',
-    default: Z
-});
-
-const chartState = atom({
-    key: 'source',
-    default: formatSourceForZoomLevel(Z)
-});
-
-export const positionState = atom({
-    key: 'position',
-    default: DEFAULT_POSITION
-});
-
-// HELPERS
-
-export const zoomLevelSelector = selector({
-    key: 'zoomLevelSelector',
-    get: ({ get }) => get(zoomLevelState),
-    set: ({ set }, z) => {
-        set(zoomLevelState, z);
-        set(chartState, formatSourceForZoomLevel(z));
-        set(positionState, DEFAULT_POSITION);
-    }
-});
-
-export const sourceSelector = selector({
-    key: 'sourceSelector',
-    get: ({ get }) => get(chartState),
-    set: ({ get, set }, rawSource) => {
-        const zoomLevel = get(zoomLevelSelector);
-        const source = formatSourceForZoomLevel(zoomLevel, rawSource);
-        set(chartState, source);
-    }
-});
+// UTILS
 
 export const parseConceptConfig = (conceptConfig) => {
     let concept = { ...conceptConfig };
@@ -91,127 +51,82 @@ export const parseConceptConfig = (conceptConfig) => {
     return concept;
 };
 
-export const mergeConceptConfig = (levels) => {
-    const { chart, section, progression, concept } = levels;
-    return { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}), ...concept };
-}
 
+// ATOMS
+
+export const chartState = atom({
+    key: 'chart',
+    default: DEFAULT_CHART
+});
+
+export const positionState = atom({
+    key: 'position',
+    default: DEFAULT_POSITION
+});
+
+// SELECTORS
 
 export const sectionState = selector({
     key: 'section',
     get: ({ get }) => {
-        const source = get(chartState);
+        const chart = get(chartState);
         const position = get(positionState);
         const [s] = position;
-        return source.sections[s];
+        return chart.sections[s];
     }
 });
 
 export const progressionState = selector({
     key: 'progression',
     get: ({ get }) => {
-        const source = get(chartState);
+        const chart = get(chartState);
         const position = get(positionState);
         const [s, p] = position;
-        return source.sections[s].progressions[p];
+        return chart.sections[s].progressions[p];
     }
 });
 
-export const rawConceptState = selector({
-    key: 'rawConcept',
+export const conceptConfigState = selector({
+    key: 'conceptConfig',
     get: ({ get }) => {
-        const source = get(chartState);
+        const chart = get(chartState);
         const position = get(positionState);
         const [s, p, c] = position;
-        return source.sections[s].progressions[p].concepts[c];
-    },
-    set: ({ set, get }, concept) => {
-        const source = get(chartState);
-        const position = get(positionState);
-        const [s, p, c] = position;
-
-        const sourceCopy = { ...source };
-        sourceCopy.sections = [...source.sections];
-        sourceCopy.sections[s] = { ...source.sections[s] };
-        sourceCopy.sections[s].progressions = [...source.sections[s].progressions];
-        sourceCopy.sections[s].progressions[p] = { ...source.sections[s].progressions[p] };
-        sourceCopy.sections[s].progressions[p].concepts = [...source.sections[s].progressions[p].concepts];
-        sourceCopy.sections[s].progressions[p].concepts[c] = { ...concept };
-
-        set(chartState, sourceCopy);
+        return chart.sections[s].progressions[p].concepts[c];
     }
 });
 
-export const levelsState = selector({
-    key: 'levels',
-    get: ({ get }) => {
-        const source = get(chartState);
-        const position = get(positionState);
-        const [s, p, c] = position;
+export const chartLevelsState = selector({
+    // Raw config
+    key: 'chartLevels', get: ({ get }) => {
+        const chart = get(chartState);
+        const section = get(sectionState);
+        const progression = get(progressionState);
+        const concept = get(conceptConfigState);
         return {
-            chart: source,
-            section: source.sections[s],
-            progression: source.sections[s].progressions[p],
-            concept: source.sections[s].progressions[p].concepts[c]
+            chart: chart,
+            section: section,
+            progression: progression,
+            concept: concept
         };
     }
 });
 
-
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const levels = get(levelsState);
-        const { chart, section, progression, concept } = levels;
-        const mergedConcept = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}), ...concept };
-        const mergedConfig = parseConceptConfig(mergedConcept);
-        mergedConfig.C = PW.Theory.addVectorsBatch(mergedConfig.a, mergedConfig.B);
+        const levels = get(chartLevelsState);
+        const { chart, section, progression, concept: conceptConfig } = levels;
+        const defaults = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}) };
+        const mergedConfig = { ...defaults, ...conceptConfig };
+        const concept = parseConceptConfig(mergedConfig);
+        concept.C = PW.Theory.addVectorsBatch(concept.a, concept.B);
 
-        return mergedConfig;
+        return concept;
     }
 });
 
-export const nextPositionState = selector({
-    key: 'nextPosition',
-    get: ({ get }) => {
-        const zoomLevel = get(zoomLevelSelector);
-        const source = get(chartState);
-        const position = get(positionState);
-        switch (zoomLevel) {
-            case 'concept':
-                return DEFAULT_POSITION;
-            case 'progression':
-                const isLast = position[2] === source.sections[0].progressions[0].concepts.length - 1;
-                return isLast ? DEFAULT_POSITION : [0, 0, position + 1];
-            case 'chart':
-                const [s, p, c] = position;
-                const isLastSection = s === source.sections.length - 1;
-                const isLastProgression = p === source.sections[s].progressions.length - 1;
-                const isLastConcept = c === source.sections[s].progressions[p].concepts.length - 1;
-                if (isLastConcept) {
-                    if (isLastProgression) {
-                        if (isLastSection) {
-                            return [0, 0, 0];
-                        }
-                        return [s + 1, 0, 0];
-                    }
-                    return [s, p + 1, 0];
-                }
-                return [s, p, c + 1];
-        }
-    }
-});
-
-export const nextConceptState = selector({
-    key: 'nextConcept',
-    get: ({ get }) => {
-        const source = get(chartState);
-        const nextPosition = get(nextPositionState);
-        const [s, p, c] = nextPosition;
-        return source.sections[s].progressions[p].concepts[c];
-    }
-});
-
+// Sub-Concepts
 
 export const aState = selector({
     key: 'a',
@@ -219,9 +134,9 @@ export const aState = selector({
         const concept = get(conceptState);
         return concept.a;
     },
-    set: ({ get, set }, newConcept) => {
-        const oldConcept = get(conceptState);
-        set(conceptState, { ...newConcept, B: oldConcept.B })
+    set: ({ get, set }, a) => {
+        const concept = get(conceptState);
+        set(conceptState, { ...concept, a })
     }
 });
 
@@ -231,8 +146,56 @@ export const BState = selector({
         const concept = get(conceptState);
         return concept.B;
     },
-    set: ({ get, set }, newConcept) => {
-        const oldConcept = get(conceptState);
-        set(conceptState, { ...newConcept, a: oldConcept.a })
+    set: ({ get, set }, B) => {
+        const concept = get(conceptState);
+        set(conceptState, { ...concept, B })
+    }
+});
+
+export const CState = selector({
+    key: 'C',
+    get: ({ get }) => {
+        const concept = get(conceptState);
+        return concept.C;
+    },
+    set: ({ get, set }, C) => {
+        const concept = get(conceptState);
+        set(conceptState, { ...concept, C })
+    }
+});
+
+// Sequencing
+
+export const nextPositionState = selector({
+    key: 'nextPosition',
+    get: ({ get }) => {
+        const chart = get(chartState);
+        const position = get(positionState);
+        const [s, p, c] = position;
+
+        const isLastSection = s === chart.sections.length - 1;
+        const isLastProgression = p === chart.sections[s].progressions.length - 1;
+        const isLastConcept = c === chart.sections[s].progressions[p].concepts.length - 1;
+
+        if (isLastConcept) {
+            if (isLastProgression) {
+                if (isLastSection) {
+                    return [0, 0, 0];
+                }
+                return [s + 1, 0, 0];
+            }
+            return [s, p + 1, 0];
+        }
+        return [s, p, c + 1];
+    }
+});
+
+export const nextConceptState = selector({
+    key: 'nextConcept',
+    get: ({ get }) => {
+        const chart = get(chartState);
+        const nextPosition = get(nextPositionState);
+        const [s, p, c] = nextPosition;
+        return chart.sections[s].progressions[p].concepts[c];
     }
 });
