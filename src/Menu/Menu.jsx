@@ -42,7 +42,7 @@ const Menu = () => {
                                     <ButtonInput
                                         key={i}
                                         onClick={() => setZoom(z)}
-                                        className={zoom === z.id ? 'pw-accent' : 'pw-secondary'}>
+                                        className={zoom.id === z.id ? 'pw-accent' : 'pw-secondary'}>
                                         {`${z.label}`}
                                     </ButtonInput>
                                 );

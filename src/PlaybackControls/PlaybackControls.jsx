@@ -7,7 +7,6 @@ import { useRecoilState } from 'recoil';
 import { positionState, nextConceptState, conceptState, nextPositionState } from '../Common/State';
 import { useRecoilValue } from 'recoil';
 
-const DEFAULT_NOTE = { a: [0, 0], B: [[0, 0]] };
 const DEFAULT_TEMPO = 160;
 const NOP = () => null;
 

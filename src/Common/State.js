@@ -24,7 +24,7 @@ const DEFAULT_PRESET_INDEX = 0;
 const DEFAULT_CONCEPT_CONFIG = { a: { p: 0, d: 0 }, B: [], C: [] };
 const DEFAULT_PROGRESSION = { concepts: [DEFAULT_CONCEPT_CONFIG] };
 const DEFAULT_SECTION = { progressions: [DEFAULT_PROGRESSION] };
-const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
+const DEFAULT_CHART = false ? PRESETS.progression[0] : { sections: [DEFAULT_SECTION] };
 
 // UTILS
 
@@ -54,8 +54,8 @@ export const parseConceptConfig = (conceptConfig) => {
 
 // ATOMS
 
-export const chartState = atom({
-    key: 'chart',
+export const sourceState = atom({
+    key: 'source',
     default: DEFAULT_CHART
 });
 
@@ -65,6 +65,29 @@ export const positionState = atom({
 });
 
 // SELECTORS
+
+export const chartState = selector({
+    key: 'chart',
+    get: ({ get }) => {
+        const source = get(sourceState);
+        if (!source.sections && !source.progressions && !source.concepts) {
+            const chartCopy = DEFAULT_CHART;
+            chartCopy.sections[0].progression[0].concepts = [source];
+            return chartCopy;
+        }
+        if (!source.sections && !source.progressions) {
+            const chartCopy = DEFAULT_CHART;
+            chartCopy.sections[0].progressions = [source];
+            return chartCopy;
+        }
+        if (!source.sections) {
+            const chartCopy = DEFAULT_CHART;
+            chartCopy.sections = [source];
+            return chartCopy;
+        }
+        return source;
+    }
+});
 
 export const sectionState = selector({
     key: 'section',
