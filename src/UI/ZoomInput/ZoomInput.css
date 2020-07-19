@@ -1,0 +1,13 @@
+.zoom-input {
+    display: inline-grid;
+    grid-gap: 4px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    white-space: nowrap;
+}
+
+.zoom-input .button-input {
+    border-radius: 8px;
+    height: 16px;
+    line-height: 16px;
+    width: 48px;
+}

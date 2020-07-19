@@ -11,9 +11,10 @@ export const PRESETS = {
 };
 
 export const ZOOM = {
-    concept: 'concept',
-    progression: 'progression',
-    chart: 'chart'
+    Concept: 'concept',
+    Section: 'section',
+    Progression: 'progression',
+    Chart: 'chart'
 };
 
 // DEFAULTS
@@ -51,6 +52,26 @@ export const parseConceptConfig = (conceptConfig) => {
     return concept;
 };
 
+export const deepCopy = (source, zoom) => {
+    const copy = { ...source };
+    switch (zoom) {
+        case ZOOM.Chart:
+            copy.defaults = [...(source.defaults || [])];
+            copy.sections = source.sections.map(s => deepCopy(s, ZOOM.Section))
+            return copy;
+        case ZOOM.Section:
+            copy.defaults = [...(source.defaults || [])];
+            copy.progressions = source.progressions.map(p => deepCopy(p, ZOOM.Progression));
+            return copy;
+        case ZOOM.Progression:
+            copy.defaults = [...(source.defaults || [])];
+            copy.concepts = source.concepts.map(c => deepCopy(c, ZOOM.Concept));
+            return copy;
+        case ZOOM.Concept:
+            return copy;
+    }
+};
+
 
 // ATOMS
 
@@ -71,19 +92,19 @@ export const chartState = selector({
     get: ({ get }) => {
         const source = get(sourceState);
         if (!source.sections && !source.progressions && !source.concepts) {
-            const chartCopy = DEFAULT_CHART;
-            chartCopy.sections[0].progression[0].concepts = [source];
-            return chartCopy;
+            const chart = DEFAULT_CHART;
+            chart.sections[0].progression[0].concepts = [source];
+            return chart;
         }
         if (!source.sections && !source.progressions) {
-            const chartCopy = DEFAULT_CHART;
-            chartCopy.sections[0].progressions = [source];
-            return chartCopy;
+            const chart = DEFAULT_CHART;
+            chart.sections[0].progressions = [source];
+            return chart;
         }
         if (!source.sections) {
-            const chartCopy = DEFAULT_CHART;
-            chartCopy.sections = [source];
-            return chartCopy;
+            const chart = DEFAULT_CHART;
+            chart.sections = [source];
+            return chart;
         }
         return source;
     }
@@ -92,56 +113,47 @@ export const chartState = selector({
 export const sectionState = selector({
     key: 'section',
     get: ({ get }) => {
-        const chart = get(chartState);
+        const chart = deepCopy(get(chartState), ZOOM.Chart);
         const position = get(positionState);
         const [s] = position;
-        return chart.sections[s];
+        const section = chart.sections[s];
+
+        const defaults = { ...(chart.defaults || {}), ...(section.defaults || {}) };
+        section.defaults = defaults;
+
+        return section;
     }
 });
 
 export const progressionState = selector({
     key: 'progression',
     get: ({ get }) => {
-        const chart = get(chartState);
+        const chart = deepCopy(get(chartState), ZOOM.Chart);
         const position = get(positionState);
         const [s, p] = position;
-        return chart.sections[s].progressions[p];
-    }
-});
+        const section = chart.sections[s];
+        const progression = chart.sections[s].progressions[p];
 
-export const conceptConfigState = selector({
-    key: 'conceptConfig',
-    get: ({ get }) => {
-        const chart = get(chartState);
-        const position = get(positionState);
-        const [s, p, c] = position;
-        return chart.sections[s].progressions[p].concepts[c];
-    }
-});
+        const defaults = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}) };
+        progression.defaults = defaults;
 
-export const chartLevelsState = selector({
-    // Raw config
-    key: 'chartLevels', get: ({ get }) => {
-        const chart = get(chartState);
-        const section = get(sectionState);
-        const progression = get(progressionState);
-        const concept = get(conceptConfigState);
-        return {
-            chart: chart,
-            section: section,
-            progression: progression,
-            concept: concept
-        };
+        return progression;
     }
 });
 
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const levels = get(chartLevelsState);
-        const { chart, section, progression, concept: conceptConfig } = levels;
+        const chart = deepCopy(get(chartState), ZOOM.Chart);
+        const position = get(positionState);
+        const [s, p, c] = position;
+        const section = chart.sections[s];
+        const progression = chart.sections[s].progressions[p];
+        const conceptConfig = chart.sections[s].progressions[p].concepts[c];
+
         const defaults = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}) };
         const mergedConfig = { ...defaults, ...conceptConfig };
+
         const concept = parseConceptConfig(mergedConfig);
         concept.C = PW.Theory.addVectorsBatch(concept.a, concept.B);
 

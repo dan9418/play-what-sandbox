@@ -36,19 +36,11 @@ h1, h2 {
     margin-left: 16px;
 }
 
-.zoom-selector {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    white-space: nowrap;
-}
-
-.zoom-selector .button-input {
-    border-radius: 0;
-    height: 50px;
-}
-
-.menu-header {
-    height: 50px;
+.zoom-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
 }
 
 .concept-input-2 > * {
