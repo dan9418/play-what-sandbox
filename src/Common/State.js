@@ -25,7 +25,7 @@ const DEFAULT_PRESET_INDEX = 0;
 const DEFAULT_CONCEPT_CONFIG = { a: { p: 0, d: 0 }, B: [], C: [] };
 const DEFAULT_PROGRESSION = { concepts: [DEFAULT_CONCEPT_CONFIG] };
 const DEFAULT_SECTION = { progressions: [DEFAULT_PROGRESSION] };
-const DEFAULT_CHART = false ? PRESETS.progression[0] : { sections: [DEFAULT_SECTION] };
+const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
 
 // UTILS
 
@@ -56,15 +56,15 @@ export const deepCopy = (source, zoom) => {
     const copy = { ...source };
     switch (zoom) {
         case ZOOM.Chart:
-            copy.defaults = [...(source.defaults || [])];
+            copy.defaults = { ...(source.defaults || {}) };
             copy.sections = source.sections.map(s => deepCopy(s, ZOOM.Section))
             return copy;
         case ZOOM.Section:
-            copy.defaults = [...(source.defaults || [])];
+            copy.defaults = { ...(source.defaults || {}) };
             copy.progressions = source.progressions.map(p => deepCopy(p, ZOOM.Progression));
             return copy;
         case ZOOM.Progression:
-            copy.defaults = [...(source.defaults || [])];
+            copy.defaults = { ...(source.defaults || {}) };
             copy.concepts = source.concepts.map(c => deepCopy(c, ZOOM.Concept));
             return copy;
         case ZOOM.Concept:
@@ -77,12 +77,17 @@ export const deepCopy = (source, zoom) => {
 
 export const sourceState = atom({
     key: 'source',
-    default: DEFAULT_CHART
+    default: true ? PRESETS.chart[2] : DEFAULT_CHART
 });
 
 export const positionState = atom({
     key: 'position',
     default: DEFAULT_POSITION
+});
+
+export const scopeState = atom({
+    key: 'scope',
+    default: ZOOM.Concept
 });
 
 // SELECTORS
@@ -158,6 +163,35 @@ export const conceptState = selector({
         concept.C = PW.Theory.addVectorsBatch(concept.a, concept.B);
 
         return concept;
+    }
+});
+
+export const activeScopeState = selector({
+    key: 'activeScope',
+    get: ({ get }) => {
+        const scope = get(scopeState);
+        switch (scope) {
+            case ZOOM.Concept:
+                return {
+                    scope: ZOOM.Concept,
+                    ...get(conceptState)
+                };
+            case ZOOM.Progression:
+                return {
+                    scope: ZOOM.Progression,
+                    ...get(progressionState)
+                };
+            case ZOOM.Section:
+                return {
+                    scope: ZOOM.Section,
+                    ...get(sectionState)
+                };
+            case ZOOM.Chart:
+                return {
+                    scope: ZOOM.Chart,
+                    ...get(chartState)
+                };
+        }
     }
 });
 

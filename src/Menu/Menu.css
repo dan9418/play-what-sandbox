@@ -3,7 +3,8 @@
     height: 100%;
     position: relative;
     transition: width .2s;
-    box-shadow: 8px 8px 8px #ccc;;
+    box-shadow: 8px 8px 8px #ccc;
+    ;
     padding-bottom: 50px;
     /*overflow-y: auto;*/
 }
@@ -43,6 +44,29 @@ h1, h2 {
     padding: 16px;
 }
 
-.concept-input-2 > * {
+.concept-input-2>* {
     margin-left: 16px;
+}
+
+.menu ul, .menu li {
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul {
+    margin-left: 8px
+}
+
+.menu li {
+    list-style: none;
+    user-select: none;
+}
+
+.menu .item {
+    padding: 8px;
+}
+
+.menu .item:hover {
+    cursor: pointer;
+    font-weight: bold;
 }
