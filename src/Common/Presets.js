@@ -318,7 +318,7 @@ export const CHARTS = [
         id: 'autumnLeaves',
         name: 'Autumn Leaves',
         defaults: {
-            outputs: ['fretboard']
+            outputs: ['fretboard', 'keyboard']
         },
         sections:
             [

@@ -79,7 +79,7 @@ const SectionLevel = props => {
     return (
         <div className="level">
             <h2>Section</h2>
-            <Section s={0} section={section} defaults={section.defaults} />)}
+            <Section s={0} section={section} defaults={section.defaults} />
         </div>
     )
 };
