@@ -78,8 +78,8 @@ const SectionLevel = props => {
     const section = useRecoilValue(sectionState);
     return (
         <div className="level">
-            <h2>Progressions</h2>
-            {section.progressions.map((p, i) => <Progression key={i} s={0} p={i} progression={p} defaults={section.defaults} />)}
+            <h2>Section</h2>
+            <Section s={0} section={section} defaults={section.defaults} />)}
         </div>
     )
 };
@@ -88,8 +88,8 @@ const ProgressionLevel = props => {
     const progression = useRecoilValue(progressionState);
     return (
         <div className="level">
-            <h2>Concepts</h2>
-            {progression.concepts.map((c, i) => <Concept key={i} s={0} p={0} c={i} conceptConfig={c} defaults={progression.defaults} />)}
+            <h2>Progression</h2>
+            <Progression s={0} p={0} progression={progression} defaults={progression.defaults} />
         </div>
     )
 };
@@ -104,11 +104,9 @@ const ConceptLevel = props => {
     )
 };
 
-export const Chart = props => {
-    const [zoom, setZoom] = useState(ZOOM.Chart);
+export const Chart = ({ zoom }) => {
     return (
         <div className="chart">
-            <ZoomInput zoom={zoom} setZoom={setZoom} />
             {zoom === ZOOM.Chart && <ChartLevel />}
             {zoom === ZOOM.Section && <SectionLevel />}
             {zoom === ZOOM.Progression && <ProgressionLevel />}
