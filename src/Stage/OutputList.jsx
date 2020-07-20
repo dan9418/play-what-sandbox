@@ -10,6 +10,7 @@ import { conceptState, activeScopeState, ZOOM, sourceState, parseConceptConfig }
 import ConceptPreview from './ConceptPreview';
 import { OUTPUTS } from '../Common/Presets';
 import { Chart } from './Chart/Chart';
+import ButtonInput from '../UI/ButtonInput/ButtonInput';
 
 const VIEWERS = {
     fretboard: {
@@ -24,6 +25,41 @@ const VIEWERS = {
     }
 };
 
+const MultiViewer = ({ children, zoom }) => {
+
+    const [index, setIndex] = useState(0);
+    const setNext = () => setIndex(index + 1);
+    const setPrev = () => setIndex(index - 1);
+
+    let title = null;
+    switch (zoom) {
+        case ZOOM.Chart:
+            title = "Section";
+            break;
+        case ZOOM.Section:
+            title = "Progression";
+            break;
+        case ZOOM.Progression:
+            title = "Concept";
+            break;
+        case ZOOM.Concept:
+            title = "Viewer";
+            break;
+    }
+
+    return (
+        <div className="multi-viewer">
+            <div className='title'>
+                {`${title}:  `}
+                <ButtonInput onClick={setPrev}>{'<'}</ButtonInput>
+                {`  ${index + 1}/${children.length}  `}
+                <ButtonInput onClick={setNext}>{'>'}</ButtonInput>
+            </div>
+            {children[index]}
+        </div>
+    );
+};
+
 const getViewers = (source, scope, defaults = {}) => {
     switch (scope) {
         case ZOOM.Concept:
@@ -33,7 +69,7 @@ const getViewers = (source, scope, defaults = {}) => {
             const concept = parseConceptConfig(mergedSource);
             concept.C = PW.Theory.addVectorsBatch(concept.a, concept.B);
 
-            return mergedSource.outputs.map((o, i) => {
+            return <MultiViewer zoom={ZOOM.Concept}>{mergedSource.outputs.map((o, i) => {
                 let config = o;
                 if (typeof o === 'string') {
                     config = OUTPUTS.find(x => x.outputId === o);
@@ -41,22 +77,20 @@ const getViewers = (source, scope, defaults = {}) => {
                 const { viewerId, args } = config;
                 const Comp = VIEWERS[viewerId].component;
                 return <Comp key={viewerId} concept={concept} {...args} />;
-            });
+            })}</MultiViewer>;
         case ZOOM.Progression:
-            const out = Array.prototype.concat(...source.concepts.map((c, i) => {
-                return getViewers(c, ZOOM.Concept, { ...defaults, ...source.defaults })
-            }));
-            return out;
+            return <MultiViewer zoom={ZOOM.Progression}>{Array.prototype.concat(...source.concepts.map((c, i) => {
+                const viewersForConcept = getViewers(c, ZOOM.Concept, { ...defaults, ...source.defaults });
+                return <div className="concept-viewers">{viewersForConcept}</div>
+            }))}</MultiViewer>;
         case ZOOM.Section:
-            const out2 = Array.prototype.concat(...source.progressions.map((p, i) => {
+            return <MultiViewer zoom={ZOOM.Section}>{Array.prototype.concat(...source.progressions.map((p, i) => {
                 return getViewers(p, ZOOM.Progression, { ...defaults, ...source.defaults })
-            }));
-            return out2;
+            }))}</MultiViewer>;
         case ZOOM.Chart:
-            const out3 = Array.prototype.concat(...source.sections.map((s, i) => {
+            return <MultiViewer zoom={ZOOM.Chart}>{Array.prototype.concat(...source.sections.map((s, i) => {
                 return getViewers(s, ZOOM.Section, source.defaults)
-            }));
-            return out3;
+            }))}</MultiViewer>;
     }
 };
 

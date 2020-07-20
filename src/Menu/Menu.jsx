@@ -103,7 +103,7 @@ const Menu = () => {
                     </ul>
                 </>
             }
-            <div className={`tab pw - secondary pw - hov`} onClick={toggleOpen} >{open ? '-' : '+'}</div>
+            <div className={`tab pw-secondary pw-hov`} onClick={toggleOpen} >{open ? '-' : '+'}</div>
         </div>
     );
 }
