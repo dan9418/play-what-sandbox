@@ -34,10 +34,11 @@ const Concept = props => {
 const Progression = props => {
     const { progression, s, p, defaults: secDefaults } = props;
     const defaults = { ...(secDefaults || {}), ...(progression.defaults || {}) }
+    const title = progression.name || `Progression ${p + 1}`;
 
     return (
         <div className={`progression pw-light`}>
-            <h4 className='progression-name'>{progression.name || `${p + 1}`}</h4>
+            <h4 className='progression-name'>{title}</h4>
             <div className={`progression-concepts`}>
                 {progression.concepts.map((c, i) => <Concept key={i} s={s} p={p} c={i} conceptConfig={c} defaults={defaults} />)}
             </div>
@@ -49,10 +50,11 @@ const Section = props => {
     const { section, s, defaults: chartDefaults } = props;
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
-    const defaults = { ...(chartDefaults || {}), ...(section.defaults || {}) }
+    const defaults = { ...(chartDefaults || {}), ...(section.defaults || {}) };
+    const title = section.name || `Section ${s + 1}`;
     return (
         <div className={`section`}>
-            <h3 className='section-name' onClick={toggleOpen}>{section.name}</h3>
+            <h3 className='section-name' onClick={toggleOpen}>{title}</h3>
             <div>
                 {open && section.progressions.map((p, i) =>
                     <Progression key={i} s={s} p={i} progression={p} defaults={defaults} />
@@ -68,7 +70,6 @@ const ChartLevel = props => {
 
     return (
         <div className="level">
-            <h2>Sections</h2>
             {chart.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={chart.defaults} />)}
         </div>
     )
@@ -78,7 +79,6 @@ const SectionLevel = props => {
     const section = useRecoilValue(sectionState);
     return (
         <div className="level">
-            <h2>Section</h2>
             <Section s={0} section={section} defaults={section.defaults} />
         </div>
     )
@@ -88,7 +88,6 @@ const ProgressionLevel = props => {
     const progression = useRecoilValue(progressionState);
     return (
         <div className="level">
-            <h2>Progression</h2>
             <Progression s={0} p={0} progression={progression} defaults={progression.defaults} />
         </div>
     )
@@ -98,7 +97,6 @@ const ConceptLevel = props => {
     const concept = useRecoilValue(conceptState);
     return (
         <div className="level">
-            <h2>Concept</h2>
             <Concept s={0} p={0} c={0} conceptConfig={concept} defaults={null} />
         </div>
     )

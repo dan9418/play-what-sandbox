@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PW from 'play-what';
 import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import './Menu.css';
 import ZoomInput from '../UI/ZoomInput/ZoomInput';
@@ -16,8 +17,12 @@ const ConceptHeader = ({ conceptConfig, s, p, c }) => {
         setScope(ZOOM.Concept)
     };
 
+    const tonic = PW.Theory.getNoteName(conceptConfig.a);
+    const preset = {id:''};//PW.Theory.findPreset(conceptConfig.B);
+    const title = `${tonic} ${preset.id}`;
+
     return (
-        <li className={`item ${active ? 'pw-accent' : ''}`} onClick={action}>{conceptConfig.name || `Concept ${c + 1} `}</li>
+        <li className={`item ${active ? 'pw-accent' : ''}`} onClick={action}>{title}</li>
     );
 }
 
