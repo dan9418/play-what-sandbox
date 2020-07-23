@@ -3,8 +3,7 @@ import './Chart.css';
 import PW from 'play-what';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { chartState, positionState, parseConceptConfig, ZOOM, sectionState, progressionState, conceptState } from '../../Common/State';
-import ZoomInput from '../../UI/ZoomInput/ZoomInput';
-import ButtonInput from '../../UI/ButtonInput/ButtonInput';
+import LevelHeader from '../LevelHeader';
 
 const Concept = props => {
     const { conceptConfig, s, p, c, defaults: progDefaults } = props;
@@ -62,23 +61,6 @@ const Section = props => {
                 )}
             </div>
         </div>
-    );
-};
-
-const LevelHeader = props => {
-    const [open, setOpen] = useState(false);
-    const toggleOpen = () => setOpen(!open);
-
-    return (
-        <>
-            <div className="level-header">
-                <div className="level-title">{props.title}</div>
-                <ButtonInput className="pw-secondary" onClick={toggleOpen}>Edit</ButtonInput>
-            </div>
-            <div className={`edit-panel ${open ? 'open' : ''}`}>
-                {props.editPanel}
-            </div>
-        </>
     );
 };
 
