@@ -57,12 +57,11 @@ const PlaybackControls = () => {
     }
 
     return (
-        <div className='playback-controls pw-primary'>
+        <div className='playback-controls'>
             <div className={`blinker ${beatIndex % 2 === 0 ? 'pulse' : ''}`} />
-            <div>
-                <ScalarInput value={tempo} setValue={setTempo} /> bpm
-            </div>
             <ButtonInput className='pw-secondary' onClick={togglePlay}>{playing ? 'Pause' : 'Play'}</ButtonInput>
+            <h3>bpm</h3>
+            <ScalarInput value={tempo} setValue={setTempo} />
         </div>
     );
 }

@@ -68,3 +68,12 @@ h1, h2 {
 .meatball svg, .meatball svg * {
     fill: #ddd;
 }
+
+.tab-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.tab {
+    border-radius: 0;
+}

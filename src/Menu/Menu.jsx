@@ -6,6 +6,7 @@ import ZoomInput from '../UI/ZoomInput/ZoomInput';
 import { ZOOM, chartState, positionState, scopeState } from '../Common/State';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Common from '../Common/_module';
+import PlaybackControls from '../PlaybackControls/PlaybackControls';
 
 const ConceptHeader = ({ conceptConfig, s, p, c }) => {
     const [scope, setScope] = useRecoilState(scopeState);
@@ -86,34 +87,77 @@ const SectionHeader = ({ section, s }) => {
     );
 }
 
-const Menu = () => {
 
+const NavTab = () => {
     const chart = useRecoilValue(chartState);
     const [scope, setScope] = useRecoilState(scopeState);
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
+    const [tab, setTab] = useState(TABS[0]);
+    return (
+        <>
+            <h2>Scope</h2>
+            <div className="zoom-container">
+                <ZoomInput zoom={scope} setZoom={setScope} />
+            </div>
+            <h2>Chart</h2>
+            <ul>
+                {chart.sections.map((s, i) => {
+                    return <SectionHeader section={s} key={i} s={i} />;
+                })}
+            </ul>
+        </>
+    );
+};
+
+const PlaybackTab = () => {
+    const chart = useRecoilValue(chartState);
+    const [scope, setScope] = useRecoilState(scopeState);
+    const [open, setOpen] = useState(true);
+    const toggleOpen = () => setOpen(!open);
+    const [tab, setTab] = useState(TABS[0]);
+    return (
+        <>
+            <h2>Playback</h2>
+            <PlaybackControls />
+        </>
+    );
+};
+
+
+const TABS = [
+    {
+        name: 'Navigation',
+        component: NavTab
+    },
+    {
+        name: 'Playback',
+        component: PlaybackTab
+    },
+];
+
+const Menu = () => {
+
+    const [open, setOpen] = useState(true);
+    const toggleOpen = () => setOpen(!open);
+    const [tab, setTab] = useState(TABS[0]);
+    const Tab = tab.component;
 
     return (
         <div className={`menu pw - lighter ${open && 'open'} `}>
             {open &&
                 <>
-                    <h2>Scope</h2>
-                    <div className="zoom-container">
-                        <ZoomInput zoom={scope} setZoom={setScope} />
+                    <div className="tab-container">
+                        {TABS.map(t => <ButtonInput className={`tab ${t.name === tab.name ? 'pw-accent' : 'pw-secondary'}`} onClick={() => setTab(t)}>{t.name}</ButtonInput>)}
                     </div>
-                    <h2>Chart</h2>
-                    <ul>
-                        {chart.sections.map((s, i) => {
-                            return <SectionHeader section={s} key={i} s={i} />;
-                        })}
-                    </ul>
+                    <Tab />
                 </>
             }
             <div className={`meatball ${open ? 'pw-accent' : 'pw-primary'} pw-hov`} onClick={toggleOpen} >
-                <Common.Icons.Menu/>
+                <Common.Icons.Menu />
             </div>
         </div>
     );
-}
+};
 
 export default Menu;
