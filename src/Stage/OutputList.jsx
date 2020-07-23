@@ -11,6 +11,7 @@ import ConceptPreview from './ConceptPreview';
 import { OUTPUTS } from '../Common/Presets';
 import { Chart } from './Chart/Chart';
 import ButtonInput from '../UI/ButtonInput/ButtonInput';
+import LevelHeader from './LevelHeader';
 
 const VIEWERS = {
     fretboard: {
@@ -39,7 +40,12 @@ const ConceptViewer = ({ conceptConfig, defaults }) => {
         }
         const { viewerId, args } = config;
         const Comp = VIEWERS[viewerId].component;
-        return <Comp key={viewerId} concept={concept} {...args} />;
+        return (
+            <>
+                <LevelHeader title={VIEWERS[viewerId].name}>Edit your stuff here!</LevelHeader>
+                <Comp key={viewerId} concept={concept} {...args} />
+            </>
+        );
     })}</div>;
 };
 

@@ -70,7 +70,7 @@ const ChartLevel = props => {
 
     return (
         <div className="level">
-            <LevelHeader title="Chart" />
+            <LevelHeader title="Chart" >Edit your stuff here!</LevelHeader>
             {chart.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={chart.defaults} />)}
         </div>
     )
@@ -80,7 +80,7 @@ const SectionLevel = props => {
     const section = useRecoilValue(sectionState);
     return (
         <div className="Section">
-            <LevelHeader title="Section" />
+            <LevelHeader title="Section" >Edit your stuff here!</LevelHeader>
             <Section s={0} section={section} defaults={section.defaults} />
         </div>
     )
@@ -90,7 +90,7 @@ const ProgressionLevel = props => {
     const progression = useRecoilValue(progressionState);
     return (
         <div className="level">
-            <LevelHeader title="Progression" />
+            <LevelHeader title="Progression" >Edit your stuff here!</LevelHeader>
             <Progression s={0} p={0} progression={progression} defaults={progression.defaults} />
         </div>
     )
@@ -100,7 +100,7 @@ const ConceptLevel = props => {
     const concept = useRecoilValue(conceptState);
     return (
         <div className="level">
-            <LevelHeader title="Concept" />
+            <LevelHeader title="Concept">Edit your stuff here!</LevelHeader>
             <Concept s={0} p={0} c={0} conceptConfig={concept} defaults={null} />
         </div>
     )

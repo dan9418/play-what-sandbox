@@ -5,6 +5,7 @@ import './Menu.css';
 import ZoomInput from '../UI/ZoomInput/ZoomInput';
 import { ZOOM, chartState, positionState, scopeState } from '../Common/State';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import Common from '../Common/_module';
 
 const ConceptHeader = ({ conceptConfig, s, p, c }) => {
     const [scope, setScope] = useRecoilState(scopeState);
@@ -18,7 +19,7 @@ const ConceptHeader = ({ conceptConfig, s, p, c }) => {
     };
 
     const tonic = PW.Theory.getNoteName(conceptConfig.a);
-    const preset = {id:''};//PW.Theory.findPreset(conceptConfig.B);
+    const preset = { id: '' };//PW.Theory.findPreset(conceptConfig.B);
     const title = `${tonic} ${preset.id}`;
 
     return (
@@ -108,7 +109,9 @@ const Menu = () => {
                     </ul>
                 </>
             }
-            <div className={`tab pw-secondary pw-hov`} onClick={toggleOpen} >{open ? '-' : '+'}</div>
+            <div className={`meatball ${open ? 'pw-accent' : 'pw-primary'} pw-hov`} onClick={toggleOpen} >
+                <Common.Icons.Menu/>
+            </div>
         </div>
     );
 }

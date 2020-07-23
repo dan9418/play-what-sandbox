@@ -13,7 +13,7 @@ const LevelHeader = props => {
                 <ButtonInput className="pw-secondary" onClick={toggleOpen}>Edit</ButtonInput>
             </div>
             <div className={`edit-panel ${open ? 'open' : ''}`}>
-                {props.editPanel}
+                {open && props.children}
             </div>
         </>
     );

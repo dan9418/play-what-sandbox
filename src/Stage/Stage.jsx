@@ -7,8 +7,8 @@ import OutputList from './OutputList';
 const Stage = () => {
     return (
         <div className="stage">
-            <Menu />
             <OutputList />
+            <Menu />
         </div>
     );
 }
