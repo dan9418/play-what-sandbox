@@ -4,6 +4,7 @@ import PW from 'play-what';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { chartState, positionState, parseConceptConfig, ZOOM, sectionState, progressionState, conceptState } from '../../Common/State';
 import ZoomInput from '../../UI/ZoomInput/ZoomInput';
+import ButtonInput from '../../UI/ButtonInput/ButtonInput';
 
 const Concept = props => {
     const { conceptConfig, s, p, c, defaults: progDefaults } = props;
@@ -64,12 +65,30 @@ const Section = props => {
     );
 };
 
+const LevelHeader = props => {
+    const [open, setOpen] = useState(false);
+    const toggleOpen = () => setOpen(!open);
+
+    return (
+        <>
+            <div className="level-header">
+                <div className="level-title">{props.title}</div>
+                <ButtonInput className="pw-secondary" onClick={toggleOpen}>Edit</ButtonInput>
+            </div>
+            <div className={`edit-panel ${open ? 'open' : ''}`}>
+                {props.editPanel}
+            </div>
+        </>
+    );
+};
+
 const ChartLevel = props => {
 
     const chart = useRecoilValue(chartState);
 
     return (
         <div className="level">
+            <LevelHeader title="Chart" />
             {chart.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={chart.defaults} />)}
         </div>
     )
@@ -78,7 +97,8 @@ const ChartLevel = props => {
 const SectionLevel = props => {
     const section = useRecoilValue(sectionState);
     return (
-        <div className="level">
+        <div className="Section">
+            <LevelHeader title="Section" />
             <Section s={0} section={section} defaults={section.defaults} />
         </div>
     )
@@ -88,6 +108,7 @@ const ProgressionLevel = props => {
     const progression = useRecoilValue(progressionState);
     return (
         <div className="level">
+            <LevelHeader title="Progression" />
             <Progression s={0} p={0} progression={progression} defaults={progression.defaults} />
         </div>
     )
@@ -97,6 +118,7 @@ const ConceptLevel = props => {
     const concept = useRecoilValue(conceptState);
     return (
         <div className="level">
+            <LevelHeader title="Concept" />
             <Concept s={0} p={0} c={0} conceptConfig={concept} defaults={null} />
         </div>
     )
