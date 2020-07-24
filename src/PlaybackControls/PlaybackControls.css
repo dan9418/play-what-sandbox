@@ -21,3 +21,8 @@
 		background-color: red;
 	}
 }
+
+.scalar-input.bpm {
+	margin-right: 8px;
+	width: 64px;
+}

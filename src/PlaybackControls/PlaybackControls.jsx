@@ -60,8 +60,14 @@ const PlaybackControls = () => {
         <div className='playback-controls'>
             <div className={`blinker ${beatIndex % 2 === 0 ? 'pulse' : ''}`} />
             <ButtonInput className='pw-secondary' onClick={togglePlay}>{playing ? 'Pause' : 'Play'}</ButtonInput>
-            <h3>bpm</h3>
-            <ScalarInput value={tempo} setValue={setTempo} />
+            <h3>Tempo</h3>
+            <div className="left">
+                <ScalarInput value={tempo} setValue={setTempo} className="bpm" />
+                <span className="bpm">bpm</span>
+            </div>
+            <h3>Metronome</h3>
+            <h3>Volume</h3>
+            <h3>Voice</h3>
         </div>
     );
 }

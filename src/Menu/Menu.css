@@ -13,10 +13,6 @@
     width: 256px;
 }
 
-h1, h2 {
-    margin-left: 16px;
-}
-
 .zoom-container {
     display: flex;
     align-items: center;
@@ -28,22 +24,29 @@ h1, h2 {
     margin-left: 16px;
 }
 
+/* Menu */
+
 .menu ul, .menu li {
-    padding: 0;
+    width: 100%;
     margin: 0;
-}
-
-.menu ul {
-    margin-left: 8px
-}
-
-.menu li {
+    padding: 0;
+    box-sizing: border-box;
     list-style: none;
     user-select: none;
 }
 
-.menu .item {
+.menu .header {
     padding: 8px;
+    border-radius: 8px 8px 0 0;
+}
+
+.menu .leaf {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.menu .list {
+    padding: 0 8px;
 }
 
 .menu .item:hover {
@@ -51,6 +54,9 @@ h1, h2 {
     font-weight: bold;
 }
 
+.menu .list {
+    border-radius: 0 0 8px 8px;
+}
 
 .meatball {
     height: 50px;
@@ -64,7 +70,6 @@ h1, h2 {
     z-index: 10000;
 }
 
-
 .meatball svg, .meatball svg * {
     fill: #ddd;
 }
@@ -76,4 +81,29 @@ h1, h2 {
 
 .tab {
     border-radius: 0;
+}
+
+.justify {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.right {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navigation {
+    padding: 16px;
 }

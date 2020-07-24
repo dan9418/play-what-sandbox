@@ -14,6 +14,7 @@ const ConceptHeader = ({ conceptConfig, s, p, c }) => {
     const active = (scope === ZOOM.Section && s === position[0]) ||
         (scope === ZOOM.Progression && s === position[0] && p === position[1]) ||
         (scope === ZOOM.Concept && s === position[0] && p === position[1] && c === position[2]);
+    const trueActive = s === position[0] && p === position[1] && c === position[2];
     const action = () => {
         setPosition([s, p, c]);
         setScope(ZOOM.Concept)
@@ -24,7 +25,7 @@ const ConceptHeader = ({ conceptConfig, s, p, c }) => {
     const title = `${tonic} ${preset.id}`;
 
     return (
-        <li className={`item ${active ? 'pw-accent' : ''}`} onClick={action}>{title}</li>
+        <li className={`leaf item ${trueActive ? 'pw-accent' : active ? 'pw-secondary' : ''}`} onClick={action}>{title}</li>
     );
 }
 
@@ -42,11 +43,11 @@ const ProgressionHeader = ({ progression, s, p }) => {
 
     return (
         <>
-            <li className={`item ${active ? 'pw-accent' : ''}`} onClick={action}>{open ? '-  ' : '+  '}{progression.name || `Progression ${p + 1} `}</li>
+            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>{open ? '-  ' : '+  '}{progression.name || `Progression ${p + 1} `}</li>
             {open &&
                 <>
-                    <li className="">
-                        <ul>
+                    <li>
+                        <ul className={`list ${active ? 'pw-secondary' : ''}`}>
                             {progression.concepts.map((c, i) => {
                                 return <ConceptHeader conceptConfig={c} key={i} s={s} p={p} c={i} />
                             })}
@@ -71,11 +72,11 @@ const SectionHeader = ({ section, s }) => {
 
     return (
         <>
-            <li className={`item ${active ? 'pw-accent' : ''}`} onClick={action}>{open ? '-  ' : '+  '}{section.name || `Section ${s + 1} `}</li>
+            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>{open ? '-  ' : '+  '}{section.name || `Section ${s + 1} `}</li>
             {open &&
                 <>
-                    <li className="">
-                        <ul>
+                    <li>
+                        <ul className={`list ${active ? 'pw-secondary' : ''}`}>
                             {section.progressions.map((p, i) => {
                                 return <ProgressionHeader progression={p} key={i} s={s} p={i} />;
                             })}
@@ -95,18 +96,18 @@ const NavTab = () => {
     const toggleOpen = () => setOpen(!open);
     const [tab, setTab] = useState(TABS[0]);
     return (
-        <>
+        <div className="navigation">
             <h2>Scope</h2>
             <div className="zoom-container">
                 <ZoomInput zoom={scope} setZoom={setScope} />
             </div>
-            <h2>Chart</h2>
-            <ul>
+            <h2 className="">Chart</h2>
+            <ul className={`list ${false ? 'pw-secondary' : ''}`}>
                 {chart.sections.map((s, i) => {
                     return <SectionHeader section={s} key={i} s={i} />;
                 })}
             </ul>
-        </>
+        </div>
     );
 };
 
@@ -118,7 +119,6 @@ const PlaybackTab = () => {
     const [tab, setTab] = useState(TABS[0]);
     return (
         <>
-            <h2>Playback</h2>
             <PlaybackControls />
         </>
     );
