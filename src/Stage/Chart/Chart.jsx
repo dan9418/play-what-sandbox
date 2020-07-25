@@ -9,6 +9,9 @@ import { useSetRecoilState } from 'recoil';
 const Concept = props => {
     const { conceptConfig, s, p, c, defaults: progDefaults } = props;
 
+    const [scope, setScope] = useRecoilState(scopeState);
+    const active = scope === ZOOM.Concept;
+
     const mergedConcept = { ...(progDefaults || {}), ...(conceptConfig || {}) }
 
     const concept = parseConceptConfig(mergedConcept);
@@ -23,7 +26,7 @@ const Concept = props => {
     const isActive = position[0] === s && position[1] === p && position[2] === c;
 
     return (
-        <div className={`concept pw-hov ${isActive ? 'pw-accent' : 'pw-concept'}`} style={style} onClick={() => setPosition([s, p, c])}>
+        <div className={`concept pw-hov ${isActive ? 'pw-accent' : 'pw-concept'} ${active ? 'pw-active' : ''}`} style={style} onClick={() => setPosition([s, p, c])}>
             <div>
                 <span className="tonic">{tonic}</span>
                 <span className="preset">{preset.id}</span>
@@ -36,11 +39,12 @@ const Progression = props => {
     const { progression, s, p, defaults: secDefaults, shell, children } = props;
     const defaults = { ...(secDefaults || {}), ...(progression.defaults || {}) }
     const title = progression.name || `Progression ${p + 1}`;
-    const setScope = useSetRecoilState(scopeState);
+    const [scope, setScope] = useRecoilState(scopeState);
+    const active = scope === ZOOM.Progression;
 
     return (
-        <div className={`progression pw-progression pw-hov ${shell ? 'pw-disabled' : ''}`} onClick={() => setScope(ZOOM.Progression)}>
-            <h4 className='progression-name'>{title}</h4>
+        <div className={`progression pw-progression pw-hov ${shell ? 'pw-disabled' : ''} ${active ? 'pw-active' : ''}`}>
+            <h4 className='progression-name' onClick={() => setScope(ZOOM.Progression)}>{title}</h4>
             {shell ? children :
                 <div className={`progression-concepts`}>
                     {progression.concepts.map((c, i) => <Concept key={i} s={s} p={p} c={i} conceptConfig={c} defaults={defaults} />)}
@@ -54,9 +58,11 @@ const Section = props => {
     const { section, s, defaults: chartDefaults, shell, children } = props;
     const defaults = { ...(chartDefaults || {}), ...(section.defaults || {}) };
     const title = section.name || `Section ${s + 1}`;
-    const setScope = useSetRecoilState(scopeState);
+    const [scope, setScope] = useRecoilState(scopeState);
+    const active = scope === ZOOM.Section;
+
     return (
-        <div className={`section pw-section pw-hov ${shell ? 'pw-disabled' : ''}`}>
+        <div className={`section pw-section pw-hov ${shell ? 'pw-disabled' : ''} ${active ? 'pw-active' : ''}`}>
             <h3 className='section-name' onClick={() => setScope(ZOOM.Section)}>{title}</h3>
             <div>
                 {shell ? children : section.progressions.map((p, i) =>
@@ -70,9 +76,11 @@ const Section = props => {
 const Chart = props => {
     const { chart, shell, children } = props;
     const title = chart.name || `Chart`;
-    const setScope = useSetRecoilState(scopeState);
+    const [scope, setScope] = useRecoilState(scopeState);
+    const active = scope === ZOOM.Chart;
+
     return (
-        <div className={`chart pw-chart pw-hov ${shell ? 'pw-disabled' : ''}`}>
+        <div className={`chart pw-chart pw-hov ${shell ? 'pw-disabled' : ''} ${active ? 'pw-active' : ''}`}>
             <h2 className='chart-name' onClick={() => setScope(ZOOM.Chart)}>{title}</h2>
             {shell ? children : chart.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={chart.defaults} />)}
         </div>

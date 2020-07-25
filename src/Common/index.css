@@ -10,6 +10,9 @@
   -ms-user-select: none;
   user-select: none;
 }
+.pw-active {
+  border: 4px solid #D36135;
+}
 /* Theme */
 .pw-primary {
   background-color: #25283D;
@@ -36,14 +39,14 @@
 }
 /* Levels */
 .pw-chart {
-  background-color: #CFE7F2;
+  background-color: #a7d3e7;
   color: #25283D;
 }
 .pw-chart.pw-hov:hover {
-  background-color: #a7d3e7;
+  background-color: #7fbfdc;
 }
 .pw-chart.pw-disabled {
-  background-color: #e1e1e1;
+  background-color: #c7c7c7;
   color: #ffffff;
 }
 .pw-section {

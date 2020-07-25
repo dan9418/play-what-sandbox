@@ -1,14 +1,14 @@
-//@primary: #5E99D1;
-@primary: #25283D;
+@primary: #25283D; //#5E99D1;
 @primary-fg: #FFF;
 @primary-hover: darken(@primary, 10%);
 
-@accent: #87A330; //D36135
+@accent: #87A330;
 @accent-fg: #FFF;
 @accent-hover: darken(@accent, 10%);
 
+@active: #D36135;
 
-@chart: #CFE7F2;
+@chart: darken(#CFE7F2, 10%);
 @chart-hover: darken(@chart, 10%);
 
 @section: #E3DCE5;
@@ -45,6 +45,10 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.pw-active {
+    border: 4px solid @active;
 }
 
 /* Theme */

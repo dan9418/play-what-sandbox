@@ -25,7 +25,7 @@ const ConceptHeader = ({ conceptConfig, s, p, c }) => {
     const title = `${tonic} ${preset.id}`;
 
     return (
-        <li className={`leaf item ${trueActive ? 'pw-accent' : active ? 'pw-secondary' : ''}`} onClick={action}>{title}</li>
+        <li className={`leaf item ${trueActive ? 'pw-active pw-concept' : active ? 'pw-concept' : ''}`} onClick={action}>{title}</li>
     );
 }
 
@@ -43,14 +43,14 @@ const ProgressionHeader = ({ progression, s, p }) => {
 
     return (
         <>
-            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>
+            <li className={`header item ${active ? 'pw-progression' : ''}`} onClick={action}>
                 {progression.name || `Progression ${p + 1} `}
                 <div className={`toggle ${open ? 'open' : ''}`} onClick={toggleOpen}>{'>'}</div>
             </li>
             {open &&
                 <>
                     <li>
-                        <ul className={`list ${active ? 'pw-secondary' : ''}`}>
+                        <ul className={`list ${active ? 'pw-progression' : ''}`}>
                             {progression.concepts.map((c, i) => {
                                 return <ConceptHeader conceptConfig={c} key={i} s={s} p={p} c={i} />
                             })}
@@ -75,14 +75,14 @@ const SectionHeader = ({ section, s }) => {
 
     return (
         <>
-            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>
+            <li className={`header item ${active ? 'pw-section' : ''}`} onClick={action}>
                 {section.name || `Section ${s + 1} `}
                 <div className={`toggle ${open ? 'open' : ''}`} onClick={toggleOpen}>{'>'}</div>
             </li>
             {open &&
                 <>
                     <li>
-                        <ul className={`list ${active ? 'pw-secondary' : ''}`}>
+                        <ul className={`list ${active ? 'pw-section' : ''}`}>
                             {section.progressions.map((p, i) => {
                                 return <ProgressionHeader progression={p} key={i} s={s} p={i} />;
                             })}
@@ -94,6 +94,33 @@ const SectionHeader = ({ section, s }) => {
     );
 }
 
+const ChartHeader = ({ chart }) => {
+    const [position, setPosition] = useRecoilState(positionState);
+    const [open, setOpen] = useState(true);
+    const toggleOpen = () => setOpen(!open);
+    const [scope, setScope] = useRecoilState(scopeState);
+    const active = (scope === ZOOM.Chart);
+    const action = () => {
+        setPosition([0, 0, 0]);
+        setScope(ZOOM.Chart)
+    };
+
+    return (
+        <>
+            <h2 className={`header item ${active ? 'pw-chart' : ''}`} onClick={action}>
+                {chart.name || 'Chart'}
+                <div className={`toggle ${open ? 'open' : ''}`} onClick={toggleOpen}>{'>'}</div>
+            </h2>
+            {open &&
+                <ul className={`list ${active ? 'pw-chart' : ''}`}>
+                    {chart.sections.map((s, i) => {
+                        return <SectionHeader section={s} key={i} s={i} />;
+                    })}
+                </ul>
+            }
+        </>
+    );
+}
 
 const NavTab = () => {
     const chart = useRecoilValue(chartState);
@@ -108,14 +135,7 @@ const NavTab = () => {
             <div className="zoom-container">
                 <ZoomInput zoom={scope} setZoom={setScope} />
             </div>
-            <h2 className={`header item ${active ? 'pw-secondary' : ''}`} onClick={() => setScope(ZOOM.Chart)}>
-                {chart.name || 'Chart'}
-            </h2>
-            <ul className={`list ${active ? 'pw-secondary' : ''}`}>
-                {chart.sections.map((s, i) => {
-                    return <SectionHeader section={s} key={i} s={i} />;
-                })}
-            </ul>
+            <ChartHeader chart={chart} />
         </div>
     );
 };
