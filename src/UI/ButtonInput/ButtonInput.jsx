@@ -8,7 +8,7 @@ const ButtonInput = props => {
     const isDisabled = disabled || false;
     const clickHander = onClick || (() => null);
 
-    const cn = `button-input ${hov ? 'pw-hov' : ''} ${className ? className : 'pw-lightest'}`;
+    const cn = `button-input ${hov ? 'pw-hov' : ''} ${className ? className : ''}`;
 
     return (
         <button className={cn} type='button' disabled={isDisabled} onClick={clickHander} >{children}</button>

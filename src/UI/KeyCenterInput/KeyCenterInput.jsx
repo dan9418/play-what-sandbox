@@ -15,7 +15,7 @@ const DegreeInput = ({ degree, setDegree }) => {
                     <ButtonInput
                         key={i}
                         onClick={() => setDegree({ p: d.p, d: i })}
-                        className={isActive ? 'pw-light' : null}
+                        className={isActive ? '' : null}
                     >
                         {PW.Theory.getDegreeMapping(d.d).name}
                     </ButtonInput>
@@ -35,7 +35,7 @@ const AccidentalInput = ({ accidental, setAccidental }) => {
                     <ButtonInput
                         key={i}
                         onClick={() => setAccidental(a)}
-                        className={isActive ? 'pw-light' : null}
+                        className={isActive ? '' : null}
                     >
                         {a.name}
                     </ButtonInput>

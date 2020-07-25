@@ -153,11 +153,11 @@ const Menu = () => {
     const Tab = tab.component;
 
     return (
-        <div className={`menu pw-lighter ${open && 'open'} `}>
+        <div className={`menu pw-light-2 ${open && 'open'} `}>
             {open &&
                 <>
                     <div className="tab-container">
-                        {TABS.map(t => <ButtonInput className={`tab ${t.name === tab.name ? 'pw-accent' : 'pw-secondary'}`} onClick={() => setTab(t)}>{t.name}</ButtonInput>)}
+                        {TABS.map(t => <ButtonInput className={`tab ${t.name === tab.name ? 'pw-accent' : 'pw-primary'}`} onClick={() => setTab(t)}>{t.name}</ButtonInput>)}
                     </div>
                     <Tab />
                 </>

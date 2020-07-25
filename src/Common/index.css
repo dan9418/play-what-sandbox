@@ -12,74 +12,68 @@
 }
 /* Theme */
 .pw-primary {
-  background-color: #414770;
+  background-color: #25283D;
   color: #FFF;
-  border-color: #FFF;
 }
 .pw-primary.pw-hov:hover {
-  background-color: #2e3350;
-}
-.pw-secondary {
-  background-color: #5B85AA;
-  color: #FFF;
-  border-color: #FFF;
-}
-.pw-secondary.pw-hov:hover {
-  background-color: #486b8a;
+  background-color: #12131d;
 }
 .pw-accent {
-  background-color: #F46036;
+  background-color: #87A330;
   color: #FFF;
-  border-color: #FFF;
 }
 .pw-accent.pw-hov:hover {
   background-color: #FFF;
-  color: #F46036;
-  border-color: #F46036;
+  color: #87A330;
+}
+/* Levels */
+.pw-chart {
+  background-color: #CFE7F2;
+  color: #25283D;
+}
+.pw-chart.pw-hov:hover {
+  background-color: #a7d3e7;
+}
+.pw-section {
+  background-color: #E3DCE5;
+  color: #25283D;
+}
+.pw-section.pw-hov:hover {
+  background-color: #ccbfcf;
+}
+.pw-progression {
+  background-color: #DFF3E3;
+  color: #25283D;
+}
+.pw-progression.pw-hov:hover {
+  background-color: #bae5c3;
+}
+.pw-concept {
+  background-color: #F5E0CC;
+  color: #25283D;
+}
+.pw-concept.pw-hov:hover {
+  background-color: #edc6a1;
 }
 /* Neutral */
-.pw-light {
-  background-color: #DDD;
-  color: #333;
-  border-color: #333;
+.pw-light-1 {
+  background-color: #F3F6F4;
+  color: #25283D;
 }
-.pw-light.pw-hov:hover {
-  background-color: #c4c4c4;
+.pw-light-1.pw-hov:hover {
+  background-color: #d6e0d9;
 }
-.pw-lighter {
-  background-color: #f7f7f7;
-  color: #333;
-  border-color: #333;
+.pw-light-2 {
+  background-color: #E8ECE9;
+  color: #25283D;
 }
-.pw-lighter.pw-hov:hover {
-  background-color: #dddddd;
+.pw-light-2.pw-hov:hover {
+  background-color: #ccd5ce;
 }
-.pw-lightest {
-  background-color: #ffffff;
-  color: #333;
-  border-color: #C0C0C0;
+.pw-light-3 {
+  background-color: #DCE1DE;
+  color: #25283D;
 }
-.pw-lightest.pw-hov:hover {
-  background-color: #e6e6e6;
-}
-.pw-medium {
-  background-color: #C0C0C0;
-  color: #333;
-  border-color: #333;
-}
-.pw-medium.pw-hov:hover {
-  background-color: #a7a7a7;
-}
-.pw-dark {
-  background-color: #232323;
-  color: #FFF;
-  border-color: #FFF;
-}
-.pw-dark.pw-hov:hover {
-  background-color: #3d3d3d;
-}
-/* States */
-.pw-disabled {
-  background-color: #C0C0C0;
-  color: #808080;
+.pw-light-3.pw-hov:hover {
+  background-color: #c1c9c4;
 }

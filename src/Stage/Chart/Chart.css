@@ -1,4 +1,4 @@
-.chart .section-name {
+.section-name {
     font-weight: bold;
     text-align: left;
     width: 90%;
@@ -6,35 +6,33 @@
     padding: 4px 16px;
     cursor: pointer;
 }
-.chart .section {
+
+.section {
     margin: 8px 16px;
     padding: 8px;
     border-radius: 8px;
-    background-color: #ddd;
-}
-.chart .progression {
-    margin: 8px 16px;
-    padding: 8px;
-    border-radius: 8px;
-    background-color: #ccc;
 }
 
-.chart .progression-name {
+.progression {
+    margin: 8px 16px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.progression-name {
     margin: 0;
     margin-bottom: 8px;
     font-weight: normal;
 }
 
-.chart .progression-concepts {
+.progression-concepts {
     display: flex;
     flex-wrap: wrap;
-    /*flex-wrap: nowrap;
-    overflow-x: auto;*/
     align-items: center;
     justify-content: space-between;
 }
 
-.chart .concept {
+.concept {
     padding: 4px;
     border-radius: 4px;
     display: flex;
@@ -45,20 +43,18 @@
     flex-basis: 10px;
     box-sizing: border-box;
 }
-
-.chart .concept:not(:last-child) {
+.concept:not(:last-child) {
     margin-right: 8px;
     margin-bottom: 4px;
 }
-
-.chart .concept:only-child {
+.concept:only-child {
     margin: 0 8px;
 }
 
-.chart .concept .tonic {
+.concept .tonic {
     font-weight: bold;
 }
 
-.chart .concept .preset {
+.concept .preset {
     margin-left: 4px;
 }

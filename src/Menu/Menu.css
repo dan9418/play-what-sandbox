@@ -90,9 +90,7 @@
     z-index: 10000;
 }
 
-.meatball svg, .meatball svg * {
-    fill: #ddd;
-}
+.meatball svg, .meatball svg * {}
 
 .tab-container {
     display: grid;

@@ -23,7 +23,7 @@ const Concept = props => {
     const isActive = position[0] === s && position[1] === p && position[2] === c;
 
     return (
-        <div className={`concept pw-hov ${isActive ? 'pw-accent' : 'pw-secondary'}`} style={style} onClick={() => setPosition([s, p, c])}>
+        <div className={`concept pw-hov ${isActive ? 'pw-accent' : 'pw-concept'}`} style={style} onClick={() => setPosition([s, p, c])}>
             <div>
                 <span className="tonic">{tonic}</span>
                 <span className="preset">{preset.id}</span>
@@ -39,7 +39,7 @@ const Progression = props => {
     const setScope = useSetRecoilState(scopeState);
 
     return (
-        <div className={`progression`} onClick={() => setScope(ZOOM.Progression)}>
+        <div className={`progression pw-progression pw-hov`} onClick={() => setScope(ZOOM.Progression)}>
             <h4 className='progression-name'>{title}</h4>
             <div className={`progression-concepts`}>
                 {progression.concepts.map((c, i) => <Concept key={i} s={s} p={p} c={i} conceptConfig={c} defaults={defaults} />)}
@@ -54,7 +54,7 @@ const Section = props => {
     const title = section.name || `Section ${s + 1}`;
     const setScope = useSetRecoilState(scopeState);
     return (
-        <div className={`section`}>
+        <div className={`section pw-section pw-hov`}>
             <h3 className='section-name' onClick={() => setScope(ZOOM.Section)}>{title}</h3>
             <div>
                 {open && section.progressions.map((p, i) =>
@@ -65,12 +65,12 @@ const Section = props => {
     );
 };
 
+// Levels
+
 const ChartLevel = props => {
-
     const chart = useRecoilValue(chartState);
-
     return (
-        <div className="level">
+        <div className="chart">
             {chart.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={chart.defaults} />)}
         </div>
     )
@@ -78,30 +78,20 @@ const ChartLevel = props => {
 
 const SectionLevel = props => {
     const section = useRecoilValue(sectionState);
-    return (
-        <div className="Section">
-            <Section s={0} section={section} defaults={section.defaults} />
-        </div>
-    )
+    return <Section s={0} section={section} defaults={section.defaults} />;
 };
 
 const ProgressionLevel = props => {
     const progression = useRecoilValue(progressionState);
-    return (
-        <div className="level">
-            <Progression s={0} p={0} progression={progression} defaults={progression.defaults} />
-        </div>
-    )
+    return <Progression s={0} p={0} progression={progression} defaults={progression.defaults} />;
 };
 
 const ConceptLevel = props => {
     const concept = useRecoilValue(conceptState);
-    return (
-        <div className="level">
-            <Concept s={0} p={0} c={0} conceptConfig={concept} defaults={null} />
-        </div>
-    )
+    return <Concept s={0} p={0} c={0} conceptConfig={concept} defaults={null} />;
 };
+
+// Delegater
 
 const getData = scope => {
     switch (scope) {
@@ -132,13 +122,16 @@ const getData = scope => {
     }
 }
 
-export const Chart = () => {
+const ChartDelegater = () => {
     const [scope, setScope] = useRecoilState(scopeState);
     const data = getData(scope);
     return (
-        <div className="chart">
-            <LevelHeader title={data.breadcrumbs.join(' > ')} >{data.panel}</LevelHeader>
+        <div className="chart-delegater">
+            <h1>{data.breadcrumbs.join(' > ')}</h1>
+            {/*<LevelHeader title={data.breadcrumbs.join(' > ')} >{data.panel}</LevelHeader>*/}
             {data.level}
         </div>
     );
 };
+
+export default ChartDelegater;

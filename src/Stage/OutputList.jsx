@@ -9,7 +9,7 @@ import { useRecoilValue, useRecoilState } from 'recoil';
 import { conceptState, parseConceptConfig, positionState } from '../Common/State';
 import ConceptPreview from './ConceptPreview';
 import { OUTPUTS } from '../Common/Presets';
-import { Chart } from './Chart/Chart';
+import Chart from './Chart/Chart';
 import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import LevelHeader from './LevelHeader';
 

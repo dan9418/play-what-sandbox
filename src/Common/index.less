@@ -1,34 +1,36 @@
 //@primary: #5E99D1;
-@primary: #414770;
+@primary: #25283D;
 @primary-fg: #FFF;
 @primary-hover: darken(@primary, 10%);
 
-@secondary: #5B85AA;
-@secondary-fg: #FFF;
-@secondary-hover: darken(@secondary, 10%);
-
-@accent: #F46036;
+@accent: #87A330; //D36135
 @accent-fg: #FFF;
 @accent-hover: darken(@accent, 10%);
 
-@light: #DDD;
-@light-fg: #333;
-@light-hover: darken(@light, 10%);
 
-@lighter: lighten(@light, 10%);
-@lighter-hover: darken(@lighter, 10%);
+@chart: #CFE7F2;
+@chart-hover: darken(@chart, 10%);
 
-@lightest: lighten(@light, 20%);
-@lightest-hover: darken(@lightest, 10%);
+@section: #E3DCE5;
+@section-hover: darken(@section, 10%);
 
-@medium: #C0C0C0;
-@medium-fg: #333;
-@medium-hover: darken(@medium, 10%);
+@progression: #DFF3E3;
+@progression-hover: darken(@progression, 10%);
 
-@dark: #232323;
-@dark-fg: #FFF;
-@dark-hover: lighten(@dark, 10%);
+@concept: #F5E0CC;
+@concept-hover: darken(@concept, 10%);
 
+
+@light-fg: #25283D;
+
+@light-1: #F3F6F4;
+@light-1-hover: darken(@light-1, 10%);
+
+@light-2: #E8ECE9;
+@light-2-hover: darken(@light-2, 10%);
+
+@light-3: #DCE1DE;
+@light-3-hover: darken(@light-3, 10%);
 
 /* Conditions */
 
@@ -50,83 +52,77 @@
 .pw-primary {
     background-color: @primary;
     color: @primary-fg;
-    border-color: @primary-fg;
 }
 .pw-primary.pw-hov:hover {
     background-color: @primary-hover;
 }
 
-.pw-secondary {
-    background-color: @secondary;
-    color: @secondary-fg;
-    border-color: @secondary-fg
-}
-.pw-secondary.pw-hov:hover {
-    background-color: @secondary-hover;
-}
-
 .pw-accent {
     background-color: @accent;
     color: @accent-fg;
-    border-color: @accent-fg;
 }
 .pw-accent.pw-hov:hover {
     background-color: @accent-fg;
     color: @accent;
-    border-color: @accent;
+}
+
+/* Levels */
+
+.pw-chart {
+    background-color: @chart;
+    color: @light-fg;
+}
+.pw-chart.pw-hov:hover {
+    background-color: @chart-hover;
+}
+
+.pw-section {
+    background-color: @section;
+    color: @light-fg;
+}
+.pw-section.pw-hov:hover {
+    background-color: @section-hover;
+}
+
+.pw-progression {
+    background-color: @progression;
+    color: @light-fg;
+}
+.pw-progression.pw-hov:hover {
+    background-color: @progression-hover;
+}
+
+.pw-concept {
+    background-color: @concept;
+    color: @light-fg;
+}
+.pw-concept.pw-hov:hover {
+    background-color: @concept-hover;
 }
 
 /* Neutral */
 
-.pw-light {
-    background-color: @light;
+.pw-light-1 {
+    background-color: @light-1;
     color: @light-fg;
-    border-color: @light-fg;
 }
-.pw-light.pw-hov:hover {
-    background-color: @light-hover;
+.pw-light-1.pw-hov:hover {
+    background-color: @light-1-hover;
 }
 
-.pw-lighter {
-    background-color: @lighter;
+.pw-light-2 {
+    background-color: @light-2;
     color: @light-fg;
-    border-color: @light-fg
 }
-.pw-lighter.pw-hov:hover {
-    background-color: @lighter-hover;
+.pw-light-2.pw-hov:hover {
+    background-color: @light-2-hover;
 }
 
-.pw-lightest {
-    background-color: @lightest;
+.pw-light-3 {
+    background-color: @light-3;
     color: @light-fg;
-    border-color: @medium
 }
-.pw-lightest.pw-hov:hover {
-    background-color: @lightest-hover;
-}
-
-.pw-medium {
-    background-color: @medium;
-    color: @medium-fg;
-    border-color: @medium-fg
-}
-.pw-medium.pw-hov:hover {
-    background-color: @medium-hover;
+.pw-light-3.pw-hov:hover {
+    background-color: @light-3-hover;
 }
 
-
-.pw-dark {
-    background-color: @dark;
-    color: @dark-fg;
-    border-color: @dark-fg;
-}
-.pw-dark.pw-hov:hover {
-    background-color: @dark-hover;
-}
-
-/* States */
-
-.pw-disabled {
-    background-color: @medium;
-    color: darken(@medium, 25%);
-}
