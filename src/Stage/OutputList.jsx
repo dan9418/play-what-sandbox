@@ -6,7 +6,7 @@ import Viewers from 'play-what-react-viewers';
 const { Fretboard, Keyboard } = Viewers;
 
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { conceptState, activeScopeState, ZOOM, sourceState, parseConceptConfig, positionState } from '../Common/State';
+import { conceptState, parseConceptConfig, positionState } from '../Common/State';
 import ConceptPreview from './ConceptPreview';
 import { OUTPUTS } from '../Common/Presets';
 import { Chart } from './Chart/Chart';
@@ -53,11 +53,10 @@ const ConceptViewer = ({ conceptConfig, defaults }) => {
 const Stage = () => {
 
     const concept = useRecoilValue(conceptState);
-    const activeScope = useRecoilValue(activeScopeState);
 
     return (
-        <div className="output-list pw-light">
-            <Chart zoom={activeScope.scope} />
+        <div className="output-list">
+            <Chart />
             <ConceptViewer conceptConfig={concept} />
         </div>
     );

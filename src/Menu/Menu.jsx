@@ -153,7 +153,7 @@ const Menu = () => {
     const Tab = tab.component;
 
     return (
-        <div className={`menu pw - lighter ${open && 'open'} `}>
+        <div className={`menu pw-lighter ${open && 'open'} `}>
             {open &&
                 <>
                     <div className="tab-container">

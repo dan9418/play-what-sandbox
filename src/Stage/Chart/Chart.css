@@ -6,12 +6,17 @@
     padding: 4px 16px;
     cursor: pointer;
 }
-
+.chart .section {
+    margin: 8px 16px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #ddd;
+}
 .chart .progression {
     margin: 8px 16px;
     padding: 8px;
     border-radius: 8px;
-    background-color: #eee;
+    background-color: #ccc;
 }
 
 .chart .progression-name {

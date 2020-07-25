@@ -166,35 +166,6 @@ export const conceptState = selector({
     }
 });
 
-export const activeScopeState = selector({
-    key: 'activeScope',
-    get: ({ get }) => {
-        const scope = get(scopeState);
-        switch (scope) {
-            case ZOOM.Concept:
-                return {
-                    scope: ZOOM.Concept,
-                    ...get(conceptState)
-                };
-            case ZOOM.Progression:
-                return {
-                    scope: ZOOM.Progression,
-                    ...get(progressionState)
-                };
-            case ZOOM.Section:
-                return {
-                    scope: ZOOM.Section,
-                    ...get(sectionState)
-                };
-            case ZOOM.Chart:
-                return {
-                    scope: ZOOM.Chart,
-                    ...get(chartState)
-                };
-        }
-    }
-});
-
 // Sub-Concepts
 
 export const aState = selector({
