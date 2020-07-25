@@ -1,10 +1,17 @@
+.chart-name {
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.chart {
+    margin: 8px 16px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
 .section-name {
-    font-weight: bold;
-    text-align: left;
-    width: 90%;
-    margin: 0 auto;
-    padding: 4px 16px;
-    cursor: pointer;
+    margin: 0;
+    margin-bottom: 8px;
 }
 
 .section {
@@ -22,7 +29,6 @@
 .progression-name {
     margin: 0;
     margin-bottom: 8px;
-    font-weight: normal;
 }
 
 .progression-concepts {
@@ -57,4 +63,11 @@
 
 .concept .preset {
     margin-left: 4px;
+}
+
+.breadcrumbs {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    font-size: 120%;
 }
