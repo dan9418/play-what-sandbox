@@ -38,6 +38,26 @@
 .menu .header {
     padding: 8px;
     border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.menu .toggle {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    transition: transform .1s;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.menu .toggle.open {
+    transform: rotate(90deg);
 }
 
 .menu .leaf {

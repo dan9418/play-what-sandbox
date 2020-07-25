@@ -43,7 +43,10 @@ const ProgressionHeader = ({ progression, s, p }) => {
 
     return (
         <>
-            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>{open ? '-  ' : '+  '}{progression.name || `Progression ${p + 1} `}</li>
+            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>
+                {progression.name || `Progression ${p + 1} `}
+                <div className={`toggle ${open ? 'open' : ''}`} onClick={toggleOpen}>{'>'}</div>
+            </li>
             {open &&
                 <>
                     <li>
@@ -72,7 +75,10 @@ const SectionHeader = ({ section, s }) => {
 
     return (
         <>
-            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>{open ? '-  ' : '+  '}{section.name || `Section ${s + 1} `}</li>
+            <li className={`header item ${active ? 'pw-secondary' : ''}`} onClick={action}>
+                {section.name || `Section ${s + 1} `}
+                <div className={`toggle ${open ? 'open' : ''}`} onClick={toggleOpen}>{'>'}</div>
+            </li>
             {open &&
                 <>
                     <li>
@@ -94,15 +100,18 @@ const NavTab = () => {
     const [scope, setScope] = useRecoilState(scopeState);
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
-    const [tab, setTab] = useState(TABS[0]);
+    const [tab, setTab] = useState(TABS[0])
+    const active = scope === ZOOM.Chart;
+
     return (
         <div className="navigation">
-            <h2>Scope</h2>
             <div className="zoom-container">
                 <ZoomInput zoom={scope} setZoom={setScope} />
             </div>
-            <h2 className="">Chart</h2>
-            <ul className={`list ${false ? 'pw-secondary' : ''}`}>
+            <h2 className={`header item ${active ? 'pw-secondary' : ''}`} onClick={() => setScope(ZOOM.Chart)}>
+                {chart.name || 'Chart'}
+            </h2>
+            <ul className={`list ${active ? 'pw-secondary' : ''}`}>
                 {chart.sections.map((s, i) => {
                     return <SectionHeader section={s} key={i} s={i} />;
                 })}
@@ -127,7 +136,7 @@ const PlaybackTab = () => {
 
 const TABS = [
     {
-        name: 'Navigation',
+        name: 'Scope',
         component: NavTab
     },
     {

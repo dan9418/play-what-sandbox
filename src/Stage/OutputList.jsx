@@ -5,8 +5,8 @@ import PW from 'play-what';
 import Viewers from 'play-what-react-viewers';
 const { Fretboard, Keyboard } = Viewers;
 
-import { useRecoilValue } from 'recoil';
-import { conceptState, activeScopeState, ZOOM, sourceState, parseConceptConfig } from '../Common/State';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { conceptState, activeScopeState, ZOOM, sourceState, parseConceptConfig, positionState } from '../Common/State';
 import ConceptPreview from './ConceptPreview';
 import { OUTPUTS } from '../Common/Presets';
 import { Chart } from './Chart/Chart';
@@ -49,83 +49,16 @@ const ConceptViewer = ({ conceptConfig, defaults }) => {
     })}</div>;
 };
 
-const ProgressionViewer = ({ progression, defaults: sectionDefaults }) => {
-
-    const [index, setIndex] = useState(0);
-    const setNext = () => setIndex(index + 1);
-    const setPrev = () => setIndex(index - 1);
-
-    const defaults = { ...sectionDefaults, ...(progression.defaults || {}) };
-
-    return (
-        <div className="multi-viewer">
-            <h3>Progression</h3>
-            <div className='title'>
-                {`Concept  `}
-                <ButtonInput onClick={setPrev}>{'<'}</ButtonInput>
-                {`  ${index + 1}/${progression.concepts.length}  `}
-                <ButtonInput onClick={setNext}>{'>'}</ButtonInput>
-            </div>
-            <ConceptViewer conceptConfig={progression.concepts[index]} defaults={defaults} />
-        </div>
-    );
-};
-
-const SectionViewer = ({ section, defaults: chartDefaults }) => {
-
-    const defaults = { ...chartDefaults, ...(section.defaults || {}) };
-
-    return (
-        <div className="multi-viewer">
-            <h2>Section</h2>
-            {section.progressions.map((p, i) => {
-                return <ProgressionViewer progression={p} defaults={defaults} />
-            })}
-        </div>
-    );
-};
-
-const ChartViewer = ({ chart }) => {
-    return (
-        <div className="multi-viewer">
-            <h1>Chart</h1>
-            {chart.sections.map((s, i) => {
-                return <SectionViewer section={s} defaults={chart.defaults || {}} />
-            })}
-        </div>
-    );
-};
-
-/*const getViewers = (source, scope, defaults = {}) => {
-    switch (scope) {
-
-        case ZOOM.Progression:
-            return <ProgressionViewer>{Array.prototype.concat(...source.concepts.map((c, i) => {
-                const viewersForConcept = getViewers(c, ZOOM.Concept, { ...defaults, ...source.defaults });
-                return <div className="concept-viewers">{viewersForConcept}</div>
-            }))}</ProgressionViewer>;
-        case ZOOM.Section:
-            return <SectionViewer>{Array.prototype.concat(...source.progressions.map((p, i) => {
-                return getViewers(p, ZOOM.Progression, { ...defaults, ...source.defaults })
-            }))}</SectionViewer>;
-        case ZOOM.Chart:
-            return <SectionViewer>{Array.prototype.concat(...source.sections.map((s, i) => {
-                return getViewers(s, ZOOM.Section, source.defaults)
-            }))}</SectionViewer>;
-    }
-};*/
 
 const Stage = () => {
 
+    const concept = useRecoilValue(conceptState);
     const activeScope = useRecoilValue(activeScopeState);
 
     return (
         <div className="output-list pw-light">
             <Chart zoom={activeScope.scope} />
-            {activeScope.scope === ZOOM.Chart && <ChartViewer chart={activeScope} />}
-            {activeScope.scope === ZOOM.Section && <SectionViewer section={activeScope} defaults={activeScope.defaults} />}
-            {activeScope.scope === ZOOM.Progression && <ProgressionViewer progression={activeScope} defaults={activeScope.defaults} />}
-            {activeScope.scope === ZOOM.Concept && <ConceptViewer conceptConfig={activeScope} defaults={activeScope.defaults} />}
+            <ConceptViewer conceptConfig={concept} />
         </div>
     );
 };
