@@ -29,29 +29,6 @@ const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
 
 // UTILS
 
-export const parseConceptConfig = (conceptConfig) => {
-    let concept = { ...conceptConfig };
-    if (typeof concept.a === 'string') {
-        //concept.a = concept.a;
-    }
-    if (typeof concept.B === 'string') {
-        concept.B = PW.Theory.findPresetWithId(concept.B).B;
-    }
-    if (concept.transforms) {
-        concept.transforms.forEach(t => {
-            switch (t.id) {
-                case 'transpose':
-                    concept = PW.Theory.transpose(concept, t.args.a);
-                    break;
-                case 'chordalInversion':
-                    concept = PW.Theory.chordalInversion(concept, t.args.inversion)
-                    break;
-            }
-        })
-    }
-    return concept;
-};
-
 export const deepCopy = (source, zoom) => {
     const copy = { ...source };
     switch (zoom) {
@@ -89,6 +66,101 @@ export const scopeState = atom({
     key: 'scope',
     default: ZOOM.Concept
 });
+
+// PARSERS
+
+export const parseConceptHelper = (conceptConfig) => {
+    let concept = { ...conceptConfig };
+    if (typeof concept.a === 'string') {
+        //concept.a = concept.a;
+    }
+    if (typeof concept.B === 'string') {
+        concept.B = PW.Theory.findPresetWithId(concept.B).B;
+    }
+    if (concept.transforms) {
+        concept.transforms.forEach(t => {
+            switch (t.id) {
+                case 'transpose':
+                    concept = PW.Theory.transpose(concept, t.args.a);
+                    break;
+                case 'chordalInversion':
+                    concept = PW.Theory.chordalInversion(concept, t.args.inversion)
+                    break;
+            }
+        })
+    }
+    concept.C = PW.Theory.addVectorsBatch(concept.a, concept.B);
+    return concept;
+};
+
+export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionConfig, p, conceptConfig, c) => {
+    const { id, name } = conceptConfig;
+
+    const mergedDefaults = {
+        ...(chartConfig.defaults || {}),
+        ...(sectionConfig.defaults || {}),
+        ...(progressionConfig.defaults || {})
+    };
+    const mergedConfig = { ...mergedDefaults, ...conceptConfig };
+
+    const concept = parseConceptHelper(mergedConfig);
+
+    return {
+        id: id || `concept_${c + 1}`,
+        name: name || `Concept ${c + 1}`,
+        a: concept.a,
+        B: concept.B,
+        C: concept.C
+    };
+};
+
+const parseProgressionConfig = (chartConfig, sectionConfig, s, progressionConfig, p) => {
+    const { id, name, defaults, outputs, concepts } = progressionConfig;
+
+    const parsedConcepts = concepts.map((con, c) => {
+        return parseConceptConfig(chartConfig, sectionConfig, s, progressionConfig, p, con, c);
+    });
+
+    return {
+        id: id || `progression_${p + 1}`,
+        name: name || `Progression ${p + 1}`,
+        defaults,
+        outputs,
+        concepts: parsedConcepts
+    };
+};
+
+const parseSectionConfig = (chartConfig, sectionConfig, s) => {
+    const { id, name, defaults, outputs, progressions } = sectionConfig;
+
+    const parsedProgressions = progressions.map((prog, p) => {
+        return parseProgressionConfig(chartConfig, sec, s, prog, p);
+    });
+
+    return {
+        id: id || `section_${s + 1}`,
+        name: name || `Section ${s + 1}`,
+        defaults,
+        outputs,
+        progressions: parsedProgressions
+    };
+};
+
+const parseChartConfig = chartConfig => {
+    const { id, name, defaults, outputs, sections } = chartConfig;
+
+    const parsedSections = sections.map((sec, s) => {
+        return parseSectionConfig(chartConfig, sec, s);
+    });
+
+    return {
+        id: id || 'chart',
+        name: name || 'Chart',
+        defaults,
+        outputs,
+        sections: parsedSections
+    };
+};
 
 // SELECTORS
 
@@ -149,19 +221,14 @@ export const progressionState = selector({
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const chart = deepCopy(get(chartState), ZOOM.Chart);
+        //const chartConfig = deepCopy(get(chartState), ZOOM.Chart);
+        const chartConfig = get(chartState);
         const position = get(positionState);
         const [s, p, c] = position;
-        const section = chart.sections[s];
-        const progression = chart.sections[s].progressions[p];
-        const conceptConfig = chart.sections[s].progressions[p].concepts[c];
-
-        const defaults = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}) };
-        const mergedConfig = { ...defaults, ...conceptConfig };
-
-        const concept = parseConceptConfig(mergedConfig);
-        concept.C = PW.Theory.addVectorsBatch(concept.a, concept.B);
-
+        const sectionConfig = chartConfig.sections[s];
+        const progressionConfig = sectionConfig.progressions[p];
+        const conceptConfig = progressionConfig.concepts[c];
+        const concept = parseConceptConfig(chartConfig, sectionConfig, 0, progressionConfig, 0, conceptConfig, 0);
         return concept;
     }
 });

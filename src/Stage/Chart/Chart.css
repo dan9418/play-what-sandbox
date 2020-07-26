@@ -56,12 +56,9 @@
     margin: 0 8px;
 }
 
-.concept .tonic {
+.concept .concept-name {
     font-weight: bold;
-}
-
-.concept .preset {
-    margin-left: 4px;
+    white-space: nowrap;
 }
 
 .breadcrumbs {

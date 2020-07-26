@@ -12,14 +12,11 @@ const Concept = props => {
     const [scope, setScope] = useRecoilState(scopeState);
     const active = scope === ZOOM.Concept;
 
-    const mergedConcept = { ...(progDefaults || {}), ...(conceptConfig || {}) }
-
-    const concept = parseConceptConfig(mergedConcept);
+    const concept = parseConceptConfig({}, {}, s, {}, p, conceptConfig, c);
 
     const [position, setPosition] = useRecoilState(positionState)
 
-    const tonic = PW.Theory.getNoteName(concept.a);
-    const preset = PW.Theory.findPreset(concept.B);
+    const name = PW.Chart.getConceptName(concept);
 
     const style = { flexGrow: concept.t };
 
@@ -28,8 +25,7 @@ const Concept = props => {
     return (
         <div className={`concept pw-hov ${isActive ? 'pw-accent' : 'pw-concept'} ${active ? 'pw-active' : ''}`} style={style} onClick={() => setPosition([s, p, c])}>
             <div>
-                <span className="tonic">{tonic}</span>
-                <span className="preset">{preset.id}</span>
+                <span className="concept-name">{name}</span>
             </div>
         </div>
     );

@@ -22,12 +22,10 @@ const ConceptLeaf = ({ conceptConfig, s, p, c }) => {
         setScope(ZOOM.Concept)
     };
 
-    const tonic = PW.Theory.getNoteName(conceptConfig.a);
-    const preset = { id: '' };//PW.Theory.findPreset(conceptConfig.B);
-    const title = `${tonic} ${preset.id}`;
+    const name = PW.Chart.getConceptName(conceptConfig);
 
     return (
-        <div className={`leaf pw-hov ${isActive ? 'pw-accent pw-active' : isScoped ? 'pw-concept' : ''}`} onClick={action}>{title}</div>
+        <div className={`leaf pw-hov ${isActive ? 'pw-accent pw-active' : isScoped ? 'pw-concept' : ''}`} onClick={action}>{name}</div>
     );
 }
 
@@ -45,10 +43,10 @@ const ProgressionMenu = ({ progression, s, p }) => {
 
     return (
         <div className={`submenu pw-hov ${isScoped ? 'pw-progression' : ''} ${isActive ? 'pw-active' : ''}`}>
-            <h2 className={`header`} onClick={action}>
+            <h4 className={`header`} onClick={action}>
                 {progression.name || `Progression ${p + 1} `}
                 <div className={`toggle ${open ? 'open' : ''}`} onClick={toggleOpen}>{'>'}</div>
-            </h2>
+            </h4>
             {open &&
                 <div className={`list`}>
                     {progression.concepts.map((c, i) => {
@@ -74,10 +72,10 @@ const SectionMenu = ({ section, s }) => {
 
     return (
         <div className={`submenu ${isScoped ? 'pw-section' : ''} ${isActive ? 'pw-active' : ''}`}>
-            <h2 className={`header`} onClick={action}>
+            <h3 className={`header`} onClick={action}>
                 {section.name || `Section ${s + 1} `}
                 <div className={`toggle ${open ? 'open' : ''}`} onClick={toggleOpen}>{'>'}</div>
-            </h2>
+            </h3>
             {open &&
                 <div className={`list`}>
                     {section.progressions.map((p, i) => {
