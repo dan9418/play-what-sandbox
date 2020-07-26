@@ -26,19 +26,30 @@
 
 /* Menu */
 
-.menu ul, .menu li {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    user-select: none;
+.menu .submenu {
+    border-radius: 8px;
+    margin-bottom: 8px;
 }
 
 .menu .header {
     padding: 8px;
-    border-radius: 8px 8px 0 0;
-    position: relative;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu .leaf {
+    padding: 4px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+
+.menu .leaf:hover {
+    font-weight: bold;
+}
+
+.menu .list {
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .menu .toggle {
@@ -58,25 +69,6 @@
 
 .menu .toggle.open {
     transform: rotate(90deg);
-}
-
-.menu .leaf {
-    padding: 8px;
-    border-radius: 8px;
-    margin: 4px 0;
-}
-
-.menu .list {
-    padding: 0 8px;
-}
-
-.menu .item:hover {
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.menu .list {
-    border-radius: 0 0 8px 8px;
 }
 
 .meatball {
