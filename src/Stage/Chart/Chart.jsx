@@ -3,8 +3,6 @@ import './Chart.css';
 import PW from 'play-what';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { chartState, positionState, parseConceptConfig, ZOOM, sectionState, progressionState, conceptState, scopeState } from '../../Common/State';
-import LevelHeader from '../LevelHeader';
-import { useSetRecoilState } from 'recoil';
 
 const Concept = props => {
     const { conceptConfig, s, p, c, defaults: progDefaults } = props;
@@ -16,8 +14,6 @@ const Concept = props => {
 
     const [position, setPosition] = useRecoilState(positionState)
 
-    const name = PW.Chart.getConceptName(concept);
-
     const style = { flexGrow: concept.t };
 
     const isActive = position[0] === s && position[1] === p && position[2] === c;
@@ -25,7 +21,7 @@ const Concept = props => {
     return (
         <div className={`concept pw-hov ${isActive ? 'pw-accent' : 'pw-concept'} ${active ? 'pw-active' : ''}`} style={style} onClick={() => setPosition([s, p, c])}>
             <div>
-                <span className="concept-name">{name}</span>
+                <span className="concept-name">{concept.name}</span>
             </div>
         </div>
     );

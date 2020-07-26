@@ -25,17 +25,20 @@ const ConceptLeaf = ({ conceptConfig, s, p, c }) => {
     const name = PW.Chart.getConceptName(conceptConfig);
 
     return (
-        <div className={`leaf pw-hov ${isActive ? 'pw-accent pw-active' : isScoped ? 'pw-concept' : ''}`} onClick={action}>{name}</div>
+        <div className={`leaf pw-hov ${isActive ? 'pw-accent pw-active' : isScoped ? 'pw-concept' : ''}`} onClick={action}>{conceptConfig.name}</div>
     );
 }
 
 const ProgressionMenu = ({ progression, s, p }) => {
     const [position, setPosition] = useRecoilState(positionState);
     const [scope, setScope] = useRecoilState(scopeState);
+
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
+
     const isActive = scope === ZOOM.Progression && s === position[0] && p === position[1];
     const isScoped = isActive || scope === ZOOM.Section && s === position[0] || scope === ZOOM.Chart;
+
     const action = () => {
         setPosition([s, p, 0]);
         setScope(ZOOM.Progression)
@@ -60,11 +63,14 @@ const ProgressionMenu = ({ progression, s, p }) => {
 
 const SectionMenu = ({ section, s }) => {
     const [position, setPosition] = useRecoilState(positionState);
+    const [scope, setScope] = useRecoilState(scopeState);
+
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
-    const [scope, setScope] = useRecoilState(scopeState);
+
     const isActive = scope === ZOOM.Section && s === position[0];
     const isScoped = isActive || scope === ZOOM.Chart;
+
     const action = () => {
         setPosition([s, 0, 0]);
         setScope(ZOOM.Section)
@@ -91,8 +97,10 @@ const ChartMenu = ({ chart }) => {
     const [position, setPosition] = useRecoilState(positionState);
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
+
     const [scope, setScope] = useRecoilState(scopeState);
     const isScoped = scope === ZOOM.Chart;
+
     const action = () => {
         setPosition([0, 0, 0]);
         setScope(ZOOM.Chart)

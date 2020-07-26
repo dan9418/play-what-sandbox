@@ -107,7 +107,7 @@ export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionCon
 
     return {
         id: id || `concept_${c + 1}`,
-        name: name || `Concept ${c + 1}`,
+        name: name || PW.Chart.getConceptName(concept),
         a: concept.a,
         B: concept.B,
         C: concept.C
@@ -134,7 +134,7 @@ const parseSectionConfig = (chartConfig, sectionConfig, s) => {
     const { id, name, defaults, outputs, progressions } = sectionConfig;
 
     const parsedProgressions = progressions.map((prog, p) => {
-        return parseProgressionConfig(chartConfig, sec, s, prog, p);
+        return parseProgressionConfig(chartConfig, sectionConfig, s, prog, p);
     });
 
     return {
@@ -170,34 +170,31 @@ export const chartState = selector({
         const source = get(sourceState);
         if (!source.sections && !source.progressions && !source.concepts) {
             const chart = DEFAULT_CHART;
-            chart.sections[0].progression[0].concepts = [source];
+            chart.sections[0].progression[0].concepts = [parseConfigConfig({}, {}, 0, {}, 0, source, 0)];
             return chart;
         }
         if (!source.sections && !source.progressions) {
             const chart = DEFAULT_CHART;
-            chart.sections[0].progressions = [source];
+            chart.sections[0].progressions = [parseProgressionConfig({}, {}, 0, source, 0)];
             return chart;
         }
         if (!source.sections) {
             const chart = DEFAULT_CHART;
-            chart.sections = [source];
+            chart.sections = [parseSectionConfig({}, source, 0)];
             return chart;
         }
-        return source;
+        return parseChartConfig(source);
     }
 });
 
 export const sectionState = selector({
     key: 'section',
     get: ({ get }) => {
-        const chart = deepCopy(get(chartState), ZOOM.Chart);
+        const chartConfig = get(chartState);
         const position = get(positionState);
-        const [s] = position;
-        const section = chart.sections[s];
-
-        const defaults = { ...(chart.defaults || {}), ...(section.defaults || {}) };
-        section.defaults = defaults;
-
+        const [s, p, c] = position;
+        const sectionConfig = chartConfig.sections[s];
+        const section = parseSectionConfig(chartConfig, sectionConfig, s);
         return section;
     }
 });
@@ -205,15 +202,12 @@ export const sectionState = selector({
 export const progressionState = selector({
     key: 'progression',
     get: ({ get }) => {
-        const chart = deepCopy(get(chartState), ZOOM.Chart);
+        const chartConfig = get(chartState);
         const position = get(positionState);
-        const [s, p] = position;
-        const section = chart.sections[s];
-        const progression = chart.sections[s].progressions[p];
-
-        const defaults = { ...(chart.defaults || {}), ...(section.defaults || {}), ...(progression.defaults || {}) };
-        progression.defaults = defaults;
-
+        const [s, p, c] = position;
+        const sectionConfig = chartConfig.sections[s];
+        const progressionConfig = sectionConfig.progressions[p];
+        const progression = parseProgressionConfig(chartConfig, sectionConfig, s, progressionConfig, p);
         return progression;
     }
 });
@@ -228,7 +222,7 @@ export const conceptState = selector({
         const sectionConfig = chartConfig.sections[s];
         const progressionConfig = sectionConfig.progressions[p];
         const conceptConfig = progressionConfig.concepts[c];
-        const concept = parseConceptConfig(chartConfig, sectionConfig, 0, progressionConfig, 0, conceptConfig, 0);
+        const concept = parseConceptConfig(chartConfig, sectionConfig, s, progressionConfig, p, conceptConfig, c);
         return concept;
     }
 });
