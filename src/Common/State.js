@@ -101,7 +101,14 @@ export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionCon
         ...(sectionConfig.defaults || {}),
         ...(progressionConfig.defaults || {})
     };
+    const mergedOutputs = [
+        ...(chartConfig.outputs || []),
+        ...(sectionConfig.outputs || []),
+        ...(progressionConfig.outputs || [])
+    ];
     const mergedConfig = { ...mergedDefaults, ...conceptConfig };
+
+    console.log(mergedOutputs)
 
     const concept = parseConceptHelper(mergedConfig);
 
@@ -110,7 +117,8 @@ export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionCon
         name: name || PW.Chart.getConceptName(concept),
         a: concept.a,
         B: concept.B,
-        C: concept.C
+        C: concept.C,
+        outputs: concept.outputs
     };
 };
 
@@ -125,7 +133,7 @@ const parseProgressionConfig = (chartConfig, sectionConfig, s, progressionConfig
         id: id || `progression_${p + 1}`,
         name: name || `Progression ${p + 1}`,
         defaults,
-        outputs,
+        outputs: outputs || [],
         concepts: parsedConcepts
     };
 };
@@ -141,7 +149,7 @@ const parseSectionConfig = (chartConfig, sectionConfig, s) => {
         id: id || `section_${s + 1}`,
         name: name || `Section ${s + 1}`,
         defaults,
-        outputs,
+        outputs: outputs || [],
         progressions: parsedProgressions
     };
 };
@@ -157,7 +165,7 @@ const parseChartConfig = chartConfig => {
         id: id || 'chart',
         name: name || 'Chart',
         defaults,
-        outputs,
+        outputs: outputs || [],
         sections: parsedSections
     };
 };

@@ -26,14 +26,8 @@ const VIEWERS = {
     }
 };
 
-const ConceptViewer = ({ conceptConfig, defaults }) => {
-    const mergedSource = { ...defaults, ...conceptConfig };
-    if (!mergedSource.outputs) return null;
-
-    const concept = parseConceptConfig(mergedSource);
-    concept.C = PW.Theory.addVectorsBatch(concept.a, concept.B);
-
-    return <div>{mergedSource.outputs.map((o, i) => {
+const ConceptViewer = ({ conceptConfig }) => {
+    return <div>{conceptConfig.outputs.map((o, i) => {
         let config = o;
         if (typeof o === 'string') {
             config = OUTPUTS.find(x => x.outputId === o);
@@ -43,7 +37,7 @@ const ConceptViewer = ({ conceptConfig, defaults }) => {
         return (
             <>
                 <LevelHeader title={VIEWERS[viewerId].name}>Edit your stuff here!</LevelHeader>
-                <Comp key={viewerId} concept={concept} {...args} />
+                <Comp key={viewerId} concept={conceptConfig} {...args} />
             </>
         );
     })}</div>;
