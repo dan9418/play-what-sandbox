@@ -38,14 +38,15 @@
 }
 
 .concept {
-    padding: 4px;
-    border-radius: 4px;
+    padding: 8px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     cursor: pointer;
     height: 50px;
     flex-basis: 10px;
+    width: 100%;
     box-sizing: border-box;
 }
 .concept:not(:last-child) {
@@ -59,6 +60,12 @@
 .concept .concept-name {
     font-weight: bold;
     white-space: nowrap;
+}
+
+.concept .concept-zoom {
+    padding: 4px;
+    border-radius: 4px;
+    margin-left: 8px;
 }
 
 .breadcrumbs {

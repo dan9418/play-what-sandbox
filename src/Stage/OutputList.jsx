@@ -6,7 +6,7 @@ import Viewers from 'play-what-react-viewers';
 const { Fretboard, Keyboard } = Viewers;
 
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { conceptState, parseConceptConfig, positionState } from '../Common/State';
+import { conceptState } from '../Common/State';
 import ConceptPreview from './ConceptPreview';
 import { OUTPUTS } from '../Common/Presets';
 import Chart from './Chart/Chart';

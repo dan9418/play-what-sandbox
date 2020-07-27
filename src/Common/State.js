@@ -29,7 +29,7 @@ const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
 
 // UTILS
 
-export const deepCopy = (source, zoom) => {
+/*export const deepCopy = (source, zoom) => {
     const copy = { ...source };
     switch (zoom) {
         case ZOOM.Chart:
@@ -47,7 +47,7 @@ export const deepCopy = (source, zoom) => {
         case ZOOM.Concept:
             return copy;
     }
-};
+};*/
 
 
 // ATOMS
@@ -107,8 +107,6 @@ export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionCon
         ...(progressionConfig.outputs || [])
     ];
     const mergedConfig = { ...mergedDefaults, ...conceptConfig };
-
-    console.log(mergedOutputs)
 
     const concept = parseConceptHelper(mergedConfig);
 
@@ -223,7 +221,6 @@ export const progressionState = selector({
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        //const chartConfig = deepCopy(get(chartState), ZOOM.Chart);
         const chartConfig = get(chartState);
         const position = get(positionState);
         const [s, p, c] = position;

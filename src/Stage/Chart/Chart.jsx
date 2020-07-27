@@ -20,9 +20,8 @@ const Concept = props => {
 
     return (
         <div className={`concept pw-hov ${isActive ? 'pw-accent' : 'pw-concept'} ${active ? 'pw-active' : ''}`} style={style} onClick={() => setPosition([s, p, c])}>
-            <div>
-                <span className="concept-name">{concept.name}</span>
-            </div>
+            <div className="concept-name">{concept.name}</div>
+            <div className="concept-zoom pw-concept" onClick={() => setPosition([s, p, c])}>Zoom</div>
         </div>
     );
 };

@@ -12,20 +12,20 @@ const ConceptLeaf = ({ conceptConfig, s, p, c }) => {
     const [scope, setScope] = useRecoilState(scopeState);
     const [position, setPosition] = useRecoilState(positionState);
 
-    const isActive = scope === ZOOM.Concept && s === position[0] && p === position[1] && c === position[2];
+    const isSelected = s === position[0] && p === position[1] && c === position[2];
+    const isActive = scope === ZOOM.Concept && isSelected;
     const isScoped = isActive ||
         scope === ZOOM.Section && s === position[0] ||
         scope === ZOOM.Progression && s === position[0] && p === position[1] ||
         scope === ZOOM.Chart;
+
     const action = () => {
         setPosition([s, p, c]);
-        setScope(ZOOM.Concept)
+        if (!isScoped) setScope(ZOOM.Concept);
     };
 
-    const name = PW.Chart.getConceptName(conceptConfig);
-
     return (
-        <div className={`leaf pw-hov ${isActive ? 'pw-accent pw-active' : isScoped ? 'pw-concept' : ''}`} onClick={action}>{conceptConfig.name}</div>
+        <div className={`leaf pw-hov ${isSelected ? 'pw-accent pw-active' : isScoped ? 'pw-concept' : ''}`} onClick={action}>{conceptConfig.name}</div>
     );
 }
 
@@ -36,12 +36,13 @@ const ProgressionMenu = ({ progression, s, p }) => {
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
 
-    const isActive = scope === ZOOM.Progression && s === position[0] && p === position[1];
+    const isSelected = s === position[0] && p === position[1];
+    const isActive = scope === ZOOM.Progression && isSelected;
     const isScoped = isActive || scope === ZOOM.Section && s === position[0] || scope === ZOOM.Chart;
 
     const action = () => {
         setPosition([s, p, 0]);
-        setScope(ZOOM.Progression)
+        setScope(ZOOM.Progression);
     };
 
     return (
@@ -68,7 +69,8 @@ const SectionMenu = ({ section, s }) => {
     const [open, setOpen] = useState(true);
     const toggleOpen = () => setOpen(!open);
 
-    const isActive = scope === ZOOM.Section && s === position[0];
+    const isSelected = s === position[0];
+    const isActive = scope === ZOOM.Section && isSelected;
     const isScoped = isActive || scope === ZOOM.Chart;
 
     const action = () => {
