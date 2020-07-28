@@ -3,11 +3,26 @@ import { INTERVALS } from 'play-what/src/Presets';
 
 const { KEY_CENTERS, INTERVAL_PAIR, CHORD, QUICK_MODE: MODE, SCALE } = PW.Presets;
 
+import Viewers from 'play-what-react-viewers';
+const { Fretboard, Keyboard } = Viewers;
+
 //const DEFAULT_NOTE = { a: 'C', B: 'Maj' };
 const DEFAULT_NOTE = { a: { p: 0, d: 0 }, B: [[{ p: 0, d: 0 }]] };
 
-
 const mapPresetsToVectors = presets => presets.map(p => ({ id: p.id || '', name: p.name || '', a: p.B[0], B: p.B }));
+
+export const VIEWERS = {
+    fretboard: {
+        id: 'fretboard',
+        name: 'Fretboard',
+        component: Fretboard.Viewer
+    },
+    keyboard: {
+        id: 'keyboard',
+        name: 'Keyboard',
+        component: Keyboard.Viewer
+    }
+};
 
 export const CONCEPTS = [
     {
@@ -91,82 +106,13 @@ export const PROGRESSIONS = [
     }
 ];
 
-export const OUTPUTS = [
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard',
-        args: {}
-    },
-    {
-        viewerId: 'keyboard',
-        outputId: 'keyboard',
-        args: {}
-    },
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard-7-10',
-        args: {
-            fretLow: 7,
-            fretHigh: 10
-        }
-    },
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard-2-5',
-        args: {
-            fretLow: 2,
-            fretHigh: 5
-        }
-    },
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard-8-11',
-        args: {
-            fretLow: 8,
-            fretHigh: 11
-        }
-    },
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard-3-6',
-        args: {
-            fretLow: 3,
-            fretHigh: 6
-        }
-    },
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard-7-11',
-        args: {
-            fretLow: 7,
-            fretHigh: 11
-        }
-    },
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard-2-6',
-        args: {
-            fretLow: 2,
-            fretHigh: 6
-        }
-    },
-    {
-        viewerId: 'fretboard',
-        outputId: 'fretboard-3-7',
-        args: {
-            fretLow: 3,
-            fretHigh: 7
-        }
-    }
-];
-
 export const CHARTS = [
     {
         id: 'test',
         name: 'Test',
         defaults: {
             a: 'C',
-            outputs: ['keyboard']
+            
         },
         sections: [
             {
@@ -177,7 +123,7 @@ export const CHARTS = [
                         concepts: [
                             {
                                 B: 'Major',
-                                outputs: ['fretboard'],
+                                
                                 transforms: [
                                     {
                                         id: 'transpose',
@@ -204,7 +150,7 @@ export const CHARTS = [
         name: 'Shapes',
         defaults: {
             a: 'C',
-            outputs: ['keyboard']
+            
         },
         sections: [
             {
@@ -215,19 +161,19 @@ export const CHARTS = [
                         concepts: [
                             {
                                 B: 'Major',
-                                outputs: ['fretboard-7-10']
+                                
                             },
                             {
                                 B: 'Maj7',
-                                outputs: ['fretboard-7-10']
+                                
                             },
                             {
                                 B: 'Major',
-                                outputs: ['fretboard-2-5']
+                                
                             },
                             {
                                 B: 'Maj7',
-                                outputs: ['fretboard-2-5']
+                                
                             }
                         ]
                     },
@@ -237,22 +183,22 @@ export const CHARTS = [
                             {
 
                                 B: 'NaturalMinor',
-                                outputs: ['fretboard-8-11']
+                                
                             },
                             {
 
                                 B: 'Min7',
-                                outputs: ['fretboard-8-11']
+                                
                             },
                             {
 
                                 B: 'NaturalMinor',
-                                outputs: ['fretboard-3-6']
+                                
                             },
                             {
 
                                 B: 'Min7',
-                                outputs: ['fretboard-3-6']
+                                
                             }
                         ]
                     },
@@ -262,22 +208,22 @@ export const CHARTS = [
                             {
 
                                 B: 'Mixolydian',
-                                outputs: ['fretboard-7-11']
+                                
                             },
                             {
 
                                 B: 'Dom7',
-                                outputs: ['fretboard-7-11']
+                                
                             },
                             {
 
                                 B: 'Mixolydian',
-                                outputs: ['fretboard-2-6']
+                                
                             },
                             {
 
                                 B: 'Dom7',
-                                outputs: ['fretboard-2-6']
+                                
 
                             }
                         ]
@@ -288,25 +234,25 @@ export const CHARTS = [
                             {
 
                                 B: 'Locrian',
-                                outputs: ['fretboard-8-11']
+                                
 
                             },
                             {
 
                                 B: 'HalfDim7',
-                                outputs: ['fretboard-8-11']
+                                
 
                             },
                             {
 
                                 B: 'Locrian',
-                                outputs: ['fretboard-3-7']
+                                
 
                             },
                             {
 
                                 B: 'HalfDim7',
-                                outputs: ['fretboard-3-7']
+                                
                             }
                         ]
                     }
@@ -318,7 +264,7 @@ export const CHARTS = [
         id: 'autumnLeaves',
         name: 'Autumn Leaves',
         defaults: {
-            outputs: ['fretboard', 'keyboard']
+            
         },
         sections:
             [

@@ -41,6 +41,9 @@ const Progression = props => {
     return (
         <div className={`progression pw-progression pw-hov ${shell ? 'pw-disabled' : ''} ${active ? 'pw-active' : ''}`}>
             <h4 className='progression-name' onClick={() => setScope(ZOOM.Progression)}>{title}</h4>
+            <div className='defaults'>
+                {progression.defaults && Object.entries(progression.defaults).map(([d, v], i) => <div key={i}>{`${d} ${v}`}</div>)}
+            </div>
             {shell ? children :
                 <div className={`progression-concepts`}>
                     {progression.concepts.map((c, i) => <Concept key={i} s={s} p={p} c={i} conceptConfig={c} defaults={defaults} />)}
@@ -60,6 +63,9 @@ const Section = props => {
     return (
         <div className={`section pw-section pw-hov ${shell ? 'pw-disabled' : ''} ${active ? 'pw-active' : ''}`}>
             <h3 className='section-name' onClick={() => setScope(ZOOM.Section)}>{title}</h3>
+            <div className='defaults'>
+                {section.defaults && Object.entries(section.defaults).map(([d, v], i) => <div key={i}>{`${d} ${v}`}</div>)}
+            </div>
             <div>
                 {shell ? children : section.progressions.map((p, i) =>
                     <Progression key={i} s={s} p={i} progression={p} defaults={defaults} />
@@ -78,6 +84,9 @@ const Chart = props => {
     return (
         <div className={`chart pw-chart pw-hov ${shell ? 'pw-disabled' : ''} ${active ? 'pw-active' : ''}`}>
             <h2 className='chart-name' onClick={() => setScope(ZOOM.Chart)}>{title}</h2>
+            <div className='defaults'>
+                {chart.defaults && Object.entries(chart.defaults).map(([d, v], i) => <div key={i}>{`${d} ${v}`}</div>)}
+            </div>
             {shell ? children : chart.sections.map((s, i) => <Section key={i} s={i} section={s} defaults={chart.defaults} />)}
         </div>
     );
