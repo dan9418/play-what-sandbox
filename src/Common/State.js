@@ -72,7 +72,7 @@ export const scopeState = atom({
 export const parseConceptHelper = (conceptConfig) => {
     let concept = { ...conceptConfig };
     if (typeof concept.a === 'string') {
-        //concept.a = concept.a;
+        concept.a = PW.Theory.parseKeyString(concept.a);
     }
     if (typeof concept.B === 'string') {
         concept.B = PW.Theory.findPresetWithId(concept.B).B;

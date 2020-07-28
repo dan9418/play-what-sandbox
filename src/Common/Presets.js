@@ -3,7 +3,7 @@ import { INTERVALS } from 'play-what/src/Presets';
 
 const { KEY_CENTERS, INTERVAL_PAIR, CHORD, QUICK_MODE: MODE, SCALE } = PW.Presets;
 
-//const DEFAULT_NOTE = { a: KEY_CENTERS.C.a, B: 'Maj' };
+//const DEFAULT_NOTE = { a: 'C', B: 'Maj' };
 const DEFAULT_NOTE = { a: { p: 0, d: 0 }, B: [[{ p: 0, d: 0 }]] };
 
 
@@ -52,17 +52,17 @@ export const PROGRESSIONS = [
         name: 'Minor ii` v i',
         concepts: [
             {
-                a: KEY_CENTERS.C.a,
+                a: 'C',
                 B: 'HalfDim7',
                 t: 4
             },
             {
-                a: KEY_CENTERS.F.a,
+                a: 'F',
                 B: 'Min7',
                 t: 4
             },
             {
-                a: KEY_CENTERS.Bb.a,
+                a: 'Bb',
                 B: 'Min7',
                 t: 8
             }
@@ -73,17 +73,17 @@ export const PROGRESSIONS = [
         name: 'Major II V I',
         concepts: [
             {
-                a: KEY_CENTERS.C.a,
+                a: 'C',
                 B: 'Min7',
                 t: 4
             },
             {
-                a: KEY_CENTERS.F.a,
+                a: 'F',
                 B: 'Dom7',
                 t: 4
             },
             {
-                a: KEY_CENTERS.Bb.a,
+                a: 'Bb',
                 B: 'Maj7',
                 t: 8
             }
@@ -165,7 +165,7 @@ export const CHARTS = [
         id: 'test',
         name: 'Test',
         defaults: {
-            a: KEY_CENTERS.C.a,
+            a: 'C',
             outputs: ['keyboard']
         },
         sections: [
@@ -203,7 +203,7 @@ export const CHARTS = [
         id: 'shapes',
         name: 'Shapes',
         defaults: {
-            a: KEY_CENTERS.C.a,
+            a: 'C',
             outputs: ['keyboard']
         },
         sections: [
@@ -328,22 +328,22 @@ export const CHARTS = [
                         {
                             concepts: [
                                 {
-                                    a: KEY_CENTERS.C.a,
+                                    a: 'C',
                                     B: 'Min7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.F.a,
+                                    a: 'F',
                                     B: 'Dom7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb.a,
+                                    a: 'Bb',
                                     B: 'Maj7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Eb.a,
+                                    a: 'Eb',
                                     B: 'Maj7',
                                     t: 4
                                 }
@@ -352,22 +352,22 @@ export const CHARTS = [
                         {
                             concepts: [
                                 {
-                                    a: KEY_CENTERS.A.a,
+                                    a: 'A',
                                     B: 'HalfDim7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.D.a,
+                                    a: 'D',
                                     B: 'Dom7b9',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Min6',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Maj7',
                                     t: 4
                                 }
@@ -381,22 +381,22 @@ export const CHARTS = [
                         {
                             concepts: [
                                 {
-                                    a: KEY_CENTERS.C.a,
+                                    a: 'C',
                                     B: 'Min7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.F.a,
+                                    a: 'F',
                                     B: 'Dom7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb.a,
+                                    a: 'Bb',
                                     B: 'Maj7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Eb.a,
+                                    a: 'Eb',
                                     B: 'Maj7',
                                     t: 4
                                 },
@@ -406,17 +406,17 @@ export const CHARTS = [
                         {
                             concepts: [
                                 {
-                                    a: KEY_CENTERS.A.a,
+                                    a: 'A',
                                     B: 'HalfDim7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.D.a,
+                                    a: 'D',
                                     B: 'Dom7b9',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Min6',
                                     t: 8
                                 }
@@ -431,22 +431,22 @@ export const CHARTS = [
                             concepts: [
                                 {
                                     section: 'B',
-                                    a: KEY_CENTERS.A.a,
+                                    a: 'A',
                                     B: 'HalfDim7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.D.a,
+                                    a: 'D',
                                     B: 'Dom7b9',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Min6',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Min6',
                                     t: 4
                                 },
@@ -456,22 +456,22 @@ export const CHARTS = [
                         {
                             concepts: [
                                 {
-                                    a: KEY_CENTERS.C.a,
+                                    a: 'C',
                                     B: 'Min7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.F.a,
+                                    a: 'F',
                                     B: 'Dom7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb.a,
+                                    a: 'Bb',
                                     B: 'Maj7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.Eb.a,
+                                    a: 'Eb',
                                     B: 'Maj7',
                                     t: 4
                                 }
@@ -486,32 +486,32 @@ export const CHARTS = [
                             concepts: [
                                 {
                                     section: 'C',
-                                    a: KEY_CENTERS.A.a,
+                                    a: 'A',
                                     B: 'HalfDim7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.D.a,
+                                    a: 'D',
                                     B: 'Dom7b9',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Min7',
                                     t: 2
                                 },
                                 {
-                                    a: KEY_CENTERS.C.a,
+                                    a: 'C',
                                     B: 'Dom7',
                                     t: 2
                                 },
                                 {
-                                    a: KEY_CENTERS.F.a,
+                                    a: 'F',
                                     B: 'Min7',
                                     t: 2
                                 },
                                 {
-                                    a: KEY_CENTERS.Bb.a,
+                                    a: 'Bb',
                                     B: 'Dom7',
                                     t: 2
                                 },
@@ -521,22 +521,22 @@ export const CHARTS = [
                         {
                             concepts: [
                                 {
-                                    a: KEY_CENTERS.A.a,
+                                    a: 'A',
                                     B: 'HalfDim7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.D.a,
+                                    a: 'D',
                                     B: 'Dom7b9',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Min7',
                                     t: 4
                                 },
                                 {
-                                    a: KEY_CENTERS.G.a,
+                                    a: 'G',
                                     B: 'Min7',
                                     t: 4
                                 }
@@ -556,12 +556,12 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Maj7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 8
                             }
@@ -570,27 +570,27 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Db.a,
+                                a: 'Db',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Dom7',
                                 t: 2
                             }
@@ -604,17 +604,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Maj7',
                                 t: 8
                             }
@@ -623,27 +623,27 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Dom7',
                                 t: 2
                             }
@@ -657,12 +657,12 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Maj7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 8
                             }
@@ -671,27 +671,27 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Db.a,
+                                a: 'Db',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Dom7',
                                 t: 2
                             }
@@ -705,42 +705,42 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.B.a,
+                                a: 'B',
                                 B: 'HalfDim7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Dom7b9',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Fs.a,
+                                a: 'Fs',
                                 B: 'HalfDim7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.B.a,
+                                a: 'B',
                                 B: 'Dom7b9',
                                 t: 2
                             },
@@ -749,27 +749,27 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Dom7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Maj7',
                                 t: 8
                             }
@@ -789,17 +789,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Maj7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Dom7',
                                 t: 4
                             }
@@ -808,17 +808,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Maj7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.B.a,
+                                a: 'B',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Dom7b9',
                                 t: 4
                             }
@@ -832,17 +832,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Dom7b9',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 8
                             }
@@ -851,17 +851,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Dom7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Dom7b9',
                                 t: 8
                             }
@@ -875,17 +875,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Maj7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Dom7',
                                 t: 4
                             }
@@ -894,17 +894,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Maj7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.B.a,
+                                a: 'B',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Dom7b9',
                                 t: 4
                             }
@@ -918,22 +918,22 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.E.a,
+                                a: 'E',
                                 B: 'Dom7b9',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min6',
                                 t: 4
                             }
@@ -942,37 +942,37 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.B.a,
+                                a: 'B',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'HalfDim7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Dom7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Maj6',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.A.a,
+                                a: 'A',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'Dom7',
                                 t: 4
                             }
@@ -992,17 +992,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 8
                             },
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Min6',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Dom7',
                                 t: 4
                             }
@@ -1011,17 +1011,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'HalfDim7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 8
                             }
@@ -1035,17 +1035,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Ab.a,
+                                a: 'Ab',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Db.a,
+                                a: 'Db',
                                 B: 'Maj7',
                                 t: 8
                             }
@@ -1054,27 +1054,27 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'HalfDim7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'HalfDim7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Dom7',
                                 t: 2
                             }
@@ -1094,17 +1094,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Maj7',
                                 t: 8
                             }
@@ -1113,17 +1113,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Dom7',
                                 t: 8
                             }
@@ -1137,27 +1137,27 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Dom7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Dom7',
                                 t: 4
                             }
@@ -1166,27 +1166,27 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Gb.a,
+                                a: 'Gb',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Maj7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Gb.a,
+                                a: 'Gb',
                                 B: 'Maj7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Maj7',
                                 t: 4
                             }
@@ -1200,17 +1200,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Maj7',
                                 t: 8
                             }
@@ -1219,17 +1219,17 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Min7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Dom7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Dom7',
                                 t: 8
                             }
@@ -1243,37 +1243,37 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.Eb.a,
+                                a: 'Eb',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Ab.a,
+                                a: 'Ab',
                                 B: 'Maj7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Maj7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.D.a,
+                                a: 'D',
                                 B: 'HalfDim7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.G.a,
+                                a: 'G',
                                 B: 'Dom7',
                                 t: 2
                             }
@@ -1282,22 +1282,22 @@ export const CHARTS = [
                     {
                         concepts: [
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Maj7',
                                 t: 4
                             },
                             {
-                                a: KEY_CENTERS.C.a,
+                                a: 'C',
                                 B: 'Min7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.F.a,
+                                a: 'F',
                                 B: 'Dom7',
                                 t: 2
                             },
                             {
-                                a: KEY_CENTERS.Bb.a,
+                                a: 'Bb',
                                 B: 'Maj7',
                                 t: 8
                             }
