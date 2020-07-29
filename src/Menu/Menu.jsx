@@ -131,9 +131,8 @@ const NavTab = () => {
 
     return (
         <div className="navigation">
-            <div className="zoom-container">
-                <ZoomInput zoom={scope} setZoom={setScope} />
-            </div>
+            <h2>Scope</h2>
+            <ZoomInput zoom={scope} setZoom={setScope} />
             <ChartMenu chart={chart} />
         </div>
     );

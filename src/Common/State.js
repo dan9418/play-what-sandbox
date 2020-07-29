@@ -54,7 +54,7 @@ const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
 
 export const sourceState = atom({
     key: 'source',
-    default: true ? PRESETS.chart[2] : DEFAULT_CHART
+    default: true ? PRESETS.chart[0] : DEFAULT_CHART
 });
 
 export const positionState = atom({

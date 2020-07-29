@@ -108,151 +108,26 @@ export const PROGRESSIONS = [
 
 export const CHARTS = [
     {
-        id: 'test',
-        name: 'Test',
+        id: 'Roman Numerals',
+        name: 'Roman Numerals',
         defaults: {
-            a: 'C',
-            
+            a: 'C'
         },
         sections: [
             {
-                name: 'Test',
+                name: 'A',
                 progressions: [
                     {
-                        name: 'Test',
+                        name: 'ii V I',
                         concepts: [
                             {
-                                B: 'Major',
-                                
-                                transforms: [
-                                    {
-                                        id: 'transpose',
-                                        args: {
-                                            a: INTERVALS.P5.a
-                                        }
-                                    },
-                                    {
-                                        id: 'chordalInversion',
-                                        args: {
-                                            inversion: 1
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-        ]
-    },
-    {
-        id: 'shapes',
-        name: 'Shapes',
-        defaults: {
-            a: 'C',
-            
-        },
-        sections: [
-            {
-                name: 'Diatonic Scales & Arpeggios',
-                progressions: [
-                    {
-                        name: 'Major',
-                        concepts: [
-                            {
-                                B: 'Major',
-                                
+                                B: 'ii'
                             },
                             {
-                                B: 'Maj7',
-                                
+                                B: 'V'
                             },
                             {
-                                B: 'Major',
-                                
-                            },
-                            {
-                                B: 'Maj7',
-                                
-                            }
-                        ]
-                    },
-                    {
-                        name: 'Minor',
-                        concepts: [
-                            {
-
-                                B: 'NaturalMinor',
-                                
-                            },
-                            {
-
-                                B: 'Min7',
-                                
-                            },
-                            {
-
-                                B: 'NaturalMinor',
-                                
-                            },
-                            {
-
-                                B: 'Min7',
-                                
-                            }
-                        ]
-                    },
-                    {
-                        name: 'Dominant',
-                        concepts: [
-                            {
-
-                                B: 'Mixolydian',
-                                
-                            },
-                            {
-
-                                B: 'Dom7',
-                                
-                            },
-                            {
-
-                                B: 'Mixolydian',
-                                
-                            },
-                            {
-
-                                B: 'Dom7',
-                                
-
-                            }
-                        ]
-                    },
-                    {
-                        name: 'Half-Diminished',
-                        concepts: [
-                            {
-
-                                B: 'Locrian',
-                                
-
-                            },
-                            {
-
-                                B: 'HalfDim7',
-                                
-
-                            },
-                            {
-
-                                B: 'Locrian',
-                                
-
-                            },
-                            {
-
-                                B: 'HalfDim7',
-                                
+                                B: 'i'
                             }
                         ]
                     }
@@ -264,7 +139,7 @@ export const CHARTS = [
         id: 'autumnLeaves',
         name: 'Autumn Leaves',
         defaults: {
-            
+
         },
         sections:
             [

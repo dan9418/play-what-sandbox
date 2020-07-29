@@ -5,7 +5,6 @@ import PW from 'play-what';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { conceptState } from '../Common/State';
 import { VIEWERS } from '../Common/Presets';
-import Chart from './Chart/Chart';
 import LevelHeader from './LevelHeader';
 
 const Output = ({ output, concept }) => {
@@ -29,7 +28,6 @@ const Stage = () => {
 
     return (
         <div className="output-list">
-            <Chart />
             {outputs.map((o, i) => <Output output={o} concept={concept} />)}
         </div>
     );
