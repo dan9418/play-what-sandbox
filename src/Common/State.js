@@ -52,8 +52,8 @@ const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
 
 // ATOMS
 
-export const sourceState = atom({
-    key: 'source',
+export const _sourceState = atom({
+    key: '_source',
     default: true ? PRESETS.chart[0] : DEFAULT_CHART
 });
 
@@ -93,7 +93,7 @@ export const parseConceptHelper = (conceptConfig) => {
     return concept;
 };
 
-export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionConfig, p, conceptConfig, c) => {
+export const parseConceptConfig = (conceptConfig, c = 0, progressionConfig = {}, p = 0, sectionConfig = {}, s = 0, chartConfig = {}) => {
     const { id, name } = conceptConfig;
 
     const mergedDefaults = {
@@ -101,11 +101,7 @@ export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionCon
         ...(sectionConfig.defaults || {}),
         ...(progressionConfig.defaults || {})
     };
-    const mergedOutputs = [
-        ...(chartConfig.outputs || []),
-        ...(sectionConfig.outputs || []),
-        ...(progressionConfig.outputs || [])
-    ];
+
     const mergedConfig = { ...mergedDefaults, ...conceptConfig };
 
     const concept = parseConceptHelper(mergedConfig);
@@ -120,11 +116,11 @@ export const parseConceptConfig = (chartConfig, sectionConfig, s, progressionCon
     };
 };
 
-const parseProgressionConfig = (chartConfig, sectionConfig, s, progressionConfig, p) => {
+const parseProgressionConfig = (progressionConfig, p = 0, sectionConfig = {}, s = 0, chartConfig = {}) => {
     const { id, name, defaults, outputs, concepts } = progressionConfig;
 
     const parsedConcepts = concepts.map((con, c) => {
-        return parseConceptConfig(chartConfig, sectionConfig, s, progressionConfig, p, con, c);
+        return parseConceptConfig(con, c, progressionConfig, p, sectionConfig, s, chartConfig);
     });
 
     return {
@@ -136,11 +132,11 @@ const parseProgressionConfig = (chartConfig, sectionConfig, s, progressionConfig
     };
 };
 
-const parseSectionConfig = (chartConfig, sectionConfig, s) => {
+const parseSectionConfig = (sectionConfig, s = 0, chartConfig = {}) => {
     const { id, name, defaults, outputs, progressions } = sectionConfig;
 
     const parsedProgressions = progressions.map((prog, p) => {
-        return parseProgressionConfig(chartConfig, sectionConfig, s, prog, p);
+        return parseProgressionConfig(prog, p, sectionConfig, s, chartConfig);
     });
 
     return {
@@ -156,7 +152,7 @@ const parseChartConfig = chartConfig => {
     const { id, name, defaults, outputs, sections } = chartConfig;
 
     const parsedSections = sections.map((sec, s) => {
-        return parseSectionConfig(chartConfig, sec, s);
+        return parseSectionConfig(sec, s, chartConfig);
     });
 
     return {
@@ -170,64 +166,63 @@ const parseChartConfig = chartConfig => {
 
 // SELECTORS
 
-export const chartState = selector({
-    key: 'chart',
-    get: ({ get }) => {
-        const source = get(sourceState);
-        if (!source.sections && !source.progressions && !source.concepts) {
-            const chart = DEFAULT_CHART;
-            chart.sections[0].progression[0].concepts = [parseConfigConfig({}, {}, 0, {}, 0, source, 0)];
-            return chart;
-        }
-        if (!source.sections && !source.progressions) {
-            const chart = DEFAULT_CHART;
-            chart.sections[0].progressions = [parseProgressionConfig({}, {}, 0, source, 0)];
-            return chart;
-        }
-        if (!source.sections) {
-            const chart = DEFAULT_CHART;
-            chart.sections = [parseSectionConfig({}, source, 0)];
-            return chart;
-        }
-        return parseChartConfig(source);
+export const getSourceScope = source => {
+    // TODO refactor
+    if (!source.sections && !source.progressions && !source.concepts) {
+        return ZOOM.Concept;
     }
-});
-
-export const sectionState = selector({
-    key: 'section',
-    get: ({ get }) => {
-        const chartConfig = get(chartState);
-        const position = get(positionState);
-        const [s, p, c] = position;
-        const sectionConfig = chartConfig.sections[s];
-        const section = parseSectionConfig(chartConfig, sectionConfig, s);
-        return section;
+    if (!source.sections && !source.progressions) {
+        return ZOOM.Progression;
     }
-});
+    if (!source.sections) {
+        return ZOOM.Section;
+    }
+    return ZOOM.Chart;
+};
 
-export const progressionState = selector({
-    key: 'progression',
+export const sourceState = selector({
+    key: 'source',
     get: ({ get }) => {
-        const chartConfig = get(chartState);
-        const position = get(positionState);
-        const [s, p, c] = position;
-        const sectionConfig = chartConfig.sections[s];
-        const progressionConfig = sectionConfig.progressions[p];
-        const progression = parseProgressionConfig(chartConfig, sectionConfig, s, progressionConfig, p);
-        return progression;
+        const source = get(_sourceState);
+        const sourceScope = getSourceScope(source);
+        switch (sourceScope) {
+            case ZOOM.Chart:
+                return {
+                    data: parseChartConfig(source),
+                    scope: sourceScope
+                };
+            case ZOOM.Section:
+                return {
+                    data: parseSectionConfig(source),
+                    scope: sourceScope
+                };
+            case ZOOM.Progression:
+                return {
+                    data: parseProgressionConfig(source),
+                    scope: sourceScope
+                };
+            case ZOOM.Concept:
+                return {
+                    data: parseConceptConfig(source),
+                    scope: sourceScope
+                };
+            default:
+                throw ('Invalid source scope');
+        }
     }
 });
 
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const chartConfig = get(chartState);
+        const source = get(sourceState);
+        const chartConfig = source.data; // TODO handle all scopes
         const position = get(positionState);
         const [s, p, c] = position;
         const sectionConfig = chartConfig.sections[s];
         const progressionConfig = sectionConfig.progressions[p];
         const conceptConfig = progressionConfig.concepts[c];
-        const concept = parseConceptConfig(chartConfig, sectionConfig, s, progressionConfig, p, conceptConfig, c);
+        const concept = parseConceptConfig(conceptConfig, c, progressionConfig, p, sectionConfig, s, chartConfig);
         return concept;
     }
 });
@@ -275,7 +270,7 @@ export const CState = selector({
 export const nextPositionState = selector({
     key: 'nextPosition',
     get: ({ get }) => {
-        const chart = get(chartState);
+        const chart = get(sourceState).data;
         const position = get(positionState);
         const [s, p, c] = position;
 
@@ -299,7 +294,7 @@ export const nextPositionState = selector({
 export const nextConceptState = selector({
     key: 'nextConcept',
     get: ({ get }) => {
-        const chart = get(chartState);
+        const chart = get(sourceState).data;
         const nextPosition = get(nextPositionState);
         const [s, p, c] = nextPosition;
         return chart.sections[s].progressions[p].concepts[c];
