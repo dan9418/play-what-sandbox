@@ -16,7 +16,7 @@
     justify-content: flex-start;
 }
 
-.output-list > * {
+.viewer {
     width: 100%
 }
 

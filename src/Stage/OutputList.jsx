@@ -3,19 +3,20 @@ import './Stage.css';
 import PW from 'play-what';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { conceptState } from '../Common/State';
+import { conceptState, viewersState, parseViewerConfig } from '../Common/State';
 import { VIEWERS } from '../Common/Presets';
 import LevelHeader from './LevelHeader';
 
-const Output = ({ output, concept }) => {
-    const viewerId = output;
+const Viewer = ({ viewerConfig, concept }) => {
+    const parsedConfig = parseViewerConfig(viewerConfig);
+    const { name, viewerId, args = {} } = parsedConfig;
     const viewer = VIEWERS[viewerId];
-    const { name, component: Comp } = viewer;
+    const { component: Comp } = viewer;
 
     return (
-        <div className='output'>
+        <div className='viewer'>
             <LevelHeader title={name}>Edit your stuff here!</LevelHeader>
-            <Comp concept={concept} />
+            <Comp concept={concept} {...args} />
         </div>
     );
 };
@@ -24,11 +25,11 @@ const Output = ({ output, concept }) => {
 const Stage = () => {
 
     const concept = useRecoilValue(conceptState);
-    const outputs = ['fretboard', 'keyboard'];
+    const [viewers, setViewers] = useRecoilState(viewersState);
 
     return (
         <div className="output-list">
-            {outputs.map((o, i) => <Output output={o} concept={concept} />)}
+            {viewers.map((v, i) => <Viewer key={i} viewerConfig={v} concept={concept} />)}
         </div>
     );
 };

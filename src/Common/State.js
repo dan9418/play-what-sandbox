@@ -1,6 +1,6 @@
 import { atom, selector } from 'recoil';
 import PW from 'play-what';
-import { CHARTS, PROGRESSIONS, CONCEPTS } from '../Common/Presets';
+import { CHARTS, PROGRESSIONS, CONCEPTS, VIEWER_PROFILES } from '../Common/Presets';
 
 // CONSTS
 
@@ -72,7 +72,19 @@ export const menuTabState = atom({
     default: null
 });
 
+export const viewersState = atom({
+    key: 'viewers',
+    default: ['fretboard', 'keyboard']
+});
+
 // PARSERS
+
+export const parseViewerConfig = viewerConfig => {
+    if (typeof viewerConfig === 'string') {
+        return VIEWER_PROFILES[viewerConfig];
+    }
+    throw ('not yet supported')
+}
 
 export const parseConceptHelper = (conceptConfig) => {
     let concept = { ...conceptConfig };
