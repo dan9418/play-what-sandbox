@@ -3,7 +3,7 @@ import PW from 'play-what';
 import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import './Menu.css';
 import ZoomInput from '../UI/ZoomInput/ZoomInput';
-import { ZOOM, sourceState, positionState, scopeState, menuTabState } from '../Common/State';
+import { ZOOM, sourceState, positionState, scopeState, menuTabState, viewersState } from '../Common/State';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Common from '../Common/_module';
 import PlaybackControls from '../PlaybackControls/PlaybackControls';
@@ -130,7 +130,7 @@ const SourceTab = () => {
     const [scope, setScope] = useRecoilState(scopeState);
 
     return (
-        <div className="source-tab">
+        <div className="tab-body source-tab">
             <h2>Scope</h2>
             <ZoomInput zoom={scope} setZoom={setScope} />
             <ChartMenu chart={source.data} />
@@ -139,22 +139,23 @@ const SourceTab = () => {
 };
 
 const ViewersTab = () => {
+    const [viewers, setViewers] = useRecoilState(viewersState);
     const source = useRecoilValue(sourceState);
     const [scope, setScope] = useRecoilState(scopeState);
 
     return (
-        <div className="viewers-tab">
+        <div className="tab-body viewers-tab">
             <h2>Viewers</h2>
-
+            {viewers.map(v => v)}
         </div>
     );
 };
 
 const PlaybackTab = () => {
     return (
-        <>
+        <div className="tab-body playback-tab">
             <PlaybackControls />
-        </>
+        </div>
     );
 };
 

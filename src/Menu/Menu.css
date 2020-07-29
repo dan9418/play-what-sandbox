@@ -74,6 +74,10 @@
     border-radius: 0;
 }
 
+.tab-body {
+    padding: 16px;
+}
+
 .justify {
     display: flex;
     width: 100%;
@@ -93,8 +97,4 @@
     width: 100%;
     align-items: center;
     justify-content: flex-end;
-}
-
-.source-tab {
-    padding: 16px;
 }
