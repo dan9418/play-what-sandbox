@@ -67,6 +67,11 @@ export const scopeState = atom({
     default: ZOOM.Concept
 });
 
+export const menuTabState = atom({
+    key: 'menuTab',
+    default: null
+});
+
 // PARSERS
 
 export const parseConceptHelper = (conceptConfig) => {

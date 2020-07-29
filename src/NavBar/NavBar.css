@@ -16,6 +16,7 @@
 .top-nav svg, .top-nav svg * {
     width: 100%;
     height: 100%;
+    fill: #fff;
 }
 
 .icon {
@@ -67,8 +68,16 @@
     border: 1px solid white;
 }
 
-.left-nav {
+.right-nav {
     position: absolute;
     right: 0;
     display: flex;
+}
+
+.meatball {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    padding: 10px;
+    box-sizing: border-box;
 }

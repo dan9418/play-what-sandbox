@@ -3,7 +3,7 @@ import PW from 'play-what';
 import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import './Menu.css';
 import ZoomInput from '../UI/ZoomInput/ZoomInput';
-import { ZOOM, sourceState, positionState, scopeState } from '../Common/State';
+import { ZOOM, sourceState, positionState, scopeState, menuTabState } from '../Common/State';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Common from '../Common/_module';
 import PlaybackControls from '../PlaybackControls/PlaybackControls';
@@ -138,6 +138,18 @@ const SourceTab = () => {
     );
 };
 
+const ViewersTab = () => {
+    const source = useRecoilValue(sourceState);
+    const [scope, setScope] = useRecoilState(scopeState);
+
+    return (
+        <div className="viewers-tab">
+            <h2>Viewers</h2>
+
+        </div>
+    );
+};
+
 const PlaybackTab = () => {
     return (
         <>
@@ -146,38 +158,40 @@ const PlaybackTab = () => {
     );
 };
 
-
-const TABS = [
-    {
+const TAB = {
+    source: {
+        id: 'source',
         name: 'Source',
         component: SourceTab
     },
-    {
+    viewers: {
+        id: 'viewers',
+        name: 'Viewers',
+        component: ViewersTab
+    },
+    playback: {
+        id: 'playback',
         name: 'Playback',
         component: PlaybackTab
     },
-];
+};
 
 const Menu = () => {
-
-    const [open, setOpen] = useState(true);
-    const toggleOpen = () => setOpen(!open);
-    const [tab, setTab] = useState(TABS[0]);
-    const Tab = tab.component;
+    const [menuTab, setMenuTab] = useRecoilState(menuTabState);
+    const Tab = menuTab && TAB[menuTab].component;
 
     return (
-        <div className={`menu pw-light-2 ${open && 'open'} `}>
-            {open &&
+        <div className={`menu pw-light-2 ${menuTab && 'open'} `}>
+            {menuTab &&
                 <>
                     <div className="tab-container">
-                        {TABS.map(t => <ButtonInput className={`tab ${t.name === tab.name ? 'pw-accent' : 'pw-primary'}`} onClick={() => setTab(t)}>{t.name}</ButtonInput>)}
+                        {Object.values(TAB).map(t => (
+                            <ButtonInput className={`tab ${t.id === TAB[menuTab].id ? 'pw-accent' : 'pw-primary'}`} onClick={() => setMenuTab(t.id)}>{t.name}</ButtonInput>
+                        ))}
                     </div>
                     <Tab />
                 </>
             }
-            <div className={`meatball ${open ? 'pw-accent' : 'pw-primary'} pw-hov`} onClick={toggleOpen} >
-                <Common.Icons.Menu />
-            </div>
         </div>
     );
 };
