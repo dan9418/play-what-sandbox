@@ -15,12 +15,14 @@ export const VIEWERS = {
     fretboard: {
         id: 'fretboard',
         name: 'Fretboard',
-        component: Fretboard.Viewer
+        component: Fretboard.Viewer,
+        defaults: Fretboard.Defaults
     },
     keyboard: {
         id: 'keyboard',
         name: 'Keyboard',
-        component: Keyboard.Viewer
+        component: Keyboard.Viewer,
+        defaults: Keyboard.Defaults
     }
 };
 

@@ -3,20 +3,19 @@ import './Stage.css';
 import PW from 'play-what';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { conceptState, viewersState, parseViewerConfig } from '../Common/State';
+import { conceptState, viewersState } from '../Common/State';
 import { VIEWERS } from '../Common/Presets';
 import LevelHeader from './LevelHeader';
 
 const Viewer = ({ viewerConfig, concept }) => {
-    const parsedConfig = parseViewerConfig(viewerConfig);
-    const { name, viewerId, args = {} } = parsedConfig;
+    const { name, viewerId, args = {} } = viewerConfig;
     const viewer = VIEWERS[viewerId];
     const { component: Comp } = viewer;
 
     return (
         <div className='viewer'>
             <LevelHeader title={name}>Edit your stuff here!</LevelHeader>
-            <Comp concept={concept} {...args} />
+            <Comp {...args} concept={concept} />
         </div>
     );
 };

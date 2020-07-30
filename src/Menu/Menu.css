@@ -4,17 +4,12 @@
     position: relative;
     transition: width .2s;
     box-shadow: 8px 8px 8px #ccc;
-    ;
     padding-bottom: 50px;
     /*overflow-y: auto;*/
 }
 
 .menu.open {
     width: 256px;
-}
-
-.concept-input-2>* {
-    margin-left: 16px;
 }
 
 /* Menu */
@@ -97,4 +92,24 @@
     width: 100%;
     align-items: center;
     justify-content: flex-end;
+}
+
+.viewer-header {
+    padding: 8px 0;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.input-row label {
+    margin: 0 8px;
+    white-space: nowrap;
+}
+
+.input-header {
+    padding: 8px;
 }

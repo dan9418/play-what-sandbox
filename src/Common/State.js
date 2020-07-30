@@ -1,6 +1,6 @@
 import { atom, selector } from 'recoil';
 import PW from 'play-what';
-import { CHARTS, PROGRESSIONS, CONCEPTS, VIEWER_PROFILES } from '../Common/Presets';
+import { CHARTS, PROGRESSIONS, CONCEPTS, VIEWER_PROFILES, VIEWERS } from '../Common/Presets';
 
 // CONSTS
 
@@ -69,22 +69,15 @@ export const scopeState = atom({
 
 export const menuTabState = atom({
     key: 'menuTab',
-    default: null
+    default: 'viewers'
 });
 
-export const viewersState = atom({
-    key: 'viewers',
+export const _viewersState = atom({
+    key: '_viewers',
     default: ['fretboard', 'keyboard']
 });
 
 // PARSERS
-
-export const parseViewerConfig = viewerConfig => {
-    if (typeof viewerConfig === 'string') {
-        return VIEWER_PROFILES[viewerConfig];
-    }
-    throw ('not yet supported')
-}
 
 export const parseConceptHelper = (conceptConfig) => {
     let concept = { ...conceptConfig };
@@ -181,7 +174,29 @@ const parseChartConfig = chartConfig => {
     };
 };
 
+export const parseViewerConfig = viewerConfig => {
+    if (typeof viewerConfig === 'string') {
+        const config = VIEWER_PROFILES[viewerConfig];
+        const viewer = VIEWERS[config.viewerId];
+        config.args = { ...viewer.defaults, ...config.args };
+        return config;
+    }
+    throw ('not yet supported')
+}
+
 // SELECTORS
+
+export const viewersState = selector({
+    key: 'viewers',
+    get: ({ get }) => {
+        const viewers = get(_viewersState);
+        return viewers.map(v => parseViewerConfig(v))
+    },
+    set: ({ get, set }, [viewer, index]) => {
+        const viewers = get(_viewersState);
+
+    }
+});
 
 export const getSourceScope = source => {
     // TODO refactor

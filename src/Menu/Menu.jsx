@@ -3,10 +3,12 @@ import PW from 'play-what';
 import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import './Menu.css';
 import ZoomInput from '../UI/ZoomInput/ZoomInput';
+import SwitchInput from '../UI/SwitchInput/SwitchInput';
 import { ZOOM, sourceState, positionState, scopeState, menuTabState, viewersState } from '../Common/State';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Common from '../Common/_module';
 import PlaybackControls from '../PlaybackControls/PlaybackControls';
+import ScalarInput from '../UI/ScalarInput/ScalerInput';
 
 const ConceptLeaf = ({ conceptConfig, s, p, c }) => {
     const [scope, setScope] = useRecoilState(scopeState);
@@ -138,6 +140,33 @@ const SourceTab = () => {
     );
 };
 
+const ViewerPanel = ({ viewerConfig }) => {
+    const { fretLow, fretHigh, showDots, showFretNumbers, strings } = viewerConfig.args;
+    console.log(viewerConfig.args);
+    return (
+        <div className="viewer-panel">
+            <h3 className="viewer-header">{viewerConfig.name}</h3>
+            <h4 className="input-header">Range</h4>
+            <div className="input-row">
+                <label>Fret Low:</label>
+                <ScalarInput value={fretLow} setValue={null} />
+            </div>
+            <div className="input-row">
+                <label>Fret High:</label>
+                <ScalarInput value={fretHigh} setValue={null} />            </div>
+            <h4 className="input-header">Labels</h4>
+            <div className="input-row">
+                <label>Show Dots:</label>
+                <SwitchInput value={showDots} setValue={null} />
+            </div>
+            <div className="input-row">
+                <label>Show Numbers:</label>
+                <SwitchInput value={showFretNumbers} setValue={null} />
+            </div>
+        </div>
+    );
+};
+
 const ViewersTab = () => {
     const [viewers, setViewers] = useRecoilState(viewersState);
     const source = useRecoilValue(sourceState);
@@ -146,7 +175,7 @@ const ViewersTab = () => {
     return (
         <div className="tab-body viewers-tab">
             <h2>Viewers</h2>
-            {viewers.map(v => v)}
+            {viewers.map((v, i) => <ViewerPanel key={i} viewerConfig={v} />)}
         </div>
     );
 };
