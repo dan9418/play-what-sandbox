@@ -65,6 +65,10 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.tab-container > .button-input{
+    padding: 0;
+}
+
 .tab {
     border-radius: 0;
 }

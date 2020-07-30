@@ -176,12 +176,14 @@ const parseChartConfig = chartConfig => {
 
 export const parseViewerConfig = viewerConfig => {
     if (typeof viewerConfig === 'string') {
-        const config = VIEWER_PROFILES[viewerConfig];
+        const config = { ...VIEWER_PROFILES[viewerConfig] };
         const viewer = VIEWERS[config.viewerId];
         config.args = { ...viewer.defaults, ...config.args };
         return config;
     }
-    throw ('not yet supported')
+    const config2 = { ...viewerConfig };
+    config2.args = { ...VIEWERS[viewerConfig.viewerId].defaults, ...config2.args };
+    return config2;
 }
 
 // SELECTORS
@@ -192,8 +194,12 @@ export const viewersState = selector({
         const viewers = get(_viewersState);
         return viewers.map(v => parseViewerConfig(v))
     },
-    set: ({ get, set }, [viewer, index]) => {
+    set: ({ get, set }, [index, config]) => {
+        console.log(index, config)
         const viewers = get(_viewersState);
+        const newVeiwers = [...viewers.slice(0, index), config, ...viewers.slice(index + 1)];
+        console.log(newVeiwers)
+        set(_viewersState, newVeiwers);
 
     }
 });
