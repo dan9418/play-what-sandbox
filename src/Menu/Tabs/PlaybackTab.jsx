@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
 import PW from 'play-what';
-import ButtonInput from '../UI/ButtonInput/ButtonInput';
-import ScalarInput from '../UI/ScalarInput/ScalerInput';
-import './PlaybackControls.css';
-import { useRecoilState } from 'recoil';
-import { positionState, nextConceptState, conceptState, nextPositionState } from '../Common/State';
-import { useRecoilValue } from 'recoil';
+import React, { useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { conceptState, nextConceptState, nextPositionState, positionState } from '../../Common/State';
+import ButtonInput from '../../UI/ButtonInput/ButtonInput';
+import ScalarInput from '../../UI/ScalarInput/ScalerInput';
+import './PlaybackTab.css';
 
 const DEFAULT_TEMPO = 160;
 const NOP = () => null;
@@ -15,7 +14,7 @@ const useToggle = (initValue = false) => {
     return [value, () => setValue(!value)];
 };
 
-const PlaybackControls = () => {
+const PlaybackTab = () => {
 
     const [position, setPosition] = useRecoilState(positionState);
     const concept = useRecoilValue(conceptState);
@@ -57,19 +56,27 @@ const PlaybackControls = () => {
     }
 
     return (
-        <div className='playback-controls'>
-            <div className={`blinker ${beatIndex % 2 === 0 ? 'pulse' : ''}`} />
-            <ButtonInput className='pw-secondary' onClick={togglePlay}>{playing ? 'Pause' : 'Play'}</ButtonInput>
-            <h3>Tempo</h3>
-            <div className="left">
-                <ScalarInput value={tempo} setValue={setTempo} className="bpm" />
-                <span className="bpm">bpm</span>
+        <div className='tab-body playback-tab'>
+
+            <div className="input-row">
+                <div className={`blinker ${beatIndex % 2 === 0 ? 'pulse' : ''}`} />
+                <ButtonInput className='pw-accent' onClick={togglePlay}>{playing ? 'Pause' : 'Play'}</ButtonInput>
             </div>
+
+            <h3>Tempo</h3>
+            <div className="input-row">
+                <label>bpm</label>
+                <ScalarInput value={tempo} setValue={setTempo} className="bpm" />
+            </div>
+            
             <h3>Metronome</h3>
+            <div className="input-row"></div>
             <h3>Volume</h3>
+            <div className="input-row"></div>
             <h3>Voice</h3>
+            <div className="input-row"></div>
         </div>
     );
 }
 
-export default PlaybackControls;
+export default PlaybackTab;
