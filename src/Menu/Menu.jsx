@@ -140,12 +140,11 @@ const SourceTab = () => {
     );
 };
 
-const ViewerPanel = ({ viewerConfig }) => {
-    const { fretLow, fretHigh, showDots, showFretNumbers, strings } = viewerConfig.args;
-    console.log(viewerConfig.args);
+const FretboardPanel = ({ fretboardConfig }) => {
+    const { fretLow, fretHigh, showDots, showFretNumbers, strings } = fretboardConfig;
+    //console.log(viewerConfig.args);
     return (
-        <div className="viewer-panel">
-            <h3 className="viewer-header">{viewerConfig.name}</h3>
+        <div className="fretboard-panel">
             <h4 className="input-header">Range</h4>
             <div className="input-row">
                 <label>Fret Low:</label>
@@ -153,7 +152,9 @@ const ViewerPanel = ({ viewerConfig }) => {
             </div>
             <div className="input-row">
                 <label>Fret High:</label>
-                <ScalarInput value={fretHigh} setValue={null} />            </div>
+                <ScalarInput value={fretHigh} setValue={null} />
+            </div>
+
             <h4 className="input-header">Labels</h4>
             <div className="input-row">
                 <label>Show Dots:</label>
@@ -163,6 +164,15 @@ const ViewerPanel = ({ viewerConfig }) => {
                 <label>Show Numbers:</label>
                 <SwitchInput value={showFretNumbers} setValue={null} />
             </div>
+        </div>
+    );
+};
+
+const ViewerPanel = ({ viewerConfig }) => {
+    return (
+        <div className="viewer-panel">
+             <h3 className="viewer-header">{viewerConfig.name}</h3>
+            {viewerConfig.viewerId === 'fretboard' && <FretboardPanel fretboardConfig={viewerConfig.args} />}
         </div>
     );
 };
