@@ -4,6 +4,7 @@ import { menuTabState } from '../Common/State';
 import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import './Menu.css';
 import SourceTab from './Tabs/SourceTab';
+import NavTab from './Tabs/NavTab';
 import ViewersTab from './Tabs/ViewersTab';
 import PlaybackTab from './Tabs/PlaybackTab';
 
@@ -12,6 +13,11 @@ const TAB = {
         id: 'source',
         name: 'Source',
         component: SourceTab
+    },
+    nav: {
+        id: 'nav',
+        name: 'Nav',
+        component: NavTab
     },
     viewers: {
         id: 'viewers',

@@ -36,8 +36,7 @@ const ZoomInput = props => {
                     <ButtonInput
                         key={i}
                         onClick={() => setZoom(z.id)}
-                        className={`pw-${z.id} ${zoom === z.id ? 'pw-active' : ``}`}>
-                        {z.label}
+                        className={`pw-${z.id} ${zoom === z.id ? 'pw-active' : ``}`}>{z.label}
                     </ButtonInput>
                 );
             })}

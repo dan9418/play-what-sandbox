@@ -14,7 +14,7 @@
 
 .tab-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .tab-container > .button-input{
@@ -33,9 +33,10 @@
 
 .input-row {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 4px;
+    margin: 8px 0;
 }
 
 .input-row label {

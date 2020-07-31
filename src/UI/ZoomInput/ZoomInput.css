@@ -7,8 +7,10 @@
 }
 
 .zoom-input .button-input {
-    border-radius: 8px;
-    height: 16px;
-    line-height: 16px;
+    border-radius: 48px;
+    height: 48px;
+    line-height: 48px;
     width: 48px;
+    text-align: center;
+    padding: 0;
 }
