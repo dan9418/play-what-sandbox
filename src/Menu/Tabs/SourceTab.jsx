@@ -133,7 +133,10 @@ const SourceTab = () => {
             <PresetInput />
             <h2>Scope</h2>
             <ZoomInput zoom={scope} setZoom={setScope} />
-            <ChartMenu chart={source.data} />
+            {source.scope === ZOOM.Chart && <ChartMenu chart={source.data} />}
+            {source.scope === ZOOM.Section && <SectionMenu section={source.data} s={0} />}
+            {source.scope === ZOOM.Progression && <ProgressionMenu progression={source.data} s={0} p={0} />}
+            {source.scope === ZOOM.Concept && <ConceptLeaf conceptConfig={source.data} s={0} p={0} c={0} />}
         </div>
     );
 };

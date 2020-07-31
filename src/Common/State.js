@@ -1,8 +1,8 @@
-import { atom, selector } from 'recoil';
 import PW from 'play-what';
-import { VIEWER_PROFILES, VIEWERS } from '../Common/Viewers';
+import { atom, selector } from 'recoil';
+import { VIEWERS, VIEWER_PROFILES } from '../Common/Viewers';
+import { ZOOM, DEFAULTS } from './Constants';
 import PRESETS from './Presets/Presets';
-import { ZOOM } from './Constants';
 
 // UTILS
 
@@ -85,6 +85,7 @@ export const parseConceptConfig = (conceptConfig, c = 0, progressionConfig = {},
     const { id, name } = conceptConfig;
 
     const mergedDefaults = {
+        ...DEFAULTS,
         ...(chartConfig.defaults || {}),
         ...(sectionConfig.defaults || {}),
         ...(progressionConfig.defaults || {})
@@ -211,19 +212,46 @@ export const sourceState = selector({
             default:
                 throw ('Invalid source scope');
         }
+    },
+    set: ({ get, set }, source) => {
+        set(_sourceState, source)
     }
 });
 
 export const conceptState = selector({
     key: 'concept',
     get: ({ get }) => {
-        const source = get(sourceState);
-        const chartConfig = source.data; // TODO handle all scopes
         const position = get(positionState);
         const [s, p, c] = position;
-        const sectionConfig = chartConfig.sections[s];
-        const progressionConfig = sectionConfig.progressions[p];
-        const conceptConfig = progressionConfig.concepts[c];
+
+        const { scope, data } = get(sourceState);
+        let conceptConfig = undefined;
+        let progressionConfig = undefined;
+        let sectionConfig = undefined;
+        let chartConfig = undefined;
+
+        switch (scope) {
+            case ZOOM.Chart:
+                chartConfig = data;
+                sectionConfig = chartConfig.sections[s];
+                progressionConfig = sectionConfig.progressions[p];
+                conceptConfig = progressionConfig.concepts[c];
+                break;
+            case ZOOM.Section:
+                sectionConfig = data;
+                progressionConfig = sectionConfig.progressions[p];
+                conceptConfig = progressionConfig.concepts[c];
+                break;
+            case ZOOM.Progression:
+                progressionConfig = data;
+                conceptConfig = progressionConfig.concepts[c];
+                break;
+            case ZOOM.Concept:
+                conceptConfig = data;
+                break;
+            default:
+                throw ('Invalid source scope 2');
+        }
         const concept = parseConceptConfig(conceptConfig, c, progressionConfig, p, sectionConfig, s, chartConfig);
         return concept;
     }

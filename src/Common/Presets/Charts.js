@@ -1,39 +1,5 @@
 const CHARTS = [
     {
-        id: 'exercises',
-        name: 'Exercises',
-        presets: [
-            {
-                id: 'Roman Numerals',
-                name: 'Roman Numerals',
-                defaults: {
-                    a: 'C'
-                },
-                sections: [
-                    {
-                        name: 'A',
-                        progressions: [
-                            {
-                                name: 'ii V I',
-                                concepts: [
-                                    {
-                                        B: 'ii'
-                                    },
-                                    {
-                                        B: 'V'
-                                    },
-                                    {
-                                        B: 'i'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                ]
-            },
-        ]
-    },
-    {
         id: 'standards',
         name: 'Jazz Standards',
         presets: [
@@ -1030,6 +996,40 @@ const CHARTS = [
                     }
                 ]
             }
+        ]
+    },
+    {
+        id: 'exercises',
+        name: 'Exercises',
+        presets: [
+            {
+                id: 'Roman Numerals',
+                name: 'Roman Numerals',
+                defaults: {
+                    a: 'C'
+                },
+                sections: [
+                    {
+                        name: 'A',
+                        progressions: [
+                            {
+                                name: 'ii V I',
+                                concepts: [
+                                    {
+                                        B: 'ii'
+                                    },
+                                    {
+                                        B: 'V'
+                                    },
+                                    {
+                                        B: 'i'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                ]
+            },
         ]
     }
 ];
