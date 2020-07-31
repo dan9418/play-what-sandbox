@@ -1,4 +1,5 @@
 import CHARTS from "./Charts";
+import SECTIONS from "./Sections";
 import PROGRESSIONS from "./Progressions";
 import CONCEPTS from "./Concepts";
 
@@ -11,7 +12,7 @@ const PRESETS = [
     {
         id: 'section',
         name: 'Sections',
-        categories: []
+        categories: SECTIONS
     },
     {
         id: 'progression',

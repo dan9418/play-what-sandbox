@@ -129,7 +129,7 @@ const SourceTab = () => {
 
     return (
         <div className="tab-body source-tab">
-            <h2>Preset</h2>
+            <h2>Load Preset</h2>
             <PresetInput />
             <h2>Scope</h2>
             <ZoomInput zoom={scope} setZoom={setScope} />

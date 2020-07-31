@@ -25,7 +25,7 @@ export const getSourceScope = source => {
 const POSITION = [0, 0, 0];
 
 const SCOPE_INDEX = 0;
-const CATEGORY_INDEX = 0;
+const CATEGORY_INDEX = 1;
 const PRESET_INDEX = 0;
 
 // ATOMS
