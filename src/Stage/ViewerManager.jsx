@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import './Stage.css';
-import PW from 'play-what';
-
-import { useRecoilValue, useRecoilState } from 'recoil';
+import React from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { VIEWERS } from '../Common/Viewers';
 import { conceptState, viewersState } from '../Common/State';
-import { VIEWERS } from '../Common/Presets';
 import LevelHeader from './LevelHeader';
+import './Stage.css';
 
 const Viewer = ({ viewerConfig, concept }) => {
     const { name, viewerId, args = {} } = viewerConfig;
@@ -20,17 +18,16 @@ const Viewer = ({ viewerConfig, concept }) => {
     );
 };
 
-
-const Stage = () => {
+const ViewerManager = () => {
 
     const concept = useRecoilValue(conceptState);
     const [viewers, setViewers] = useRecoilState(viewersState);
 
     return (
-        <div className="output-list">
+        <div className="viewer-manager">
             {viewers.map((v, i) => <Viewer key={i} viewerConfig={v} concept={concept} />)}
         </div>
     );
 };
 
-export default Stage;
+export default ViewerManager;

@@ -1,65 +1,43 @@
 import { atom, selector } from 'recoil';
 import PW from 'play-what';
-import { CHARTS, PROGRESSIONS, CONCEPTS, VIEWER_PROFILES, VIEWERS } from '../Common/Presets';
-
-// CONSTS
-
-export const PRESETS = {
-    concept: CONCEPTS,
-    progression: PROGRESSIONS,
-    chart: CHARTS
-};
-
-export const ZOOM = {
-    Concept: 'concept',
-    Section: 'section',
-    Progression: 'progression',
-    Chart: 'chart'
-};
-
-// DEFAULTS
-
-const DEFAULT_POSITION = [0, 0, 0];
-const DEFAULT_PRESET_INDEX = 0;
-
-const DEFAULT_CONCEPT_CONFIG = { a: { p: 0, d: 0 }, B: [], C: [] };
-const DEFAULT_PROGRESSION = { concepts: [DEFAULT_CONCEPT_CONFIG] };
-const DEFAULT_SECTION = { progressions: [DEFAULT_PROGRESSION] };
-const DEFAULT_CHART = { sections: [DEFAULT_SECTION] };
+import { VIEWER_PROFILES, VIEWERS } from '../Common/Viewers';
+import PRESETS from './Presets/Presets';
+import { ZOOM } from './Constants';
 
 // UTILS
 
-/*export const deepCopy = (source, zoom) => {
-    const copy = { ...source };
-    switch (zoom) {
-        case ZOOM.Chart:
-            copy.defaults = { ...(source.defaults || {}) };
-            copy.sections = source.sections.map(s => deepCopy(s, ZOOM.Section))
-            return copy;
-        case ZOOM.Section:
-            copy.defaults = { ...(source.defaults || {}) };
-            copy.progressions = source.progressions.map(p => deepCopy(p, ZOOM.Progression));
-            return copy;
-        case ZOOM.Progression:
-            copy.defaults = { ...(source.defaults || {}) };
-            copy.concepts = source.concepts.map(c => deepCopy(c, ZOOM.Concept));
-            return copy;
-        case ZOOM.Concept:
-            return copy;
+export const getSourceScope = source => {
+    // TODO refactor
+    if (!source.sections && !source.progressions && !source.concepts) {
+        return ZOOM.Concept;
     }
-};*/
+    if (!source.sections && !source.progressions) {
+        return ZOOM.Progression;
+    }
+    if (!source.sections) {
+        return ZOOM.Section;
+    }
+    return ZOOM.Chart;
+};
 
+// CONSTS
+
+const POSITION = [0, 0, 0];
+
+const SCOPE_INDEX = 0;
+const CATEGORY_INDEX = 0;
+const PRESET_INDEX = 0;
 
 // ATOMS
 
 export const _sourceState = atom({
     key: '_source',
-    default: true ? PRESETS.chart[0] : DEFAULT_CHART
+    default: PRESETS[SCOPE_INDEX].categories[CATEGORY_INDEX].presets[PRESET_INDEX]
 });
 
 export const positionState = atom({
     key: 'position',
-    default: DEFAULT_POSITION
+    default: POSITION
 });
 
 export const scopeState = atom({
@@ -69,7 +47,7 @@ export const scopeState = atom({
 
 export const menuTabState = atom({
     key: 'menuTab',
-    default: 'viewers'
+    default: 'source'
 });
 
 export const _viewersState = atom({
@@ -204,20 +182,6 @@ export const viewersState = selector({
     }
 });
 
-export const getSourceScope = source => {
-    // TODO refactor
-    if (!source.sections && !source.progressions && !source.concepts) {
-        return ZOOM.Concept;
-    }
-    if (!source.sections && !source.progressions) {
-        return ZOOM.Progression;
-    }
-    if (!source.sections) {
-        return ZOOM.Section;
-    }
-    return ZOOM.Chart;
-};
-
 export const sourceState = selector({
     key: 'source',
     get: ({ get }) => {
@@ -338,3 +302,23 @@ export const nextConceptState = selector({
         return chart.sections[s].progressions[p].concepts[c];
     }
 });
+
+/*export const deepCopy = (source, zoom) => {
+    const copy = { ...source };
+    switch (zoom) {
+        case ZOOM.Chart:
+            copy.defaults = { ...(source.defaults || {}) };
+            copy.sections = source.sections.map(s => deepCopy(s, ZOOM.Section))
+            return copy;
+        case ZOOM.Section:
+            copy.defaults = { ...(source.defaults || {}) };
+            copy.progressions = source.progressions.map(p => deepCopy(p, ZOOM.Progression));
+            return copy;
+        case ZOOM.Progression:
+            copy.defaults = { ...(source.defaults || {}) };
+            copy.concepts = source.concepts.map(c => deepCopy(c, ZOOM.Concept));
+            return copy;
+        case ZOOM.Concept:
+            return copy;
+    }
+};*/

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { positionState, scopeState, sourceState, ZOOM } from '../../Common/State';
+import { ZOOM } from '../../Common/Constants';
+import { positionState, scopeState, sourceState } from '../../Common/State';
+import PresetInput from '../../UI/PresetInput/PresetInput';
 import ZoomInput from '../../UI/ZoomInput/ZoomInput';
 import './SourceTab.css';
 
@@ -127,6 +129,8 @@ const SourceTab = () => {
 
     return (
         <div className="tab-body source-tab">
+            <h2>Preset</h2>
+            <PresetInput />
             <h2>Scope</h2>
             <ZoomInput zoom={scope} setZoom={setScope} />
             <ChartMenu chart={source.data} />

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './Stage.css';
 
 import Menu from '../Menu/Menu';
-import OutputList from './OutputList';
+import ViewerManager from './ViewerManager';
 
 const Stage = () => {
     return (
         <div className="stage">
-            <OutputList />
+            <ViewerManager />
             <Menu />
         </div>
     );

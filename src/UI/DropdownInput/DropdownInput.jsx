@@ -1,7 +1,7 @@
 import React from 'react';
-import './Dropdown.css';
+import './DropdownInput.css';
 
-const Dropdown = props => {
+const DropdownInput = props => {
     const { value, setValue, options, displayProperty } = props;
 
     return (
@@ -17,4 +17,4 @@ const Dropdown = props => {
     );
 }
 
-export default Dropdown;
+export default DropdownInput;

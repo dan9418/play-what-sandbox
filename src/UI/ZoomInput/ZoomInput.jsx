@@ -1,7 +1,7 @@
 import React from 'react';
-import './ZoomInput.css';
-import { ZOOM } from '../../Common/State';
+import { ZOOM } from '../../Common/Constants';
 import ButtonInput from '../ButtonInput/ButtonInput';
+import './ZoomInput.css';
 
 export const ZOOM_VALUES = [
     {
