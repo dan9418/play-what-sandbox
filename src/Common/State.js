@@ -20,12 +20,25 @@ export const getSourceScope = source => {
     return ZOOM.Chart;
 };
 
+export const concatAtScope = (source, zoom) => {
+    switch (zoom) {
+        case ZOOM.Chart:
+            return source.sections.map(s => concatConcepts(s, ZOOM.Section)).flat();
+        case ZOOM.Section:
+            return source.progressions.map(p => concatConcepts(p, ZOOM.Progression)).flat();
+        case ZOOM.Progression:
+            return source.concepts.map(c => concatConcepts(c, ZOOM.Concept));
+        case ZOOM.Concept:
+            return source;
+    }
+};
+
 // CONSTS
 
 const POSITION = [0, 0, 0];
 
 const SCOPE_INDEX = 0;
-const CATEGORY_INDEX = 1;
+const CATEGORY_INDEX = 0;
 const PRESET_INDEX = 0;
 
 // ATOMS
@@ -47,7 +60,7 @@ export const scopeState = atom({
 
 export const menuTabState = atom({
     key: 'menuTab',
-    default: 'source'
+    default: 'nav'
 });
 
 export const _viewersState = atom({
@@ -165,6 +178,19 @@ export const parseViewerConfig = viewerConfig => {
     return config2;
 }
 
+export const concatConcepts = (source, zoom) => {
+    switch (zoom) {
+        case ZOOM.Chart:
+            return source.sections.map(s => concatConcepts(s, ZOOM.Section)).flat();
+        case ZOOM.Section:
+            return source.progressions.map(p => concatConcepts(p, ZOOM.Progression)).flat();
+        case ZOOM.Progression:
+            return source.concepts.map(c => concatConcepts(c, ZOOM.Concept));
+        case ZOOM.Concept:
+            return parseConceptConfig(source);
+    }
+};
+
 // SELECTORS
 
 export const viewersState = selector({
@@ -217,6 +243,61 @@ export const sourceState = selector({
         set(_sourceState, source)
     }
 });
+
+export const scopedConceptsState = selector({
+    key: 'scopedCocepts',
+    get: ({ get }) => {
+        const position = get(positionState);
+        const [s, p, c] = position;
+        const viewerScope = get(scopeState);
+
+        const { scope: sourceScope, data } = get(sourceState);
+        let conceptConfig = undefined;
+        let progressionConfig = undefined;
+        let sectionConfig = undefined;
+        let chartConfig = undefined;
+
+        switch (sourceScope) {
+            case ZOOM.Chart:
+                switch (viewerScope) {
+                    case ZOOM.Chart:
+                        return concatConcepts(data, ZOOM.Chart);
+                    case ZOOM.Section:
+                        return concatConcepts(data.sections[s], ZOOM.Section);
+                    case ZOOM.Progression:
+                        return concatConcepts(data.sections[s].progressions[p], ZOOM.Progression);
+                    case ZOOM.Concept:
+                        return [concatConcepts(data.sections[s].progressions[p].concepts[c], ZOOM.Concept)];
+                    default:
+                        return [];
+                }
+            case ZOOM.Section:
+                switch (viewerScope) {
+                    case ZOOM.Section:
+                        return concatConcepts(data, ZOOM.Section);
+                    case ZOOM.Progression:
+                        return concatConcepts(data, ZOOM.Progression);
+                    case ZOOM.Concept:
+                        return [concatConcepts(data, ZOOM.Concept)];
+                    default:
+                        return [];
+                }
+            case ZOOM.Progression:
+                switch (viewerScope) {
+                    case ZOOM.Progression:
+                        return concatConcepts(data, ZOOM.Progression);
+                    case ZOOM.Concept:
+                        return [concatConcepts(data, ZOOM.Concept)];
+                    default:
+                        return [];
+                }
+            case ZOOM.Concept:
+                return concatConcepts(data, ZOOM.Concept);
+            default:
+                throw ('Invalid source scope 3');
+        }
+    }
+})
 
 export const conceptState = selector({
     key: 'concept',

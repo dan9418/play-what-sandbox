@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { VIEWERS } from '../Common/Viewers';
-import { conceptState, viewersState } from '../Common/State';
+import { scopedConceptsState, viewersState } from '../Common/State';
 import LevelHeader from './LevelHeader';
 import './Stage.css';
 
@@ -18,14 +18,25 @@ const Viewer = ({ viewerConfig, concept }) => {
     );
 };
 
-const ViewerManager = () => {
+const ViewerGrid = ({ viewers, x, y }) => {
+    const style = { };
+    return (
+        <div className="viewer-grid" style={style}>
+            {viewers}
+        </div>
+    );
+};
 
-    const concept = useRecoilValue(conceptState);
+const ViewerManager = () => {
+    const concepts = useRecoilValue(scopedConceptsState);
     const [viewers, setViewers] = useRecoilState(viewersState);
+    const Viewer = VIEWERS[viewers[0].viewerId].component;
+
+    const viewerComps = concepts.map((c, i) => <Viewer key={i} concept={c} />)
 
     return (
         <div className="viewer-manager">
-            {viewers.map((v, i) => <Viewer key={i} viewerConfig={v} concept={concept} />)}
+            <ViewerGrid viewers={viewerComps} x={2} y={2} />
         </div>
     );
 };
