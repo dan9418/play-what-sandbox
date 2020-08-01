@@ -66,8 +66,23 @@ h1, h2, h3, h4, h5 {
     border-bottom: 1px solid #555;
 }
 
+.viewer-level {
+    width: 100%;
+}
+
+.viewer-level label {
+    display: block;
+    text-align: center;
+}
+
 .viewer-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: 1;
+}
+
+.viewer {
+    border-radius: 4px;
+    padding: 4px;
+    margin: 4px;
+    background-color: #eee;
 }

@@ -35,6 +35,8 @@ export const concatAtScope = (source, zoom) => {
 
 // CONSTS
 
+const SCOPE = ZOOM.Chart;
+
 const POSITION = [0, 0, 0];
 
 const SCOPE_INDEX = 0;
@@ -55,7 +57,7 @@ export const positionState = atom({
 
 export const scopeState = atom({
     key: 'scope',
-    default: ZOOM.Concept
+    default: SCOPE
 });
 
 export const menuTabState = atom({
@@ -178,8 +180,8 @@ export const parseViewerConfig = viewerConfig => {
     return config2;
 }
 
-export const concatConcepts = (source, zoom) => {
-    switch (zoom) {
+export const concatConcepts = (source, scope) => {
+    switch (scope) {
         case ZOOM.Chart:
             return source.sections.map(s => concatConcepts(s, ZOOM.Section)).flat();
         case ZOOM.Section:
@@ -187,7 +189,10 @@ export const concatConcepts = (source, zoom) => {
         case ZOOM.Progression:
             return source.concepts.map(c => concatConcepts(c, ZOOM.Concept));
         case ZOOM.Concept:
-            return parseConceptConfig(source);
+            return {
+                scope,
+                data: parseConceptConfig(source)
+            }
     }
 };
 
@@ -252,24 +257,32 @@ export const scopedConceptsState = selector({
         const viewerScope = get(scopeState);
 
         const { scope: sourceScope, data } = get(sourceState);
-        let conceptConfig = undefined;
-        let progressionConfig = undefined;
-        let sectionConfig = undefined;
-        let chartConfig = undefined;
 
         switch (sourceScope) {
             case ZOOM.Chart:
                 switch (viewerScope) {
                     case ZOOM.Chart:
-                        return concatConcepts(data, ZOOM.Chart);
+                        return {
+                            data,
+                            scope: viewerScope
+                        };
                     case ZOOM.Section:
-                        return concatConcepts(data.sections[s], ZOOM.Section);
+                        return {
+                            data: data.sections[s],
+                            scope: viewerScope
+                        };
                     case ZOOM.Progression:
-                        return concatConcepts(data.sections[s].progressions[p], ZOOM.Progression);
+                        return {
+                            data: data.sections[s].progressions[p],
+                            scope: viewerScope
+                        };
                     case ZOOM.Concept:
-                        return [concatConcepts(data.sections[s].progressions[p].concepts[c], ZOOM.Concept)];
+                        return {
+                            data: data.sections[s].progressions[p].concepts[c],
+                            scope: viewerScope
+                        };
                     default:
-                        return [];
+                        throw ('error');
                 }
             case ZOOM.Section:
                 switch (viewerScope) {
