@@ -20,16 +20,17 @@ const PlaybackTab = () => {
     const concept = useRecoilValue(conceptState);
     const nextConcept = useRecoilValue(nextConceptState);
     const nextPosition = useRecoilValue(nextPositionState);
+
+    const t = concept.t ? concept.t : 4;
+    const nextT = nextConcept.t ? nextConcept.t : 4;
+
     // State (Compound)
-    const [state, setState] = useState([0, concept.t]);
+    const [state, setState] = useState([0, t]);
     // State helpers
     const [beatIndex, remBeats] = state;
     // Playback
     const [tempo, setTempo] = useState(DEFAULT_TEMPO);
     const [playing, togglePlay] = useToggle(false);
-
-    const t = concept.t// ? concept.t : 4;
-    const nextT = nextConcept.t// ? nextConcept.t : 4;
 
     if (!playing) {
         PW.Sound.stopNotes();
