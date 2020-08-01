@@ -28,15 +28,17 @@ const PlaybackTab = () => {
     const [tempo, setTempo] = useState(DEFAULT_TEMPO);
     const [playing, togglePlay] = useToggle(false);
 
+    const t = concept.t// ? concept.t : 4;
+    const nextT = nextConcept.t// ? nextConcept.t : 4;
 
     if (!playing) {
         PW.Sound.stopNotes();
     }
     else {
         const beatDuration = 1 / (tempo / 60);
-        if (remBeats === concept.t) {
+        if (remBeats === t) {
             const freqs = PW.Theory.getFrequencies(concept.C);
-            const pulseDuration = beatDuration * concept.t; // seconds
+            const pulseDuration = beatDuration * t; // seconds
             PW.Sound.playNotes(freqs, pulseDuration / 2);
             console.log(beatIndex, 'P');
         }
@@ -49,7 +51,7 @@ const PlaybackTab = () => {
         else if (remBeats === 1) {
             setTimeout(() => {
                 setPosition(nextPosition);
-                setState([beatIndex + 1, nextConcept.t]);
+                setState([beatIndex + 1, nextT]);
             }, beatDuration * 1000)
             console.log(beatIndex, remBeats, '>', state);
         }
@@ -68,7 +70,7 @@ const PlaybackTab = () => {
                 <label>bpm</label>
                 <ScalarInput value={tempo} setValue={setTempo} className="bpm" />
             </div>
-            
+
             <h3>Metronome</h3>
             <div className="input-row"></div>
             <h3>Volume</h3>

@@ -35,7 +35,6 @@ const ViewerLevel = ({ scope, data, ViewerComp, s, p, c }) => {
 
     const [x, setX] = useState(cols);
     const style = { gridTemplateColumns: `repeat(${x}, 1fr)` };
-    console.log(style)
     return (
         <div className="viewer-level" >
             <label>{scope}</label>

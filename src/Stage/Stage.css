@@ -8,12 +8,18 @@
     grid-template-columns: 1fr auto;
 }
 
+.stage *::-webkit-scrollbar {
+    display: none;
+}
+
 .viewer-manager {
     padding: 32px;
+    height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    overflow-y: auto;
 }
 
 .viewer {
