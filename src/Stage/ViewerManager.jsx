@@ -10,7 +10,7 @@ const Viewer = ({ ViewerComp, concept, s, p, c }) => {
     const position = useRecoilValue(positionState);
     const isActive = position[0] === s && position[1] === p && position[2] === c;
     return (
-        <div className={`viewer ${isActive ? 'pw-accent pw-active' : ''}`}>
+        <div className={`viewer`}>
             <ViewerComp concept={concept} />
         </div>
     );
@@ -29,14 +29,18 @@ const ViewerLevel = ({ scope, data, ViewerComp, s, p, c }) => {
             cols = 4;
             break;
         case ZOOM.Concept:
-            cols = 1;
+            cols = null;
             break;
     }
 
     const [x, setX] = useState(cols);
-    const style = { gridTemplateColumns: `repeat(${x}, 1fr)` };
+    const style = cols ? { gridTemplateColumns: `repeat(${x}, 1fr)` } : {};
+
+    const position = useRecoilValue(positionState);
+    const isActive = position[0] === s && position[1] === p && position[2] === c;
+
     return (
-        <div className="viewer-level" >
+        <div className={`viewer-level pw-${scope} ${isActive ? 'pw-active' : ''}`} >
             <label>{scope}</label>
             <div className="viewer-grid" style={style}>
                 {scope === ZOOM.Concept &&
