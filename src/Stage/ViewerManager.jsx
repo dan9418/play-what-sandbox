@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { VIEWERS } from '../Common/Viewers';
+import { VIEWER } from '../Common/Viewers';
 import { scopedConceptsState, viewersState, positionState, conceptState, scopeState } from '../Common/State';
 import LevelHeader from './LevelHeader';
 import './Stage.css';
@@ -61,13 +61,15 @@ const ViewerManager = () => {
     const { data, scope } = useRecoilValue(scopedConceptsState);
     const concept = useRecoilValue(conceptState);
     const [viewers, setViewers] = useRecoilState(viewersState);
-    const ViewerComp = VIEWERS[viewers[0].viewerId].component;
+    const viewerDef = VIEWER[viewers[0].viewerId];
+    const ViewerComp = viewerDef.component;
+    const props = viewerDef.args || {};
 
     return (
         <div className="viewer-manager">
             <div className="viewer-manager">
-                {/*<ViewerComp concept={concept} />*/}
-                <ViewerLevel data={data} scope={scope} ViewerComp={ViewerComp} />
+                <ViewerComp concept={concept} {...props} />
+                {/*<ViewerLevel data={data} scope={scope} ViewerComp={ViewerComp} />*/}
             </div>
         </div>
     );

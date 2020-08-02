@@ -1,7 +1,7 @@
 import Viewers from 'play-what-react-viewers';
 const { Fretboard, Keyboard } = Viewers;
 
-export const VIEWERS = {
+export const VIEWER = {
     fretboard: {
         id: 'fretboard',
         name: 'Fretboard',
@@ -16,15 +16,19 @@ export const VIEWERS = {
     }
 };
 
-export const VIEWER_PROFILES = {
+export const VIEWER_VALUES = Object.values(VIEWER);
+
+export const VIEWER_PRESETS = {
     fretboard: {
+        id: 'fretboard',
+        name: 'Fretboard (Default)',
         viewerId: 'fretboard',
-        name: 'Fretboard',
         args: {}
     },
     keyboard: {
+        id: 'keyboard',
+        name: 'Keyboard (Default)',
         viewerId: 'keyboard',
-        name: 'Keyboard',
         args: {}
     }
 };

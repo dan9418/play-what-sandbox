@@ -1,6 +1,6 @@
 import PW from 'play-what';
 import { atom, selector } from 'recoil';
-import { VIEWERS, VIEWER_PROFILES } from '../Common/Viewers';
+import { VIEWER, VIEWER_PRESETS } from '../Common/Viewers';
 import { ZOOM, DEFAULTS } from './Constants';
 import PRESETS from './Presets/Presets';
 
@@ -45,6 +45,17 @@ const PRESET_INDEX = 0;
 
 // ATOMS
 
+export const sourceCollectionState = atom({
+    key: 'sourceCollection',
+    default: PRESETS[SCOPE_INDEX].categories[CATEGORY_INDEX].presets
+});
+
+export const viewerCollectionState = atom({
+    key: 'viewerCollection',
+    default: ['fretboard', 'keyboard']
+});
+
+
 export const _sourceState = atom({
     key: '_source',
     default: PRESETS[SCOPE_INDEX].categories[CATEGORY_INDEX].presets[PRESET_INDEX]
@@ -63,11 +74,6 @@ export const scopeState = atom({
 export const menuTabState = atom({
     key: 'menuTab',
     default: 'selection'
-});
-
-export const _viewersState = atom({
-    key: '_viewers',
-    default: ['fretboard', 'keyboard']
 });
 
 // PARSERS
@@ -170,13 +176,13 @@ const parseChartConfig = chartConfig => {
 
 export const parseViewerConfig = viewerConfig => {
     if (typeof viewerConfig === 'string') {
-        const config = { ...VIEWER_PROFILES[viewerConfig] };
-        const viewer = VIEWERS[config.viewerId];
+        const config = { ...VIEWER_PRESETS[viewerConfig] };
+        const viewer = VIEWER[config.viewerId];
         config.args = { ...viewer.defaults, ...config.args };
         return config;
     }
     const config2 = { ...viewerConfig };
-    config2.args = { ...VIEWERS[viewerConfig.viewerId].defaults, ...config2.args };
+    config2.args = { ...VIEWER[viewerConfig.viewerId].defaults, ...config2.args };
     return config2;
 }
 
@@ -201,15 +207,15 @@ export const concatConcepts = (source, scope) => {
 export const viewersState = selector({
     key: 'viewers',
     get: ({ get }) => {
-        const viewers = get(_viewersState);
+        const viewers = get(viewerCollectionState);
         return viewers.map(v => parseViewerConfig(v))
     },
     set: ({ get, set }, [index, config]) => {
         console.log(index, config)
-        const viewers = get(_viewersState);
+        const viewers = get(viewerCollectionState);
         const newVeiwers = [...viewers.slice(0, index), config, ...viewers.slice(index + 1)];
         console.log(newVeiwers)
-        set(_viewersState, newVeiwers);
+        set(viewerCollectionState, newVeiwers);
 
     }
 });
