@@ -65,8 +65,8 @@ const ViewerManager = () => {
 
     return (
         <div className="viewer-manager">
-            <div className="viewer-manager-scroll">
-                <ViewerComp concept={concept} />
+            <div className="viewer-manager">
+                {/*<ViewerComp concept={concept} />*/}
                 <ViewerLevel data={data} scope={scope} ViewerComp={ViewerComp} />
             </div>
         </div>

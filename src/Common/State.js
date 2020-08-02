@@ -62,7 +62,7 @@ export const scopeState = atom({
 
 export const menuTabState = atom({
     key: 'menuTab',
-    default: 'nav'
+    default: 'selection'
 });
 
 export const _viewersState = atom({

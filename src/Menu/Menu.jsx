@@ -14,21 +14,26 @@ const TAB = {
         name: 'Source',
         component: SourceTab
     },
-    nav: {
+    /*nav: {
         id: 'nav',
         name: 'Nav',
         component: NavTab
-    },
+    },*/
     viewers: {
         id: 'viewers',
         name: 'Viewers',
         component: ViewersTab
     },
-    playback: {
+    selection: {
+        id: 'selection',
+        name: 'Selection',
+        component: () => null
+    },
+    /*playback: {
         id: 'playback',
         name: 'Playback',
         component: PlaybackTab
-    },
+    },*/
 };
 
 const Menu = () => {
