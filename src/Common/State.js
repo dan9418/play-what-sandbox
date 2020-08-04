@@ -42,9 +42,17 @@ const VIEWER_COLLECTION = [
     {
         id: 'test_viewer',
         name: 'Test Viewer',
-        scope: 'chart',
+        scope: 'concept',
         sourceId: 'test_source',
         viewerId: 'fretboard',
+        args: {}
+    },
+    {
+        id: 'test_viewer',
+        name: 'Test Viewer 2',
+        scope: 'chart',
+        sourceId: 'test_source',
+        viewerId: 'keyboard',
         args: {}
     }
 ];
