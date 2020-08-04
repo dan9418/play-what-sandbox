@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import PRESETS from '../../Common/Presets/Presets';
-import { sourceState } from '../../Common/State';
 import DropdownInput from '../../UI/DropdownInput/DropdownInput';
 import ButtonInput from '../ButtonInput/ButtonInput';
 import './PresetInput.css';
 
 const PresetInput = () => {
     // Source
-    const [source, setSource] = useRecoilState(sourceState);
 
     // Scope
     const [scopeIndex, setScopeIndex] = useState(0);

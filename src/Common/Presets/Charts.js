@@ -4,34 +4,40 @@ const CHARTS = [
         name: 'Jazz Standards',
         presets: [
             {
+                scope: 'chart',
                 id: 'autumnLeaves',
                 name: 'Autumn Leaves',
                 defaults: {
 
                 },
-                sections:
+                children:
                     [
                         {
+                            scope: 'section',
                             name: 'A',
-                            progressions: [
+                            children: [
                                 {
-                                    concepts: [
+                                    children: [
                                         {
+                                            scope: 'concept',
                                             a: 'C',
                                             B: 'Min7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'F',
                                             B: 'Dom7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'Bb',
                                             B: 'Maj7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'Eb',
                                             B: 'Maj7',
                                             t: 4
@@ -39,23 +45,27 @@ const CHARTS = [
                                     ]
                                 },
                                 {
-                                    concepts: [
+                                    children: [
                                         {
+                                            scope: 'concept',
                                             a: 'A',
                                             B: 'HalfDim7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'D',
                                             B: 'Dom7b9',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'G',
                                             B: 'Min6',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'G',
                                             B: 'Maj7',
                                             t: 4
@@ -65,26 +75,31 @@ const CHARTS = [
                             ]
                         },
                         {
+                            scope: 'section',
                             name: 'A\'',
-                            progressions: [
+                            children: [
                                 {
-                                    concepts: [
+                                    children: [
                                         {
+                                            scope: 'concept',
                                             a: 'C',
                                             B: 'Min7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'F',
                                             B: 'Dom7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'Bb',
                                             B: 'Maj7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'Eb',
                                             B: 'Maj7',
                                             t: 4
@@ -93,18 +108,21 @@ const CHARTS = [
                                     ]
                                 },
                                 {
-                                    concepts: [
+                                    children: [
                                         {
+                                            scope: 'concept',
                                             a: 'A',
                                             B: 'HalfDim7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'D',
                                             B: 'Dom7b9',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'G',
                                             B: 'Min6',
                                             t: 8
@@ -114,27 +132,32 @@ const CHARTS = [
                             ]
                         },
                         {
+                            scope: 'section',
                             name: 'B',
-                            progressions: [
+                            children: [
                                 {
-                                    concepts: [
+                                    children: [
                                         {
+                                            scope: 'concept',
                                             section: 'B',
                                             a: 'A',
                                             B: 'HalfDim7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'D',
                                             B: 'Dom7b9',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'G',
                                             B: 'Min6',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'G',
                                             B: 'Min6',
                                             t: 4
@@ -143,23 +166,27 @@ const CHARTS = [
                                     ]
                                 },
                                 {
-                                    concepts: [
+                                    children: [
                                         {
+                                            scope: 'concept',
                                             a: 'C',
                                             B: 'Min7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'F',
                                             B: 'Dom7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'Bb',
                                             B: 'Maj7',
                                             t: 4
                                         },
                                         {
+                                            scope: 'concept',
                                             a: 'Eb',
                                             B: 'Maj7',
                                             t: 4
@@ -169,10 +196,11 @@ const CHARTS = [
                             ]
                         },
                         {
+                            scope: 'section',
                             name: 'C',
-                            progressions: [
+                            children: [
                                 {
-                                    concepts: [
+                                    children: [
                                         {
                                             section: 'C',
                                             a: 'A',
@@ -208,7 +236,7 @@ const CHARTS = [
                                     ]
                                 },
                                 {
-                                    concepts: [
+                                    children: [
                                         {
                                             a: 'A',
                                             B: 'HalfDim7',

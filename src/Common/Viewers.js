@@ -32,3 +32,15 @@ export const VIEWER_PRESETS = {
         args: {}
     }
 };
+
+export const parseViewerConfig = viewerConfig => {
+    if (typeof viewerConfig === 'string') {
+        const config = { ...VIEWER_PRESETS[viewerConfig] };
+        const viewer = VIEWER[config.viewerId];
+        config.args = { ...viewer.defaults, ...config.args };
+        return config;
+    }
+    const config2 = { ...viewerConfig };
+    config2.args = { ...VIEWER[viewerConfig.viewerId].defaults, ...config2.args };
+    return config2;
+}

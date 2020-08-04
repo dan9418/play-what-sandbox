@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { VIEWER } from '../Common/Viewers';
-import { scopedConceptsState, viewersState, positionState, conceptState, scopeState } from '../Common/State';
-import LevelHeader from './LevelHeader';
+import { viewersState, sourcesState } from '../Common/State';
 import './Stage.css';
 import { ZOOM } from '../Common/Constants';
 import { useSetRecoilState } from 'recoil';
 
 const Viewer = ({ ViewerComp, concept, s, p, c }) => {
-    const [position, setPosition] = useRecoilState(positionState);
     return (
         <div className={`viewer`}>
             <ViewerComp concept={concept} />
@@ -58,17 +56,24 @@ const ViewerLevel = ({ scope, data, ViewerComp, s, p, c }) => {
 };
 
 const ViewerManager = () => {
-    const { data, scope } = useRecoilValue(scopedConceptsState);
-    const concept = useRecoilValue(conceptState);
     const [viewers, setViewers] = useRecoilState(viewersState);
-    const viewerDef = VIEWER[viewers[0].viewerId];
-    const ViewerComp = viewerDef.component;
-    const props = viewerDef.args || {};
+    const [sources, setSources] = useRecoilState(sourcesState);
+
+    console.log(viewers, sources);
+
+    const viewerComps = viewers.map((v, i) => {
+        const viewerDef = VIEWER[v.viewerId];
+        const ViewerComp = viewerDef.component;
+        const props = viewerDef.args || {};
+        return <ViewerComp concept={null} {...props} />
+    })
+
+
 
     return (
         <div className="viewer-manager">
             <div className="viewer-manager">
-                <ViewerComp concept={concept} {...props} />
+                {viewerComps}
                 {/*<ViewerLevel data={data} scope={scope} ViewerComp={ViewerComp} />*/}
             </div>
         </div>
