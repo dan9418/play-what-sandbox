@@ -9,8 +9,8 @@ import PRESETS from './Presets/Presets';
 const SOURCE_COLLECTION = [
     {
         scope: 'chart',
-        id: 'test',
-        name: 'Test Chart',
+        id: 'test_source',
+        name: 'Test Source',
         defaults: {
 
         },
@@ -40,8 +40,10 @@ const SOURCE_COLLECTION = [
 
 const VIEWER_COLLECTION = [
     {
-        id: 'test',
+        id: 'test_viewer',
         name: 'Test Viewer',
+        scope: 'chart',
+        sourceId: 'test_source',
         viewerId: 'fretboard',
         args: {}
     }
@@ -52,6 +54,11 @@ const VIEWER_COLLECTION = [
 export const _sources = atom({
     key: '_sources',
     default: SOURCE_COLLECTION
+});
+
+export const _positions = atom({
+    key: '_positions',
+    default: SOURCE_COLLECTION.map(() => [0, 0, 0])
 });
 
 export const _viewers = atom({
@@ -90,6 +97,17 @@ export const sourcesState = selector({
     },
     set: ({ get, set }, source) => {
         set(_sourceState, source)
+    }
+});
+
+export const positionsState = selector({
+    key: 'positions',
+    get: ({ get }) => {
+        const positions = get(_positions);
+        return positions;
+    },
+    set: ({ get, set }, source) => {
+        //set(_sourceState, source)
     }
 });
 

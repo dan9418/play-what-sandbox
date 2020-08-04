@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { VIEWER } from '../Common/Viewers';
-import { viewersState, sourcesState } from '../Common/State';
+import { viewersState, sourcesState, positionsState } from '../Common/State';
 import './Stage.css';
 import { ZOOM } from '../Common/Constants';
 import { useSetRecoilState } from 'recoil';
@@ -14,7 +14,7 @@ const Viewer = ({ ViewerComp, concept, s, p, c }) => {
     );
 };
 
-const ViewerLevel = ({ scope, data, ViewerComp, s, p, c }) => {
+const ViewerLevel = ({ scope, source, ViewerComp, s, p, c }) => {
     let cols = 0;
     switch (scope) {
         case ZOOM.Chart:
@@ -31,11 +31,10 @@ const ViewerLevel = ({ scope, data, ViewerComp, s, p, c }) => {
             break;
     }
 
-    const [x, setX] = useState(cols);
     const style = cols ? { gridTemplateColumns: `repeat(${cols}, 1fr)` } : {};
 
-    const [position, setPosition] = useRecoilState(positionState);
-    const setScope = useSetRecoilState(scopeState);
+    const [position, setPosition] = [[0, 0, 0]];//useRecoilState(positionState);
+    const setScope = () => null;//useSetRecoilState(scopeState);
     const isActive = position[0] === s && position[1] === p && position[2] === c;
 
     return (
@@ -43,30 +42,56 @@ const ViewerLevel = ({ scope, data, ViewerComp, s, p, c }) => {
             <label>{scope}</label>
             <div className="viewer-grid" style={style}>
                 {scope === ZOOM.Concept &&
-                    <Viewer ViewerComp={ViewerComp} concept={data} s={s || 0} p={p || 0} c={c || 0} />}
+                    <Viewer ViewerComp={ViewerComp} concept={source} s={s || 0} p={p || 0} c={c || 0} />}
                 {scope === ZOOM.Progression &&
-                    data.concepts.map((con, i) => <ViewerLevel data={con} scope={ZOOM.Concept} ViewerComp={ViewerComp} s={s || 0} p={p || 0} c={i} />)}
+                    source.children.map((con, i) => <ViewerLevel source={con} scope={ZOOM.Concept} ViewerComp={ViewerComp} s={s || 0} p={p || 0} c={i} />)}
                 {scope === ZOOM.Section &&
-                    data.progressions.map((prog, i) => <ViewerLevel data={prog} scope={ZOOM.Progression} ViewerComp={ViewerComp} s={s || 0} p={i} />)}
+                    source.children.map((prog, i) => <ViewerLevel source={prog} scope={ZOOM.Progression} ViewerComp={ViewerComp} s={s || 0} p={i} />)}
                 {scope === ZOOM.Chart &&
-                    data.sections.map((chart, i) => <ViewerLevel data={chart} scope={ZOOM.Section} ViewerComp={ViewerComp} s={i} />)}
+                    source.children.map((chart, i) => <ViewerLevel source={chart} scope={ZOOM.Section} ViewerComp={ViewerComp} s={i} />)}
             </div>
         </div>
     );
 };
 
+const getSourceAtScope = (source, scope, position) => {
+    const [s, p, c] = position;
+    switch (scope) {
+        case ZOOM.Chart:
+            return source;
+        case ZOOM.Section:
+            return source.sections[s];
+        case ZOOM.Progression:
+            return source.sections[s].progressions[p];
+        case ZOOM.Concept:
+            return source.sections[s].progressions[p].concept[c];
+        default:
+            throw ('error', source, scope, position);
+    }
+}
+
 const ViewerManager = () => {
     const [viewers, setViewers] = useRecoilState(viewersState);
     const [sources, setSources] = useRecoilState(sourcesState);
+    const [positions, setPositions] = useRecoilState(positionsState);
 
     console.log(viewers, sources);
 
     const viewerComps = viewers.map((v, i) => {
-        const viewerDef = VIEWER[v.viewerId];
+        const { viewerId, sourceId, scope, args } = v;
+        const position = positions[i];
+
+        const viewerDef = VIEWER[viewerId];
         const ViewerComp = viewerDef.component;
-        const props = viewerDef.args || {};
-        return <ViewerComp concept={null} {...props} />
-    })
+        const props = args || {};
+
+        const fullSource = sources.find(s => s.id === sourceId);
+
+        const source = getSourceAtScope(fullSource, scope, position);
+        console.log('scoped source', source);
+
+        return <ViewerLevel source={source} scope={scope} ViewerComp={ViewerComp} />;
+    });
 
 
 
@@ -74,7 +99,6 @@ const ViewerManager = () => {
         <div className="viewer-manager">
             <div className="viewer-manager">
                 {viewerComps}
-                {/*<ViewerLevel data={data} scope={scope} ViewerComp={ViewerComp} />*/}
             </div>
         </div>
     );
