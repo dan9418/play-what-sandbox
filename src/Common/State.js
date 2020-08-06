@@ -8,27 +8,37 @@ import PRESETS from './Presets/Presets';
 
 const SOURCE_COLLECTION = [
     {
-        scope: 'chart',
         id: 'test_source',
         name: 'Test Source',
         defaults: {
-
+            a: {
+                input: 'pw/keyCenter/presets/C',
+                props: null,
+                transforms: [
+                    {
+                        function: 'pw/keyCenter/transpose',
+                        props: {
+                            interval: 'P8'
+                        }
+                    }
+                ]
+            },
+            B: {
+                input: 'pw/concept/presets/Maj',
+                props: null
+            },
+            t: 4
         },
         children:
             [
                 {
-                    scope: 'section',
-                    name: 'A',
+                    name: 'Section A',
                     children: [
                         {
-                            scope: 'progression',
-                            name: 1,
+                            name: 'Progression 1',
                             children: [
                                 {
-                                    scope: 'concept',
-                                    a: 'C',
-                                    B: 'Min7',
-                                    t: 4
+                                    // test
                                 },
                             ]
                         },
@@ -101,7 +111,7 @@ export const sourcesState = selector({
     key: 'sources',
     get: ({ get }) => {
         const sources = get(_sources);
-        return sources.map(s => PW.Chart.parseSourceConfig(s))
+        return sources.map(s => PW.api('pw/source/parse', { config: s }))
     },
     set: ({ get, set }, source) => {
         set(_sourceState, source)
