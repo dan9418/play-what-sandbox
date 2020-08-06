@@ -10,25 +10,18 @@ const SOURCE_COLLECTION = [
     {
         id: 'test_source',
         name: 'Test Source',
-        defaults: {
-            a: {
-                input: 'pw/keyCenter/presets/C',
-                props: null,
-                transforms: [
-                    {
-                        function: 'pw/keyCenter/transpose',
-                        props: {
-                            interval: 'P8'
-                        }
-                    }
-                ]
+        input: [
+            {
+                value: 'pw/keyCenter/presets/C',
+                props: {}
             },
-            B: {
-                input: 'pw/concept/presets/Maj',
-                props: null
-            },
-            t: 4
-        },
+            {
+                value: 'pw/keyCenter/addIntervals',
+                props: {
+                    B: 'pw/concept/presets/Maj'
+                }
+            }
+        ],
         children:
             [
                 {
