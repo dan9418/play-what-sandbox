@@ -5,7 +5,6 @@ import { sourcesState } from '../Common/State';
 
 const ApiTest = () => {
     const sources = useRecoilValue(sourcesState);
-    console.log(sources);
     return (
         <pre>
             {JSON.stringify(sources, null, 2)}

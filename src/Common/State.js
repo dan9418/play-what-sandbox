@@ -8,20 +8,36 @@ import PRESETS from './Presets/Presets';
 
 const SOURCE_COLLECTION = [
     {
+        // used only at top-level for now
         id: 'test_source',
+        // used for tracing / ui
         name: 'Test Source',
-        input: [
+        // presence of this determines if function or immediate value
+        endpoint: 'pw/concept',
+        // locally added params
+        input: {
+            a: 'pw/keyCenter/presets/C',
+            B: 'pw/concept/presets/Maj'
+        },
+        transforms: [
             {
-                value: 'pw/keyCenter/presets/C',
-                props: {}
-            },
-            {
-                value: 'pw/keyCenter/addIntervals',
-                props: {
-                    B: 'pw/concept/presets/Maj'
+                endpoint: 'pw/concept/transpose',
+                input: {
+                    interval: 'pw/interval/P8',
+                    interval: {
+                        endpoint: 'pw/interval',
+                        input: 'in/a',
+                        input: {
+                            p: 0,
+                            d: 0
+                        }
+                    }
                 }
             }
         ],
+        // generated while parsing
+        output: {},
+        // receives output as "in/parent/{param}"
         children:
             [
                 {
@@ -31,7 +47,7 @@ const SOURCE_COLLECTION = [
                             name: 'Progression 1',
                             children: [
                                 {
-                                    // test
+                                    name: 'C Major Chord'
                                 },
                             ]
                         },

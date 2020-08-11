@@ -1,9 +1,6 @@
 import PW from 'play-what';
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { conceptState, nextConceptState, nextPositionState, positionState } from '../../Common/State';
-import ButtonInput from '../../UI/ButtonInput/ButtonInput';
-import ScalarInput from '../../UI/ScalarInput/ScalerInput';
 import './PlaybackTab.css';
 
 const DEFAULT_TEMPO = 160;

@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { ZOOM } from '../../Common/Constants';
-import { positionState, scopeState, sourceState, conceptState } from '../../Common/State';
-import PresetInput from '../../UI/PresetInput/PresetInput';
-import ZoomInput from '../../UI/ZoomInput/ZoomInput';
 import './NavTab.css';
 
 const ConceptLeaf = ({ conceptConfig, s, p, c }) => {
