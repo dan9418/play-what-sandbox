@@ -6,21 +6,36 @@ import PRESETS from './Presets/Presets';
 
 // COLLECTIONS
 
+
+// parseInput vs parseAttribute 
+
 const SOURCE_COLLECTION = [
     {
         // used only at top-level for now
         id: 'test_source',
         // used for tracing / ui
         name: 'Test Source',
-        // presence of this determines if function or immediate value
-        endpoint: 'pw/concept',
-        // locally added params
-        input: {
-            a: 'pw/keyCenter/presets/C',
-            B: 'pw/concept/presets/Maj'
-        },
-        transforms: [
-            {
+        // presence of this determines if immediate value or use input as args to function
+        fn: 'pw/source/parseInput',
+        // locally added params - can be array of/or any of these value types
+        args: {
+            a: 'pw/keyCenter/presets/C/a',
+            B: 'pw/concept/presets/Maj/B',
+            // 2) direct value
+            /*{
+                // attrs can be function strings or objects (recursion) OR any unreserved json datatype (base case)
+                // (number, null, boolean)
+                p: 0,
+                d: 0
+            },*/
+            // 3) function - string path to function, optional args, each arg is recursion
+            /*{
+                fn: 'pw/keyCenter',
+                args: {
+                    preset: 'C'
+                }
+            },*/
+            /*{
                 endpoint: 'pw/concept/transpose',
                 input: {
                     interval: 'pw/interval/P8',
@@ -33,11 +48,8 @@ const SOURCE_COLLECTION = [
                         }
                     }
                 }
-            }
-        ],
-        // generated while parsing
-        output: {},
-        // receives output as "in/parent/{param}"
+            }*/
+        },
         children:
             [
                 {
@@ -120,7 +132,7 @@ export const sourcesState = selector({
     key: 'sources',
     get: ({ get }) => {
         const sources = get(_sources);
-        return sources.map(s => PW.api('pw/source/parse', { config: s }))
+        return sources.map(s => PW.api('pw/source/parseInput', s))
     },
     set: ({ get, set }, source) => {
         set(_sourceState, source)
