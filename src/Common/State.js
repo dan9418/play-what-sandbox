@@ -17,6 +17,7 @@ const SOURCE_COLLECTION = [
         args: {
             // 1) string - can be pw, in, or primitive
             a: 'pw/keyCenter/presets/C/a',
+            // 1.5) array
             B: 'pw/concept/presets/Maj/B',
             // 2) object - attrs can be inputs or primitives (recurse on each)
             // primitives can be number, null, or boolean - or string w/o "/"
@@ -39,13 +40,12 @@ const SOURCE_COLLECTION = [
                     interval: 'in/a',
                 }
             }*/
-            // TODO array
         },
-        // TODO children
         children:
             [
                 {
                     name: 'Section A',
+                    test: 'in/parent/B',
                     children: [
                         {
                             name: 'Progression 1',
