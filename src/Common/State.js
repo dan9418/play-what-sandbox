@@ -11,45 +11,37 @@ import PRESETS from './Presets/Presets';
 
 const SOURCE_COLLECTION = [
     {
-        // used only at top-level for now
         id: 'test_source',
-        // used for tracing / ui
         name: 'Test Source',
-        // presence of this determines if immediate value or use input as args to function
         fn: 'pw/source/parseInput',
-        // locally added params - can be array of/or any of these value types
         args: {
+            // 1) string - can be pw, in, or primitive
             a: 'pw/keyCenter/presets/C/a',
             B: 'pw/concept/presets/Maj/B',
-            // 2) direct value
-            /*{
-                // attrs can be function strings or objects (recursion) OR any unreserved json datatype (base case)
-                // (number, null, boolean)
+            // 2) object - attrs can be inputs or primitives (recurse on each)
+            // primitives can be number, null, or boolean - or string w/o "/"
+            a: {
                 p: 0,
                 d: 0
-            },*/
-            // 3) function - string path to function, optional args, each arg is recursion
-            /*{
-                fn: 'pw/keyCenter',
+            },
+            // 3) function - fn and args attrs reserved (recurse on each arg)
+            a: {
+                fn: 'pw/keyCenter/from',
                 args: {
                     preset: 'C'
                 }
-            },*/
-            /*{
-                endpoint: 'pw/concept/transpose',
-                input: {
-                    interval: 'pw/interval/P8',
-                    interval: {
-                        endpoint: 'pw/interval',
-                        input: 'in/a',
-                        input: {
-                            p: 0,
-                            d: 0
-                        }
-                    }
+            },
+            // TODO dependent function
+            /*a: {
+                fn: 'pw/concept/transpose',
+                args: {
+                    interval: 'in/parent/a',
+                    interval: 'in/a',
                 }
             }*/
+            // TODO array
         },
+        // TODO children
         children:
             [
                 {
