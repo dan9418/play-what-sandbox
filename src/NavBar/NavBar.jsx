@@ -1,11 +1,9 @@
 import React from 'react';
 import Common from '../Common/_module';
 import './NavBar.css';
-import { useRecoilState } from 'recoil';
-import { menuTabState } from '../Common/State';
 
 const NavBar = () => {
-    const [menuTab, setMenuTab] = useRecoilState(menuTabState);
+    const menuTab = null;
     const toggleMenu = () => setMenuTab(menuTab ? null : 'source');
     return (
         <nav className="top-nav pw-primary">

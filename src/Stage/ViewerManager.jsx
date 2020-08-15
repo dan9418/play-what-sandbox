@@ -1,8 +1,8 @@
 import React from 'react';
+import ReactJson from 'react-json-view';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { rawSourceState, parsedSourceState } from '../Common/State';
 import './Stage.css';
-import { useRecoilValue } from 'recoil';
-import { sourcesState, _sources } from '../Common/State';
-import ReactJson from 'react-json-view'
 
 const Level = ({ component, children, props, ...other }) => {
     const Component = component ? component : React.Fragment;
@@ -15,21 +15,38 @@ const Level = ({ component, children, props, ...other }) => {
 };
 
 
+/*{
+    updated_src: src, //new src value
+    name: name, //new var name
+    namespace: namespace, //list, namespace indicating var location
+    new_value: new_value, //new variable value
+    existing_value: existing_value, //existing variable value
+}*/
+
+
 const ViewerManager = () => {
-    const sources = useRecoilValue(sourcesState);
-    const rawSources = useRecoilValue(_sources);
+
+    const [rawSource, setRawSource] = useRecoilState(rawSourceState);
+    const parsedSource = useRecoilValue(parsedSourceState);
+
+    const onEdit = (args) => {
+        console.log(args);
+        setRawSource(args.updated_src);
+        return true;
+    };
+
 
     return (
         <div className="viewer-manager">
-            <Level {...sources[0]} />
+            <Level {...parsedSource} />
             <div className="viewer-list">
                 <div>
                     <h1>Input</h1>
-                    <ReactJson src={rawSources[0]} name="Source" />
+                    <ReactJson src={rawSource} name="Source" onEdit={onEdit} />
                 </div>
                 <div>
                     <h1>Output</h1>
-                    <ReactJson src={sources[0]} name="Props" />
+                    <ReactJson src={parsedSource} name="Props" />
                 </div>
             </div>
         </div>
