@@ -33,6 +33,7 @@ const SOURCE_COLLECTION = [
                 }
             }
         },
+        width: '300px',
         children:
             [
                 {
@@ -45,7 +46,7 @@ const SOURCE_COLLECTION = [
                             backgroundColor: '#CCC',
                             borderRadius: '16px',
                             display: 'grid',
-                            gridTemplateColumns: '50% 50%'
+                            gridTemplateColumns: '1fr 1fr'
                         },
                         children: [
                             {
@@ -59,12 +60,65 @@ const SOURCE_COLLECTION = [
                                 }
                             },
                             {
+                                name: 'Frets 1',
+                                fn: 'pw/viewer/presets/fretboard',
+                                args: {
+                                    component: true,
+                                    props: {
+                                        fretHigh: 12
+                                    }
+                                }
+                            },
+                            {
                                 name: 'Keys 2',
                                 fn: 'pw/viewer/presets/keyboard',
                                 args: {
                                     component: true,
                                     props: {
-                                        keyHigh: 12
+                                        keyHigh: 24
+                                    }
+                                }
+                            },
+                        ]
+                    }
+                },
+                {
+                    name: 'Grid',
+                    fn: 'pw/viewer/createElement',
+                    args: {
+                        type: 'div',
+                        style: {
+                            marginTop: '16px',
+                            padding: '5px',
+                            backgroundColor: '#DDD',
+                            borderRadius: '16px',
+                            display: 'flex',
+                            justifyContent: 'space-around'
+                        },
+                        children: [
+                            {
+                                name: 'Keys 1',
+                                fn: 'pw/viewer/presets/keyboard',
+                                args: {
+                                    component: true,
+                                    props: {
+                                        keyHigh: 50,
+                                        style: {
+                                            width: 'in/parent/width'
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                name: 'Keys 2',
+                                fn: 'pw/viewer/presets/keyboard',
+                                args: {
+                                    component: true,
+                                    keyHigh: 12,
+                                    props: {
+                                        style: {
+                                            width: '400px'
+                                        }
                                     }
                                 }
                             },
