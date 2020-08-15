@@ -4,36 +4,40 @@ import { useRecoilValue } from 'recoil';
 import { sourcesState } from '../Common/State';
 
 const getLevelAttrs = output => {
-    const out = Object.entries(output).map(([key, value], i) => {
-        return (
-            <div className="level-attr">
-                <div className="level-attr-key">{key}</div>
-                <pre>{JSON.stringify(value, null, 2)}</pre>
-            </div>
-        );
-    });
-    return out.length ? out : 'n/a';
+
 }
 
 const SourceViewer = ({ source, level }) => {
-    const { children, name, ...output } = source;
-    const attrs = getLevelAttrs(output);
-    const childComps = children && children.map((c, i) => {
-        return <SourceViewer source={c} level={level + 1} />;
+    const { name, ...output } = source;
+    const attrs = Object.entries(output).map(([key, value], i) => {
+        const type = typeof value;
+        if (type === 'number' || type === 'string' || type === 'bool') {
+            return (
+                <div className="level-attr">
+                    {`${key}: ${value}`}
+                </div>
+            );
+        }
+        if (Array.isArray(value)) {
+            return (
+                <div className="level-attr">
+                    <h3 className="level-attr-key">{key}</h3>
+                    {value.map((v, i) => <SourceViewer source={v} level={level + 1} />)}
+                </div>
+            );
+        }
+        return (
+            <div className="level-attr">
+                <h3 className="level-attr-key">{key}</h3>
+                <SourceViewer source={value} level={level + 1} />
+            </div>
+        );
     });
     return (
         <div className={`level`} style={{}}>
             <h2>{name}</h2>
-            <h3>Attributes:</h3>
-            {attrs}
-            {childComps && (
-
-                <div className="level-children">
-                    <h3>Children</h3>
-                    {childComps}
-                </div>
-            )}
-        </div>
+            {attrs.length ? attrs : 'n/a'}
+        </div >
     );
 };
 
