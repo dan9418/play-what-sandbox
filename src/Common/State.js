@@ -31,27 +31,21 @@ const SOURCE_COLLECTION = [
                 args: {
                     preset: 'C'
                 }
-            },
-            // TODO dependent function
-            /*a: {
-                fn: 'pw/concept/transpose',
-                args: {
-                    interval: 'in/parent/a',
-                    interval: 'in/a',
-                }
-            }*/
+            }
         },
         children:
             [
                 {
                     name: 'Section A',
+                    // 4) inherited value
                     test: 'in/parent/B',
                     children: [
                         {
                             name: 'Progression 1',
                             children: [
                                 {
-                                    name: 'C Major Chord'
+                                    name: 'C Major Chord',
+                                    a: 'in/parent/a',
                                 },
                             ]
                         },
