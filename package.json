@@ -17,6 +17,7 @@
     "play-what-react-viewers": "file:C:/_dev/play-what-react-viewers",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-json-view": "^1.19.1",
     "recoil": "0.0.10"
   },
   "devDependencies": {

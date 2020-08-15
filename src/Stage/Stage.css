@@ -27,34 +27,57 @@ h1, h2, h3, h4, h5 {
     overflow-y: auto;
 }
 
+.viewer-manager h1 {
+    color: #333;
+    margin: 16px 0;
+}
+
 .viewer-list {
 
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
+
+/* JSON */
 
 /* Levels */
 
 .level {
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    background-color: rgba(0, 0, 0, .05);
+    padding: 4px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.level > label {
+    display: block;
+    margin: 8px 0;
 }
 
 .level-children {
     margin-left: 16px;
 }
 
-.level h2,.level h3 {
+.level h2, .level h3 {
     margin-bottom: 8px;
 }
 
-.level-attr {
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    background-color: rgba(0, 100, 0, .05);
+.attr {
+    margin-bottom: 4px;
 }
 
-.level-attr-key {
+.attr.arr>.level, .attr.obj>.level {
+    margin-left: 16px;
+}
+
+.attr.arr>label, .attr.obj>label{
+    display: inline-block;
     font-weight: bold;
+    margin: 4px 0;
+}
+
+.attr.prim>label {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 4px;
 }

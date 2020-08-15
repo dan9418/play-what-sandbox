@@ -36,13 +36,12 @@ const SOURCE_COLLECTION = [
         children:
             [
                 {
-                    name: 'Section (Empty)',
-                   
+                    name: 'Section A'
                 },
                 {
-                    name: 'Section A',
+                    name: 'Section B',
                     // 4) inherited value
-                    test: 'in/parent/B',
+                    inheritTest: 'in/parent/a',
                     children: [
                         {
                             name: 'Progression 1',
