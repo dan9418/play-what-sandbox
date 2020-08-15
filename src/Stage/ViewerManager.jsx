@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { sourcesState } from '../Common/State';
 
 const getLevelAttrs = output => {
-    return Object.entries(output).map(([key, value], i) => {
+    const out = Object.entries(output).map(([key, value], i) => {
         return (
             <div className="level-attr">
                 <div className="level-attr-key">{key}</div>
@@ -12,6 +12,7 @@ const getLevelAttrs = output => {
             </div>
         );
     });
+    return out.length ? out : 'n/a';
 }
 
 const SourceViewer = ({ source, level }) => {
@@ -23,8 +24,15 @@ const SourceViewer = ({ source, level }) => {
     return (
         <div className={`level`} style={{}}>
             <h2>{name}</h2>
+            <h3>Attributes:</h3>
             {attrs}
-            {childComps}
+            {childComps && (
+
+                <div className="level-children">
+                    <h3>Children</h3>
+                    {childComps}
+                </div>
+            )}
         </div>
     );
 };

@@ -36,6 +36,10 @@ const SOURCE_COLLECTION = [
         children:
             [
                 {
+                    name: 'Section (Empty)',
+                   
+                },
+                {
                     name: 'Section A',
                     // 4) inherited value
                     test: 'in/parent/B',
