@@ -31,6 +31,22 @@ h1, h2, h3, h4, h5 {
 
 }
 
-.viewer {
-    width: 100%;
+/* Levels */
+
+.level {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.level h2 {
+    margin-bottom: 8px;
+}
+
+.level-attr {
+
+}
+
+.level-attr-key {
+    font-weight: bold;
 }
