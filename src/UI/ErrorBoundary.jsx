@@ -19,6 +19,12 @@ export default class ErrorBoundary extends React.Component {
             return (
                 <div className='error-boundary' style={{ color: 'red' }}>
                     Sorry, something went wrong.
+                    <pre>
+                        {JSON.parse(this.state.error.name, null, 2)}
+                    </pre>
+                    <pre>
+                        {JSON.parse(this.state.errorInfo.componentStack, null, 2)}
+                    </pre>
                 </div>
             );
         }

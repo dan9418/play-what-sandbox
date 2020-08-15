@@ -32,52 +32,31 @@ h1, h2, h3, h4, h5 {
     margin: 16px 0;
 }
 
-.viewer-list {
-
+.viewer-grid {
     display: grid;
+    grid-gap: 16px;
     grid-template-columns: 50% 50%;
 }
 
 /* JSON */
 
-/* Levels */
-
-.level {
-    padding: 4px;
-    margin-bottom: 4px;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.1);
+.json-wrapper {
+    overflow: auto;
+    max-height: 512px;
 }
 
-.level > label {
-    display: block;
-    margin: 8px 0;
-}
-
-.level-children {
-    margin-left: 16px;
-}
-
-.level h2, .level h3 {
+.viewer-grid .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid #CCC;
+    padding: 8px;
     margin-bottom: 8px;
 }
 
-.attr {
-    margin-bottom: 4px;
+.viewer-grid .header h1 {
+    margin: 0;
+    height: 40px;
 }
 
-.attr.arr>.level, .attr.obj>.level {
-    margin-left: 16px;
-}
-
-.attr.arr>label, .attr.obj>label{
-    display: inline-block;
-    font-weight: bold;
-    margin: 4px 0;
-}
-
-.attr.prim>label {
-    display: inline-block;
-    font-weight: bold;
-    margin-right: 4px;
-}
+.viewer-grid .header .button-input {}

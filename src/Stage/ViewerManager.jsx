@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactJson from 'react-json-view';
+import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { rawSourceState, parsedSourceState } from '../Common/State';
+import ErrorBoundary from '../UI/ErrorBoundary';
 import './Stage.css';
 
 const Level = ({ component, children, props, ...other }) => {
@@ -29,24 +31,45 @@ const ViewerManager = () => {
     const [rawSource, setRawSource] = useRecoilState(rawSourceState);
     const parsedSource = useRecoilValue(parsedSourceState);
 
+    const [isPreviewOpen, setIsPreviewOpen] = useState(true);
+
     const onEdit = (args) => {
         console.log(args);
-        setRawSource(args.updated_src);
+        try {
+            setRawSource(args.updated_src);
+        }
+        catch (e) {
+            console.error('Can\'t update json', e);
+        }
         return true;
     };
 
 
     return (
         <div className="viewer-manager">
-            <Level {...parsedSource} />
-            <div className="viewer-list">
+
+            <div className="viewer-grid">
                 <div>
-                    <h1>Input</h1>
-                    <ReactJson src={rawSource} name="Source" onEdit={onEdit} />
+                    <div className='header'>
+                        <h1>Input</h1>
+                    </div>
+                    <ErrorBoundary>
+                        <div className="json-wrapper">
+                            <ReactJson src={rawSource} name="Source" onEdit={onEdit} />
+                        </div>
+                    </ErrorBoundary>
                 </div>
                 <div>
-                    <h1>Output</h1>
-                    <ReactJson src={parsedSource} name="Props" />
+                    <div className='header'>
+                        <h1>Output</h1>
+                        <ButtonInput onClick={() => setIsPreviewOpen(!isPreviewOpen)} className="pw-accent">{isPreviewOpen ? 'Config' : 'Preview'}</ButtonInput>
+                    </div>
+                    <ErrorBoundary>
+                        <div className="json-wrapper">
+                            {isPreviewOpen && <Level {...parsedSource} />}
+                            {!isPreviewOpen && <ReactJson src={parsedSource} name="Props" />}
+                        </div>
+                    </ErrorBoundary>
                 </div>
             </div>
         </div>
