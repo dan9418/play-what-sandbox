@@ -36,7 +36,47 @@ const SOURCE_COLLECTION = [
         children:
             [
                 {
-                    name: 'Section A'
+                    name: 'Grid',
+                    fn: 'pw/viewer/createElement',
+                    args: {
+                        type: 'div',
+                        style: {
+                            padding: '5px',
+                            backgroundColor: '#CCC',
+                            borderRadius: '16px',
+                            display: 'grid',
+                            gridTemplateColumns: '50% 50%'
+                        },
+                        children: [
+                            {
+                                name: 'Keys 1',
+                                fn: 'pw/viewer/presets/keyboard',
+                                args: {
+                                    component: true,
+                                    props: {
+                                        keyHigh: 12
+                                    }
+                                }
+                            },
+                            {
+                                name: 'Keys 2',
+                                fn: 'pw/viewer/presets/keyboard',
+                                args: {
+                                    component: true,
+                                    props: {
+                                        keyHigh: 12
+                                    }
+                                }
+                            },
+                        ]
+                    }
+                },
+                {
+                    name: 'Section A',
+                    fn: 'pw/viewer/presets/fretboard',
+                    args: {
+                        component: true
+                    }
                 },
                 {
                     name: 'Section B',
