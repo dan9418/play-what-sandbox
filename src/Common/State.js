@@ -1,12 +1,9 @@
 import PW from 'play-what';
 import { atom, selector } from 'recoil';
 
-const RAW_SOURCE =
-{
-    id: 'test_source',
-    name: 'Test Source',
-    fn: 'pw/source/parseInput',
-    args: {
+const RAW_SOURCE = {
+    props: {
+        name: 'Test Source',
         // 1) string - can be pw, in, or primitive
         a: 'pw/keyCenter/presets/C/a',
         // 1.5) array
@@ -25,123 +22,19 @@ const RAW_SOURCE =
             }
         }
     },
-    width: '300px',
     children:
         [
             {
-                name: 'Grid',
-                fn: 'pw/viewer/createElement',
+                name: 'Fretboard',
+                fn: 'pw/viewer/fretboard/create',
                 args: {
-                    type: 'div',
-                    style: {
-                        padding: '5px',
-                        backgroundColor: '#CCC',
-                        borderRadius: '16px',
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 1fr'
-                    },
-                    children: [
-                        {
-                            name: 'Keys 1',
-                            fn: 'pw/viewer/presets/keyboard',
-                            args: {
-                                component: true,
-                                props: {
-                                    keyHigh: 12
-                                }
-                            }
-                        },
-                        {
-                            name: 'Frets 1',
-                            fn: 'pw/viewer/presets/fretboard',
-                            args: {
-                                component: true,
-                                props: {
-                                    fretHigh: 12
-                                }
-                            }
-                        },
-                        {
-                            name: 'Keys 2',
-                            fn: 'pw/viewer/presets/keyboard',
-                            args: {
-                                component: true,
-                                props: {
-                                    keyHigh: 24
-                                }
-                            }
-                        },
-                    ]
+                    fretLow: 5
                 }
-            },
-            {
-                name: 'Grid',
-                fn: 'pw/viewer/createElement',
-                args: {
-                    type: 'div',
-                    style: {
-                        marginTop: '16px',
-                        padding: '5px',
-                        backgroundColor: '#DDD',
-                        borderRadius: '16px',
-                        display: 'flex',
-                        justifyContent: 'space-around'
-                    },
-                    children: [
-                        {
-                            name: 'Keys 1',
-                            fn: 'pw/viewer/presets/keyboard',
-                            args: {
-                                component: true,
-                                props: {
-                                    keyHigh: 50,
-                                    style: {
-                                        width: 'in/parent/width'
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            name: 'Keys 2',
-                            fn: 'pw/viewer/presets/keyboard',
-                            args: {
-                                component: true,
-                                keyHigh: 12,
-                                props: {
-                                    style: {
-                                        width: '400px'
-                                    }
-                                }
-                            }
-                        },
-                    ]
-                }
-            },
-            {
-                name: 'Section A',
-                fn: 'pw/viewer/presets/fretboard',
-                args: {
-                    component: true
-                }
-            },
-            {
-                name: 'Section B',
-                // 4) inherited value
-                inheritTest: 'in/parent/a',
-                children: [
-                    {
-                        name: 'Progression 1',
-                        children: [
-                            {
-                                name: 'C Major Chord',
-                                a: 'in/parent/a',
-                            },
-                        ]
-                    },
-                ]
-            },
+            }
         ]
-};
+
+}
+
 
 // ATOMS
 
