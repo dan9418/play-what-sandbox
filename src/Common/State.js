@@ -2,6 +2,7 @@ import PW from 'play-what';
 import { atom, selector } from 'recoil';
 
 const RAW_SOURCE = {
+    fn: 'pw/source/parseLevel',
     props: {
         name: 'Test Source',
         // 1) string - can be pw, in, or primitive
@@ -51,7 +52,7 @@ export const parsedSourceState = selector({
         const source = get(rawSourceState);
         let parsedSource = {};
         try {
-            parsedSource = PW.api('pw/source/parseInput', source);
+            parsedSource = PW.api('pw/source/parseLevel', source);
         }
         catch (e) {
             console.error(e)
