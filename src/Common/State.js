@@ -29,7 +29,8 @@ const RAW_SOURCE = {
                 name: 'Fretboard',
                 fn: 'pw/viewer/fretboard/create',
                 args: {
-                    fretLow: 5
+                    fretRange: [0, 12],
+                    tuning: [0, 0, 0, 0, 0, 0]
                 }
             }
         ]
