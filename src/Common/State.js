@@ -21,20 +21,45 @@ const RAW_SOURCE = {
             args: {
                 preset: 'C'
             }
-        }
-    },
-    children:
-        [
+        },
+        children: [
             {
-                name: 'Fretboard',
                 fn: 'pw/viewer/fretboard/create',
+                props: {
+                    name: 'Fretboard',
+                    notes: {
+                        fn: 'pw/concept/from',
+                        args: {
+                            a: 'parent/a',
+                            B: 'parent/B'
+                        }
+                    }
+                },
                 args: {
                     fretRange: [0, 12],
-                    tuning: [0, 0, 0, 0, 0, 0]
+                    tuning: [0, 0, 0, 0, 0, 0],
+                    /*fretLabel: {
+                        fn: 'pw/note/label',
+                        args: {
+                            type: 'degree',
+                            options: 'props/notes',
+                            options: {
+                                format: null
+                            }
+                        }
+                    },
+                    fretLabel: {
+                        fn: 'pw/note/color',
+                        args: {
+                            type: 'degree',
+                            options: 'props/notes',
+                            palette: {}
+                        }
+                    }*/
                 }
             }
         ]
-
+    }
 }
 
 
