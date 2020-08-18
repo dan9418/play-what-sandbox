@@ -2,7 +2,6 @@ import PW from 'play-what';
 import { atom, selector } from 'recoil';
 
 const RAW_SOURCE = {
-    fn: 'pw/source/parseLevel',
     props: {
         name: 'Test Source',
         // 1) string - can be pw, in, or primitive
@@ -24,38 +23,31 @@ const RAW_SOURCE = {
         },
         children: [
             {
-                fn: 'pw/viewer/fretboard/create',
                 props: {
-                    name: 'Fretboard',
                     notes: {
                         fn: 'pw/concept/from',
                         args: {
                             a: 'parent/a',
                             B: 'parent/B'
                         }
-                    }
-                },
-                args: {
-                    fretRange: [0, 12],
-                    tuning: [0, 0, 0, 0, 0, 0],
-                    /*fretLabel: {
-                        fn: 'pw/note/label',
-                        args: {
-                            type: 'degree',
-                            options: 'props/notes',
-                            options: {
-                                format: null
+                    },
+                    children: [
+                        {
+                            fn: 'pw/viewer/fretboard/create',
+                            args: {
+                                name: 'Fretboard',
+                                fretRange: [0, 12],
+                                tuning: [16, 11, 7, 2, -3, 8], // e B G D A E
+                                labelFn: {
+                                    fn: 'pw/note/label',
+                                    args: {
+                                        type: 'degree',
+                                        notes: 'parent/notes'
+                                    }
+                                }
                             }
                         }
-                    },
-                    fretLabel: {
-                        fn: 'pw/note/color',
-                        args: {
-                            type: 'degree',
-                            options: 'props/notes',
-                            palette: {}
-                        }
-                    }*/
+                    ]
                 }
             }
         ]
@@ -77,12 +69,12 @@ export const parsedSourceState = selector({
     get: ({ get }) => {
         const source = get(rawSourceState);
         let parsedSource = {};
-        try {
-            parsedSource = PW.api('pw/source/parseLevel', source);
-        }
-        catch (e) {
-            console.error(e)
-        }
+        //try {
+        parsedSource = PW.api('pw/parse', source);
+        //}
+        //catch (e) {
+        //    console.error(e)
+        //}
         return parsedSource
     }
 });
