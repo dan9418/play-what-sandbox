@@ -3,25 +3,49 @@ import { atom, selector } from 'recoil';
 
 const RAW_SOURCE = {
     name: 'Test Source',
-    // 1) string - can be pw, in, or primitive
-    a: 'pw/keyCenter/presets/C/a',
-    // 1.5) array
-    B: 'pw/concept/presets/Maj/B',
-    // 2) object - attrs can be inputs or primitives (recurse on each)
-    // primitives can be number, null, or boolean - or string w/o "/"
-    a: {
-        p: 0,
-        d: 0
-    },
-    // 3) function - fn and args attrs reserved (recurse on each arg)
-    a: {
-        fn: 'pw/keyCenter/from',
-        args: {
-            preset: 'C'
-        }
-    },
     children: [
         {
+            name: 'API Constants',
+            a: 'pw/keyCenter/presets/C/a',
+            B: 'pw/concept/presets/Maj/B'
+        },
+        {
+            name: 'API Functions',
+            a: {
+                fn: 'pw/keyCenter/from',
+                args: {
+                    preset: 'C'
+                }
+            },
+            B: {
+                fn: 'pw/intervals/from',
+                args: {
+                    preset: 'Maj'
+                }
+            }
+        },
+        {
+            name: 'Direct Values',
+            a: {
+                p: 0,
+                d: 2
+            },
+            B: [
+                {
+                  "d": 0,
+                  "p": 0
+                },
+                {
+                  "d": 2,
+                  "p": 4
+                },
+                {
+                  "d": 4,
+                  "p": 7
+                }
+              ]
+        }
+        /*{
             notes: {
                 fn: 'pw/concept/from',
                 args: {
@@ -46,7 +70,7 @@ const RAW_SOURCE = {
                     }
                 }
             ]
-        }
+        }*/
     ]
 }
 
