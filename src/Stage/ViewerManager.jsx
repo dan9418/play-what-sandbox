@@ -6,12 +6,20 @@ import { rawSourceState, parsedSourceState } from '../Common/State';
 import ErrorBoundary from '../UI/ErrorBoundary';
 import './Stage.css';
 
-const Level = ({ component, children, props, ...other }) => {
-    const Component = component ? component : React.Fragment;
-    const newProps = component ? props : {};
+const Level = ({ parsedLevel }) => {
+    if (typeof parsedLevel === 'string' || typeof parsedLevel === 'number' || parsedLevel === null)
+        return parsedLevel;
+
+    const { component, children, props } = parsedLevel;
+    const isComponent = !!component;
+
+    const Component = isComponent ? component : React.Fragment;
+    const newProps = isComponent ? props : {};
+    const newChildren = children ? children.map((c, i) => <Level parsedLevel={c} />) : null;
+
     return (
         <Component {...newProps}>
-            {children && children.map((c, i) => <Level {...c} />)}
+            {newChildren}
         </Component>
     );
 };
@@ -66,7 +74,7 @@ const ViewerManager = () => {
                     </div>
                     <ErrorBoundary>
                         <div className="json-wrapper">
-                            {isPreviewOpen && <Level {...parsedSource} />}
+                            {isPreviewOpen && <Level parsedLevel={parsedSource} />}
                             {!isPreviewOpen && <ReactJson src={parsedSource} name="Props" />}
                         </div>
                     </ErrorBoundary>

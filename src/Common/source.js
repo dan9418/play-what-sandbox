@@ -12,6 +12,54 @@ const RAW_SOURCE = {
             },
             children: [
                 {
+                    component: 'div',
+                    children: [
+                        {
+                            component: 'h3',
+                            children: ['Test']
+                        },
+                        {
+                            component: 'div',
+                            children: [
+                                {
+                                    api: 'pw/viewer/repeat/',
+                                    args: {
+                                        n: 3,
+                                        content: {
+                                            component: 'span',
+                                            children: ['*'],
+                                            props: {
+                                                style: {
+                                                    margin: '5px'
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            component: 'div',
+                            children: [
+                                {
+                                    api: 'pw/viewer/repeat/',
+                                    args: {
+                                        n: 10,
+                                        content: {
+                                            component: 'span',
+                                            children: ['*']
+                                        }
+                                    }
+                                },
+                            ]
+                        }
+                    ]
+                },
+                {
+                    component: 'h3',
+                    children: ['Degree']
+                },
+                {
                     api: 'pw/viewer/fretboard/from/',
                     args: {
                         name: 'Fretboard',
@@ -48,6 +96,10 @@ const RAW_SOURCE = {
                         }
                     },
                     children: [
+                        {
+                            component: 'h3',
+                            children: ['Pitch Class']
+                        },
                         {
                             api: 'pw/viewer/fretboard/from/',
                             args: {
