@@ -17,7 +17,7 @@ export const parsedSourceState = selector({
         const source = get(rawSourceState);
         let parsedSource = {};
         //try {
-        parsedSource = PW.api('pw/parse', source);
+        parsedSource = PW.api('pw/parse/', source);
         //}
         //catch (e) {
         //    console.error(e)

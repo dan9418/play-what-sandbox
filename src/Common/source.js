@@ -4,7 +4,7 @@ const RAW_SOURCE = {
         {
             name: 'Shortcut',
             notes: {
-                api: 'pw/notes/from',
+                api: 'pw/notes/from/',
                 args: {
                     a: 'pw/keyCenter/presets/C/a',
                     B: 'pw/concept/presets/Maj/B',
@@ -12,18 +12,18 @@ const RAW_SOURCE = {
             },
             children: [
                 {
-                    api: 'pw/viewer/fretboard/from',
+                    api: 'pw/viewer/fretboard/from/',
                     args: {
                         name: 'Fretboard',
                         labelFn: {
-                            api: 'pw/note/label',
+                            api: 'pw/note/label/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
                             }
                         },
                         styleFn: {
-                            api: 'pw/note/style',
+                            api: 'pw/note/style/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
@@ -41,7 +41,7 @@ const RAW_SOURCE = {
                 {
                     name: 'Generate Notes',
                     notes: {
-                        api: 'pw/notes/from',
+                        api: 'pw/notes/from/',
                         args: {
                             a: 'parent/a',
                             B: 'parent/B'
@@ -49,11 +49,11 @@ const RAW_SOURCE = {
                     },
                     children: [
                         {
-                            api: 'pw/viewer/fretboard/from',
+                            api: 'pw/viewer/fretboard/from/',
                             args: {
                                 name: 'Fretboard',
                                 labelFn: {
-                                    api: 'pw/note/label',
+                                    api: 'pw/note/label/',
                                     args: {
                                         type: 'degree',
                                         notes: 'parent/notes'
@@ -68,13 +68,13 @@ const RAW_SOURCE = {
         {
             name: 'API Functions',
             a: {
-                api: 'pw/keyCenter/from',
+                api: 'pw/keyCenter/from/',
                 args: {
                     preset: 'C'
                 }
             },
             B: {
-                api: 'pw/intervals/from',
+                api: 'pw/intervals/from/',
                 args: {
                     preset: 'Maj'
                 }
