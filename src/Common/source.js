@@ -55,8 +55,15 @@ const RAW_SOURCE = {
                                 labelFn: {
                                     api: 'pw/note/label/',
                                     args: {
-                                        type: 'degree',
-                                        notes: 'parent/notes'
+                                        type: 'pitchClass',
+                                        /*notes: 'parent/notes'*/
+                                    }
+                                },
+                                styleFn: {
+                                    api: 'pw/note/style/',
+                                    args: {
+                                        type: 'pitchClass',
+                                        /*notes: 'parent/notes'*/
                                     }
                                 }
                             }
