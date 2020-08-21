@@ -4,7 +4,7 @@ const RAW_SOURCE = {
         {
             name: 'Shortcut',
             notes: {
-                api: 'PW/NoteList/from/',
+                fn: 'PW/NoteList/from/',
                 args: {
                     a: 'PW/KeyCenter/Presets/C/a',
                     B: 'PW/Concept/Presets/Maj/B',
@@ -22,7 +22,7 @@ const RAW_SOURCE = {
                             component: 'div',
                             children: [
                                 {
-                                    api: 'PW/Viewer/repeat/',
+                                    fn: 'PW/Viewer/repeat/',
                                     args: {
                                         n: 3,
                                         content: {
@@ -42,7 +42,7 @@ const RAW_SOURCE = {
                             component: 'div',
                             children: [
                                 {
-                                    api: 'PW/Viewer/repeat/',
+                                    fn: 'PW/Viewer/repeat/',
                                     args: {
                                         n: 10,
                                         content: {
@@ -60,18 +60,18 @@ const RAW_SOURCE = {
                     children: ['Degree']
                 },
                 {
-                    api: 'PW/Viewer/Fretboard/from/',
+                    fn: 'PW/Viewer/Fretboard/from/',
                     args: {
                         name: 'Fretboard',
                         labelFn: {
-                            api: 'PW/Note/label/',
+                            fn: 'PW/Note/label/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
                             }
                         },
                         styleFn: {
-                            api: 'PW/Note/style/',
+                            fn: 'PW/Note/style/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
@@ -89,7 +89,7 @@ const RAW_SOURCE = {
                 {
                     name: 'Generate NoteList',
                     notes: {
-                        api: 'PW/NoteList/from/',
+                        fn: 'PW/NoteList/from/',
                         args: {
                             a: 'parent/a',
                             B: 'parent/B'
@@ -101,18 +101,18 @@ const RAW_SOURCE = {
                             children: ['Pitch Class']
                         },
                         {
-                            api: 'PW/Viewer/Fretboard/from/',
+                            fn: 'PW/Viewer/Fretboard/from/',
                             args: {
                                 name: 'Fretboard',
                                 labelFn: {
-                                    api: 'PW/Note/label/',
+                                    fn: 'PW/Note/label/',
                                     args: {
                                         type: 'pitchClass',
                                         /*notes: 'parent/notes'*/
                                     }
                                 },
                                 styleFn: {
-                                    api: 'PW/Note/style/',
+                                    fn: 'PW/Note/style/',
                                     args: {
                                         type: 'pitchClass',
                                         /*notes: 'parent/notes'*/
@@ -127,13 +127,13 @@ const RAW_SOURCE = {
         {
             name: 'API Functions',
             a: {
-                api: 'PW/KeyCenter/from/',
+                fn: 'PW/KeyCenter/from/',
                 args: {
                     preset: 'C'
                 }
             },
             B: {
-                api: 'PW/IntervalList/from/',
+                fn: 'PW/IntervalList/from/',
                 args: {
                     preset: 'Maj'
                 }
