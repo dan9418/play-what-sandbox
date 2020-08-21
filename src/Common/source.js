@@ -4,10 +4,10 @@ const RAW_SOURCE = {
         {
             name: 'Shortcut',
             notes: {
-                api: 'pw/notes/from/',
+                api: 'PW/NoteList/from/',
                 args: {
-                    a: 'pw/keyCenter/presets/C/a',
-                    B: 'pw/concept/presets/Maj/B',
+                    a: 'PW/KeyCenter/Presets/C/a',
+                    B: 'PW/Concept/Presets/Maj/B',
                 }
             },
             children: [
@@ -22,7 +22,7 @@ const RAW_SOURCE = {
                             component: 'div',
                             children: [
                                 {
-                                    api: 'pw/viewer/repeat/',
+                                    api: 'PW/Viewer/repeat/',
                                     args: {
                                         n: 3,
                                         content: {
@@ -42,7 +42,7 @@ const RAW_SOURCE = {
                             component: 'div',
                             children: [
                                 {
-                                    api: 'pw/viewer/repeat/',
+                                    api: 'PW/Viewer/repeat/',
                                     args: {
                                         n: 10,
                                         content: {
@@ -60,18 +60,18 @@ const RAW_SOURCE = {
                     children: ['Degree']
                 },
                 {
-                    api: 'pw/viewer/fretboard/from/',
+                    api: 'PW/Viewer/Fretboard/from/',
                     args: {
                         name: 'Fretboard',
                         labelFn: {
-                            api: 'pw/note/label/',
+                            api: 'PW/Note/label/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
                             }
                         },
                         styleFn: {
-                            api: 'pw/note/style/',
+                            api: 'PW/Note/style/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
@@ -83,13 +83,13 @@ const RAW_SOURCE = {
         },
         {
             name: 'API Constants',
-            a: 'pw/keyCenter/presets/C/a',
-            B: 'pw/concept/presets/Maj/B',
+            a: 'PW/KeyCenter/Presets/C/a',
+            B: 'PW/Concept/Presets/Maj/B',
             children: [
                 {
-                    name: 'Generate Notes',
+                    name: 'Generate NoteList',
                     notes: {
-                        api: 'pw/notes/from/',
+                        api: 'PW/NoteList/from/',
                         args: {
                             a: 'parent/a',
                             B: 'parent/B'
@@ -101,18 +101,18 @@ const RAW_SOURCE = {
                             children: ['Pitch Class']
                         },
                         {
-                            api: 'pw/viewer/fretboard/from/',
+                            api: 'PW/Viewer/Fretboard/from/',
                             args: {
                                 name: 'Fretboard',
                                 labelFn: {
-                                    api: 'pw/note/label/',
+                                    api: 'PW/Note/label/',
                                     args: {
                                         type: 'pitchClass',
                                         /*notes: 'parent/notes'*/
                                     }
                                 },
                                 styleFn: {
-                                    api: 'pw/note/style/',
+                                    api: 'PW/Note/style/',
                                     args: {
                                         type: 'pitchClass',
                                         /*notes: 'parent/notes'*/
@@ -127,13 +127,13 @@ const RAW_SOURCE = {
         {
             name: 'API Functions',
             a: {
-                api: 'pw/keyCenter/from/',
+                api: 'PW/KeyCenter/from/',
                 args: {
                     preset: 'C'
                 }
             },
             B: {
-                api: 'pw/intervals/from/',
+                api: 'PW/IntervalList/from/',
                 args: {
                     preset: 'Maj'
                 }
