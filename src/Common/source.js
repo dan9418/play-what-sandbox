@@ -16,45 +16,13 @@ const RAW_SOURCE = {
                     children: [
                         {
                             component: 'h3',
-                            children: ['Test']
+                            children: ['Note Summary']
                         },
                         {
-                            component: 'div',
-                            children: [
-                                {
-                                    fn: 'PW/Viewer/repeat/',
-                                    args: {
-                                        n: 3,
-                                        content: {
-                                            component: 'span',
-                                            children: ['*'],
-                                            props: {
-                                                style: {
-                                                    margin: '5px'
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                            ]
-                        },
-                        {
-                            component: 'PW/Viewer/Row/component',
-                            props: {
-                                n: 2,
-                            },
-                            children: [
-                                {
-                                    fn: 'PW/Viewer/repeat/',
-                                    args: {
-                                        n: 10,
-                                        content: {
-                                            component: 'span',
-                                            children: ['*']
-                                        }
-                                    }
-                                },
-                            ]
+                            fn: 'PW/Viewer/Summary/from/',
+                            args: {
+                                notes: 'parent/notes'
+                            }
                         }
                     ]
                 },
