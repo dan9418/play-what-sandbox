@@ -4,10 +4,10 @@ const RAW_SOURCE = {
         {
             name: 'Shortcut',
             notes: {
-                fn: 'PW/NoteList/from/',
+                fn: 'PW/Concept/notesFrom/',
                 args: {
-                    a: 'PW/KeyCenter/Presets/C/a',
-                    B: 'PW/Concept/Presets/Maj/B',
+                    a: 'PW/Vector/KeyCenter/Preset/C/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj/value',
                 }
             },
             children: [
@@ -39,7 +39,10 @@ const RAW_SOURCE = {
                             ]
                         },
                         {
-                            component: 'div',
+                            component: 'PW/Viewer/Row/component',
+                            props: {
+                                n: 2,
+                            },
                             children: [
                                 {
                                     fn: 'PW/Viewer/repeat/',
@@ -64,14 +67,14 @@ const RAW_SOURCE = {
                     args: {
                         name: 'Fretboard',
                         labelFn: {
-                            fn: 'PW/Note/label/',
+                            fn: 'PW/Vector/label/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
                             }
                         },
                         styleFn: {
-                            fn: 'PW/Note/style/',
+                            fn: 'PW/Vector/style/',
                             args: {
                                 type: 'degree',
                                 notes: 'parent/notes'
@@ -83,13 +86,13 @@ const RAW_SOURCE = {
         },
         {
             name: 'API Constants',
-            a: 'PW/KeyCenter/Presets/C/a',
-            B: 'PW/Concept/Presets/Maj/B',
+            a: 'PW/Vector/KeyCenter/Preset/C/value',
+            B: 'PW/Matrix/Chord/Preset/Maj/value',
             children: [
                 {
                     name: 'Generate NoteList',
                     notes: {
-                        fn: 'PW/NoteList/from/',
+                        fn: 'PW/Concept/notesFrom/',
                         args: {
                             a: 'parent/a',
                             B: 'parent/B'
@@ -105,14 +108,14 @@ const RAW_SOURCE = {
                             args: {
                                 name: 'Fretboard',
                                 labelFn: {
-                                    fn: 'PW/Note/label/',
+                                    fn: 'PW/Vector/label/',
                                     args: {
                                         type: 'pitchClass',
                                         /*notes: 'parent/notes'*/
                                     }
                                 },
                                 styleFn: {
-                                    fn: 'PW/Note/style/',
+                                    fn: 'PW/Vector/style/',
                                     args: {
                                         type: 'pitchClass',
                                         /*notes: 'parent/notes'*/
@@ -126,18 +129,8 @@ const RAW_SOURCE = {
         },
         {
             name: 'API Functions',
-            a: {
-                fn: 'PW/KeyCenter/from/',
-                args: {
-                    preset: 'C'
-                }
-            },
-            B: {
-                fn: 'PW/IntervalList/from/',
-                args: {
-                    preset: 'Maj'
-                }
-            }
+            a: 'PW/Vector/KeyCenter/Preset/C/value',
+            B: 'PW/Matrix/Chord/Preset/Maj/value',
         },
         {
             name: 'Direct Values',
