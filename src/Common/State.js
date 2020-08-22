@@ -1,4 +1,5 @@
 import PW from 'play-what';
+import PW_React from 'play-what-react-viewers';
 import { atom, selector } from 'recoil';
 import RAW_SOURCE from './source';
 
@@ -17,7 +18,7 @@ export const parsedSourceState = selector({
         const source = get(rawSourceState);
         let parsedSource = {};
         //try {
-        parsedSource = PW.api('PW/Source/parse/', source);
+        parsedSource = PW.parse(source, PW_React);
         //}
         //catch (e) {
         //    console.error(e)

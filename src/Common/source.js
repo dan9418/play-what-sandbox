@@ -6,7 +6,7 @@ const RAW_SOURCE = {
             notes: {
                 fn: 'PW/Concept/notesFrom/',
                 args: {
-                    a: 'PW/Vector/KeyCenter/Preset/C/value',
+                    a: 'PW/Vector/Note/Preset/C#/value',
                     B: 'PW/Matrix/Chord/Preset/Maj/value',
                 }
             },
@@ -19,9 +19,9 @@ const RAW_SOURCE = {
                             children: ['Note Summary']
                         },
                         {
-                            fn: 'PW/Viewer/Summary/from/',
+                            fn: 'PW_React/Summary/from/',
                             args: {
-                                notes: 'parent/notes'
+                                pods: 'parent/notes'
                             }
                         }
                     ]
@@ -31,7 +31,7 @@ const RAW_SOURCE = {
                     children: ['Degree']
                 },
                 {
-                    fn: 'PW/Viewer/Fretboard/from/',
+                    fn: 'PW_React/Fretboard/from/',
                     args: {
                         name: 'Fretboard',
                         labelFn: {
@@ -54,7 +54,7 @@ const RAW_SOURCE = {
         },
         {
             name: 'API Constants',
-            a: 'PW/Vector/KeyCenter/Preset/C/value',
+            a: 'PW/Vector/Note/Preset/C/value',
             B: 'PW/Matrix/Chord/Preset/Maj/value',
             children: [
                 {
@@ -72,7 +72,7 @@ const RAW_SOURCE = {
                             children: ['Pitch Class']
                         },
                         {
-                            fn: 'PW/Viewer/Fretboard/from/',
+                            fn: 'PW_React/Fretboard/from/',
                             args: {
                                 name: 'Fretboard',
                                 labelFn: {
@@ -97,7 +97,7 @@ const RAW_SOURCE = {
         },
         {
             name: 'API Functions',
-            a: 'PW/Vector/KeyCenter/Preset/C/value',
+            a: 'PW/Vector/Note/Preset/C/value',
             B: 'PW/Matrix/Chord/Preset/Maj/value',
         },
         {
