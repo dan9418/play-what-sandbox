@@ -40,6 +40,10 @@ const RAW_SOURCE = {
                                 color: {
                                     type: 'degree',
                                     //scheme: null
+                                },
+                                text: {
+                                    type: 'degree',
+                                    //scheme: null
                                 }
                             }
                         }
