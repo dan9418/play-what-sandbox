@@ -33,24 +33,26 @@ const RAW_SOURCE = {
                 {
                     component: 'PW_React/Fretboard/component',
                     props: {
-                        mapFn: {
-                            fn: 'PW_React/Fretboard/mapBy/',
+                        notes: 'parent/notes',
+                        colorFn: {
+                            fn: 'PW_React/Fretboard/colorBy/',
                             args: {
-                                notes: 'parent/notes',
-                                color: {
-                                    type: 'degree',
-                                    //scheme: null
-                                },
-                                text: {
-                                    type: 'degree',
-                                    //scheme: null
-                                }
+                                type: 'degree',
+                                //scheme: null
+                            }
+                        },
+                        textFn: {
+                            fn: 'PW_React/Fretboard/textBy/',
+                            args: {
+                                type: 'degree',
+                                //scheme: null
                             }
                         }
                     }
                 }
             ]
         },
+        /*
         {
             name: 'API Constants',
             a: 'PW/Vector/Note/Preset/C/value',
@@ -74,7 +76,7 @@ const RAW_SOURCE = {
                             component: 'PW_React/Fretboard/component',
                             props: {
                                 mapFn: {
-                                    fn: 'PW_React/Fretboard/mapBy/',
+                                    fn: 'PW_React/Fretboard/getMapFn/',
                                     args: {
                                         notes: 'parent/notes',
                                     }
@@ -111,6 +113,7 @@ const RAW_SOURCE = {
                 }
             ]
         }
+        */
     ]
 };
 
