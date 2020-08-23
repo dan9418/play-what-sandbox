@@ -19,9 +19,9 @@ const RAW_SOURCE = {
                             children: ['Note Summary']
                         },
                         {
-                            fn: 'PW_React/Summary/from/',
-                            args: {
-                                pods: 'parent/notes'
+                            component: 'PW_React/Summary/component',
+                            props: {
+                                notes: 'parent/notes'
                             }
                         }
                     ]
