@@ -31,21 +31,12 @@ const RAW_SOURCE = {
                     children: ['Degree']
                 },
                 {
-                    fn: 'PW_React/Fretboard/from/',
-                    args: {
-                        name: 'Fretboard',
-                        labelFn: {
-                            fn: 'PW/Vector/label/',
+                    component: 'PW_React/Fretboard/component',
+                    props: {
+                        mapFn: {
+                            fn: 'PW_React/Fretboard/mapBy/',
                             args: {
-                                type: 'degree',
-                                notes: 'parent/notes'
-                            }
-                        },
-                        styleFn: {
-                            fn: 'PW/Vector/style/',
-                            args: {
-                                type: 'degree',
-                                notes: 'parent/notes'
+                                a: 'a'
                             }
                         }
                     }
@@ -72,23 +63,9 @@ const RAW_SOURCE = {
                             children: ['Pitch Class']
                         },
                         {
-                            fn: 'PW_React/Fretboard/from/',
-                            args: {
-                                name: 'Fretboard',
-                                labelFn: {
-                                    fn: 'PW/Vector/label/',
-                                    args: {
-                                        type: 'pitchClass',
-                                        /*notes: 'parent/notes'*/
-                                    }
-                                },
-                                styleFn: {
-                                    fn: 'PW/Vector/style/',
-                                    args: {
-                                        type: 'pitchClass',
-                                        /*notes: 'parent/notes'*/
-                                    }
-                                }
+                            component: 'PW_React/Fretboard/component',
+                            props: {
+                                a: 'a'
                             }
                         }
                     ]
