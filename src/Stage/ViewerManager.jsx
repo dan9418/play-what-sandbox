@@ -63,7 +63,7 @@ const ViewerManager = () => {
                     </div>
                     <ErrorBoundary>
                         <div className="json-wrapper">
-                            <ReactJson src={rawSource} name="Source" onEdit={onEdit} />
+                            <ReactJson src={rawSource} name="Source" onEdit={onEdit} collapsed={1}/>
                         </div>
                     </ErrorBoundary>
                 </div>
@@ -75,7 +75,7 @@ const ViewerManager = () => {
                     <ErrorBoundary>
                         <div className="json-wrapper">
                             {isPreviewOpen && <Level parsedLevel={parsedSource} />}
-                            {!isPreviewOpen && <ReactJson src={parsedSource} name="Props" />}
+                            {!isPreviewOpen && <ReactJson src={parsedSource} name="Props" collapsed/>}
                         </div>
                     </ErrorBoundary>
                 </div>
