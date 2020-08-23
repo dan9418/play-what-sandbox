@@ -36,7 +36,11 @@ const RAW_SOURCE = {
                         mapFn: {
                             fn: 'PW_React/Fretboard/mapBy/',
                             args: {
-                                a: 'a'
+                                notes: 'parent/notes',
+                                /*color: {
+                                    type: 'degree',
+                                    scheme: null
+                                }*/
                             }
                         }
                     }
@@ -65,7 +69,12 @@ const RAW_SOURCE = {
                         {
                             component: 'PW_React/Fretboard/component',
                             props: {
-                                a: 'a'
+                                mapFn: {
+                                    fn: 'PW_React/Fretboard/mapBy/',
+                                    args: {
+                                        notes: 'parent/notes',
+                                    }
+                                }
                             }
                         }
                     ]
