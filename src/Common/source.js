@@ -37,10 +37,10 @@ const RAW_SOURCE = {
                             fn: 'PW_React/Fretboard/mapBy/',
                             args: {
                                 notes: 'parent/notes',
-                                /*color: {
+                                color: {
                                     type: 'degree',
-                                    scheme: null
-                                }*/
+                                    //scheme: null
+                                }
                             }
                         }
                     }
