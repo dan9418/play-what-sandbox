@@ -3,7 +3,7 @@ const RAW_SOURCE = {
     notes: {
         fn: 'PW/Concept/notesFrom/',
         args: {
-            a: 'PW/Vector/Note/Preset/C#/value',
+            a: 'PW/Vector/Note/Preset/C/value',
             B: 'PW/Matrix/Chord/Preset/Maj/value',
         }
     },
@@ -15,16 +15,10 @@ const RAW_SOURCE = {
         {
             component: 'PW_React/Summary/component',
             props: {
-                notes: 'parent/notes',
+                keyCenter: 'PW/Vector/Note/Preset/C/value',
+                intervals: 'PW/Matrix/Chord/Preset/Maj/value',
                 colorFn: {
                     fn: 'PW_React/Fretboard/colorBy/',
-                    args: {
-                        type: 'degree',
-                        //scheme: null
-                    }
-                },
-                textFn: {
-                    fn: 'PW_React/Fretboard/textBy/',
                     args: {
                         type: 'degree',
                         //scheme: null
