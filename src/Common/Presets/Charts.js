@@ -6,51 +6,43 @@ export const AUTUMN_LEAVES = {
             name: 'A',
             children: [
                 {
-                    scope: 'concept',
-                    a: 'C',
-                    B: 'Min7',
+                    a: 'PW/Vector/Note/Preset/C/value',
+                    B: 'PW/Matrix/Chord/Preset/Min7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'F',
-                    B: 'Dom7',
+                    a: 'PW/Vector/Note/Preset/F/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'Bb',
-                    B: 'Maj7',
+                    a: 'PW/Vector/Note/Preset/Bb/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'Eb',
-                    B: 'Maj7',
+                    a: 'PW/Vector/Note/Preset/Eb/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'A',
-                    B: 'HalfDim7',
+                    a: 'PW/Vector/Note/Preset/A/value',
+                    B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'D',
-                    B: 'Dom7b9',
+                    a: 'PW/Vector/Note/Preset/D/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'G',
-                    B: 'Min6',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Min6/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'G',
-                    B: 'Maj7',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj7/value',
                     t: 4
                 }
             ]
@@ -60,45 +52,38 @@ export const AUTUMN_LEAVES = {
             name: 'A\'',
             children: [
                 {
-                    scope: 'concept',
-                    a: 'C',
-                    B: 'Min7',
+                    a: 'PW/Vector/Note/Preset/C/value',
+                    B: 'PW/Matrix/Chord/Preset/Min7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'F',
-                    B: 'Dom7',
+                    a: 'PW/Vector/Note/Preset/F/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'Bb',
-                    B: 'Maj7',
+                    a: 'PW/Vector/Note/Preset/Bb/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'Eb',
-                    B: 'Maj7',
+                    a: 'PW/Vector/Note/Preset/Eb/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'A',
-                    B: 'HalfDim7',
+                    a: 'PW/Vector/Note/Preset/A/value',
+                    B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'D',
-                    B: 'Dom7b9',
+                    a: 'PW/Vector/Note/Preset/D/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'G',
-                    B: 'Min6',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Min6/value',
                     t: 8
                 }
             ]
@@ -108,52 +93,44 @@ export const AUTUMN_LEAVES = {
             name: 'B',
             children: [
                 {
-                    scope: 'concept',
                     section: 'B',
-                    a: 'A',
-                    B: 'HalfDim7',
+                    a: 'PW/Vector/Note/Preset/A/value',
+                    B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'D',
-                    B: 'Dom7b9',
+                    a: 'PW/Vector/Note/Preset/D/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'G',
-                    B: 'Min6',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Min6/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'G',
-                    B: 'Min6',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Min6/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'C',
-                    B: 'Min7',
+                    a: 'PW/Vector/Note/Preset/C/value',
+                    B: 'PW/Matrix/Chord/Preset/Min7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'F',
-                    B: 'Dom7',
+                    a: 'PW/Vector/Note/Preset/F/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'Bb',
-                    B: 'Maj7',
+                    a: 'PW/Vector/Note/Preset/Bb/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj7/value',
                     t: 4
                 },
                 {
-                    scope: 'concept',
-                    a: 'Eb',
-                    B: 'Maj7',
+                    a: 'PW/Vector/Note/Preset/Eb/value',
+                    B: 'PW/Matrix/Chord/Preset/Maj7/value',
                     t: 4
                 }
             ]
@@ -162,56 +139,54 @@ export const AUTUMN_LEAVES = {
             scope: 'section',
             name: 'C',
             children: [
-
                 {
-                    section: 'C',
-                    a: 'A',
-                    B: 'HalfDim7',
+                    a: 'PW/Vector/Note/Preset/A/value',
+                    B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                     t: 4
                 },
                 {
-                    a: 'D',
-                    B: 'Dom7b9',
+                    a: 'PW/Vector/Note/Preset/D/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                     t: 4
                 },
                 {
-                    a: 'G',
-                    B: 'Min7',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Min7/value',
                     t: 2
                 },
                 {
-                    a: 'C',
-                    B: 'Dom7',
+                    a: 'PW/Vector/Note/Preset/C/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7/value',
                     t: 2
                 },
                 {
-                    a: 'F',
-                    B: 'Min7',
+                    a: 'PW/Vector/Note/Preset/F/value',
+                    B: 'PW/Matrix/Chord/Preset/Min7/value',
                     t: 2
                 },
                 {
-                    a: 'Bb',
-                    B: 'Dom7',
+                    a: 'PW/Vector/Note/Preset/Bb/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7/value',
                     t: 2
                 },
                 {
-                    a: 'A',
-                    B: 'HalfDim7',
+                    a: 'PW/Vector/Note/Preset/A/value',
+                    B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                     t: 4
                 },
                 {
-                    a: 'D',
-                    B: 'Dom7b9',
+                    a: 'PW/Vector/Note/Preset/D/value',
+                    B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                     t: 4
                 },
                 {
-                    a: 'G',
-                    B: 'Min7',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Min7/value',
                     t: 4
                 },
                 {
-                    a: 'G',
-                    B: 'Min7',
+                    a: 'PW/Vector/Note/Preset/G/value',
+                    B: 'PW/Matrix/Chord/Preset/Min7/value',
                     t: 4
                 }
             ]
@@ -241,27 +216,27 @@ const CHARTS = [
                                 {
                                     children: [
                                         {
-                                            scope: 'concept',
-                                            a: 'C',
-                                            B: 'Min7',
+
+                                            a: 'PW/Vector/Note/Preset/C/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'F',
-                                            B: 'Dom7',
+
+                                            a: 'PW/Vector/Note/Preset/F/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'Bb',
-                                            B: 'Maj7',
+
+                                            a: 'PW/Vector/Note/Preset/Bb/value',
+                                            B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'Eb',
-                                            B: 'Maj7',
+
+                                            a: 'PW/Vector/Note/Preset/Eb/value',
+                                            B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                             t: 4
                                         }
                                     ]
@@ -269,27 +244,27 @@ const CHARTS = [
                                 {
                                     children: [
                                         {
-                                            scope: 'concept',
-                                            a: 'A',
-                                            B: 'HalfDim7',
+
+                                            a: 'PW/Vector/Note/Preset/A/value',
+                                            B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'D',
-                                            B: 'Dom7b9',
+
+                                            a: 'PW/Vector/Note/Preset/D/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'G',
-                                            B: 'Min6',
+
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min6/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'G',
-                                            B: 'Maj7',
+
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                             t: 4
                                         }
                                     ]
@@ -303,27 +278,27 @@ const CHARTS = [
                                 {
                                     children: [
                                         {
-                                            scope: 'concept',
-                                            a: 'C',
-                                            B: 'Min7',
+
+                                            a: 'PW/Vector/Note/Preset/C/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'F',
-                                            B: 'Dom7',
+
+                                            a: 'PW/Vector/Note/Preset/F/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'Bb',
-                                            B: 'Maj7',
+
+                                            a: 'PW/Vector/Note/Preset/Bb/value',
+                                            B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'Eb',
-                                            B: 'Maj7',
+
+                                            a: 'PW/Vector/Note/Preset/Eb/value',
+                                            B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                             t: 4
                                         },
 
@@ -332,21 +307,21 @@ const CHARTS = [
                                 {
                                     children: [
                                         {
-                                            scope: 'concept',
-                                            a: 'A',
-                                            B: 'HalfDim7',
+
+                                            a: 'PW/Vector/Note/Preset/A/value',
+                                            B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'D',
-                                            B: 'Dom7b9',
+
+                                            a: 'PW/Vector/Note/Preset/D/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'G',
-                                            B: 'Min6',
+
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min6/value',
                                             t: 8
                                         }
                                     ]
@@ -360,28 +335,28 @@ const CHARTS = [
                                 {
                                     children: [
                                         {
-                                            scope: 'concept',
+
                                             section: 'B',
-                                            a: 'A',
-                                            B: 'HalfDim7',
+                                            a: 'PW/Vector/Note/Preset/A/value',
+                                            B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'D',
-                                            B: 'Dom7b9',
+
+                                            a: 'PW/Vector/Note/Preset/D/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'G',
-                                            B: 'Min6',
+
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min6/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'G',
-                                            B: 'Min6',
+
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min6/value',
                                             t: 4
                                         },
 
@@ -390,27 +365,27 @@ const CHARTS = [
                                 {
                                     children: [
                                         {
-                                            scope: 'concept',
-                                            a: 'C',
-                                            B: 'Min7',
+
+                                            a: 'PW/Vector/Note/Preset/C/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'F',
-                                            B: 'Dom7',
+
+                                            a: 'PW/Vector/Note/Preset/F/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'Bb',
-                                            B: 'Maj7',
+
+                                            a: 'PW/Vector/Note/Preset/Bb/value',
+                                            B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                             t: 4
                                         },
                                         {
-                                            scope: 'concept',
-                                            a: 'Eb',
-                                            B: 'Maj7',
+
+                                            a: 'PW/Vector/Note/Preset/Eb/value',
+                                            B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                             t: 4
                                         }
                                     ]
@@ -425,33 +400,33 @@ const CHARTS = [
                                     children: [
                                         {
                                             section: 'C',
-                                            a: 'A',
-                                            B: 'HalfDim7',
+                                            a: 'PW/Vector/Note/Preset/A/value',
+                                            B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                             t: 4
                                         },
                                         {
-                                            a: 'D',
-                                            B: 'Dom7b9',
+                                            a: 'PW/Vector/Note/Preset/D/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                             t: 4
                                         },
                                         {
-                                            a: 'G',
-                                            B: 'Min7',
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min7/value',
                                             t: 2
                                         },
                                         {
-                                            a: 'C',
-                                            B: 'Dom7',
+                                            a: 'PW/Vector/Note/Preset/C/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                             t: 2
                                         },
                                         {
-                                            a: 'F',
-                                            B: 'Min7',
+                                            a: 'PW/Vector/Note/Preset/F/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min7/value',
                                             t: 2
                                         },
                                         {
-                                            a: 'Bb',
-                                            B: 'Dom7',
+                                            a: 'PW/Vector/Note/Preset/Bb/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                             t: 2
                                         },
 
@@ -460,23 +435,23 @@ const CHARTS = [
                                 {
                                     children: [
                                         {
-                                            a: 'A',
-                                            B: 'HalfDim7',
+                                            a: 'PW/Vector/Note/Preset/A/value',
+                                            B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                             t: 4
                                         },
                                         {
-                                            a: 'D',
-                                            B: 'Dom7b9',
+                                            a: 'PW/Vector/Note/Preset/D/value',
+                                            B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                             t: 4
                                         },
                                         {
-                                            a: 'G',
-                                            B: 'Min7',
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min7/value',
                                             t: 4
                                         },
                                         {
-                                            a: 'G',
-                                            B: 'Min7',
+                                            a: 'PW/Vector/Note/Preset/G/value',
+                                            B: 'PW/Matrix/Chord/Preset/Min7/value',
                                             t: 4
                                         }
                                     ]
@@ -495,13 +470,13 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'C',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 8
                                     }
                                 ]
@@ -509,28 +484,28 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'D',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Db',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Db/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'E',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     }
                                 ]
@@ -543,18 +518,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'D',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     }
                                 ]
@@ -562,28 +537,28 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'F',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Eb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     }
                                 ]
@@ -596,13 +571,13 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'C',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 8
                                     }
                                 ]
@@ -610,28 +585,28 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'D',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Db',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Db/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'E',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     }
                                 ]
@@ -644,43 +619,43 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'D',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'B',
-                                        B: 'HalfDim7',
+                                        a: 'PW/Vector/Note/Preset/B/value',
+                                        B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'E',
-                                        B: 'Dom7b9',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'Fs',
-                                        B: 'HalfDim7',
+                                        a: 'PW/Vector/Note/Preset/Fs/value',
+                                        B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'B',
-                                        B: 'Dom7b9',
+                                        a: 'PW/Vector/Note/Preset/B/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                         t: 2
                                     },
                                 ]
@@ -688,28 +663,28 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'E',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     }
                                 ]
@@ -728,18 +703,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'G',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Eb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     }
                                 ]
@@ -747,18 +722,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'G',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'B',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/B/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'E',
-                                        B: 'Dom7b9',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                         t: 4
                                     }
                                 ]
@@ -771,18 +746,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'E',
-                                        B: 'Dom7b9',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 8
                                     }
                                 ]
@@ -790,18 +765,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'Eb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'Dom7b9',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                         t: 8
                                     }
                                 ]
@@ -814,18 +789,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'G',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Eb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     }
                                 ]
@@ -833,18 +808,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'G',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'B',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/B/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'E',
-                                        B: 'Dom7b9',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                         t: 4
                                     }
                                 ]
@@ -857,23 +832,23 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'E',
-                                        B: 'Dom7b9',
+                                        a: 'PW/Vector/Note/Preset/E/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7b9/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Min6',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min6/value',
                                         t: 4
                                     }
                                 ]
@@ -881,38 +856,38 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'B',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/B/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'HalfDim7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Maj6',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj6/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'A',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/A/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     }
                                 ]
@@ -931,18 +906,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 8
                                     },
                                     {
-                                        a: 'F',
-                                        B: 'Min6',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min6/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     }
                                 ]
@@ -950,18 +925,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'D',
-                                        B: 'HalfDim7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 8
                                     }
                                 ]
@@ -974,18 +949,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'Eb',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Ab',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Ab/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Db',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Db/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     }
                                 ]
@@ -993,28 +968,28 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'D',
-                                        B: 'HalfDim7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'HalfDim7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     }
                                 ]
@@ -1033,18 +1008,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'F',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     }
                                 ]
@@ -1052,18 +1027,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'F',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Eb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 8
                                     }
                                 ]
@@ -1076,28 +1051,28 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'Eb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Eb',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'F',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     }
                                 ]
@@ -1105,28 +1080,28 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'Eb',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Gb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Gb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'F',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'Gb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Gb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'F',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     }
                                 ]
@@ -1139,18 +1114,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'F',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     }
                                 ]
@@ -1158,18 +1133,18 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'F',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Eb',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 8
                                     }
                                 ]
@@ -1182,38 +1157,38 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'Eb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'Eb',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/Eb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'Ab',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Ab/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'D',
-                                        B: 'HalfDim7',
+                                        a: 'PW/Vector/Note/Preset/D/value',
+                                        B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'G',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/G/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     }
                                 ]
@@ -1221,23 +1196,23 @@ const CHARTS = [
                             {
                                 concepts: [
                                     {
-                                        a: 'C',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 4
                                     },
                                     {
-                                        a: 'C',
-                                        B: 'Min7',
+                                        a: 'PW/Vector/Note/Preset/C/value',
+                                        B: 'PW/Matrix/Chord/Preset/Min7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'F',
-                                        B: 'Dom7',
+                                        a: 'PW/Vector/Note/Preset/F/value',
+                                        B: 'PW/Matrix/Chord/Preset/Dom7/value',
                                         t: 2
                                     },
                                     {
-                                        a: 'Bb',
-                                        B: 'Maj7',
+                                        a: 'PW/Vector/Note/Preset/Bb/value',
+                                        B: 'PW/Matrix/Chord/Preset/Maj7/value',
                                         t: 8
                                     }
                                 ]
@@ -1256,7 +1231,7 @@ const CHARTS = [
                 id: 'Roman Numerals',
                 name: 'Roman Numerals',
                 defaults: {
-                    a: 'C'
+                    a: 'PW/Vector/Note/Preset/C/value'
                 },
                 sections: [
                     {
@@ -1266,13 +1241,13 @@ const CHARTS = [
                                 name: 'ii V I',
                                 concepts: [
                                     {
-                                        B: 'ii'
+                                        B: 'PW/Matrix/Chord/Preset/ii/value'
                                     },
                                     {
-                                        B: 'V'
+                                        B: 'PW/Matrix/Chord/Preset/V/value'
                                     },
                                     {
-                                        B: 'i'
+                                        B: 'PW/Matrix/Chord/Preset/i/value'
                                     }
                                 ]
                             }

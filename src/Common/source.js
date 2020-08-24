@@ -1,3 +1,5 @@
+import { AUTUMN_LEAVES } from "./Presets/Charts";
+
 const RAW_SOURCE = {
     name: 'Test Source',
     notes: {
@@ -8,6 +10,25 @@ const RAW_SOURCE = {
         }
     },
     children: [
+        {
+            component: 'h3',
+            children: ['Chart']
+        },
+        {
+            fn: 'PW_React/Summary/forEachNote/',
+            args: {
+                concepts: AUTUMN_LEAVES.children[0].children,
+                props: {
+                    colorFn: {
+                        fn: 'PW_React/Fretboard/colorBy/',
+                        args: {
+                            type: 'degree',
+                            //scheme: null
+                        }
+                    }
+                }
+            }
+        },
         {
             component: 'h3',
             children: ['Note Summary']
