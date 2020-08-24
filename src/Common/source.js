@@ -33,8 +33,19 @@ const RAW_SOURCE = {
         {
             component: 'PW_React/Chart/component',
             props: {
-                keyCenter: 'PW/Vector/Note/Preset/C/value',
-                intervals: 'PW/Matrix/Chord/Preset/Maj/value',
+                chart: AUTUMN_LEAVES,
+                viewer: {
+                    component: 'PW_React/Summary/component',
+                    props: {
+                        colorFn: {
+                            fn: 'PW_React/Fretboard/colorBy/',
+                            args: {
+                                type: 'degree',
+                                //scheme: null
+                            }
+                        }
+                    }
+                }
             }
         },
         {

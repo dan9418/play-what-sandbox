@@ -1,10 +1,10 @@
 export const AUTUMN_LEAVES = {
     id: 'autumnLeaves',
     name: 'Autumn Leaves',
-    children: [
+    sections: [
         {
             name: 'A',
-            children: [
+            concepts: [
                 {
                     a: 'PW/Vector/Note/Preset/C/value',
                     B: 'PW/Matrix/Chord/Preset/Min7/value',
@@ -50,7 +50,7 @@ export const AUTUMN_LEAVES = {
         {
             scope: 'section',
             name: 'A\'',
-            children: [
+            concepts: [
                 {
                     a: 'PW/Vector/Note/Preset/C/value',
                     B: 'PW/Matrix/Chord/Preset/Min7/value',
@@ -91,7 +91,7 @@ export const AUTUMN_LEAVES = {
         {
             scope: 'section',
             name: 'B',
-            children: [
+            concepts: [
                 {
                     section: 'B',
                     a: 'PW/Vector/Note/Preset/A/value',
@@ -138,7 +138,7 @@ export const AUTUMN_LEAVES = {
         {
             scope: 'section',
             name: 'C',
-            children: [
+            concepts: [
                 {
                     a: 'PW/Vector/Note/Preset/A/value',
                     B: 'PW/Matrix/Chord/Preset/HalfDim7/value',
