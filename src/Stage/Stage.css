@@ -60,3 +60,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .viewer-grid .header .button-input {}
+
+.toggle h3 {
+    cursor: pointer;
+    padding: 8px;
+}

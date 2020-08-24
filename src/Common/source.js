@@ -10,11 +10,8 @@ const RAW_SOURCE = {
         }
     },
     children: [
-        {
-            component: 'h3',
-            children: ['Chart']
-        },
-        {
+        /*{
+            name: 'For Each',
             fn: 'PW_React/Summary/forEachNote/',
             args: {
                 concepts: AUTUMN_LEAVES.children[0].children,
@@ -28,10 +25,17 @@ const RAW_SOURCE = {
                     }
                 }
             }
-        },
+        },*/
         {
             component: 'h3',
             children: ['Note Summary']
+        },
+        {
+            component: 'PW_React/Chart/component',
+            props: {
+                keyCenter: 'PW/Vector/Note/Preset/C/value',
+                intervals: 'PW/Matrix/Chord/Preset/Maj/value',
+            }
         },
         {
             component: 'PW_React/Summary/component',
