@@ -1,3 +1,225 @@
+export const AUTUMN_LEAVES = {
+    id: 'autumnLeaves',
+    name: 'Autumn Leaves',
+    children: [
+        {
+            name: 'A',
+            children: [
+                {
+                    scope: 'concept',
+                    a: 'C',
+                    B: 'Min7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'F',
+                    B: 'Dom7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'Bb',
+                    B: 'Maj7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'Eb',
+                    B: 'Maj7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'A',
+                    B: 'HalfDim7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'D',
+                    B: 'Dom7b9',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'G',
+                    B: 'Min6',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'G',
+                    B: 'Maj7',
+                    t: 4
+                }
+            ]
+        },
+        {
+            scope: 'section',
+            name: 'A\'',
+            children: [
+                {
+                    scope: 'concept',
+                    a: 'C',
+                    B: 'Min7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'F',
+                    B: 'Dom7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'Bb',
+                    B: 'Maj7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'Eb',
+                    B: 'Maj7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'A',
+                    B: 'HalfDim7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'D',
+                    B: 'Dom7b9',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'G',
+                    B: 'Min6',
+                    t: 8
+                }
+            ]
+        },
+        {
+            scope: 'section',
+            name: 'B',
+            children: [
+                {
+                    scope: 'concept',
+                    section: 'B',
+                    a: 'A',
+                    B: 'HalfDim7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'D',
+                    B: 'Dom7b9',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'G',
+                    B: 'Min6',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'G',
+                    B: 'Min6',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'C',
+                    B: 'Min7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'F',
+                    B: 'Dom7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'Bb',
+                    B: 'Maj7',
+                    t: 4
+                },
+                {
+                    scope: 'concept',
+                    a: 'Eb',
+                    B: 'Maj7',
+                    t: 4
+                }
+            ]
+        },
+        {
+            scope: 'section',
+            name: 'C',
+            children: [
+
+                {
+                    section: 'C',
+                    a: 'A',
+                    B: 'HalfDim7',
+                    t: 4
+                },
+                {
+                    a: 'D',
+                    B: 'Dom7b9',
+                    t: 4
+                },
+                {
+                    a: 'G',
+                    B: 'Min7',
+                    t: 2
+                },
+                {
+                    a: 'C',
+                    B: 'Dom7',
+                    t: 2
+                },
+                {
+                    a: 'F',
+                    B: 'Min7',
+                    t: 2
+                },
+                {
+                    a: 'Bb',
+                    B: 'Dom7',
+                    t: 2
+                },
+                {
+                    a: 'A',
+                    B: 'HalfDim7',
+                    t: 4
+                },
+                {
+                    a: 'D',
+                    B: 'Dom7b9',
+                    t: 4
+                },
+                {
+                    a: 'G',
+                    B: 'Min7',
+                    t: 4
+                },
+                {
+                    a: 'G',
+                    B: 'Min7',
+                    t: 4
+                }
+            ]
+        }
+    ]
+};
+
+/*
 const CHARTS = [
     {
         id: 'standards',
@@ -1061,5 +1283,4 @@ const CHARTS = [
         ]
     }
 ];
-
-export default CHARTS;
+*/
