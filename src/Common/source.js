@@ -35,6 +35,24 @@ const RAW_SOURCE = {
             children: ['Note Summary']
         },
         {
+            component: 'PW_React/List/component',
+            props: {
+                list: 'parent/numerals',
+                viewer: {
+                    component: 'PW_React/Summary/component',
+                    props: {
+                        colorFn: {
+                            fn: 'PW_React/Fretboard/colorBy/',
+                            args: {
+                                type: 'degree',
+                                //scheme: null
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
             component: 'PW_React/Chart/component',
             props: {
                 chart: AUTUMN_LEAVES,
