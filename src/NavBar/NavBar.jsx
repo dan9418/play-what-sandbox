@@ -1,10 +1,13 @@
 import React from 'react';
 import Common from '../Common/_module';
 import './NavBar.css';
+import { useRecoilState } from 'recoil';
+import { menuOpenState } from '../Common/State';
 
 const NavBar = () => {
     const menuTab = null;
-    const toggleMenu = () => setMenuTab(menuTab ? null : 'source');
+    const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
+    const toggleMenu = () => setMenuOpen(!menuOpen);
     return (
         <nav className="top-nav pw-primary">
             <div className="logo nav-link">Play What</div>

@@ -72,30 +72,12 @@ const ViewerManager = () => {
 
     return (
         <div className="viewer-manager">
-
-            <div className="viewer-grid">
-                <div>
-                    <div className='header'>
-                        <h1>Input</h1>
-                    </div>
-                    <ErrorBoundary>
-                        <div className="json-wrapper">
-                            <ReactJson src={rawSource} name="Source" onEdit={onEdit} collapsed={1} />
-                        </div>
-                    </ErrorBoundary>
-                </div>
-                <div>
-                    <div className='header'>
-                        <h1>Output</h1>
-                        <ButtonInput onClick={() => setIsPreviewOpen(!isPreviewOpen)} className="pw-accent">{isPreviewOpen ? 'Config' : 'Preview'}</ButtonInput>
-                    </div>
-                    <ErrorBoundary>
-                        <div className="json-wrapper">
-                            {isPreviewOpen && <Level parsedLevel={parsedSource} />}
-                            {!isPreviewOpen && <ReactJson src={parsedSource} name="Props" collapsed />}
-                        </div>
-                    </ErrorBoundary>
-                </div>
+            <div className="json-wrapper">
+                <ReactJson src={rawSource} name="Source" onEdit={onEdit} collapsed={1} />
+            </div>
+            <div className="json-wrapper">
+                {isPreviewOpen && <Level parsedLevel={parsedSource} />}
+                {!isPreviewOpen && <ReactJson src={parsedSource} name="Props" collapsed />}
             </div>
         </div>
     );

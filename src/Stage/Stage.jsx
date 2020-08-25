@@ -8,7 +8,7 @@ const Stage = () => {
     return (
         <div className="stage">
             <ViewerManager />
-            {/*<Menu />*/}
+            <Menu />
         </div>
     );
 }

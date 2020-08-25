@@ -10,6 +10,11 @@ export const rawSourceState = atom({
     default: RAW_SOURCE
 });
 
+export const menuOpenState = atom({
+    key: 'menuOpen',
+    default: false
+});
+
 // SELECTORS
 
 export const parsedSourceState = selector({
