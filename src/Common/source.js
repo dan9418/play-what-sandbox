@@ -2,6 +2,10 @@ import { AUTUMN_LEAVES } from "./Presets/Charts";
 
 const RAW_SOURCE = {
     name: 'Test Source',
+    numerals: {
+        fn: 'PW/Matrix/Scale/getNumerals/',
+        args: 'PW/Matrix/Scale/Preset/Major/value'
+    },
     notes: {
         fn: 'PW/Concept/notesFrom/',
         args: {
