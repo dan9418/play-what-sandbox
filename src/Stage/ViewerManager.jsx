@@ -52,29 +52,11 @@ const Level = ({ parsedLevel }) => {
 
 
 const ViewerManager = () => {
-
-    const [rawSource, setRawSource] = useRecoilState(rawSourceState);
     const parsedSource = useRecoilValue(parsedSourceState);
-
     const [isPreviewOpen, setIsPreviewOpen] = useState(true);
-
-    const onEdit = (args) => {
-        console.log(args);
-        try {
-            setRawSource(args.updated_src);
-        }
-        catch (e) {
-            console.error('Can\'t update json', e);
-        }
-        return true;
-    };
-
 
     return (
         <div className="viewer-manager">
-            <div className="json-wrapper">
-                <ReactJson src={rawSource} name="Source" onEdit={onEdit} collapsed={1} />
-            </div>
             <div className="json-wrapper">
                 {isPreviewOpen && <Level parsedLevel={parsedSource} />}
                 {!isPreviewOpen && <ReactJson src={parsedSource} name="Props" collapsed />}
