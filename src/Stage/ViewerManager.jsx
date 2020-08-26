@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import ReactJson from 'react-json-view';
-import ButtonInput from '../UI/ButtonInput/ButtonInput';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { rawSourceState, parsedSourceState } from '../Common/State';
-import ErrorBoundary from '../UI/ErrorBoundary';
+import { useRecoilValue } from 'recoil';
+import { parsedSourceState } from '../Common/State';
 import './Stage.css';
 
 const Level = ({ parsedLevel }) => {
@@ -19,7 +17,7 @@ const Level = ({ parsedLevel }) => {
 
     const Component = isComponent ? component : React.Fragment;
     const newProps = isComponent ? props : {};
-    const newChildren = children ? children.map((c, i) => <Level parsedLevel={c} />) : null;
+    const newChildren = children ? children.map((c, i) => <Level key={i} parsedLevel={c} />) : null;
 
     return (
         <Component {...newProps}>
