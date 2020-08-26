@@ -6,17 +6,6 @@ import { rawSourceState, parsedSourceState } from '../Common/State';
 import ErrorBoundary from '../UI/ErrorBoundary';
 import './Stage.css';
 
-const Toggle = ({ children, name }) => {
-    const [open, setOpen] = useState(true);
-    const content = open ? children : null;
-    return (
-        <div className="toggle">
-            <h3 onClick={() => setOpen(!open)}>{name}</h3>
-            {content}
-        </div>
-    )
-};
-
 const Level = ({ parsedLevel }) => {
     if (typeof parsedLevel === 'string' || typeof parsedLevel === 'number' || parsedLevel === null)
         return parsedLevel;
@@ -25,7 +14,7 @@ const Level = ({ parsedLevel }) => {
         return parsedLevel.map(l => <Level parsedLevel={l} />);
     }
 
-    const { component, children, props, name } = parsedLevel;
+    const { component, children, props } = parsedLevel;
     const isComponent = !!component;
 
     const Component = isComponent ? component : React.Fragment;
@@ -33,11 +22,9 @@ const Level = ({ parsedLevel }) => {
     const newChildren = children ? children.map((c, i) => <Level parsedLevel={c} />) : null;
 
     return (
-        <Toggle name={name}>
-            <Component {...newProps}>
-                {newChildren}
-            </Component>
-        </Toggle>
+        <Component {...newProps}>
+            {newChildren}
+        </Component>
     );
 };
 

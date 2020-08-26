@@ -31,7 +31,7 @@ const Menu = () => {
                             <ButtonInput className={`tab ${t.id === TAB[menuTab].id ? 'pw-accent' : 'pw-primary'}`} onClick={() => setMenuTab(t.id)}>{t.name}</ButtonInput>
                         ))*/}
                     </div>
-                    <div className="json-wrapper">
+                    <div className="menu-body">
                         <ReactJson src={rawSource} name="Source" onEdit={onEdit} collapsed={1} />
                     </div>
                 </>

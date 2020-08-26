@@ -12,7 +12,7 @@ export const rawSourceState = atom({
 
 export const menuOpenState = atom({
     key: 'menuOpen',
-    default: false
+    default: true
 });
 
 // SELECTORS

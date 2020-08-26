@@ -2,9 +2,11 @@ import { AUTUMN_LEAVES } from "./Presets/Charts";
 
 const RAW_SOURCE = {
     name: 'Test Source',
-    numerals: {
-        fn: 'PW/Matrix/Scale/getNumerals/',
-        args: 'PW/Matrix/Scale/Preset/Major/value'
+    modes: {
+        fn: 'PW/Matrix/Scale/getAllModes/',
+        args: {
+            scale: 'PW/Matrix/Scale/Preset/Major/value'
+        }
     },
     notes: {
         fn: 'PW/Concept/notesFrom/',
@@ -15,9 +17,25 @@ const RAW_SOURCE = {
     },
     children: [
         {
+            viewer: {
+                component: 'PW_React/Summary/component',
+                props: {
+                    keyCenter: 'PW/Vector/Note/Preset/C/value',
+                    intervals: 'PW/Matrix/Scale/Preset/Major/value',
+                    colorFn: {
+                        fn: 'PW_React/Fretboard/colorBy/',
+                        args: {
+                            type: 'degree',
+                            //scheme: null
+                        }
+                    }
+                }
+            }
+        },
+        {
             component: 'PW_React/List/component',
             props: {
-                list: 'parent/numerals',
+                list: 'parent/modes',
                 viewer: {
                     component: 'PW_React/Summary/component',
                     props: {
