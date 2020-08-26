@@ -9,6 +9,13 @@ const RAW_SOURCE = {
             keyCenter: 'PW/Vector/Note/Preset/C/value',
         }
     },
+    numerals: {
+        fn: 'PW/Matrix/Scale/getAllNumerals/',
+        args: {
+            scale: 'PW/Matrix/Scale/Preset/Major/value',
+            keyCenter: 'PW/Vector/Note/Preset/C/value',
+        }
+    },
     notes: {
         fn: 'PW/Concept/notesFrom/',
         args: {
@@ -18,6 +25,7 @@ const RAW_SOURCE = {
     },
     children: [
         {
+            name: 'C Major',
             component: 'PW_React/Summary/component',
             props: {
                 keyCenter: 'PW/Vector/Note/Preset/C/value',
@@ -32,9 +40,29 @@ const RAW_SOURCE = {
             }
         },
         {
+            name: 'Modes',
             component: 'PW_React/List/component',
             props: {
                 list: 'parent/modes',
+                viewer: {
+                    component: 'PW_React/Summary/component',
+                    props: {
+                        colorFn: {
+                            fn: 'PW_React/Fretboard/colorBy/',
+                            args: {
+                                type: 'degree',
+                                //scheme: null
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            name: 'Numerals',
+            component: 'PW_React/List/component',
+            props: {
+                list: 'parent/numerals',
                 viewer: {
                     component: 'PW_React/Summary/component',
                     props: {
