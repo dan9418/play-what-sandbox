@@ -25,17 +25,18 @@ const RAW_SOURCE = {
     },
     children: [
         {
-            component: 'PW_React/Summary/component',
+            component: 'PW_React/Fretboard/component',
             props: {
                 name: 'C Major',
                 keyCenter: 'PW/Vector/Note/Preset/C/value',
                 intervals: 'PW/Matrix/Scale/Preset/Major/value',
                 colorFn: {
-                    fn: 'PW_React/Fretboard/colorBy/',
-                    args: {
-                        type: 'degree',
-                        //scheme: null
-                    }
+                    fn: 'PW/Vector/colorBy/',
+                    args: { type: 'degree' }
+                },
+                textFn: {
+                    fn: 'PW/Vector/textBy/',
+                    args: { type: 'degree' }
                 }
             }
         },
@@ -48,11 +49,8 @@ const RAW_SOURCE = {
                     component: 'PW_React/Summary/component',
                     props: {
                         colorFn: {
-                            fn: 'PW_React/Fretboard/colorBy/',
-                            args: {
-                                type: 'degree',
-                                //scheme: null
-                            }
+                            fn: 'PW/Vector/colorBy/',
+                            args: { type: 'degree' }
                         }
                     }
                 }
@@ -67,11 +65,8 @@ const RAW_SOURCE = {
                     component: 'PW_React/Summary/component',
                     props: {
                         colorFn: {
-                            fn: 'PW_React/Fretboard/colorBy/',
-                            args: {
-                                type: 'degree',
-                                //scheme: null
-                            }
+                            fn: 'PW/Vector/colorBy/',
+                            args: { type: 'degree' }
                         }
                     }
                 }
