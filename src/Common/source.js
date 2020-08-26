@@ -5,7 +5,8 @@ const RAW_SOURCE = {
     modes: {
         fn: 'PW/Matrix/Scale/getAllModes/',
         args: {
-            scale: 'PW/Matrix/Scale/Preset/Major/value'
+            scale: 'PW/Matrix/Scale/Preset/Major/value',
+            keyCenter: 'PW/Vector/Note/Preset/C/value',
         }
     },
     notes: {
@@ -17,17 +18,15 @@ const RAW_SOURCE = {
     },
     children: [
         {
-            viewer: {
-                component: 'PW_React/Summary/component',
-                props: {
-                    keyCenter: 'PW/Vector/Note/Preset/C/value',
-                    intervals: 'PW/Matrix/Scale/Preset/Major/value',
-                    colorFn: {
-                        fn: 'PW_React/Fretboard/colorBy/',
-                        args: {
-                            type: 'degree',
-                            //scheme: null
-                        }
+            component: 'PW_React/Summary/component',
+            props: {
+                keyCenter: 'PW/Vector/Note/Preset/C/value',
+                intervals: 'PW/Matrix/Scale/Preset/Major/value',
+                colorFn: {
+                    fn: 'PW_React/Fretboard/colorBy/',
+                    args: {
+                        type: 'degree',
+                        //scheme: null
                     }
                 }
             }
