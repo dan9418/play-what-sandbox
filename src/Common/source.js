@@ -25,9 +25,9 @@ const RAW_SOURCE = {
     },
     children: [
         {
-            name: 'C Major',
             component: 'PW_React/Summary/component',
             props: {
+                name: 'C Major',
                 keyCenter: 'PW/Vector/Note/Preset/C/value',
                 intervals: 'PW/Matrix/Scale/Preset/Major/value',
                 colorFn: {
@@ -40,10 +40,10 @@ const RAW_SOURCE = {
             }
         },
         {
-            name: 'Modes',
             component: 'PW_React/List/component',
             props: {
                 list: 'parent/modes',
+                name: 'Modes',
                 viewer: {
                     component: 'PW_React/Summary/component',
                     props: {
