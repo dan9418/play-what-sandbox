@@ -2,61 +2,57 @@ import { AUTUMN_LEAVES } from "./Presets/Charts";
 
 const RAW_SOURCE = {
     name: 'Test Source',
-    modes: {
-        fn: 'PW/Matrix/Scale/getAllModes/',
-        args: {
-            scale: 'PW/Matrix/Scale/Preset/Major/value',
-            keyCenter: 'PW/Vector/Note/Preset/C/value',
-        }
-    },
-    numerals: {
-        fn: 'PW/Matrix/Scale/getAllNumerals/',
-        args: {
-            scale: 'PW/Matrix/Scale/Preset/Major/value',
-            keyCenter: 'PW/Vector/Note/Preset/C/value',
-        }
-    },
-    notes: {
-        fn: 'PW/Concept/notesFrom/',
-        args: {
-            a: 'PW/Vector/Note/Preset/C/value',
-            B: 'PW/Matrix/Chord/Preset/Maj/value',
-        }
-    },
+    a: 'PW/Vector/Note/Preset/C/value',
+    B: 'PW/Matrix/Scale/Preset/Major/value',
     children: [
         {
-            component: 'PW_React/Explorer/component',
-            props: {
-                name: 'C Major',
-                keyCenter: 'PW/Vector/Note/Preset/C/value',
-                intervals: 'PW/Matrix/Scale/Preset/Major/value'
-            }
-        },
-        {
-            component: 'PW_React/List/component',
-            props: {
-                list: 'parent/modes',
-                name: 'Modes',
-                viewer: {
-                    component: 'PW_React/Fretboard/component',
-                    //props: {}
+            notes: {
+                fn: 'PW/Concept/notesFrom/',
+                args: {
+                    B: 'parent/B',
+                    a: 'parent/a',
                 }
-            }
-        },
-        {
-            component: 'PW_React/List/component',
-            props: {
-                name: 'Numerals',
-                list: 'parent/numerals',
-                viewer: {
-                    component: 'PW_React/Fretboard/component',
-                    /*props: {
-                        fretRange: [5, 11]
-                    }*/
+            },
+            modes: {
+                fn: 'PW/Matrix/Scale/getAllModes/',
+                args: {
+                    scale: 'parent/B',
+                    keyCenter: 'parent/a',
                 }
-            }
+            },
+            numerals: {
+                fn: 'PW/Matrix/Scale/getAllNumerals/',
+                args: {
+                    scale: 'parent/B',
+                    keyCenter: 'parent/a',
+                }
+            },
+            children: [
+                {
+                    fn: 'PW/Log/print/',
+                    args: {
+                        a: 'parent/a',
+                        B: 'parent/B',
+                        notes: 'parent/notes',
+                        modes: 'parent/modes',
+                        B: 'parent/numerals'
+                    }
+                },
+                {
+                    component: 'PW_React/Explorer/component',
+                    props: {
+                        name: 'C Major',
+                        keyCenter: 'parent/a',
+                        intervals: 'parent/B',
+                        viewer: {
+                            component: 'PW_React/Fretboard/component',
+                            //props: {}
+                        }
+                    }
+                }
+            ]
         }
-    ]
+    ],
 };
 
 export default RAW_SOURCE;

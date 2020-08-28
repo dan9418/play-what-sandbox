@@ -5,6 +5,8 @@ import { parsedSourceState } from '../Common/State';
 import './Stage.css';
 
 const Level = ({ parsedLevel }) => {
+    if (!parsedLevel) return null;
+
     if (typeof parsedLevel === 'string' || typeof parsedLevel === 'number' || parsedLevel === null)
         return parsedLevel;
 

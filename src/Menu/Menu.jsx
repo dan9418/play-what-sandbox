@@ -1,5 +1,4 @@
 import React from 'react';
-import ButtonInput from '../UI/ButtonInput/ButtonInput';
 import './Menu.css';
 import { useRecoilState } from 'recoil';
 import { menuOpenState, rawSourceState } from '../Common/State';
@@ -32,7 +31,7 @@ const Menu = () => {
                         ))*/}
                     </div>
                     <div className="menu-body">
-                        <ReactJson src={rawSource} name="Source" onEdit={onEdit} collapsed={1} />
+                        <ReactJson src={rawSource} name="src" onEdit={onEdit} collapsed={1} />
                     </div>
                 </>
             }
