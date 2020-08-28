@@ -25,7 +25,7 @@ const RAW_SOURCE = {
     },
     children: [
         {
-            component: 'PW_React/Summary/component',
+            component: 'PW_React/Explorer/component',
             props: {
                 name: 'C Major',
                 keyCenter: 'PW/Vector/Note/Preset/C/value',
@@ -50,7 +50,9 @@ const RAW_SOURCE = {
                 list: 'parent/numerals',
                 viewer: {
                     component: 'PW_React/Fretboard/component',
-                    //props: {}
+                    /*props: {
+                        fretRange: [5, 11]
+                    }*/
                 }
             }
         }
