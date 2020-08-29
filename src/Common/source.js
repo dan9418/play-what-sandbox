@@ -2,12 +2,12 @@ import { AUTUMN_LEAVES } from "./Presets/Charts";
 
 const RAW_SOURCE = {
     name: 'Test Source',
-    a: 'PW/Vector/Note/Preset/C/value',
-    B: 'PW/Matrix/Scale/Preset/Major/value',
+    a: 'PW/Vector/Note/preset/C/value',
+    B: 'PW/Matrix/Scale/preset/Major/value',
     children: [
         {
             notes: {
-                fn: 'PW/Concept/notesFrom/',
+                fn: 'PW/Vector/addMatrix/',
                 args: {
                     B: 'parent/B',
                     a: 'parent/a',
