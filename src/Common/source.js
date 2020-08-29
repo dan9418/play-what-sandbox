@@ -35,7 +35,7 @@ const RAW_SOURCE = {
                         B: 'parent/B',
                         notes: 'parent/notes',
                         modes: 'parent/modes',
-                        B: 'parent/numerals'
+                        numerals: 'parent/numerals'
                     }
                 },
                 {
